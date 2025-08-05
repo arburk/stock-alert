@@ -1,3 +1,6 @@
 spring:
   application:
     name: stock-alert
+
+stock-alert:
+    fcs-api-key: ${FCS-API-KEY}
