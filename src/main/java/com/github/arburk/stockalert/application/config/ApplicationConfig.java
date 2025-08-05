@@ -2,15 +2,13 @@ package com.github.arburk.stockalert.application.config;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.support.CronExpression;
 
 @Getter
 @Configuration()
 @ConfigurationProperties(prefix = "stock-alert")
-public class StockAlertConfig {
+public class ApplicationConfig {
 
   private String fcsApiKey;
 
@@ -26,7 +24,7 @@ public class StockAlertConfig {
 
   @Override
   public String toString() {
-    return "StockAlertConfig{" +
+    return "ApplicationConfig{" +
         "fcsApiKey=" + getMasked(fcsApiKey) +
         ",updateCron=" + updateCron +
         ",baseUrl=" + baseUrl +

@@ -1,2 +1,9 @@
 stock-alert:
     fcs-api-key: "API_KEY" # test key for integration test
+
+logging:
+  level:
+    com.github.arburk.stockalert: DEBUG
+    feign.Logger: DEBUG
+    feign.Request: DEBUG
+    feign.Response: DEBUG

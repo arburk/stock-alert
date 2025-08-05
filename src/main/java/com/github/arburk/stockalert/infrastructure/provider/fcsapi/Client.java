@@ -1,6 +1,6 @@
 package com.github.arburk.stockalert.infrastructure.provider.fcsapi;
 
-import com.github.arburk.stockalert.application.config.StockAlertConfig;
+import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.service.Provider;
 import com.github.arburk.stockalert.infrastructure.provider.fcsapi.dto.SecurityMapper;
@@ -17,11 +17,11 @@ import java.util.stream.Collectors;
 public class Client implements Provider {
 
   private final StockClient stockClient;
-  private final StockAlertConfig stockAlertConfig;
+  private final ApplicationConfig applicationConfig;
 
-  public Client(final StockClient stockClient, StockAlertConfig stockAlertConfig) {
+  public Client(final StockClient stockClient, ApplicationConfig applicationConfig) {
     this.stockClient = stockClient;
-    this.stockAlertConfig = stockAlertConfig;
+    this.applicationConfig = applicationConfig;
     log.info("StockClient instance created: {}", stockClient);
   }
 
@@ -40,7 +40,7 @@ public class Client implements Provider {
   }
 
   private Collection<Security> readRemoteData(final String symbolsCsv) {
-    final var response = stockClient.getLatestStocks(symbolsCsv, stockAlertConfig.getFcsApiKey());
+    final var response = stockClient.getLatestStocks(symbolsCsv, applicationConfig.getFcsApiKey());
     log.info(response.info().toString());
 
     if (response.status()) {
