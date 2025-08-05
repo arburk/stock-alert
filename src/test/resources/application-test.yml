@@ -1,2 +1,2 @@
 stock-alert:
-    fcs-api-key: "API-KEY"
+    fcs-api-key: "API_KEY" # test key for integration test

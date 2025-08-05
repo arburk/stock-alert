@@ -4,3 +4,5 @@ spring:
 
 stock-alert:
     fcs-api-key: ${FCS-API-KEY}
+    base-url: https://fcsapi.com/api-v3/stock
+    update-cron: ${UPDATE-CRON:0 16 9-21 * * MON-FRI}

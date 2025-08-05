@@ -5,14 +5,20 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.support.CronExpression;
 
 @Getter
 @Configuration()
 @ConfigurationProperties(prefix = "stock-alert")
 public class StockAlertConfig {
 
-  @Value("${fcs-api-key}")
   private String fcsApiKey;
+
+  @Setter
+  private String baseUrl;
+
+  @Setter
+  private String updateCron;
 
   public void setFcsApiKey(final String fcsApiKey) {
     this.fcsApiKey = (fcsApiKey) != null ? fcsApiKey.trim() : null;
@@ -22,6 +28,8 @@ public class StockAlertConfig {
   public String toString() {
     return "StockAlertConfig{" +
         "fcsApiKey=" + getMasked(fcsApiKey) +
+        ",updateCron=" + updateCron +
+        ",baseUrl=" + baseUrl +
         '}';
   }
 

@@ -1,0 +1,2 @@
+### GET Securities with Demo API KEY
+GET https://fcsapi.com/api-v3/stock/latest?symbol=IBM,AMD,AAPL,MSFT,FB,TSLA&access_key=API_KEY
