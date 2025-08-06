@@ -1,8 +1,9 @@
-package com.github.arburk.stockalert.application.service;
+package com.github.arburk.stockalert.application.service.stock;
 
 import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.config.JacksonConfig;
 import com.github.arburk.stockalert.application.domain.Security;
+import com.github.arburk.stockalert.application.service.notification.NotificationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -25,6 +26,7 @@ class StockServiceTest {
   private ApplicationConfig applicationConfig;
   private StockProvider stockProvider;
   private PersistanceProvider persistanceProvider;
+  private NotificationService notifyService;
 
   private StockService testee;
 
@@ -33,8 +35,9 @@ class StockServiceTest {
     applicationConfig = new ApplicationConfig(new JacksonConfig().objectMapper());
     applicationConfig.setConfigUrl(Path.of("src/main/resources/config-example.json").toUri().toString());
     stockProvider = Mockito.mock(StockProvider.class);
+    notifyService = Mockito.mock(NotificationService.class);
     persistanceProvider = Mockito.mock(PersistanceProvider.class);
-    testee = new StockService(stockProvider, applicationConfig, persistanceProvider);
+    testee = new StockService(applicationConfig, stockProvider, persistanceProvider, notifyService);
   }
 
   @Test

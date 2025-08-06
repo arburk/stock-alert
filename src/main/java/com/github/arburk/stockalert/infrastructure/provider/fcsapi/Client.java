@@ -2,7 +2,7 @@ package com.github.arburk.stockalert.infrastructure.provider.fcsapi;
 
 import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.domain.Security;
-import com.github.arburk.stockalert.application.service.StockProvider;
+import com.github.arburk.stockalert.application.service.stock.StockProvider;
 import com.github.arburk.stockalert.infrastructure.provider.fcsapi.dto.SecurityMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -42,6 +42,8 @@ public class Client implements StockProvider {
   private Collection<Security> readRemoteData(final String symbolsCsv) {
     final var response = stockClient.getLatestStocks(symbolsCsv, applicationConfig.getFcsApiKey());
     log.info(response.info().toString());
+
+    //TODO: register response.info().getCreditCount() to monitor limits
 
     if (response.status()) {
       return response.response().stream()

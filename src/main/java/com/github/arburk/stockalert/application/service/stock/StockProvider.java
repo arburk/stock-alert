@@ -1,4 +1,4 @@
-package com.github.arburk.stockalert.application.service;
+package com.github.arburk.stockalert.application.service.stock;
 
 import com.github.arburk.stockalert.application.domain.Security;
 

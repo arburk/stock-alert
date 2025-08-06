@@ -3,7 +3,7 @@ package com.github.arburk.stockalert.infrastructure.persistance;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.arburk.stockalert.application.domain.Security;
-import com.github.arburk.stockalert.application.service.PersistanceProvider;
+import com.github.arburk.stockalert.application.service.stock.PersistanceProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -59,23 +59,23 @@ public class FileStorage implements PersistanceProvider {
       final File parentDir = filePath.toFile().getParentFile();
       if (parentDir != null && !parentDir.exists()) {
         if (parentDir.mkdirs()) {
-          log.debug("Created directory '{}'.", parentDir);
+          log.debug("Created directory '{}'.", parentDir.getAbsoluteFile());
         } else {
-          log.warn("Failed to create directory '{}'.", parentDir);
+          log.warn("Failed to create directory '{}'.", parentDir.getAbsoluteFile());
         }
       }
 
       objectMapper.writerWithDefaultPrettyPrinter().writeValue(filePath.toFile(), data);
-      log.info("Securities successfully updated to file: {}", filePath);
+      log.info("Securities successfully updated to file: {}", filePath.toFile().getAbsoluteFile());
     } catch (IOException e) {
-      log.error("Failed to write securities to file '{}}'", filePath, e);
+      log.error("Failed to write securities to file '{}}'", filePath.toFile().getAbsoluteFile(), e);
     }
   }
 
   private Collection<Security> initData() {
     try {
       if (!filePath.toFile().exists()) {
-        log.warn("Storage file not found: {}", filePath);
+        log.warn("Storage file not found: {}", filePath.toFile().getAbsoluteFile());
         return new ArrayList<>();
       }
       return objectMapper.readValue(filePath.toFile(), new TypeReference<List<Security>>() {});

@@ -1,8 +1,9 @@
-package com.github.arburk.stockalert.application.service;
+package com.github.arburk.stockalert.application.service.stock;
 
 import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
+import com.github.arburk.stockalert.application.service.notification.NotificationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +20,13 @@ public class StockService {
   final ApplicationConfig applicationConfig;
   final StockProvider stockProvider;
   final PersistanceProvider persistanceProvider;
+  final NotificationService notificationService;
 
-  public StockService(StockProvider stockProvider, ApplicationConfig applicationConfig, PersistanceProvider persistanceProvider) {
+  public StockService(ApplicationConfig applicationConfig, StockProvider stockProvider, PersistanceProvider persistanceProvider, NotificationService notificationService) {
     this.stockProvider = stockProvider;
     this.applicationConfig = applicationConfig;
     this.persistanceProvider = persistanceProvider;
+    this.notificationService = notificationService;
   }
 
   public void update() {
@@ -86,8 +89,20 @@ public class StockService {
     persistanceProvider.updateSecurities(persistedSecurities);
   }
 
-  private void checkAndRaiseAlert(final SecurityConfig config, final Security latest, final Security persisted) {
-    //TODO: implement me
-    log.error("implement StockService#update");
+  private static boolean isBetween(double threshold, double a1, double a2) {
+    return threshold >= Math.min(a1, a2) && threshold <= Math.max(a1, a2);
   }
+
+  private void checkAndRaiseAlert(final SecurityConfig config, final Security latest, final Security persisted) {
+    if (latest==null || persisted==null) {
+      log.warn("Cannot check alert requirement since either latest[{}] or persisted[{}] value is empty.", latest, persisted);
+      return;
+    }
+
+    config.getAlerts().stream()
+        .filter(alert -> isBetween(alert.getThreshold(), latest.price(), persisted.price()))
+        .peek(alert -> log.debug("Send alert for {}", alert))
+        .forEach(alert -> notificationService.send(alert, latest, persisted));
+  }
+
 }

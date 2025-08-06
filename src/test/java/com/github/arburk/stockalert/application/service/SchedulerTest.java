@@ -1,5 +1,6 @@
 package com.github.arburk.stockalert.application.service;
 
+import com.github.arburk.stockalert.application.service.stock.StockService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 

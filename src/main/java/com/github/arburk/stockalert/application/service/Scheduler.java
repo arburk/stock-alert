@@ -1,5 +1,6 @@
 package com.github.arburk.stockalert.application.service;
 
+import com.github.arburk.stockalert.application.service.stock.StockService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
