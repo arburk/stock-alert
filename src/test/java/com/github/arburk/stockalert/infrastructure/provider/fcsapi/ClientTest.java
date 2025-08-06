@@ -12,9 +12,14 @@ import org.mockito.Mockito;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 class ClientTest {
@@ -57,6 +62,20 @@ class ClientTest {
     assertEquals("myApiKeyToVerify", keyCaptor.getValue());
     assertEquals("MRK,INGA,BALN,ROG,DEVN", symbolsCaptor.getValue());
     assertEquals(66, result.size());
+  }
+
+  @Test
+  void skipEmptyRequest() {
+    final ArgumentCaptor<String> symbolsCaptor = ArgumentCaptor.forClass(String.class);
+    final ArgumentCaptor<String> keyCaptor = ArgumentCaptor.forClass(String.class);
+    when(stockClient.getLatestStocks(symbolsCaptor.capture(), keyCaptor.capture())).thenReturn(result200);
+    when(applicationConfig.getFcsApiKey()).thenReturn("myApiKeyToVerify");
+
+    final Collection<Security> result = testee.getLatest(Collections.emptyList());
+
+    assertTrue(result.isEmpty());
+    verify(stockClient, never()).getLatestStocks(anyString(), anyString());
+    verify(applicationConfig, never()).getFcsApiKey();
   }
 
   private static StockApiResponse getResult200() {

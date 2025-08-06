@@ -1,0 +1,43 @@
+{
+  "stock-alert-config": {
+    "version": "0.0.1",
+    "silence-duration" : "6h",
+    "notification-channels": [
+      {
+        "type": "email",
+        "recipients": "me@company.com",
+        "use-on-error" : true
+      }
+    ],
+    "securities": [
+      {
+        "symbol": "BALN",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 200.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 185.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "HELN",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 199.25,
+            "notification": "email"
+          },
+          {
+            "threshold": 210.50,
+            "notification": "email"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -32,3 +32,7 @@ Define the following mandatory environment parameter:
 
 
 ## Build and Development
+
+[![CI](https://github.com/arburk/stock-alert/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/arburk/stock-alert/actions/workflows/ci.yml)
+
+

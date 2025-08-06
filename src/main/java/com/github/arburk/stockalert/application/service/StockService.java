@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -15,21 +16,77 @@ import java.util.stream.Collectors;
 @Service
 public class StockService {
 
-  final Provider provider;
   final ApplicationConfig applicationConfig;
+  final StockProvider stockProvider;
+  final PersistanceProvider persistanceProvider;
 
-  public StockService(Provider provider, ApplicationConfig applicationConfig) {
-    this.provider = provider;
+  public StockService(StockProvider stockProvider, ApplicationConfig applicationConfig, PersistanceProvider persistanceProvider) {
+    this.stockProvider = stockProvider;
     this.applicationConfig = applicationConfig;
+    this.persistanceProvider = persistanceProvider;
   }
 
   public void update() {
+    log.info("Updating stock alert config...");
     final List<SecurityConfig> alertConfig = this.applicationConfig.getStockAlertsConfig().getSecurities();
     final Set<String> symbolsToQueryFor = alertConfig.stream().map(SecurityConfig::getSymbol).collect(Collectors.toSet());
-    raiseAlerts(alertConfig, provider.getLatest(symbolsToQueryFor));
+    log.debug("perform and process update for {}", symbolsToQueryFor);
+    process(alertConfig, stockProvider.getLatest(symbolsToQueryFor));
   }
 
-  private void raiseAlerts(final List<SecurityConfig> alertConfig, final Collection<Security> latestSecurities) {
+  private void process(final List<SecurityConfig> alertConfig, final Collection<Security> latestSecurities) {
+    checkForCompleteness(alertConfig, latestSecurities);
+    final Collection<Security> persistedSecurites = persistanceProvider.getSecurites();
+    alertConfig.forEach(configElement -> checkAndRaiseAlert(
+        configElement,
+        getSecurity(latestSecurities, configElement),
+        getSecurity(persistedSecurites, configElement)
+    ));
+    updatePersistedSecurities(persistedSecurites, latestSecurities);
+  }
+
+  private void checkForCompleteness(final List<SecurityConfig> alertConfig, final Collection<Security> latestSecurities) {
+    final Set<String> alertConfigured = alertConfig.stream().map(
+            security -> "%s:%s".formatted(security.getSymbol(), security.getExchange()))
+        .sorted().collect(Collectors.toCollection(LinkedHashSet::new));
+    final Set<String> retrieved = latestSecurities.stream().map(
+            security -> "%s:%s".formatted(security.symbol(), security.exchange()))
+        .sorted().collect(Collectors.toCollection(LinkedHashSet::new));
+    if (alertConfigured.equals(retrieved)) {
+      log.debug("Found all stocks configured in alert config.");
+      return;
+    }
+    log.warn("Did not find all stocks configured in alert config.\nconfigured: {}\nretrieved: {}", alertConfigured, retrieved);
+  }
+
+  private Security getSecurity(final Collection<Security> securities, final SecurityConfig securityConfig) {
+    if (securities == null || securities.isEmpty()) {
+      return null;
+    }
+
+    return securities.stream().filter(security ->
+            security.symbol().equals(securityConfig.getSymbol())
+                && security.exchange().equals(securityConfig.getExchange()))
+        .findFirst().orElse(null);
+  }
+
+  private void updatePersistedSecurities(final Collection<Security> persistedSecurities, final Collection<Security> latestSecurities) {
+    if (latestSecurities == null || latestSecurities.isEmpty()) {
+      log.debug("skip updating persisted securities.");
+      return;
+    }
+
+    latestSecurities.forEach(latest -> {
+      persistedSecurities.stream().filter(security ->
+              security.symbol().equals(latest.symbol()) && security.exchange().equals(latest.exchange()))
+          .findFirst().ifPresent(persistedSecurities::remove);
+      persistedSecurities.add(latest);
+    });
+
+    persistanceProvider.updateSecurities(persistedSecurities);
+  }
+
+  private void checkAndRaiseAlert(final SecurityConfig config, final Security latest, final Security persisted) {
     //TODO: implement me
     log.error("implement StockService#update");
   }

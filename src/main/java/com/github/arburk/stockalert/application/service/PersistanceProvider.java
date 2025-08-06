@@ -4,7 +4,10 @@ import com.github.arburk.stockalert.application.domain.Security;
 
 import java.util.Collection;
 
-public interface Provider {
+public interface PersistanceProvider {
 
-  Collection<Security> getLatest(Collection<String> symbols);
+  Collection<Security> getSecurites();
+
+  void updateSecurities(Collection<Security> securities);
+
 }

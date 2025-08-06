@@ -2,7 +2,7 @@ package com.github.arburk.stockalert.infrastructure.provider.fcsapi;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.arburk.stockalert.application.domain.Security;
-import com.github.arburk.stockalert.application.service.Provider;
+import com.github.arburk.stockalert.application.service.StockProvider;
 import com.github.arburk.stockalert.infrastructure.provider.fcsapi.dto.StockApiResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ class ClientIntegrationTest {
   private StockClient stockClient;
 
   @Autowired
-  private Provider fcsapiClient;
+  private StockProvider fcsapiClient;
 
   @Test
   void performRealApiCall() {

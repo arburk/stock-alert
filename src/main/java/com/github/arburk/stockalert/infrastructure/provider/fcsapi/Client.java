@@ -2,7 +2,7 @@ package com.github.arburk.stockalert.infrastructure.provider.fcsapi;
 
 import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.domain.Security;
-import com.github.arburk.stockalert.application.service.Provider;
+import com.github.arburk.stockalert.application.service.StockProvider;
 import com.github.arburk.stockalert.infrastructure.provider.fcsapi.dto.SecurityMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Slf4j
-public class Client implements Provider {
+public class Client implements StockProvider {
 
   private final StockClient stockClient;
   private final ApplicationConfig applicationConfig;
