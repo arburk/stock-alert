@@ -1,0 +1,33 @@
+{
+  "stock-alert-config": {
+    "version": "0.0.1",
+    "silence-duration" : "6h",
+    "notification-channels": [
+      {
+        "type": "email",
+        "recipients": "me@company.com",
+        "use-on-error" : true
+      }
+    ],
+    "securities": [
+      {
+        "symbol": "BALN",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 200.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 220.00,
+            "notification": "sms"
+          },
+          {
+            "threshold": 185.00,
+            "notification": "email"
+          }
+        ]
+      }
+    ]
+  }
+}
