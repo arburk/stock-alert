@@ -6,3 +6,10 @@ stock-alert:
     fcs-api-key: ${FCS-API-KEY}
     base-url: https://fcsapi.com/api-v3/stock
     update-cron: ${UPDATE-CRON:0 16 9-21 * * MON-FRI}
+    config-url: ${CONFIG-URL:src/main/resources/config-example.json}
+    gateways:
+      email: ${GATEWAY-EMAIL:localhost}
+
+logging:
+  level:
+    com.github.arburk.stockalert: DEBUG
