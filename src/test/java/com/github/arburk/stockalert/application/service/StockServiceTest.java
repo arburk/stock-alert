@@ -1,6 +1,7 @@
 package com.github.arburk.stockalert.application.service;
 
 import com.github.arburk.stockalert.application.config.ApplicationConfig;
+import com.github.arburk.stockalert.application.config.JacksonConfig;
 import com.github.arburk.stockalert.application.domain.Security;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,7 +30,7 @@ class StockServiceTest {
 
   @BeforeEach
   void setUp() {
-    applicationConfig = new ApplicationConfig();
+    applicationConfig = new ApplicationConfig(new JacksonConfig().objectMapper());
     applicationConfig.setConfigUrl(Path.of("src/main/resources/config-example.json").toUri().toString());
     stockProvider = Mockito.mock(StockProvider.class);
     persistanceProvider = Mockito.mock(PersistanceProvider.class);

@@ -1,7 +1,7 @@
 package com.github.arburk.stockalert.infrastructure.provider.fcsapi;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.arburk.stockalert.application.config.ApplicationConfig;
+import com.github.arburk.stockalert.application.config.JacksonConfig;
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.infrastructure.provider.fcsapi.dto.StockApiResponse;
 import org.junit.jupiter.api.BeforeEach;
@@ -80,7 +80,7 @@ class ClientTest {
 
   private static StockApiResponse getResult200() {
     try (InputStream inputStream = ClassLoader.getSystemResourceAsStream("rest-client/result-200-66.json")) {
-      return new ObjectMapper().readValue(inputStream, StockApiResponse.class);
+      return new JacksonConfig().objectMapper().readValue(inputStream, StockApiResponse.class);
     } catch (IOException e) {
       throw new RuntimeException(e);
     }

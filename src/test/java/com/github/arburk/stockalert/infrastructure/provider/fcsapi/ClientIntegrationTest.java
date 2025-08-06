@@ -34,6 +34,9 @@ class ClientIntegrationTest {
   @Autowired
   private StockProvider fcsapiClient;
 
+  @Autowired
+  private ObjectMapper objectMapper;
+
   @Test
   void performRealApiCall() {
     assertNotNull(fcsapiClient);
@@ -55,13 +58,10 @@ class ClientIntegrationTest {
 
   private StockApiResponse getMockedReponse() {
     try (InputStream inputStream = ClassLoader.getSystemResourceAsStream("rest-client/result-200-demo_api.json")) {
-      return new ObjectMapper().readValue(inputStream, StockApiResponse.class);
+      return objectMapper.readValue(inputStream, StockApiResponse.class);
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
   }
-
-
-
 
 }

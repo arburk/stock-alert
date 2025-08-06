@@ -23,7 +23,7 @@ class ApplicationConfigTest {
 
   @BeforeEach
   void setUp() {
-    testee = new ApplicationConfig();
+    testee = new ApplicationConfig(new JacksonConfig().objectMapper());
     testee.setBaseUrl("https://stock-alert.io");
     testee.setUpdateCron("* 16 9-21 * * MON-FRI");
   }
