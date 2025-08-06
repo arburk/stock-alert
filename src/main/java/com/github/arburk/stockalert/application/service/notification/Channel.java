@@ -1,12 +1,15 @@
 package com.github.arburk.stockalert.application.service.notification;
 
+import lombok.Getter;
+
 import java.util.Arrays;
 
 public enum Channel {
   NOOP("noop"),
   EMAIL("email");
 
-  private String value;
+  @Getter
+  private final String value;
 
   Channel(String value) {
     this.value = value;

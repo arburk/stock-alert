@@ -1,14 +1,26 @@
+stock-alert:
+  fcs-api-key: ${FCS-API-KEY}
+  base-url: https://fcsapi.com/api-v3/stock
+  update-cron: ${UPDATE-CRON:0 16 9-21 * * MON-FRI}
+  config-url: ${CONFIG-URL:src/main/resources/config-example.json}
+
 spring:
   application:
     name: stock-alert
 
-stock-alert:
-    fcs-api-key: ${FCS-API-KEY}
-    base-url: https://fcsapi.com/api-v3/stock
-    update-cron: ${UPDATE-CRON:0 16 9-21 * * MON-FRI}
-    config-url: ${CONFIG-URL:src/main/resources/config-example.json}
-    gateways:
-      email: ${GATEWAY-EMAIL:localhost}
+  mail:
+    host:  ${GATEWAY-EMAIL-HOST:localhost}
+    port: ${GATEWAY-EMAIL-PORT:587}
+    username: ${GATEWAY-EMAIL-USER:}
+    password: ${GATEWAY-EMAIL-PWD:}
+    properties:
+      mail:
+        smtp:
+          auth: ${GATEWAY-EMAIL-AUTH:true}
+          starttls:
+            enable: ${GATEWAY-EMAIL-TLS:true}
+          ssl:
+            enable: ${GATEWAY-EMAIL-SSL:false}
 
 logging:
   level:
