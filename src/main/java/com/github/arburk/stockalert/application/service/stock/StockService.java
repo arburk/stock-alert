@@ -60,6 +60,8 @@ public class StockService {
       return;
     }
     log.warn("Did not find all stocks configured in alert config.\nconfigured: {}\nretrieved: {}", alertConfigured, retrieved);
+
+    //TODO: send warning to check config?
   }
 
   private Security getSecurity(final Collection<Security> securities, final SecurityConfig securityConfig) {
@@ -98,6 +100,8 @@ public class StockService {
       log.warn("Cannot check alert requirement since either latest[{}] or persisted[{}] value is empty.", latest, persisted);
       return;
     }
+
+    // TODO: consider silence mode
 
     config.getAlerts().stream()
         .filter(alert -> isBetween(alert.getThreshold(), latest.price(), persisted.price()))
