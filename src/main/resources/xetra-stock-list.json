@@ -1,0 +1,4044 @@
+{
+  "status": true,
+  "code": 200,
+  "msg": "Successfully",
+  "response": {
+    "0": {
+      "id": "1486",
+      "name": "Linde PLC",
+      "short_name": "LIN",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "6": {
+      "id": "69121",
+      "name": "BASF SE NA O.N.",
+      "short_name": "BASFN",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "7": {
+      "id": "69122",
+      "name": "Bayer AG NA",
+      "short_name": "BAYGN",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "8": {
+      "id": "69123",
+      "name": "Allianz SE VNA O.N.",
+      "short_name": "ALVG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "9": {
+      "id": "69124",
+      "name": "Adidas AG",
+      "short_name": "ADSGN",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "10": {
+      "id": "69125",
+      "name": "Deutsche Lufthansa AG",
+      "short_name": "LHAG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "11": {
+      "id": "69126",
+      "name": "Siemens AG Class N",
+      "short_name": "SIEGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "12": {
+      "id": "69127",
+      "name": "Deutsche Bank AG NA O.N.",
+      "short_name": "DBKGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "13": {
+      "id": "69128",
+      "name": "Continental AG O.N.",
+      "short_name": "CONG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "14": {
+      "id": "69129",
+      "name": "Deutsche Post AG NA O.N.",
+      "short_name": "DHLn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "15": {
+      "id": "69130",
+      "name": "Mercedes Benz Group AG",
+      "short_name": "MBGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "16": {
+      "id": "69131",
+      "name": "Henkel & Co KGaA AG Pref",
+      "short_name": "HNKG_p",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": ""
+    },
+    "17": {
+      "id": "69132",
+      "name": "Deutsche Boerse AG",
+      "short_name": "DB1Gn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "18": {
+      "id": "69133",
+      "name": "Bayerische Motoren Werke AG",
+      "short_name": "BMWG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "19": {
+      "id": "69134",
+      "name": "Fresenius Medical Care KGAA ST",
+      "short_name": "FMEG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "20": {
+      "id": "69135",
+      "name": "Deutsche Telekom AG Na",
+      "short_name": "DTEGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "21": {
+      "id": "69136",
+      "name": "Merck KGaA",
+      "short_name": "MRCG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "22": {
+      "id": "69137",
+      "name": "Infineon Technologies AG NA O.N.",
+      "short_name": "IFXGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "23": {
+      "id": "69138",
+      "name": "Munich Re Group",
+      "short_name": "MUVGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "24": {
+      "id": "69139",
+      "name": "SAP SE",
+      "short_name": "SAPG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "25": {
+      "id": "69140",
+      "name": "Wirecard",
+      "short_name": "WDIG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "26": {
+      "id": "69141",
+      "name": "Beiersdorf AG O.N.",
+      "short_name": "BEIG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "27": {
+      "id": "69142",
+      "name": "Fresenius SE & Co KGAA O.N.",
+      "short_name": "FREG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "28": {
+      "id": "69143",
+      "name": "RWE AG ST O.N.",
+      "short_name": "RWEG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Utilities"
+    },
+    "29": {
+      "id": "69144",
+      "name": "Heidelberg Materials AG",
+      "short_name": "HEIG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "30": {
+      "id": "69145",
+      "name": "E.ON SE",
+      "short_name": "EONGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Utilities"
+    },
+    "31": {
+      "id": "69146",
+      "name": "MTU Aero Engines NA O.N.",
+      "short_name": "MTXGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "32": {
+      "id": "69147",
+      "name": "Volkswagen AG VZO O.N.",
+      "short_name": "VOWG_p",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "33": {
+      "id": "69148",
+      "name": "Vonovia SE",
+      "short_name": "VNAn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": ""
+    },
+    "34": {
+      "id": "69149",
+      "name": "Covestro AG",
+      "short_name": "1COVG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": ""
+    },
+    "35": {
+      "id": "69201",
+      "name": "Volkswagen AG",
+      "short_name": "VOWG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "36": {
+      "id": "69202",
+      "name": "Ceconomy AG",
+      "short_name": "CECG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "37": {
+      "id": "69203",
+      "name": "Rheinmetall AG",
+      "short_name": "RHMG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "38": {
+      "id": "69204",
+      "name": "Lanxess AG",
+      "short_name": "LXSG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "40": {
+      "id": "69206",
+      "name": "Fraport AG",
+      "short_name": "FRAG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "41": {
+      "id": "69207",
+      "name": "Wacker Chemie O.N.",
+      "short_name": "WCHG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "43": {
+      "id": "69209",
+      "name": "Vossloh AG",
+      "short_name": "VOSG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "44": {
+      "id": "69210",
+      "name": "Krones AG O.N.",
+      "short_name": "KRNG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "45": {
+      "id": "69211",
+      "name": "GEA Group AG",
+      "short_name": "G1AG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "46": {
+      "id": "69212",
+      "name": "Hannover Rueck SE",
+      "short_name": "HNRGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "47": {
+      "id": "69213",
+      "name": "Bilfinger SE O.N.",
+      "short_name": "GBFG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "48": {
+      "id": "69214",
+      "name": "Kloeckner & Co SE NA",
+      "short_name": "KCOGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "49": {
+      "id": "69215",
+      "name": "Hochtief AG",
+      "short_name": "HOTG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "50": {
+      "id": "69216",
+      "name": "Aurubis AG",
+      "short_name": "NAFG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "51": {
+      "id": "69217",
+      "name": "Rhoen Klinikum AG",
+      "short_name": "RHKG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "52": {
+      "id": "69218",
+      "name": "DMG Mori AG",
+      "short_name": "GILG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "53": {
+      "id": "69219",
+      "name": "SGL Carbon SE",
+      "short_name": "SGCG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "54": {
+      "id": "69220",
+      "name": "K+S AG",
+      "short_name": "SDFGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "55": {
+      "id": "69221",
+      "name": "MTU Aero Engines NA O.N.",
+      "short_name": "MTXGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "56": {
+      "id": "69222",
+      "name": "Suedzucker AG",
+      "short_name": "SZUG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "57": {
+      "id": "69223",
+      "name": "Heidelberger Druckmaschinen O.N.",
+      "short_name": "HDDG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "58": {
+      "id": "69224",
+      "name": "Aareal Bank AG",
+      "short_name": "ARLG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "59": {
+      "id": "69225",
+      "name": "Bauer AG",
+      "short_name": "B5AG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "60": {
+      "id": "69226",
+      "name": "Deutz AG",
+      "short_name": "DEZG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "61": {
+      "id": "69227",
+      "name": "Symrise AG Inh. O.N.",
+      "short_name": "SY1G",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "62": {
+      "id": "69228",
+      "name": "Leoni AG",
+      "short_name": "LEOGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "63": {
+      "id": "69229",
+      "name": "Hugo Boss AG NA O.N.",
+      "short_name": "BOSSn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "64": {
+      "id": "69230",
+      "name": "Grammer AG",
+      "short_name": "GMMG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "65": {
+      "id": "69231",
+      "name": "Brenntag AG",
+      "short_name": "BNRGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "66": {
+      "id": "69232",
+      "name": "Fuchs Petrolub AG VZO Pref",
+      "short_name": "FPE3_p",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "67": {
+      "id": "69233",
+      "name": "H&R GmbH & Co KgaA",
+      "short_name": "2HR",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "68": {
+      "id": "69234",
+      "name": "Alstria",
+      "short_name": "AOXG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "69": {
+      "id": "69235",
+      "name": "Amadeus Fire AG",
+      "short_name": "AMDG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "70": {
+      "id": "69236",
+      "name": "Biotest AG VZ",
+      "short_name": "BIOG_p",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "71": {
+      "id": "69237",
+      "name": "Comdirect AG",
+      "short_name": "CDBG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "72": {
+      "id": "69238",
+      "name": "Centrotec",
+      "short_name": "CEVG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": ""
+    },
+    "73": {
+      "id": "69239",
+      "name": "Cewe Color Holding O.N.",
+      "short_name": "CWCG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "74": {
+      "id": "69240",
+      "name": "BRANICKS Group AG",
+      "short_name": "BRNKn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "75": {
+      "id": "69241",
+      "name": "Deutsche Beteiligungs AG O.N.",
+      "short_name": "DBANn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "78": {
+      "id": "69244",
+      "name": "CTS Eventim AG",
+      "short_name": "EVDG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "79": {
+      "id": "69245",
+      "name": "Grenke N AG",
+      "short_name": "GLJn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "80": {
+      "id": "69246",
+      "name": "Gesco AG NA O.N.",
+      "short_name": "GSC1n",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "81": {
+      "id": "69247",
+      "name": "Hamborner Reit AG O.N.",
+      "short_name": "HABAn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "82": {
+      "id": "69248",
+      "name": "Hawesko Holding AG SVG",
+      "short_name": "HAWG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "83": {
+      "id": "69249",
+      "name": "Hornbach Holding VZO O.N.",
+      "short_name": "HBH",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "84": {
+      "id": "69250",
+      "name": "Highlight Communications Inh.Sf 1",
+      "short_name": "HLGZ",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "85": {
+      "id": "69251",
+      "name": "Indus Holding AG",
+      "short_name": "INHG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "86": {
+      "id": "69252",
+      "name": "Jungheinrich AG O.N.VZO",
+      "short_name": "JUNG_p",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "87": {
+      "id": "69253",
+      "name": "KWS SAAT AG O.N.",
+      "short_name": "KWSG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "88": {
+      "id": "69254",
+      "name": "Norma Group AG NA O.N.",
+      "short_name": "NOEJ",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "89": {
+      "id": "69255",
+      "name": "Petro Welt Tech",
+      "short_name": "O2C",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Energy"
+    },
+    "90": {
+      "id": "69256",
+      "name": "Patrizia Immobilien AG",
+      "short_name": "PATGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "91": {
+      "id": "69257",
+      "name": "Stroeer SE",
+      "short_name": "SAXG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "92": {
+      "id": "69258",
+      "name": "Sixt SE",
+      "short_name": "SIXG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "93": {
+      "id": "69259",
+      "name": "Koenig & Bauer AG ST O.N.",
+      "short_name": "SKBG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "94": {
+      "id": "69260",
+      "name": "Schaltbau",
+      "short_name": "SLTG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": ""
+    },
+    "95": {
+      "id": "69261",
+      "name": "Tag Immobilien AG",
+      "short_name": "TEGG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "97": {
+      "id": "69263",
+      "name": "Tom Tailor AG",
+      "short_name": "TTIGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": ""
+    },
+    "98": {
+      "id": "69264",
+      "name": "Takkt AG O.N.",
+      "short_name": "TTKG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "99": {
+      "id": "69265",
+      "name": "Wacker Neuson NA O.N.",
+      "short_name": "WACGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "100": {
+      "id": "69266",
+      "name": "Zooplus AG",
+      "short_name": "ZO1G",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": ""
+    },
+    "104": {
+      "id": "69270",
+      "name": "AD Pepper Media",
+      "short_name": "APME",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "105": {
+      "id": "69271",
+      "name": "Adler Modemaerkte AG",
+      "short_name": "ADDG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "110": {
+      "id": "69276",
+      "name": "Biotest AG ST",
+      "short_name": "BIOG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "111": {
+      "id": "69277",
+      "name": "SLEEPZ",
+      "short_name": "BTBB",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "112": {
+      "id": "69278",
+      "name": "Bayerische Motoren Werke AG Pref",
+      "short_name": "BMWG_p",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "113": {
+      "id": "69279",
+      "name": "DEAG AG",
+      "short_name": "LOUDG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "118": {
+      "id": "69284",
+      "name": "Francotyp-Postalia Hldg",
+      "short_name": "FPHG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "119": {
+      "id": "69285",
+      "name": "Henkel AG & Co KGAA ST O.N.",
+      "short_name": "HNKG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "121": {
+      "id": "69287",
+      "name": "Hypoport AG",
+      "short_name": "HYQGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "123": {
+      "id": "69289",
+      "name": "Leifheit AG O.N.",
+      "short_name": "LEIG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "124": {
+      "id": "69290",
+      "name": "Logwin AG",
+      "short_name": "TGHN",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "126": {
+      "id": "69292",
+      "name": "Masterflex O.N.",
+      "short_name": "MZXG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "129": {
+      "id": "69295",
+      "name": "Ceconomy Pref",
+      "short_name": "CEC1_p",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": ""
+    },
+    "132": {
+      "id": "69298",
+      "name": "R. Stahl AG NA O.N.",
+      "short_name": "RSL2",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "133": {
+      "id": "69299",
+      "name": "RWE AG VZO",
+      "short_name": "RWEG_p",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": ""
+    },
+    "134": {
+      "id": "69300",
+      "name": "SHW AG",
+      "short_name": "SW1",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "135": {
+      "id": "69301",
+      "name": "Sixt AG VZO O.N.",
+      "short_name": "SIXG_p",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "136": {
+      "id": "69302",
+      "name": "SMT Scharf AG",
+      "short_name": "S188n",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "137": {
+      "id": "69303",
+      "name": "Surteco SE",
+      "short_name": "SURG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "139": {
+      "id": "69305",
+      "name": "Villeroy & Boch AG VZ",
+      "short_name": "VIBG_p",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "140": {
+      "id": "69306",
+      "name": "WashTec AG O.N.",
+      "short_name": "WSU",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "143": {
+      "id": "69309",
+      "name": "Zhongde Waste Technology",
+      "short_name": "ZEFG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Energy"
+    },
+    "144": {
+      "id": "69310",
+      "name": "Gerry Weber",
+      "short_name": "GWI2k",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "145": {
+      "id": "69311",
+      "name": "Deutsche Wohnen AG",
+      "short_name": "DWNG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "146": {
+      "id": "69312",
+      "name": "Fuchs Se",
+      "short_name": "FPEn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "147": {
+      "id": "69313",
+      "name": "Deutsche Euroshop AG",
+      "short_name": "DEQGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "148": {
+      "id": "69314",
+      "name": "Fielmann AG",
+      "short_name": "FIEG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "149": {
+      "id": "69315",
+      "name": "MLP AG",
+      "short_name": "MLPG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "151": {
+      "id": "69317",
+      "name": "SAF Holland SA",
+      "short_name": "SFQ",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "152": {
+      "id": "69318",
+      "name": "Kuka AG",
+      "short_name": "KU2G",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "153": {
+      "id": "69319",
+      "name": "MVV Energie AG",
+      "short_name": "MVVGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Utilities"
+    },
+    "154": {
+      "id": "69320",
+      "name": "Duerr AG",
+      "short_name": "DUEG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "155": {
+      "id": "69321",
+      "name": "Bertrandt AG",
+      "short_name": "BDTG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "156": {
+      "id": "69322",
+      "name": "Axel Springer",
+      "short_name": "SPRGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "157": {
+      "id": "69323",
+      "name": "Baywa AG Vink. NA O.N.",
+      "short_name": "BYWGnx",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "158": {
+      "id": "69324",
+      "name": "LEG Immobilien AG",
+      "short_name": "LEGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "159": {
+      "id": "69325",
+      "name": "Lotto24 AG",
+      "short_name": "LO2k",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "160": {
+      "id": "69326",
+      "name": "Talanx AG NA O.N.",
+      "short_name": "TLXGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "161": {
+      "id": "69327",
+      "name": "RTL Group SA",
+      "short_name": "RRTL",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": ""
+    },
+    "162": {
+      "id": "69328",
+      "name": "Evonik Industries AG",
+      "short_name": "EVKn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "165": {
+      "id": "69331",
+      "name": "Kion Group AG",
+      "short_name": "KGX",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "166": {
+      "id": "69333",
+      "name": "Encavis",
+      "short_name": "ECVG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Utilities"
+    },
+    "167": {
+      "id": "69334",
+      "name": "Bastei Lueb",
+      "short_name": "BST1",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "168": {
+      "id": "69335",
+      "name": "Stabilus",
+      "short_name": "STM1",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "169": {
+      "id": "69336",
+      "name": "Zalando SE",
+      "short_name": "ZALG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "170": {
+      "id": "69337",
+      "name": "Rocket Internet",
+      "short_name": "RKET",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": ""
+    },
+    "171": {
+      "id": "69338",
+      "name": "TLG Immobilien AG",
+      "short_name": "TLGG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": ""
+    },
+    "172": {
+      "id": "69339",
+      "name": "Hella KGaA Hueck & Co",
+      "short_name": "HLE",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "173": {
+      "id": "69340",
+      "name": "Tele Columbus AG",
+      "short_name": "TC1n",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "174": {
+      "id": "69341",
+      "name": "Multitude SE",
+      "short_name": "MULT",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "175": {
+      "id": "69342",
+      "name": "Max Automation AG",
+      "short_name": "MXHNn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "179": {
+      "id": "69346",
+      "name": "Elumeo SE",
+      "short_name": "ELBG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "180": {
+      "id": "69347",
+      "name": "Deutsche Pfandbriefbank AG",
+      "short_name": "PBBG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "181": {
+      "id": "69348",
+      "name": "Puma SE",
+      "short_name": "PUMG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "182": {
+      "id": "69349",
+      "name": "Scout24 AG",
+      "short_name": "G24n",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "183": {
+      "id": "69350",
+      "name": "Hapag Lloyd AG",
+      "short_name": "HLAG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "184": {
+      "id": "69351",
+      "name": "Adler Group SA",
+      "short_name": "ADJ",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "185": {
+      "id": "69353",
+      "name": "Schaeffler Pref",
+      "short_name": "SHA_p",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": ""
+    },
+    "186": {
+      "id": "69354",
+      "name": "Brain Biotechnology Research and Information Network AG",
+      "short_name": "BNNn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "187": {
+      "id": "69355",
+      "name": "bet at home com AG",
+      "short_name": "ARTG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "188": {
+      "id": "69356",
+      "name": "Demire Deutsche Mittelstand Real Estate AG",
+      "short_name": "DMRE",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "189": {
+      "id": "69357",
+      "name": "EDAG Engineering Group AG",
+      "short_name": "ED4",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "190": {
+      "id": "69358",
+      "name": "WCM Beteiligungs und Grundbesitz",
+      "short_name": "WCMk",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "191": {
+      "id": "69359",
+      "name": "Wuestenrot & Wuerttembergische AG",
+      "short_name": "WUWGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "192": {
+      "id": "69360",
+      "name": "Uniper SE",
+      "short_name": "UN0k",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Utilities"
+    },
+    "193": {
+      "id": "69361",
+      "name": "Innogy",
+      "short_name": "IGY",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Utilities"
+    },
+    "194": {
+      "id": "69362",
+      "name": "Redcare Pharmacy NV",
+      "short_name": "RDC",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "195": {
+      "id": "69364",
+      "name": "Thyssenkrupp AG O.N.",
+      "short_name": "TKAG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "196": {
+      "id": "69365",
+      "name": "Software AG",
+      "short_name": "SOWGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "197": {
+      "id": "69366",
+      "name": "United Internet AG NA",
+      "short_name": "UTDI",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "198": {
+      "id": "69367",
+      "name": "Dialog",
+      "short_name": "DLGS",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "199": {
+      "id": "69368",
+      "name": "11 AG",
+      "short_name": "1U1",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "200": {
+      "id": "69369",
+      "name": "Evotec AG O.N.",
+      "short_name": "EVTG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "201": {
+      "id": "69370",
+      "name": "CompuGroup Medical AG O.N.",
+      "short_name": "COP1n",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "202": {
+      "id": "69371",
+      "name": "Nemetschek AG O.N.",
+      "short_name": "NEKG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "203": {
+      "id": "69372",
+      "name": "Sartorius AG VZO O.N.",
+      "short_name": "SATG_p",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "204": {
+      "id": "69373",
+      "name": "Carl Zeiss Meditec AG",
+      "short_name": "AFXG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "205": {
+      "id": "69374",
+      "name": "Gerresheimer AG",
+      "short_name": "GXIG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "206": {
+      "id": "69375",
+      "name": "Commerzbank AG O.N.",
+      "short_name": "CBKG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "207": {
+      "id": "69376",
+      "name": "Prosiebensat 1 Media AG",
+      "short_name": "PSMGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "208": {
+      "id": "69377",
+      "name": "Morphosys AG",
+      "short_name": "MORG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "209": {
+      "id": "69378",
+      "name": "Bechtle AG",
+      "short_name": "BC8G",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "210": {
+      "id": "69379",
+      "name": "FNTGn",
+      "short_name": "FNTGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "211": {
+      "id": "69380",
+      "name": "Qiagen NV",
+      "short_name": "QIA",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "212": {
+      "id": "69381",
+      "name": "Telefonica Deutschland AG",
+      "short_name": "O2Dn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "213": {
+      "id": "69382",
+      "name": "Siltronic AG",
+      "short_name": "WAFGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "214": {
+      "id": "69383",
+      "name": "Aroundtown SA",
+      "short_name": "AT1",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "215": {
+      "id": "69384",
+      "name": "Grand City Properties SA",
+      "short_name": "GYC",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "216": {
+      "id": "69385",
+      "name": "Airbus Group SE",
+      "short_name": "AIRG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "217": {
+      "id": "69386",
+      "name": "Osram Licht",
+      "short_name": "OSRn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": ""
+    },
+    "218": {
+      "id": "69387",
+      "name": "Delivery Hero AG",
+      "short_name": "DHER",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "219": {
+      "id": "69388",
+      "name": "Metro Wholesale",
+      "short_name": "B4B",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "220": {
+      "id": "69389",
+      "name": "Siemens Healthineers AG",
+      "short_name": "SHLG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "221": {
+      "id": "69390",
+      "name": "Knorr-Bremse AG",
+      "short_name": "KBX",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "222": {
+      "id": "69430",
+      "name": "Freenet AG NA",
+      "short_name": "FNTGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "223": {
+      "id": "69431",
+      "name": "q.beyond AG",
+      "short_name": "QBYn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "224": {
+      "id": "69432",
+      "name": "Draegerwerk VZO O.N.",
+      "short_name": "DRWG_p",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "225": {
+      "id": "69433",
+      "name": "Nordex SE O.N.",
+      "short_name": "NDXG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "226": {
+      "id": "69434",
+      "name": "Aixtron",
+      "short_name": "AIXGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "227": {
+      "id": "69435",
+      "name": "Pfeiffer Vacuum Technology O.N.",
+      "short_name": "PV",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "228": {
+      "id": "69436",
+      "name": "Singulus Technologies AG",
+      "short_name": "SNGGk",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "229": {
+      "id": "69437",
+      "name": "Qiagen NV",
+      "short_name": "QIA",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "230": {
+      "id": "69438",
+      "name": "Gigaset AG",
+      "short_name": "GGS",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "231": {
+      "id": "69439",
+      "name": "Morphosys AG",
+      "short_name": "MORG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "233": {
+      "id": "69441",
+      "name": "SUSS MicroTec SE",
+      "short_name": "SMHNn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "234": {
+      "id": "69442",
+      "name": "Verbio Vereinigte Bioenergie AG",
+      "short_name": "VBKG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Energy"
+    },
+    "235": {
+      "id": "69444",
+      "name": "PSI AG F.Pr.U.Sys. NA",
+      "short_name": "PSAGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "236": {
+      "id": "69445",
+      "name": "Aap Implantate AG",
+      "short_name": "AAQ1k",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "237": {
+      "id": "69446",
+      "name": "Atoss Software AG",
+      "short_name": "AOFG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "238": {
+      "id": "69447",
+      "name": "Basler AG O.N.",
+      "short_name": "BSLG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "239": {
+      "id": "69448",
+      "name": "Cancom SE O.N.",
+      "short_name": "COKG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "240": {
+      "id": "69449",
+      "name": "Cenit AG O.N.",
+      "short_name": "CSHG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "241": {
+      "id": "69450",
+      "name": "Cropenergies AG",
+      "short_name": "CE2G",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Energy"
+    },
+    "242": {
+      "id": "69451",
+      "name": "DAMG",
+      "short_name": "DAMG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "243": {
+      "id": "69452",
+      "name": "Dr. Hoenle AG O.N.",
+      "short_name": "HNLG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "244": {
+      "id": "69453",
+      "name": "Draegerwerk AG & Co KGaA",
+      "short_name": "DRWG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "245": {
+      "id": "69454",
+      "name": "Eckert & Ziegler AG O.N.",
+      "short_name": "EUZG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "246": {
+      "id": "69455",
+      "name": "Elmos Semiconductor AG",
+      "short_name": "ELGG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "247": {
+      "id": "69456",
+      "name": "Epigenomics",
+      "short_name": "ECXn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "248": {
+      "id": "69457",
+      "name": "Euromicron AG",
+      "short_name": "EUCAn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "249": {
+      "id": "69458",
+      "name": "First Sensor AG O.N.",
+      "short_name": "SISG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "250": {
+      "id": "69459",
+      "name": "Geratherm O.N.",
+      "short_name": "GMEG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "251": {
+      "id": "69460",
+      "name": "GFT Technologies AG",
+      "short_name": "GFTG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "252": {
+      "id": "69461",
+      "name": "GK Software",
+      "short_name": "GKSG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "253": {
+      "id": "69462",
+      "name": "Init Innovation In Traffic Systems",
+      "short_name": "IXXG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "254": {
+      "id": "69463",
+      "name": "Intershop Communications",
+      "short_name": "ISH1k",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "255": {
+      "id": "69464",
+      "name": "Intica Systems AG",
+      "short_name": "IS7",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "256": {
+      "id": "69465",
+      "name": "Invision AG",
+      "short_name": "IVXG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "257": {
+      "id": "69466",
+      "name": "Isra Vision",
+      "short_name": "ISRG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "258": {
+      "id": "69467",
+      "name": "IVU Traffic Technologies AG O.N.",
+      "short_name": "IVUG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "259": {
+      "id": "69468",
+      "name": "LPKF Laser & Electronics",
+      "short_name": "LPKG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "260": {
+      "id": "69469",
+      "name": "MeVis Medical Solutions NA O.N.",
+      "short_name": "M3VGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "261": {
+      "id": "69470",
+      "name": "Mologen",
+      "short_name": "MGNK",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "262": {
+      "id": "69471",
+      "name": "Nexus AG",
+      "short_name": "NXUG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "263": {
+      "id": "69472",
+      "name": "OHB SE",
+      "short_name": "OHBG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "264": {
+      "id": "69473",
+      "name": "Paion",
+      "short_name": "PA8",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "265": {
+      "id": "69474",
+      "name": "PNE Wind AG",
+      "short_name": "PNEGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Energy"
+    },
+    "266": {
+      "id": "69475",
+      "name": "PVA Tepla AG O.N.",
+      "short_name": "TPEG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "267": {
+      "id": "69476",
+      "name": "RIB Software AG",
+      "short_name": "RIB",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "268": {
+      "id": "69477",
+      "name": "Secunet Security AG O.N.",
+      "short_name": "YSNG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "269": {
+      "id": "69478",
+      "name": "SFC Energy AG",
+      "short_name": "F3CG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Energy"
+    },
+    "270": {
+      "id": "69479",
+      "name": "Softing AG O.N.",
+      "short_name": "SYTG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "271": {
+      "id": "69480",
+      "name": "2Invest AG",
+      "short_name": "2INVn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "272": {
+      "id": "69481",
+      "name": "Syzygy AG O.N.",
+      "short_name": "SYZG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "273": {
+      "id": "69482",
+      "name": "Technotrans AG NA O.N.",
+      "short_name": "TTRGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "274": {
+      "id": "69483",
+      "name": "11 88 0 Solutions AG",
+      "short_name": "TGTG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "275": {
+      "id": "69484",
+      "name": "HolidayCheck",
+      "short_name": "HOC",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "276": {
+      "id": "69485",
+      "name": "USU Software AG",
+      "short_name": "OSPGk",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "277": {
+      "id": "69486",
+      "name": "Heidelberg Pharma AG",
+      "short_name": "HPHA",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "278": {
+      "id": "69487",
+      "name": "Yoc AG O.N.",
+      "short_name": "YOCG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "279": {
+      "id": "69488",
+      "name": "SMA Solar Technology AG",
+      "short_name": "S92G",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "280": {
+      "id": "69489",
+      "name": "BB Biotech AG",
+      "short_name": "BIONn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "281": {
+      "id": "69490",
+      "name": "Medigene",
+      "short_name": "MDG1k",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "282": {
+      "id": "69491",
+      "name": "Adtran Networks SE",
+      "short_name": "ADVG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "283": {
+      "id": "69492",
+      "name": "Jenoptik AG",
+      "short_name": "JENGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "284": {
+      "id": "69493",
+      "name": "STRATEC Biomedical AG",
+      "short_name": "SBSG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "285": {
+      "id": "69494",
+      "name": "All For One Steeb AG",
+      "short_name": "A1OS",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "286": {
+      "id": "69495",
+      "name": "Biofrontera AG",
+      "short_name": "B8FKn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "287": {
+      "id": "69496",
+      "name": "SLM Solutions",
+      "short_name": "AM3D",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "288": {
+      "id": "69497",
+      "name": "SNP Schneider",
+      "short_name": "SHFG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "289": {
+      "id": "69498",
+      "name": "Viscom AG",
+      "short_name": "V6CG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "291": {
+      "id": "69500",
+      "name": "4Sc AG",
+      "short_name": "VSCk",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "292": {
+      "id": "69501",
+      "name": "Ecotel Communication AG",
+      "short_name": "E4CG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "293": {
+      "id": "69502",
+      "name": "H2APEX Group SCA",
+      "short_name": "H2A",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Utilities"
+    },
+    "294": {
+      "id": "69503",
+      "name": "Fabasoft AG",
+      "short_name": "FAAS",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "295": {
+      "id": "69504",
+      "name": "Fortec Elektronik O.N.",
+      "short_name": "FEVG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "296": {
+      "id": "69505",
+      "name": "Kontron AG",
+      "short_name": "KTN",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": ""
+    },
+    "297": {
+      "id": "69506",
+      "name": "Sartorius AG",
+      "short_name": "SATG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "298": {
+      "id": "69507",
+      "name": "Arzneiwerk VIDA AG",
+      "short_name": "TLIK",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "299": {
+      "id": "69508",
+      "name": "KPS AG",
+      "short_name": "HACGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "300": {
+      "id": "69509",
+      "name": "Diebold Nixdorf Inc",
+      "short_name": "DBD",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "301": {
+      "id": "69510",
+      "name": "Senvion",
+      "short_name": "SENG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "302": {
+      "id": "69511",
+      "name": "Voltabox AG",
+      "short_name": "VBX",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "303": {
+      "id": "69512",
+      "name": "Varta",
+      "short_name": "VAR1",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "304": {
+      "id": "69513",
+      "name": "Serviceware SE",
+      "short_name": "SJJG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "305": {
+      "id": "69514",
+      "name": "NFON AG",
+      "short_name": "NFN",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "306": {
+      "id": "69528",
+      "name": "Commerzbank AG O.N.",
+      "short_name": "CBKG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "307": {
+      "id": "69529",
+      "name": "Prosiebensat 1 Media AG",
+      "short_name": "PSMGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "309": {
+      "id": "69531",
+      "name": "Heidelberg Materials AG",
+      "short_name": "HEIG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "310": {
+      "id": "69636",
+      "name": "3U Holding AG",
+      "short_name": "UUUG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "316": {
+      "id": "69642",
+      "name": "Paragon AG",
+      "short_name": "PGNG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "318": {
+      "id": "69644",
+      "name": "Sinnerschrader",
+      "short_name": "SZZG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "326": {
+      "id": "69652",
+      "name": "va Q tec",
+      "short_name": "VQTG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "327": {
+      "id": "69927",
+      "name": "Hamburger Hafen Und Logistik A-SP",
+      "short_name": "HHFGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "328": {
+      "id": "69928",
+      "name": "Rational AG",
+      "short_name": "RAAG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "329": {
+      "id": "69929",
+      "name": "Westgrund",
+      "short_name": "WEG1",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "330": {
+      "id": "69930",
+      "name": "Borussia Dortmund GmbH & Co KGaA",
+      "short_name": "BVB",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "331": {
+      "id": "69931",
+      "name": "Jost Werke SE",
+      "short_name": "JST",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "332": {
+      "id": "69932",
+      "name": "Aumann AG",
+      "short_name": "AAGG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "334": {
+      "id": "69934",
+      "name": "HelloFresh SE",
+      "short_name": "HFGG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "335": {
+      "id": "69935",
+      "name": "Befesa SA",
+      "short_name": "BFSA",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "336": {
+      "id": "69936",
+      "name": "Corestate Capital Holding SA",
+      "short_name": "CCAG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "337": {
+      "id": "69937",
+      "name": "DWS Group GmbH & Co KgaA",
+      "short_name": "DWSG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "338": {
+      "id": "69938",
+      "name": "Traton SE",
+      "short_name": "8TRA",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "339": {
+      "id": "70012",
+      "name": "Pfeiffer Vacuum Technology O.N.",
+      "short_name": "PV",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "340": {
+      "id": "70013",
+      "name": "Aixtron SE",
+      "short_name": "AIXGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "341": {
+      "id": "70014",
+      "name": "Dialog",
+      "short_name": "DLGS",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "343": {
+      "id": "71131",
+      "name": "Porsche Automobil Holding SE",
+      "short_name": "PSHG_p",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "344": {
+      "id": "71132",
+      "name": "Man SE",
+      "short_name": "MANG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "345": {
+      "id": "71133",
+      "name": "Tui AG NA",
+      "short_name": "TUI1n",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "346": {
+      "id": "71425",
+      "name": "Envitec Biogas O.N.",
+      "short_name": "ETGG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Utilities"
+    },
+    "347": {
+      "id": "71426",
+      "name": "Delticom AG",
+      "short_name": "DEXGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "348": {
+      "id": "71427",
+      "name": "artec technologies AG",
+      "short_name": "A6TG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "349": {
+      "id": "71428",
+      "name": "Berentzen Gruppe AG",
+      "short_name": "BEZ",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "362": {
+      "id": "113108",
+      "name": "Medion AG",
+      "short_name": "MDNG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "555": {
+      "id": "113303",
+      "name": "Homag Group",
+      "short_name": "HG1G",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "585": {
+      "id": "113333",
+      "name": "Heliad Equity",
+      "short_name": "HPBGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "597": {
+      "id": "113345",
+      "name": "Man SE VZO",
+      "short_name": "MANG_p",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "599": {
+      "id": "113347",
+      "name": "Mobotix AG O.N.",
+      "short_name": "MBQGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "600": {
+      "id": "113348",
+      "name": "Muehlbauer Hold.O.N.",
+      "short_name": "MUBG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "609": {
+      "id": "113357",
+      "name": "Realtech AG O.N.",
+      "short_name": "RTCG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "1129": {
+      "id": "114247",
+      "name": "Covestro AG",
+      "short_name": "1COVG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "1534": {
+      "id": "12622877",
+      "name": "Boeing Co",
+      "short_name": "BA",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "1536": {
+      "id": "12622879",
+      "name": "General Motors Company",
+      "short_name": "GMC",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "1537": {
+      "id": "12622880",
+      "name": "Chevron Corp",
+      "short_name": "CVX",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Energy"
+    },
+    "1538": {
+      "id": "12622881",
+      "name": "Bank of America Corp",
+      "short_name": "BAC",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "1539": {
+      "id": "12622882",
+      "name": "AT&T Inc",
+      "short_name": "T",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "1540": {
+      "id": "12622883",
+      "name": "Caterpillar Inc",
+      "short_name": "CAT1",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "1541": {
+      "id": "12622884",
+      "name": "INTC",
+      "short_name": "INTC",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "1542": {
+      "id": "12622885",
+      "name": "Microsoft Corporation",
+      "short_name": "MSFT",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "1543": {
+      "id": "12622886",
+      "name": "Howmet Aerospace\u00c2\u00a0Inc",
+      "short_name": "48Z",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "1544": {
+      "id": "12622887",
+      "name": "Ford Motor Company",
+      "short_name": "F",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "1546": {
+      "id": "12622889",
+      "name": "Walt Disney Company",
+      "short_name": "DIS",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "1547": {
+      "id": "12622890",
+      "name": "Cisco Systems Inc",
+      "short_name": "CSCO",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "1548": {
+      "id": "12622891",
+      "name": "Goldman Sachs Group Inc",
+      "short_name": "GS",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "1549": {
+      "id": "12622892",
+      "name": "JPMorgan Chase & Co",
+      "short_name": "JPM",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "1550": {
+      "id": "12622893",
+      "name": "McDonald\u00e2\u20ac\u2122s Corporation",
+      "short_name": "MCD",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "1551": {
+      "id": "12622894",
+      "name": "Merck & Company Inc",
+      "short_name": "MRK",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "1552": {
+      "id": "12622895",
+      "name": "3M Company",
+      "short_name": "MMM",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "1553": {
+      "id": "12622896",
+      "name": "Barclays PLC",
+      "short_name": "BARC",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "1554": {
+      "id": "12622897",
+      "name": "BP PLC",
+      "short_name": "BP",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Energy"
+    },
+    "1555": {
+      "id": "12622898",
+      "name": "ING Groep NV",
+      "short_name": "INN1",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "1556": {
+      "id": "12622899",
+      "name": "Credit Suisse",
+      "short_name": "CSGN",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "1557": {
+      "id": "12622900",
+      "name": "ABB",
+      "short_name": "ABBN",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "1558": {
+      "id": "12622901",
+      "name": "Novartis",
+      "short_name": "NOVZn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "1559": {
+      "id": "12622902",
+      "name": "Nestle SA",
+      "short_name": "NESN",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "1560": {
+      "id": "12622903",
+      "name": "Nestle SA ADR",
+      "short_name": "NESNy",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "1561": {
+      "id": "12622904",
+      "name": "AXA SA",
+      "short_name": "AXAF",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "1562": {
+      "id": "12622905",
+      "name": "Engie SA",
+      "short_name": "GSZ",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Utilities"
+    },
+    "1563": {
+      "id": "12622906",
+      "name": "LVMH Moet Hennessy Louis Vuitton SE",
+      "short_name": "LVMH",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "1564": {
+      "id": "12622907",
+      "name": "L\u00e2\u20ac\u2122Oreal SA",
+      "short_name": "OREP",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "1565": {
+      "id": "12622908",
+      "name": "Schneider Electric SE",
+      "short_name": "SCHN",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "1567": {
+      "id": "12622910",
+      "name": "Societe Generale SA",
+      "short_name": "SOGN",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "1568": {
+      "id": "12622911",
+      "name": "Sanofi SA",
+      "short_name": "SASY",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "1569": {
+      "id": "12622912",
+      "name": "Vivendi",
+      "short_name": "VIV",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "1570": {
+      "id": "12622913",
+      "name": "Banco Bilbao Vizcaya Argentaria SA",
+      "short_name": "BBVA",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "1572": {
+      "id": "12622915",
+      "name": "Telefonica",
+      "short_name": "TEF",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "1573": {
+      "id": "12622916",
+      "name": "Banco Santander",
+      "short_name": "SAN",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "1574": {
+      "id": "12622917",
+      "name": "Telefonaktiebolaget LM Ericsson A",
+      "short_name": "ERICa",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "1585": {
+      "id": "12622928",
+      "name": "Amazon.com Inc",
+      "short_name": "AMZN",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "1586": {
+      "id": "12622929",
+      "name": "Biogen Inc",
+      "short_name": "BIIB",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "1589": {
+      "id": "12769497",
+      "name": "Amgen Inc",
+      "short_name": "AMGN",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "1591": {
+      "id": "13627085",
+      "name": "AstraZeneca PLC",
+      "short_name": "AZN",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "1595": {
+      "id": "13951733",
+      "name": "Rio Tinto PLC",
+      "short_name": "RIO",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "1596": {
+      "id": "13951734",
+      "name": "Anglo American PLC",
+      "short_name": "NGL0",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "1597": {
+      "id": "13951735",
+      "name": "GSK plc",
+      "short_name": "GS71",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "1599": {
+      "id": "14059836",
+      "name": "BHP Group Ltd",
+      "short_name": "BILG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "1601": {
+      "id": "14999013",
+      "name": "Eni SpA",
+      "short_name": "ENI",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Energy"
+    },
+    "1605": {
+      "id": "15274458",
+      "name": "Exxon Mobil Corp",
+      "short_name": "XON",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Energy"
+    },
+    "1606": {
+      "id": "15274459",
+      "name": "Colgate-Palmolive Company",
+      "short_name": "CL",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "1609": {
+      "id": "15384027",
+      "name": "Pfizer Inc",
+      "short_name": "PFE",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "1610": {
+      "id": "15695625",
+      "name": "Walmart Inc",
+      "short_name": "WMT",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "1611": {
+      "id": "15695626",
+      "name": "Home Depot Inc",
+      "short_name": "HD",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "1612": {
+      "id": "15695627",
+      "name": "International Business Machines",
+      "short_name": "IBM",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "1614": {
+      "id": "18327976",
+      "name": "Verizon",
+      "short_name": "VZ",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "1615": {
+      "id": "18657575",
+      "name": "Bristol-Myers Squibb Company",
+      "short_name": "BMY",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "1616": {
+      "id": "18830973",
+      "name": "Johnson & Johnson",
+      "short_name": "JNJ",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "1618": {
+      "id": "20084647",
+      "name": "GE Aerospace",
+      "short_name": "GCP",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "1619": {
+      "id": "20084648",
+      "name": "Rtx Corp",
+      "short_name": "5UR",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "1621": {
+      "id": "20084650",
+      "name": "HP Inc",
+      "short_name": "7HP",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "1626": {
+      "id": "21345768",
+      "name": "PepsiCo Inc",
+      "short_name": "PEP",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "1629": {
+      "id": "21345771",
+      "name": "Nike Inc",
+      "short_name": "NKE",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "1630": {
+      "id": "21345772",
+      "name": "Procter & Gamble Company",
+      "short_name": "PG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "1727": {
+      "id": "47030167",
+      "name": "Meta Platforms Inc",
+      "short_name": "FB2A",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "1796": {
+      "id": "60287952",
+      "name": "Vestas Wind Systems A\/S",
+      "short_name": "VWSB",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Energy"
+    },
+    "1802": {
+      "id": "60287958",
+      "name": "LS Telcom AG",
+      "short_name": "LSXG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "1807": {
+      "id": "60287963",
+      "name": "Medtronic PLC",
+      "short_name": "2M6",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "1810": {
+      "id": "60287966",
+      "name": "GBS Software AG",
+      "short_name": "INWk",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "1811": {
+      "id": "60287967",
+      "name": "Orange SA",
+      "short_name": "FTE",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "1825": {
+      "id": "60287981",
+      "name": "Allgeier SE",
+      "short_name": "AEIGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "1833": {
+      "id": "60287989",
+      "name": "Ringmetall SE",
+      "short_name": "HP3An",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "1834": {
+      "id": "60287990",
+      "name": "M1 Kliniken AG",
+      "short_name": "M12",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "1844": {
+      "id": "60288000",
+      "name": "RYA",
+      "short_name": "RYA",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "1845": {
+      "id": "60288001",
+      "name": "Smartbroker Holding AG",
+      "short_name": "SB1G",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "1849": {
+      "id": "60288005",
+      "name": "Payments Group Holding GmbH & Co KgaA",
+      "short_name": "PGHn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "1851": {
+      "id": "60288007",
+      "name": "Shareholder Value Beteiligungen AG",
+      "short_name": "SHVA",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "1852": {
+      "id": "60288008",
+      "name": "Deutsche Konsum REIT AG",
+      "short_name": "DKG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "1853": {
+      "id": "60288009",
+      "name": "Imperial Brands PLC",
+      "short_name": "IMT",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "1917": {
+      "id": "60288073",
+      "name": "Artnet AG NA O.N.",
+      "short_name": "AYDGn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "1918": {
+      "id": "60288074",
+      "name": "AS Creation Tapeten AG",
+      "short_name": "ACWNn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "1921": {
+      "id": "60288077",
+      "name": "Baywa AG NA",
+      "short_name": "BYWG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "1928": {
+      "id": "60288084",
+      "name": "DF Deutsche Forfait AG",
+      "short_name": "DFTKn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "1932": {
+      "id": "60288088",
+      "name": "Einhell Germany VZO O.N.",
+      "short_name": "EIN_p",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "1936": {
+      "id": "60288092",
+      "name": "Accentro Real Estate AG",
+      "short_name": "A4Y",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "1941": {
+      "id": "60288097",
+      "name": "Ernst Russ AG",
+      "short_name": "HXCKk",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "1948": {
+      "id": "60288104",
+      "name": "Laiqon AG",
+      "short_name": "LQAG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "1951": {
+      "id": "60288107",
+      "name": "ECKG",
+      "short_name": "ECKG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "1954": {
+      "id": "60288110",
+      "name": "MediClin AG",
+      "short_name": "MEDG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "1961": {
+      "id": "60288117",
+      "name": "Cpi Property",
+      "short_name": "O5G",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Real Estate"
+    },
+    "1962": {
+      "id": "60288118",
+      "name": "OVB Holding AG",
+      "short_name": "O4BG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "1966": {
+      "id": "60288122",
+      "name": "PWO AG",
+      "short_name": "PWO",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "1981": {
+      "id": "60288137",
+      "name": "United Labels O.N.",
+      "short_name": "ULCG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "1984": {
+      "id": "60288140",
+      "name": "FamiCord AG",
+      "short_name": "V3Vn",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "2001": {
+      "id": "60288157",
+      "name": "MPC Capital O.N.",
+      "short_name": "MPCKk",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "2003": {
+      "id": "60288159",
+      "name": "BNP Paribas SA",
+      "short_name": "BNPP",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "2008": {
+      "id": "60288164",
+      "name": "Repsol",
+      "short_name": "REP",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Energy"
+    },
+    "2014": {
+      "id": "60288170",
+      "name": "Apple Inc",
+      "short_name": "AAPL",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "2023": {
+      "id": "60288179",
+      "name": "Stellantis NV",
+      "short_name": "8TI",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "2031": {
+      "id": "60288187",
+      "name": "NanoRepro AG",
+      "short_name": "NN6G",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "2032": {
+      "id": "60288188",
+      "name": "Bijou Brigitte",
+      "short_name": "BIJG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "2033": {
+      "id": "60288189",
+      "name": "Seven Principles AG",
+      "short_name": "T3T1k",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "2034": {
+      "id": "60288190",
+      "name": "AT & S Austria Technologie & Systemtechnik AG",
+      "short_name": "ATSV",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "2167": {
+      "id": "60288323",
+      "name": "eBay Inc",
+      "short_name": "EBAY",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "2169": {
+      "id": "60288325",
+      "name": "Deere & Company",
+      "short_name": "DE",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "2171": {
+      "id": "60288327",
+      "name": "FedEx Corporation",
+      "short_name": "FDX",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "2176": {
+      "id": "60288332",
+      "name": "Coca-Cola Co",
+      "short_name": "KO",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "2178": {
+      "id": "60288334",
+      "name": "Eli Lilly and Company",
+      "short_name": "LLY",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "2180": {
+      "id": "60288336",
+      "name": "Oracle Corporation",
+      "short_name": "ORCL",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "2182": {
+      "id": "60288338",
+      "name": "British American Tobacco PLC",
+      "short_name": "BATS",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "2184": {
+      "id": "60288340",
+      "name": "HSBC Holdings PLC",
+      "short_name": "HSBA",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "2186": {
+      "id": "60288342",
+      "name": "Lloyds Banking Group PLC",
+      "short_name": "LLOY",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "2190": {
+      "id": "60288346",
+      "name": "Shell PLC",
+      "short_name": "R6C0",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Energy"
+    },
+    "2193": {
+      "id": "60288349",
+      "name": "Koninklijke Philips NV",
+      "short_name": "PHI1",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "2195": {
+      "id": "60288351",
+      "name": "Telecom Italia",
+      "short_name": "TLIT",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "2197": {
+      "id": "60288353",
+      "name": "Assicurazioni Generali SpA",
+      "short_name": "GASI",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "2211": {
+      "id": "60288368",
+      "name": "Air Liquide SA",
+      "short_name": "AIL",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "2213": {
+      "id": "60288370",
+      "name": "Danone SA",
+      "short_name": "DANO",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "2216": {
+      "id": "60288373",
+      "name": "Carrefour SA",
+      "short_name": "CARR",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "2221": {
+      "id": "60288378",
+      "name": "TotalEnergies SE",
+      "short_name": "TOTF",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Energy"
+    },
+    "2224": {
+      "id": "60288381",
+      "name": "Vinci SA",
+      "short_name": "SGEF",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "2226": {
+      "id": "60288383",
+      "name": "Renault SA",
+      "short_name": "RENA",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "2228": {
+      "id": "60288385",
+      "name": "Veolia Environnement VE SA",
+      "short_name": "VIE",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Utilities"
+    },
+    "2233": {
+      "id": "60288390",
+      "name": "Industria de Diseno Textil SA",
+      "short_name": "IXD1",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "2235": {
+      "id": "60288392",
+      "name": "Iberdrola",
+      "short_name": "IBE",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Utilities"
+    },
+    "2239": {
+      "id": "60288396",
+      "name": "Telefonaktiebolaget LM Ericsson Class B",
+      "short_name": "ERICb",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "2241": {
+      "id": "60288398",
+      "name": "H & M Hennes & Mauritz AB B",
+      "short_name": "HEMS",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "2247": {
+      "id": "60288404",
+      "name": "Novo Nordisk A\/S Class B",
+      "short_name": "NOVG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Healthcare"
+    },
+    "2251": {
+      "id": "60288408",
+      "name": "Andritz AG",
+      "short_name": "ANDR",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    },
+    "2253": {
+      "id": "60288410",
+      "name": "Erste Group Bank AG",
+      "short_name": "ERST",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "2256": {
+      "id": "60288413",
+      "name": "OMV AG",
+      "short_name": "OMVV",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Energy"
+    },
+    "2260": {
+      "id": "60288417",
+      "name": "Voestalpine AG",
+      "short_name": "VOES",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "2264": {
+      "id": "60298212",
+      "name": "Wienerberger AG",
+      "short_name": "WBSV",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "2266": {
+      "id": "60313404",
+      "name": "Nokia Oyj",
+      "short_name": "NOKS",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "2269": {
+      "id": "60355033",
+      "name": "Alphabet Inc Class A",
+      "short_name": "ABEA",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "2271": {
+      "id": "60367938",
+      "name": "Qualcomm Incorporated",
+      "short_name": "QCOM",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "2276": {
+      "id": "60439318",
+      "name": "Starbucks Corporation",
+      "short_name": "SBUX",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Cyclicals"
+    },
+    "2278": {
+      "id": "60450972",
+      "name": "Reckitt Benckiser Group PLC",
+      "short_name": "RB",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "2288": {
+      "id": "60532181",
+      "name": "ArcelorMittal SA",
+      "short_name": "ARRD",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "2291": {
+      "id": "60569173",
+      "name": "ASML Holding NV",
+      "short_name": "ASME",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "2293": {
+      "id": "60633050",
+      "name": "Intesa Sanpaolo SpA",
+      "short_name": "ISP",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "2295": {
+      "id": "60660292",
+      "name": "UniCredit SpA",
+      "short_name": "CRIG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "2297": {
+      "id": "60680182",
+      "name": "Enel",
+      "short_name": "ENEI",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Utilities"
+    },
+    "2300": {
+      "id": "60700756",
+      "name": "Mastercard Inc",
+      "short_name": "MA",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "2302": {
+      "id": "60700758",
+      "name": "Lockheed Martin Corporation",
+      "short_name": "LMT",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Industrials"
+    }
+  },
+  "info": {
+    "exchanges": [
+      "Xetra",
+      "Frankfurt",
+      "BATS Europe",
+      "Hamburg",
+      "Dusseldorf",
+      "Munich",
+      "Berlin",
+      "Ho Chi Minh",
+      "TradeGate",
+      "Stuttgart"
+    ],
+    "sectors": [
+      "Basic Materials",
+      "Consumer Cyclicals",
+      "Healthcare",
+      "Financials",
+      "Industrials",
+      "Technology",
+      "Consumer Non-Cyclicals",
+      "Utilities",
+      "Real Estate",
+      "Energy",
+      "Services",
+      "Academic & Educational Services",
+      "Capital Goods"
+    ],
+    "server_time": "2025-08-07 12:29:14 UTC",
+    "credit_count": 1,
+    "_t": "2025-08-07 12:29:14 UTC"
+  }
+}

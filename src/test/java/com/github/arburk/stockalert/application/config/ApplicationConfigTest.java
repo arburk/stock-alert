@@ -8,13 +8,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.net.MalformedURLException;
 import java.nio.file.Path;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ApplicationConfigTest {
@@ -97,6 +100,28 @@ class ApplicationConfigTest {
     void url_HappyFlow() {
       testee.setConfigUrl("https://raw.githubusercontent.com/arburk/stock-alert/refs/heads/main/src/main/resources/config-example.json");
       assertConfigExample(testee.getStockAlertsConfig());
+    }
+
+    @Test
+    void windowsPath_HappyFlow() {
+      testee.setConfigUrl("C:\\stock-alert\\config\\config.json");
+
+      final var exception = assertThrows(IllegalArgumentException.class, () -> testee.getStockAlertsConfig());
+
+      final Throwable cause = exception.getCause();
+      assertFalse(cause instanceof IllegalArgumentException, "IllegalArgumentException not expected here");
+      assertFalse(cause.getMessage().startsWith("Illegal character in opaque part"));
+    }
+
+    @Test
+    void windowsPathWithSlashes_HappyFlow() {
+      testee.setConfigUrl("C:/stock-alert/config/config.json");
+
+      final var exception = assertThrows(IllegalArgumentException.class, () -> testee.getStockAlertsConfig());
+
+      final Throwable cause = exception.getCause();
+      assertFalse(cause instanceof MalformedURLException, "MalformedURLException not expected here");
+      assertFalse(cause.getMessage().startsWith("unknown protocol: c"));
     }
 
     private void assertConfigExample(final StockAlertsConfig stockAlertsConfig) {

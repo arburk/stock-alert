@@ -1,0 +1,153 @@
+{
+  "stock-alert-config": {
+    "version": "0.0.1",
+    "silence-duration" : "6h",
+    "notification-channels": [
+      {
+        "type": "email",
+        "recipients": "me@company.com",
+        "use-on-error" : true
+      }
+    ],
+    "securities": [
+      {
+        "symbol": "BALN",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 200.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 250.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "MMM",
+        "exchange": "NYSE"
+      },
+      {
+        "symbol": "INGA",
+        "exchange": "Amsterdam"
+      },
+      {
+        "symbol": "BAER",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "ROG",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "DTE",
+        "exchange": "NYSE"
+      },
+      {
+        "symbol": "DVN",
+        "exchange": "NYSE"
+      },
+      {
+        "symbol": "FRO",
+        "exchange": "NYSE"
+      },
+      {
+        "symbol": "VUL",
+        "exchange": "TSXV"
+      },
+      {
+        "symbol": "MRK",
+        "exchange": "Xetra"
+      },
+      {
+        "symbol": "VODI",
+        "exchange": "Frankfurt"
+      },
+      {
+        "symbol": "ENI",
+        "exchange": "Xetra"
+      },
+      {
+        "symbol": "PFE",
+        "exchange": "Xetra"
+      },
+      {
+        "symbol": "SIKA",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "HELN",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "DKSH",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "ALV",
+        "exchange": "TSXV"
+      },
+      {
+        "symbol": "BANB",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "BSLN",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "CMBN",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "LEHN",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "LEON",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "MBTN",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "STMN",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "MOZN",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "VACD",
+        "exchange": "Frankfurt"
+      },
+      {
+        "symbol": "SRAIL",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "PPGN",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "MBLY",
+        "exchange": "NASDAQ"
+      },
+      {
+        "symbol": "SUNN",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "BIOV",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "AMRZ",
+        "exchange": "Switzerland"
+      }
+    ]
+  }
+}

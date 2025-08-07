@@ -1,0 +1,6274 @@
+{
+  "status": true,
+  "code": 200,
+  "msg": "Successfully",
+  "response": {
+    "0": {
+      "id": "71867",
+      "name": "ABB Ltd",
+      "short_name": "ABBN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "1": {
+      "id": "71868",
+      "name": "Zurich Insurance Group AG",
+      "short_name": "ZURN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "2": {
+      "id": "71869",
+      "name": "Novartis AG",
+      "short_name": "NOVN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "3": {
+      "id": "71870",
+      "name": "Nestle SA",
+      "short_name": "NESN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "4": {
+      "id": "71871",
+      "name": "Roche Holding AG Participation",
+      "short_name": "ROG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "5": {
+      "id": "71873",
+      "name": "UBS Group AG",
+      "short_name": "UBSG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "6": {
+      "id": "71945",
+      "name": "Credit Suisse",
+      "short_name": "CSGN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "7": {
+      "id": "71946",
+      "name": "Adecco Group AG Class N",
+      "short_name": "ADEN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "8": {
+      "id": "71947",
+      "name": "Compagnie Financiere Richemont SA",
+      "short_name": "CFR",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "9": {
+      "id": "71948",
+      "name": "Holcim AG",
+      "short_name": "HOLN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "10": {
+      "id": "71949",
+      "name": "Swatch Group AG",
+      "short_name": "UHR",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "11": {
+      "id": "71950",
+      "name": "Swiss Life Holding AG",
+      "short_name": "SLHN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "12": {
+      "id": "71951",
+      "name": "Swiss Re AG",
+      "short_name": "SRENH",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "13": {
+      "id": "71952",
+      "name": "Lonza Group AG",
+      "short_name": "LONN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "14": {
+      "id": "71953",
+      "name": "Swisscom AG",
+      "short_name": "SCMN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "15": {
+      "id": "71954",
+      "name": "SGS SA",
+      "short_name": "SGSN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "16": {
+      "id": "71955",
+      "name": "Geberit AG",
+      "short_name": "GEBN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "17": {
+      "id": "71956",
+      "name": "Sika AG",
+      "short_name": "SIKA",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "18": {
+      "id": "71957",
+      "name": "Givaudan SA",
+      "short_name": "GIVN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "19": {
+      "id": "71958",
+      "name": "Alcon AG",
+      "short_name": "ALCC",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "20": {
+      "id": "71965",
+      "name": "Julius Baer Gruppe AG",
+      "short_name": "BAER",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "21": {
+      "id": "71966",
+      "name": "Baloise Holding",
+      "short_name": "BALN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "22": {
+      "id": "71967",
+      "name": "Logitech International SA",
+      "short_name": "LOGN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "23": {
+      "id": "71968",
+      "name": "Clariant AG",
+      "short_name": "CLN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "24": {
+      "id": "71969",
+      "name": "Kuros Biosciences AG",
+      "short_name": "KURN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "25": {
+      "id": "71970",
+      "name": "OC Oerlikon Corp AG",
+      "short_name": "OERL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "26": {
+      "id": "71971",
+      "name": "ams OSRAM AG",
+      "short_name": "AMS",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "27": {
+      "id": "71972",
+      "name": "Belimo Holding",
+      "short_name": "BEAN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "28": {
+      "id": "71973",
+      "name": "Valora Holding",
+      "short_name": "VALN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "29": {
+      "id": "71974",
+      "name": "Bucher Industries AG",
+      "short_name": "BUCN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "30": {
+      "id": "71975",
+      "name": "RIEN",
+      "short_name": "RIEN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "31": {
+      "id": "71976",
+      "name": "Allreal Holding",
+      "short_name": "ALLN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "32": {
+      "id": "71977",
+      "name": "Flughafen Zurich",
+      "short_name": "FHZN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "33": {
+      "id": "71978",
+      "name": "Komax Holding AG",
+      "short_name": "KOMN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "34": {
+      "id": "71979",
+      "name": "Inficon Holding",
+      "short_name": "IFCN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "35": {
+      "id": "71980",
+      "name": "Mobimo Holding AG",
+      "short_name": "MOBN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "36": {
+      "id": "71981",
+      "name": "Ascom Holding AG",
+      "short_name": "ASCN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "37": {
+      "id": "71982",
+      "name": "Dorma Kaba Holding AG",
+      "short_name": "DOKA",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "38": {
+      "id": "71983",
+      "name": "Tecan Group AG",
+      "short_name": "TECN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "39": {
+      "id": "71984",
+      "name": "Bossard Holding AG",
+      "short_name": "BOS",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "40": {
+      "id": "71985",
+      "name": "Vontobel Holding",
+      "short_name": "VONN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "41": {
+      "id": "71986",
+      "name": "Emmi AG",
+      "short_name": "EMMN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "42": {
+      "id": "71987",
+      "name": "Banque Cantonale",
+      "short_name": "BCVN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "43": {
+      "id": "71988",
+      "name": "Ems Chemie Hld",
+      "short_name": "EMSN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "44": {
+      "id": "71989",
+      "name": "Evolva Holding SA",
+      "short_name": "EVE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "45": {
+      "id": "71990",
+      "name": "Implenia AG",
+      "short_name": "IMPN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "46": {
+      "id": "71991",
+      "name": "Schindler Holding AG",
+      "short_name": "SCHN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "47": {
+      "id": "71992",
+      "name": "Daetwyl I",
+      "short_name": "DAE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "48": {
+      "id": "71993",
+      "name": "Kardex",
+      "short_name": "KARN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "49": {
+      "id": "71994",
+      "name": "Arbonia AG",
+      "short_name": "ARBNO",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "50": {
+      "id": "71995",
+      "name": "Zehnder",
+      "short_name": "ZEHN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "51": {
+      "id": "71996",
+      "name": "COSMO Pharmaceuticals SA",
+      "short_name": "COPN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "52": {
+      "id": "71997",
+      "name": "BB Biotech AG",
+      "short_name": "BION",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "53": {
+      "id": "71998",
+      "name": "Swiss Prime Site AG",
+      "short_name": "SPSN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "54": {
+      "id": "71999",
+      "name": "Barry Callebaut AG",
+      "short_name": "BARN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "55": {
+      "id": "72000",
+      "name": "Chocoladefabriken Lindt & Spruengli AG N",
+      "short_name": "LISN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "56": {
+      "id": "72001",
+      "name": "Helvetia Holding AG",
+      "short_name": "HELN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "57": {
+      "id": "72002",
+      "name": "PSP Swiss Property AG",
+      "short_name": "PSPN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "58": {
+      "id": "72003",
+      "name": "Partners Group",
+      "short_name": "PGHN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "59": {
+      "id": "72004",
+      "name": "Schindler Ps",
+      "short_name": "SCHP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "60": {
+      "id": "72005",
+      "name": "Kuehne & Nagel",
+      "short_name": "KNIN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "61": {
+      "id": "72006",
+      "name": "Sulzer AG",
+      "short_name": "SUN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "62": {
+      "id": "72007",
+      "name": "Aryzta AG",
+      "short_name": "ARYN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "63": {
+      "id": "72008",
+      "name": "DKSH Holding AG",
+      "short_name": "DKSH",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "64": {
+      "id": "72009",
+      "name": "Georg Fischer AG",
+      "short_name": "GF",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "65": {
+      "id": "72010",
+      "name": "Sonova H Ag",
+      "short_name": "SOON",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "66": {
+      "id": "72011",
+      "name": "Valiant Holding AG",
+      "short_name": "VATN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "67": {
+      "id": "72012",
+      "name": "Vifor Pharma",
+      "short_name": "VIFN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "68": {
+      "id": "72013",
+      "name": "Pargesa I",
+      "short_name": "PARG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "69": {
+      "id": "72014",
+      "name": "GAM Holding AG",
+      "short_name": "GAMH",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "70": {
+      "id": "72015",
+      "name": "Lastminute.com NV",
+      "short_name": "LMN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "71": {
+      "id": "72016",
+      "name": "Molecular Partners AG",
+      "short_name": "MOLN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "72": {
+      "id": "72017",
+      "name": "Chocoladefabriken Lindt & Spruengli AG Part",
+      "short_name": "LISP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "73": {
+      "id": "72018",
+      "name": "Swatch Group AG Class N",
+      "short_name": "UHRN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "74": {
+      "id": "72019",
+      "name": "SFS Group AG",
+      "short_name": "SFSN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "75": {
+      "id": "72020",
+      "name": "Bell AG",
+      "short_name": "BELL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "76": {
+      "id": "72021",
+      "name": "Sunrise Communications AG",
+      "short_name": "SRCG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "77": {
+      "id": "72022",
+      "name": "Spice Priv AG",
+      "short_name": "SPCE",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "78": {
+      "id": "72023",
+      "name": "Adval Tech Holding AG",
+      "short_name": "ADVN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "79": {
+      "id": "72024",
+      "name": "Addex Therapeutics Ltd",
+      "short_name": "ADXN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "80": {
+      "id": "72025",
+      "name": "Aevis Victoria",
+      "short_name": "AEVS",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "81": {
+      "id": "72026",
+      "name": "Airesis SA",
+      "short_name": "AIRE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "82": {
+      "id": "72027",
+      "name": "Airopack Tech Group AG",
+      "short_name": "AIRN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "83": {
+      "id": "72028",
+      "name": "Alpiq Holding AG",
+      "short_name": "ALPH",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "84": {
+      "id": "72029",
+      "name": "Alpine Select AG",
+      "short_name": "ALPN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "85": {
+      "id": "72030",
+      "name": "Also Holding AG",
+      "short_name": "ALSN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "86": {
+      "id": "72031",
+      "name": "APG SGA SA",
+      "short_name": "APGN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "87": {
+      "id": "72032",
+      "name": "Autoneum Holding AG",
+      "short_name": "AUTON",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "88": {
+      "id": "72033",
+      "name": "BACHEM HOLDING AG",
+      "short_name": "BANB",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "89": {
+      "id": "72034",
+      "name": "Banque Cantonale de Geneve",
+      "short_name": "BCGE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "90": {
+      "id": "72035",
+      "name": "Burckhardt Compression",
+      "short_name": "BCHN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "91": {
+      "id": "72036",
+      "name": "Banque Cantonale Du Jura",
+      "short_name": "BCJ",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "92": {
+      "id": "72037",
+      "name": "Berner Kantonalbank AG",
+      "short_name": "BEKN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "93": {
+      "id": "72038",
+      "name": "BKW AG",
+      "short_name": "BKWB",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Utilities"
+    },
+    "94": {
+      "id": "72039",
+      "name": "BFW Liegenschaften AG",
+      "short_name": "BLIN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "95": {
+      "id": "72040",
+      "name": "Basellandschaftliche Kantonalbank",
+      "short_name": "BLKB",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "96": {
+      "id": "72041",
+      "name": "Bobst Group SA",
+      "short_name": "BOBNN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "97": {
+      "id": "72042",
+      "name": "ONE swiss bank",
+      "short_name": "ONE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "98": {
+      "id": "72043",
+      "name": "Burkhalter Holding AG",
+      "short_name": "BRKN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "99": {
+      "id": "72044",
+      "name": "Basler Kantonalbank",
+      "short_name": "BSKP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "100": {
+      "id": "72045",
+      "name": "Basilea Pharmaceutica AG",
+      "short_name": "BSLN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "101": {
+      "id": "72046",
+      "name": "BVZ Holding AG",
+      "short_name": "BVZN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "102": {
+      "id": "72047",
+      "name": "Calida Holding AG",
+      "short_name": "CALN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "103": {
+      "id": "72048",
+      "name": "Castle Alternative Invest AG",
+      "short_name": "CASN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "104": {
+      "id": "72049",
+      "name": "Compagnie Financiere Tradition",
+      "short_name": "CFT",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "105": {
+      "id": "72050",
+      "name": "Cicor Technologies Ltd",
+      "short_name": "CICN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "106": {
+      "id": "72051",
+      "name": "CI Com SA",
+      "short_name": "CIE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "107": {
+      "id": "72052",
+      "name": "Coltene Holding AG",
+      "short_name": "CLTN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "108": {
+      "id": "72053",
+      "name": "Crealogix Holding AG",
+      "short_name": "CLXN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "109": {
+      "id": "72054",
+      "name": "Cembra Money Bank AG",
+      "short_name": "CMBN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "110": {
+      "id": "72055",
+      "name": "Bystronic AG",
+      "short_name": "BYS",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "111": {
+      "id": "72056",
+      "name": "Comet Holding AG",
+      "short_name": "COTNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "112": {
+      "id": "72057",
+      "name": "Castle Private Equity AG",
+      "short_name": "CPE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "113": {
+      "id": "72058",
+      "name": "Cham Group",
+      "short_name": "CHAMA",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "114": {
+      "id": "72059",
+      "name": "CPH Chemie und Papier Holding",
+      "short_name": "CPHN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "115": {
+      "id": "72060",
+      "name": "Datacolor AG",
+      "short_name": "DCN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "116": {
+      "id": "72061",
+      "name": "Dottikon Es Holding AG",
+      "short_name": "DESN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "117": {
+      "id": "72062",
+      "name": "Avolta AG",
+      "short_name": "AVOL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "118": {
+      "id": "72063",
+      "name": "Naturenergie Holding",
+      "short_name": "NEAG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Utilities"
+    },
+    "119": {
+      "id": "72064",
+      "name": "EFG International AG",
+      "short_name": "EFGN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "120": {
+      "id": "72065",
+      "name": "Elma Electronic AG",
+      "short_name": "ELMN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "121": {
+      "id": "72066",
+      "name": "Edisun Power Europe AG",
+      "short_name": "ESUN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Utilities"
+    },
+    "122": {
+      "id": "72067",
+      "name": "Forbo Holding AG",
+      "short_name": "FORN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "123": {
+      "id": "72068",
+      "name": "Feintool International Holding",
+      "short_name": "FTON",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "124": {
+      "id": "72069",
+      "name": "Carlo Gavazzi Holding AG",
+      "short_name": "GAV",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "125": {
+      "id": "72070",
+      "name": "LumX",
+      "short_name": "LUMX",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "126": {
+      "id": "72071",
+      "name": "Groupe Minoteries SA",
+      "short_name": "GMI",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "127": {
+      "id": "72072",
+      "name": "Graubuendner Kantonalbank",
+      "short_name": "GRKP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "128": {
+      "id": "72073",
+      "name": "Gurit Holding AG",
+      "short_name": "GURN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "129": {
+      "id": "72074",
+      "name": "Hypothekarbank Lenzburg AG",
+      "short_name": "HBLN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "130": {
+      "id": "72075",
+      "name": "HBM Healthcare Investments",
+      "short_name": "HBMN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "131": {
+      "id": "72076",
+      "name": "HIAG Immobilien Holding AG",
+      "short_name": "HIAG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "132": {
+      "id": "72077",
+      "name": "Highlight Event Entertainment",
+      "short_name": "HLEE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "133": {
+      "id": "72078",
+      "name": "Ht5 Ltd",
+      "short_name": "HT5C",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "134": {
+      "id": "72079",
+      "name": "Romande Energie Holding SA",
+      "short_name": "REHN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Utilities"
+    },
+    "135": {
+      "id": "72080",
+      "name": "Huber+suhner AG",
+      "short_name": "HUBN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "136": {
+      "id": "72081",
+      "name": "Interroll Holding AG",
+      "short_name": "INRN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "137": {
+      "id": "72082",
+      "name": "Intershop Holding AG",
+      "short_name": "ISN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "138": {
+      "id": "72083",
+      "name": "Jungfraubahn Holding AG",
+      "short_name": "JFN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "139": {
+      "id": "72084",
+      "name": "Kudelski",
+      "short_name": "KUD",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "140": {
+      "id": "72085",
+      "name": "Leclanche SA",
+      "short_name": "LECN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "141": {
+      "id": "72086",
+      "name": "Lem Holding SA",
+      "short_name": "LEHN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "142": {
+      "id": "72087",
+      "name": "Leonteq AG",
+      "short_name": "LEON",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "143": {
+      "id": "72088",
+      "name": "Bank Linth LLB AG",
+      "short_name": "LINN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "144": {
+      "id": "72089",
+      "name": "Meyer Burger Tech AG",
+      "short_name": "MBTN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "145": {
+      "id": "72090",
+      "name": "Nebag ag",
+      "short_name": "NBEN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "146": {
+      "id": "72091",
+      "name": "New Venturetec AG",
+      "short_name": "NEV",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "147": {
+      "id": "72092",
+      "name": "Talenthouse",
+      "short_name": "THAGN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "148": {
+      "id": "72093",
+      "name": "Private Equity Holding AG",
+      "short_name": "PEHN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "149": {
+      "id": "72094",
+      "name": "Straumann Holding AG",
+      "short_name": "STMN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "150": {
+      "id": "72095",
+      "name": "Temenos Group AG",
+      "short_name": "TEMN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "151": {
+      "id": "72096",
+      "name": "mobilezone ag",
+      "short_name": "MOZN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "152": {
+      "id": "72097",
+      "name": "Groupe Baumgartner Holding",
+      "short_name": "BAP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "153": {
+      "id": "72098",
+      "name": "Liechtensteinische Landesbank",
+      "short_name": "LLBN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "154": {
+      "id": "72099",
+      "name": "Luzerner Kantonalbank AG",
+      "short_name": "LUKN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "155": {
+      "id": "72100",
+      "name": "MCH Group AG",
+      "short_name": "MCHN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "156": {
+      "id": "72101",
+      "name": "Metall Zug AG",
+      "short_name": "METN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "157": {
+      "id": "72102",
+      "name": "Mikron Holding AG",
+      "short_name": "MIKN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "158": {
+      "id": "72103",
+      "name": "Newron Pharmaceuticals",
+      "short_name": "NWRN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "159": {
+      "id": "72104",
+      "name": "Orascom Development",
+      "short_name": "ODHN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "160": {
+      "id": "72105",
+      "name": "Orell Fuessli Holding AG",
+      "short_name": "OFN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "161": {
+      "id": "72106",
+      "name": "Orior AG",
+      "short_name": "ORON",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "162": {
+      "id": "72107",
+      "name": "Youngtimers AG",
+      "short_name": "YTME",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "163": {
+      "id": "72108",
+      "name": "Peach Property Group AG",
+      "short_name": "PEAN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "164": {
+      "id": "72109",
+      "name": "Perrot Duval Holding SA",
+      "short_name": "PEDU",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "165": {
+      "id": "72110",
+      "name": "Plazza Immobilien AG",
+      "short_name": "PLANZ",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "166": {
+      "id": "72111",
+      "name": "Phoenix Mecano AG",
+      "short_name": "PMN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "167": {
+      "id": "72112",
+      "name": "Curatis Holding",
+      "short_name": "CURN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "168": {
+      "id": "72113",
+      "name": "Panalpina Welttransport",
+      "short_name": "PWTN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "169": {
+      "id": "72114",
+      "name": "Roche Holding AG",
+      "short_name": "RO",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "170": {
+      "id": "72115",
+      "name": "Von Roll Holding AG",
+      "short_name": "ROL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "171": {
+      "id": "72116",
+      "name": "Schaffner Holding AG",
+      "short_name": "SAHN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "172": {
+      "id": "72117",
+      "name": "Santhera Pharmaceuticals Holding AG",
+      "short_name": "SANN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "173": {
+      "id": "72118",
+      "name": "SF Urban Properties",
+      "short_name": "SFPN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "174": {
+      "id": "72119",
+      "name": "Siegfried Holding Ltd",
+      "short_name": "SFZN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "175": {
+      "id": "72120",
+      "name": "St Galler Kantonalbank AG",
+      "short_name": "SGKN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "176": {
+      "id": "72121",
+      "name": "SHL Telemedicine",
+      "short_name": "SHLTN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "177": {
+      "id": "72122",
+      "name": "Cassiopea SpA",
+      "short_name": "SKIN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "178": {
+      "id": "72123",
+      "name": "Schweizerische Nationalbank",
+      "short_name": "SNBN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "179": {
+      "id": "72124",
+      "name": "Swissquote Group Holding SA",
+      "short_name": "SQN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "180": {
+      "id": "72125",
+      "name": "Starrag Group Holding AG",
+      "short_name": "STGN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "181": {
+      "id": "72126",
+      "name": "Swiss Steel Holding",
+      "short_name": "STLN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "182": {
+      "id": "72127",
+      "name": "Schlatter Industries AG",
+      "short_name": "STRN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "183": {
+      "id": "72128",
+      "name": "Schweiter Technologies AG",
+      "short_name": "SWTQ",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "184": {
+      "id": "72129",
+      "name": "TX Group",
+      "short_name": "TXGN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "185": {
+      "id": "72130",
+      "name": "Bergbahnen Engelberg Truebsee",
+      "short_name": "TIBN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "186": {
+      "id": "72131",
+      "name": "Thurgauer Kantonalbank",
+      "short_name": "TKBP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "187": {
+      "id": "72132",
+      "name": "Relief Therapeutics Holding SA",
+      "short_name": "RLFB",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "188": {
+      "id": "72133",
+      "name": "Tornos",
+      "short_name": "TOHNz",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "189": {
+      "id": "72134",
+      "name": "U Blox Holding AG",
+      "short_name": "UBXN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "190": {
+      "id": "72135",
+      "name": "Arundel",
+      "short_name": "ARONL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "191": {
+      "id": "72136",
+      "name": "Vaudoise Assurances Holding SA",
+      "short_name": "VAHN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "192": {
+      "id": "72137",
+      "name": "IVF Hartmann Holding AG",
+      "short_name": "VBSN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "193": {
+      "id": "72138",
+      "name": "Vetropack Holding SA",
+      "short_name": "VETN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "194": {
+      "id": "72139",
+      "name": "Villars Holding SA",
+      "short_name": "VILN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "195": {
+      "id": "72140",
+      "name": "Valartis",
+      "short_name": "VLRT",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "196": {
+      "id": "72141",
+      "name": "VP Bank AG",
+      "short_name": "VPBN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "197": {
+      "id": "72142",
+      "name": "Warteck Invest Ltd",
+      "short_name": "WARN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "198": {
+      "id": "72143",
+      "name": "Banque Cantonale du Valais",
+      "short_name": "WKB",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "199": {
+      "id": "72144",
+      "name": "Walter Meier",
+      "short_name": "METG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "200": {
+      "id": "72145",
+      "name": "Ypsomed Holding AG",
+      "short_name": "YPSN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "201": {
+      "id": "72146",
+      "name": "Zuger Kantonalbank",
+      "short_name": "ZUGER",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "202": {
+      "id": "72147",
+      "name": "Zueblin Immobilien Holding AG",
+      "short_name": "ZUBN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "203": {
+      "id": "72148",
+      "name": "Zug Estates Holding AG",
+      "short_name": "ZUGN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "204": {
+      "id": "72149",
+      "name": "Zwahlen et Mayr SA",
+      "short_name": "ZWM",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "205": {
+      "id": "72150",
+      "name": "Glarner Kantonalbank",
+      "short_name": "GLKBN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "206": {
+      "id": "72151",
+      "name": "Wisekey International Holding AG",
+      "short_name": "WIHN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "207": {
+      "id": "72152",
+      "name": "VAT Group AG",
+      "short_name": "VACN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "208": {
+      "id": "72153",
+      "name": "Investis",
+      "short_name": "IREN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "209": {
+      "id": "72154",
+      "name": "PIERER Mobility AG",
+      "short_name": "PKTM",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "210": {
+      "id": "72155",
+      "name": "ENR Russia Invest",
+      "short_name": "RUSE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "211": {
+      "id": "72156",
+      "name": "Varia US",
+      "short_name": "VARN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "212": {
+      "id": "72157",
+      "name": "Galenica Sante SA",
+      "short_name": "GALE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "213": {
+      "id": "72158",
+      "name": "Idorsia Ltd",
+      "short_name": "IDIA",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "214": {
+      "id": "72159",
+      "name": "DocMorris",
+      "short_name": "DOCM",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "215": {
+      "id": "72160",
+      "name": "Landis+Gyr Group AG",
+      "short_name": "LANDI",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "216": {
+      "id": "72161",
+      "name": "Poenina",
+      "short_name": "PNHO",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "217": {
+      "id": "72162",
+      "name": "Asmallworld",
+      "short_name": "ASWN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "218": {
+      "id": "72163",
+      "name": "Sensirion Holding AG",
+      "short_name": "SENSI",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "219": {
+      "id": "72164",
+      "name": "Spexis",
+      "short_name": "SPEXN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "220": {
+      "id": "72165",
+      "name": "Medartis",
+      "short_name": "MEDA",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "221": {
+      "id": "72166",
+      "name": "Klingelnberg",
+      "short_name": "KLIN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "222": {
+      "id": "72167",
+      "name": "Lalique",
+      "short_name": "LLQ",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "223": {
+      "id": "72168",
+      "name": "Blackstone Resources",
+      "short_name": "BLS",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "224": {
+      "id": "72169",
+      "name": "SIG Group AG",
+      "short_name": "SIGNC",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "225": {
+      "id": "72170",
+      "name": "Medacta",
+      "short_name": "MOVE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "226": {
+      "id": "72171",
+      "name": "Stadler Rail AG",
+      "short_name": "SRAIL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "227": {
+      "id": "72172",
+      "name": "Eeii AG",
+      "short_name": "EIC",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "228": {
+      "id": "72345",
+      "name": "ObsEva",
+      "short_name": "OBSN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "231": {
+      "id": "113877",
+      "name": "Transocean Ltd",
+      "short_name": "RIGN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "232": {
+      "id": "113878",
+      "name": "BASF SE NA O.N.",
+      "short_name": "BASFZ",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "233": {
+      "id": "113879",
+      "name": "Siemens AG",
+      "short_name": "SIEGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "234": {
+      "id": "113880",
+      "name": "Danone",
+      "short_name": "DANO",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "235": {
+      "id": "113881",
+      "name": "GE Aerospace",
+      "short_name": "GE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "236": {
+      "id": "113882",
+      "name": "Nestle",
+      "short_name": "NESNEE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "237": {
+      "id": "113883",
+      "name": "HBM Healthcare Investments AG",
+      "short_name": "HBMNN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "238": {
+      "id": "113884",
+      "name": "Bellevue Group AG",
+      "short_name": "BBN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "239": {
+      "id": "113885",
+      "name": "Baloise N 2L",
+      "short_name": "BALNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "240": {
+      "id": "113886",
+      "name": "Apple Inc",
+      "short_name": "AAPLEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "241": {
+      "id": "113887",
+      "name": "Bayer",
+      "short_name": "BAYGnEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "242": {
+      "id": "113888",
+      "name": "Beiersdorf AG",
+      "short_name": "BEIGEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "243": {
+      "id": "113889",
+      "name": "Mercedes Benz Group AG",
+      "short_name": "DAIGnEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "244": {
+      "id": "113890",
+      "name": "Deutsche Bank AG",
+      "short_name": "DBKGnEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "245": {
+      "id": "113891",
+      "name": "Fresenius SE & Co KGAA O.N.",
+      "short_name": "FREGEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "246": {
+      "id": "113892",
+      "name": "Heidelberg Materials AG",
+      "short_name": "HEIGEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "247": {
+      "id": "113893",
+      "name": "Infineon Technologies AG NA O.N.",
+      "short_name": "IFXGnEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "248": {
+      "id": "113894",
+      "name": "Merck",
+      "short_name": "MRCGEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "249": {
+      "id": "113895",
+      "name": "RWE AG ST",
+      "short_name": "RWEGEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Utilities"
+    },
+    "250": {
+      "id": "113896",
+      "name": "Thyssenkrupp AG",
+      "short_name": "TKAGEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "251": {
+      "id": "113897",
+      "name": "Bayerische Motoren Werke AG",
+      "short_name": "BMWGEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "252": {
+      "id": "113898",
+      "name": "Deutsche Post AG NA O.N.",
+      "short_name": "DPWGnEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "253": {
+      "id": "113899",
+      "name": "Deutsche Telekom AG Na",
+      "short_name": "DTEGnEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "254": {
+      "id": "113900",
+      "name": "Deutsche Lufthansa AG",
+      "short_name": "LHAGEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "255": {
+      "id": "113901",
+      "name": "Lanxess AG",
+      "short_name": "LXSGEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "256": {
+      "id": "113902",
+      "name": "Fresenius Medical Care",
+      "short_name": "FMEGEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "257": {
+      "id": "113903",
+      "name": "Munich Re Group",
+      "short_name": "MUVGnEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "258": {
+      "id": "113904",
+      "name": "Edmond de Rothschild Suisse SA",
+      "short_name": "RLD",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "259": {
+      "id": "113905",
+      "name": "VZ Holding AG",
+      "short_name": "VZN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "260": {
+      "id": "113906",
+      "name": "Zimmer Biomet Holdings Inc",
+      "short_name": "ZBH",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "261": {
+      "id": "113907",
+      "name": "Allianz SE VNA O.N.",
+      "short_name": "ALVGEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "262": {
+      "id": "113908",
+      "name": "Deutsche Boerse",
+      "short_name": "DB1GnEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "263": {
+      "id": "113909",
+      "name": "E.ON SE",
+      "short_name": "EONGnEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Utilities"
+    },
+    "264": {
+      "id": "113910",
+      "name": "SAP SE",
+      "short_name": "SAPGEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "265": {
+      "id": "113911",
+      "name": "Siemens AG Class N",
+      "short_name": "SIEGnEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "266": {
+      "id": "113912",
+      "name": "Kraft Heinz Co",
+      "short_name": "KHC",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "267": {
+      "id": "113913",
+      "name": "Engie",
+      "short_name": "ENGIE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Utilities"
+    },
+    "268": {
+      "id": "113914",
+      "name": "Henkel & Co KGaA AG Pref",
+      "short_name": "HNKG_pEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "269": {
+      "id": "113915",
+      "name": "Adidas AG",
+      "short_name": "ADSGnEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "270": {
+      "id": "113916",
+      "name": "Continental AG O.N.",
+      "short_name": "CONGEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "271": {
+      "id": "113917",
+      "name": "PayPal",
+      "short_name": "PYPL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "272": {
+      "id": "113918",
+      "name": "Ferrari NV",
+      "short_name": "RACE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "273": {
+      "id": "113919",
+      "name": "K+S AG",
+      "short_name": "SDFGnEUR",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "274": {
+      "id": "113920",
+      "name": "Vonovia SE",
+      "short_name": "VNAn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "275": {
+      "id": "113921",
+      "name": "TechnipFMC PLC",
+      "short_name": "FTI",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "276": {
+      "id": "113922",
+      "name": "Edwards Lifesciences Corp",
+      "short_name": "EW",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "277": {
+      "id": "113923",
+      "name": "Tractor Supply",
+      "short_name": "TSC",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "278": {
+      "id": "113924",
+      "name": "Telia Company",
+      "short_name": "TELIA",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "279": {
+      "id": "113925",
+      "name": "Royal Dutch Shell B",
+      "short_name": "RDSB",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "280": {
+      "id": "113926",
+      "name": "NetEase",
+      "short_name": "NTES",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "281": {
+      "id": "113927",
+      "name": "Grenke",
+      "short_name": "GLJ",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "282": {
+      "id": "113928",
+      "name": "ING Groep",
+      "short_name": "INGA",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "283": {
+      "id": "113929",
+      "name": "Apple Inc",
+      "short_name": "AAPLUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "284": {
+      "id": "113930",
+      "name": "Amazon.com",
+      "short_name": "AMZNUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "285": {
+      "id": "113931",
+      "name": "Bristol-Myers Squibb",
+      "short_name": "BMYUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "286": {
+      "id": "113932",
+      "name": "Altria Group",
+      "short_name": "MOUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "287": {
+      "id": "113933",
+      "name": "Netflix",
+      "short_name": "NFLXUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "288": {
+      "id": "113934",
+      "name": "Qualcomm",
+      "short_name": "QCOMUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "289": {
+      "id": "113935",
+      "name": "Tesla Inc",
+      "short_name": "TSLAUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "290": {
+      "id": "113936",
+      "name": "Wells Fargo&Co",
+      "short_name": "WFCUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "291": {
+      "id": "113937",
+      "name": "Alibaba ADR",
+      "short_name": "BABAUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "292": {
+      "id": "113938",
+      "name": "Alphabet Inc Class A",
+      "short_name": "GOOGLUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "293": {
+      "id": "113939",
+      "name": "AMD",
+      "short_name": "AMDUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "294": {
+      "id": "113940",
+      "name": "Gilead Sciences Inc",
+      "short_name": "GILDUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "295": {
+      "id": "113941",
+      "name": "General Motors Company",
+      "short_name": "GMUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "296": {
+      "id": "113942",
+      "name": "IBM",
+      "short_name": "IBMUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "297": {
+      "id": "113943",
+      "name": "J&J",
+      "short_name": "JNJUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "298": {
+      "id": "113944",
+      "name": "JPMorgan",
+      "short_name": "JPMUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "299": {
+      "id": "113945",
+      "name": "Mondelez",
+      "short_name": "MDLZUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "300": {
+      "id": "113946",
+      "name": "Merck&Co",
+      "short_name": "MRKUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "301": {
+      "id": "113947",
+      "name": "Transocean Ltd",
+      "short_name": "RIGNUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "302": {
+      "id": "113948",
+      "name": "Starbucks Corporation",
+      "short_name": "SBUXUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "303": {
+      "id": "113949",
+      "name": "AT&T",
+      "short_name": "TUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "304": {
+      "id": "113950",
+      "name": "Twitter Inc",
+      "short_name": "TWTRUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "305": {
+      "id": "113951",
+      "name": "Valeo SA",
+      "short_name": "VLOF",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "306": {
+      "id": "113952",
+      "name": "Intel Corporation",
+      "short_name": "INTCUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "307": {
+      "id": "113953",
+      "name": "Cisco Systems Inc",
+      "short_name": "CSCOUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "308": {
+      "id": "113954",
+      "name": "Home Depot",
+      "short_name": "HDUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "309": {
+      "id": "113955",
+      "name": "Nike Inc",
+      "short_name": "NKEUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "310": {
+      "id": "113956",
+      "name": "Uniper SE",
+      "short_name": "UNIPE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Utilities"
+    },
+    "311": {
+      "id": "113957",
+      "name": "Citigroup",
+      "short_name": "CUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "312": {
+      "id": "113958",
+      "name": "Meta Platforms",
+      "short_name": "FBUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "313": {
+      "id": "113959",
+      "name": "Exxon Mobil Corp",
+      "short_name": "XOMUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "314": {
+      "id": "113960",
+      "name": "Coca-Cola",
+      "short_name": "KOUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "315": {
+      "id": "113961",
+      "name": "GoPro Inc",
+      "short_name": "GPROUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "316": {
+      "id": "113962",
+      "name": "Innogy",
+      "short_name": "INNOG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Utilities"
+    },
+    "317": {
+      "id": "113963",
+      "name": "Chevron Corp",
+      "short_name": "CVXUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "318": {
+      "id": "113964",
+      "name": "Corning",
+      "short_name": "GLWUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "319": {
+      "id": "113965",
+      "name": "Verizon",
+      "short_name": "VZUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "320": {
+      "id": "113966",
+      "name": "Microsoft",
+      "short_name": "MSFTUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "321": {
+      "id": "113967",
+      "name": "Freeport-McMoran Copper & Gold Inc",
+      "short_name": "FCXUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "322": {
+      "id": "113968",
+      "name": "P&G",
+      "short_name": "PGUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "323": {
+      "id": "113969",
+      "name": "Walt Disney",
+      "short_name": "DISUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "324": {
+      "id": "113970",
+      "name": "First Solar",
+      "short_name": "FSLRUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "325": {
+      "id": "113971",
+      "name": "HP Inc",
+      "short_name": "HPQAUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "326": {
+      "id": "113972",
+      "name": "Micron",
+      "short_name": "MUUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "327": {
+      "id": "113973",
+      "name": "Lenovo Group",
+      "short_name": "0992",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "328": {
+      "id": "113974",
+      "name": "Sony",
+      "short_name": "6758",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "329": {
+      "id": "113975",
+      "name": "Anglo American PLC",
+      "short_name": "AAL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "330": {
+      "id": "113976",
+      "name": "Apple",
+      "short_name": "AAPL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "331": {
+      "id": "113977",
+      "name": "Anheuser Busch Inbev",
+      "short_name": "ABI",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "332": {
+      "id": "113978",
+      "name": "Abbott Laboratories",
+      "short_name": "ABT",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "333": {
+      "id": "113979",
+      "name": "Barrick Mining",
+      "short_name": "ABX",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "334": {
+      "id": "113980",
+      "name": "Accor",
+      "short_name": "ACCP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "335": {
+      "id": "113981",
+      "name": "Adobe",
+      "short_name": "ADBE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "336": {
+      "id": "113982",
+      "name": "Adidas AG",
+      "short_name": "ADSGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "337": {
+      "id": "113983",
+      "name": "Aegon",
+      "short_name": "AEGN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "338": {
+      "id": "113984",
+      "name": "Agnico Eagle Mines Limited",
+      "short_name": "AEM",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "339": {
+      "id": "113985",
+      "name": "Carl Zeiss AG",
+      "short_name": "AFXG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "340": {
+      "id": "113986",
+      "name": "Airbus Group",
+      "short_name": "AIR",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "341": {
+      "id": "113987",
+      "name": "Air Liquide",
+      "short_name": "AIRP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "342": {
+      "id": "113988",
+      "name": "Alstom SA",
+      "short_name": "ALSO",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "343": {
+      "id": "113989",
+      "name": "Allianz",
+      "short_name": "ALVG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "344": {
+      "id": "113990",
+      "name": "Advanced Micro Devices Inc",
+      "short_name": "AMD",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "345": {
+      "id": "113991",
+      "name": "Amgen Inc",
+      "short_name": "AMGN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "346": {
+      "id": "113992",
+      "name": "Amazon.com Inc",
+      "short_name": "AMZN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "347": {
+      "id": "113993",
+      "name": "UBS CH Property Fund Leman",
+      "short_name": "ANFO",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "348": {
+      "id": "113994",
+      "name": "ASML Holding",
+      "short_name": "ASML",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "349": {
+      "id": "113995",
+      "name": "At&S Austria",
+      "short_name": "ATSV",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "350": {
+      "id": "113996",
+      "name": "RTL",
+      "short_name": "AUDKt",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "351": {
+      "id": "113997",
+      "name": "AXA SA",
+      "short_name": "AXAF",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "352": {
+      "id": "113998",
+      "name": "American Express",
+      "short_name": "AXP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "353": {
+      "id": "113999",
+      "name": "AstraZeneca",
+      "short_name": "AZN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "354": {
+      "id": "114000",
+      "name": "Boeing",
+      "short_name": "BA",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "355": {
+      "id": "114001",
+      "name": "Bank of America Corp",
+      "short_name": "BAC",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "356": {
+      "id": "114002",
+      "name": "Barclays",
+      "short_name": "BARC",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "357": {
+      "id": "114003",
+      "name": "British American Tobacco PLC",
+      "short_name": "BATS",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "358": {
+      "id": "114004",
+      "name": "Bayer",
+      "short_name": "BAYGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "359": {
+      "id": "114005",
+      "name": "Beiersdorf AG",
+      "short_name": "BEIG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "360": {
+      "id": "114006",
+      "name": "BHP Billiton Ltd",
+      "short_name": "BHP1",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "361": {
+      "id": "114007",
+      "name": "Biogen",
+      "short_name": "BIIB",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "362": {
+      "id": "114008",
+      "name": "Bonhote Immobilier",
+      "short_name": "BIM",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "363": {
+      "id": "114009",
+      "name": "Ballard Power Systems Inc",
+      "short_name": "BLD",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "364": {
+      "id": "114011",
+      "name": "Bayerische Motoren Werke AG",
+      "short_name": "BMWG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "365": {
+      "id": "114012",
+      "name": "Bristol-Myers Squibb Company",
+      "short_name": "BMY",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "366": {
+      "id": "114013",
+      "name": "BNP Paribas SA",
+      "short_name": "BNPP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "367": {
+      "id": "114014",
+      "name": "Hugo Boss AG NA O.N.",
+      "short_name": "BOSSn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "368": {
+      "id": "114015",
+      "name": "BP",
+      "short_name": "BP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "369": {
+      "id": "114016",
+      "name": "Berkshire Hathaway B",
+      "short_name": "BRKb",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "370": {
+      "id": "114017",
+      "name": "Borussia Dortmund",
+      "short_name": "BVB",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "371": {
+      "id": "114018",
+      "name": "Citigroup",
+      "short_name": "C",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "372": {
+      "id": "114019",
+      "name": "Comercial del Plata N",
+      "short_name": "CADOn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "373": {
+      "id": "114020",
+      "name": "Credit Agricole SA",
+      "short_name": "CAGR",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "374": {
+      "id": "114021",
+      "name": "Carrefour",
+      "short_name": "CARR",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "375": {
+      "id": "114022",
+      "name": "Caterpillar",
+      "short_name": "CAT",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "376": {
+      "id": "114023",
+      "name": "Commerzbank",
+      "short_name": "CBKG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "377": {
+      "id": "114024",
+      "name": "Cameco Corp",
+      "short_name": "CCO",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "378": {
+      "id": "114025",
+      "name": "Coeur Mining Inc",
+      "short_name": "CDE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "379": {
+      "id": "114026",
+      "name": "Church&Dwight",
+      "short_name": "CHD",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "380": {
+      "id": "114027",
+      "name": "Colgate-Palmolive",
+      "short_name": "CL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "381": {
+      "id": "114028",
+      "name": "Natixis",
+      "short_name": "CNAT",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "382": {
+      "id": "114029",
+      "name": "Cancom SE",
+      "short_name": "COKG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "383": {
+      "id": "114030",
+      "name": "Coloplast",
+      "short_name": "COLOb",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "384": {
+      "id": "114031",
+      "name": "Continental AG",
+      "short_name": "CONG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "385": {
+      "id": "114032",
+      "name": "ConocoPhillips",
+      "short_name": "COP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "386": {
+      "id": "114033",
+      "name": "UniCredit SpA",
+      "short_name": "CRDI",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "387": {
+      "id": "114034",
+      "name": "Salesforce Inc",
+      "short_name": "CRMS",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "388": {
+      "id": "114035",
+      "name": "Cisco",
+      "short_name": "CSCO",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "389": {
+      "id": "114036",
+      "name": "Direct LivingPlus",
+      "short_name": "CSLP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "390": {
+      "id": "114037",
+      "name": "Cognizant A",
+      "short_name": "CTSH",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "391": {
+      "id": "114038",
+      "name": "Chevron Corp",
+      "short_name": "CVX",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "392": {
+      "id": "114039",
+      "name": "Mercedes Benz Group",
+      "short_name": "DAIGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "393": {
+      "id": "114040",
+      "name": "Delta Air Lines Inc",
+      "short_name": "DALI",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "394": {
+      "id": "114041",
+      "name": "Deutsche Boerse",
+      "short_name": "DB1Gn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "395": {
+      "id": "114042",
+      "name": "Deutsche Beteiligungs AG O.N.",
+      "short_name": "DBANn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "396": {
+      "id": "114043",
+      "name": "Deutsche Bank AG",
+      "short_name": "DBKGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "397": {
+      "id": "114044",
+      "name": "3D Systems Corporation",
+      "short_name": "DDD",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "398": {
+      "id": "114045",
+      "name": "Deutz AG",
+      "short_name": "DEZG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "399": {
+      "id": "114046",
+      "name": "Walt Disney",
+      "short_name": "DIS",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "400": {
+      "id": "114047",
+      "name": "Deutsche Post AG NA O.N.",
+      "short_name": "DPWGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "401": {
+      "id": "114048",
+      "name": "UBS CH Property Direct Residential",
+      "short_name": "DRPF",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "402": {
+      "id": "114049",
+      "name": "Deutsche Telekom AG",
+      "short_name": "DTEGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "403": {
+      "id": "114050",
+      "name": "Duerr AG",
+      "short_name": "DUEG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "404": {
+      "id": "114051",
+      "name": "Deutsche Wohnen",
+      "short_name": "DWNG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "405": {
+      "id": "114052",
+      "name": "Electricite de France",
+      "short_name": "EDF",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Utilities"
+    },
+    "406": {
+      "id": "114053",
+      "name": "EDP",
+      "short_name": "EDP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Utilities"
+    },
+    "407": {
+      "id": "114054",
+      "name": "Emerson",
+      "short_name": "EMR",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "408": {
+      "id": "114055",
+      "name": "Enel",
+      "short_name": "ENEI",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Utilities"
+    },
+    "409": {
+      "id": "114056",
+      "name": "Eni SpA",
+      "short_name": "ENI",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "410": {
+      "id": "114057",
+      "name": "E.ON SE",
+      "short_name": "EONGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Utilities"
+    },
+    "411": {
+      "id": "114058",
+      "name": "Forvia",
+      "short_name": "EPED",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "412": {
+      "id": "114059",
+      "name": "EPH European Property Holdings",
+      "short_name": "EPH",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "413": {
+      "id": "114060",
+      "name": "Edmond de Rothschild RE",
+      "short_name": "ERRES",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "414": {
+      "id": "114061",
+      "name": "EssilorLuxottica SA",
+      "short_name": "ESSI",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "415": {
+      "id": "114062",
+      "name": "Evonik Industries AG",
+      "short_name": "EVKn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "416": {
+      "id": "114063",
+      "name": "Evotec AG",
+      "short_name": "EVTG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "417": {
+      "id": "114064",
+      "name": "Meta Platforms",
+      "short_name": "FB",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "418": {
+      "id": "114065",
+      "name": "Freeport-McMoran",
+      "short_name": "FCX",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "419": {
+      "id": "114066",
+      "name": "Fielmann AG",
+      "short_name": "FIEG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "420": {
+      "id": "114067",
+      "name": "FIR",
+      "short_name": "FIR",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "421": {
+      "id": "114068",
+      "name": "Fresenius Medical Care",
+      "short_name": "FMEG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "422": {
+      "id": "114069",
+      "name": "Freenet AG",
+      "short_name": "FNTGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "423": {
+      "id": "114070",
+      "name": "La Fonciere",
+      "short_name": "FOC",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "424": {
+      "id": "114071",
+      "name": "Ubs Property Fd Leman Residential",
+      "short_name": "FONC",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "425": {
+      "id": "114072",
+      "name": "Fresenius SE",
+      "short_name": "FREG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "426": {
+      "id": "114073",
+      "name": "First Solar",
+      "short_name": "FSLR",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "427": {
+      "id": "114074",
+      "name": "GEA Group AG",
+      "short_name": "G1AG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "428": {
+      "id": "114075",
+      "name": "Assicurazioni Generali SpA",
+      "short_name": "GASI",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "429": {
+      "id": "114076",
+      "name": "Bilfinger SE O.N.",
+      "short_name": "GBFG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "430": {
+      "id": "114077",
+      "name": "Gold Fields",
+      "short_name": "GFIJ",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "431": {
+      "id": "114078",
+      "name": "Gilead Sciences Inc",
+      "short_name": "GILD",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "432": {
+      "id": "114079",
+      "name": "General Mills",
+      "short_name": "GIS",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "433": {
+      "id": "114080",
+      "name": "Credit Suisse RE Global",
+      "short_name": "GLOBI",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "434": {
+      "id": "114081",
+      "name": "Grammer AG",
+      "short_name": "GMMG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "435": {
+      "id": "114082",
+      "name": "Alphabet A",
+      "short_name": "GOOGL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "436": {
+      "id": "114083",
+      "name": "GoPro Inc",
+      "short_name": "GPRO",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "437": {
+      "id": "114084",
+      "name": "Direct Green Property",
+      "short_name": "GREEN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "438": {
+      "id": "114085",
+      "name": "GSK plc",
+      "short_name": "GSK",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "439": {
+      "id": "114086",
+      "name": "Gerresheimer AG",
+      "short_name": "GXIG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "440": {
+      "id": "114087",
+      "name": "Hamborner AG",
+      "short_name": "HABG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "441": {
+      "id": "114088",
+      "name": "Halliburton",
+      "short_name": "HAL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "442": {
+      "id": "114089",
+      "name": "Home Depot Inc",
+      "short_name": "HD",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "443": {
+      "id": "114090",
+      "name": "Heidelberger Druckmaschinen",
+      "short_name": "HDDG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "444": {
+      "id": "114091",
+      "name": "Heidelberg Materials",
+      "short_name": "HEIG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "445": {
+      "id": "114092",
+      "name": "Heineken",
+      "short_name": "HEIN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "446": {
+      "id": "114093",
+      "name": "Hamburger Hafen A-SP",
+      "short_name": "HHFGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "447": {
+      "id": "114094",
+      "name": "Hecla Mining Company",
+      "short_name": "HL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "448": {
+      "id": "114095",
+      "name": "H&M B",
+      "short_name": "HMb",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "449": {
+      "id": "114096",
+      "name": "Hannover Rueckversicherung SE",
+      "short_name": "HNRGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "450": {
+      "id": "114097",
+      "name": "Credit Suisse Real Estate Fund Hospitality A",
+      "short_name": "HOSP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "451": {
+      "id": "114098",
+      "name": "Hochtief AG",
+      "short_name": "HOTG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "452": {
+      "id": "114099",
+      "name": "IBM",
+      "short_name": "IBM",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "453": {
+      "id": "114100",
+      "name": "Infineon Technologies AG NA O.N.",
+      "short_name": "IFXGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "454": {
+      "id": "114101",
+      "name": "Immofonds Immobilien",
+      "short_name": "IM",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "455": {
+      "id": "114102",
+      "name": "Immo Helvetic",
+      "short_name": "IMHE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "456": {
+      "id": "114103",
+      "name": "Ingenico",
+      "short_name": "INGC",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "457": {
+      "id": "114104",
+      "name": "Swiss Commercial Interswiss",
+      "short_name": "INT",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "458": {
+      "id": "114105",
+      "name": "Intel",
+      "short_name": "INTC",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "459": {
+      "id": "114106",
+      "name": "Intesa Sanpaolo",
+      "short_name": "ISP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "460": {
+      "id": "114107",
+      "name": "Intuitive Surgical",
+      "short_name": "ISRGS",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "461": {
+      "id": "114108",
+      "name": "Johnson & Johnson",
+      "short_name": "JNJ",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "462": {
+      "id": "114109",
+      "name": "JPMorgan",
+      "short_name": "JPM",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "463": {
+      "id": "114110",
+      "name": "Kinross Gold",
+      "short_name": "KGC",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "464": {
+      "id": "114111",
+      "name": "Kion Group AG",
+      "short_name": "KGX",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "465": {
+      "id": "114112",
+      "name": "Coca-Cola Co",
+      "short_name": "KO",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "466": {
+      "id": "114113",
+      "name": "Kuka AG",
+      "short_name": "KU2G",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "467": {
+      "id": "114114",
+      "name": "Lufthansa",
+      "short_name": "LHAG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "468": {
+      "id": "114115",
+      "name": "Lloyds Banking Group PLC",
+      "short_name": "LLOY",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "469": {
+      "id": "114116",
+      "name": "Lockheed Martin",
+      "short_name": "LMT",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "470": {
+      "id": "114117",
+      "name": "LVMH Moet Hennessy Louis Vuitton SE",
+      "short_name": "LVMH",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "471": {
+      "id": "114118",
+      "name": "McDonald\u00e2\u20ac\u2122s",
+      "short_name": "MCD",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "472": {
+      "id": "114119",
+      "name": "Mondelez",
+      "short_name": "MDLZ",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "473": {
+      "id": "114120",
+      "name": "Medtronic",
+      "short_name": "MDT",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "474": {
+      "id": "114121",
+      "name": "Ceconomy AG",
+      "short_name": "CECG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "475": {
+      "id": "114122",
+      "name": "3M Company",
+      "short_name": "MMM",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "476": {
+      "id": "114123",
+      "name": "Altria",
+      "short_name": "MO",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "477": {
+      "id": "114124",
+      "name": "Morphosys AG",
+      "short_name": "MORG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "478": {
+      "id": "114125",
+      "name": "Merck KGaA",
+      "short_name": "MRCG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "479": {
+      "id": "114126",
+      "name": "Microsoft",
+      "short_name": "MSFT",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "480": {
+      "id": "114127",
+      "name": "Micron Technology Inc",
+      "short_name": "MU",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "481": {
+      "id": "114128",
+      "name": "Munich Re Group",
+      "short_name": "MUVGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "482": {
+      "id": "114129",
+      "name": "Newcrest Mining Ltd",
+      "short_name": "NCM",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "483": {
+      "id": "114130",
+      "name": "Nordea Bank",
+      "short_name": "NDB",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "484": {
+      "id": "114131",
+      "name": "Nordex SE O.N.",
+      "short_name": "NDXG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "485": {
+      "id": "114132",
+      "name": "Newmont Goldcorp Corp",
+      "short_name": "NEM",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "486": {
+      "id": "114133",
+      "name": "Netflix",
+      "short_name": "NFLX",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "487": {
+      "id": "114134",
+      "name": "Norsk Hydro ASA",
+      "short_name": "NHY",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "488": {
+      "id": "114135",
+      "name": "Nike",
+      "short_name": "NKE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "489": {
+      "id": "114136",
+      "name": "Norma Group AG NA O.N.",
+      "short_name": "NOEJ",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "490": {
+      "id": "114137",
+      "name": "Novo Nordisk A\/S Class B",
+      "short_name": "NOVOb",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "491": {
+      "id": "114138",
+      "name": "NVIDIA Corporation",
+      "short_name": "NVDA",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "492": {
+      "id": "114139",
+      "name": "Novozymes AS",
+      "short_name": "NZYMb",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "493": {
+      "id": "114140",
+      "name": "Telefonica Deutschland Holding AG",
+      "short_name": "O2Dn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "494": {
+      "id": "114141",
+      "name": "Oracle Corporation",
+      "short_name": "ORCL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "495": {
+      "id": "114142",
+      "name": "Osram Licht AG",
+      "short_name": "OSRn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "496": {
+      "id": "114143",
+      "name": "Patrizia Immobilien AG",
+      "short_name": "P1ZGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "497": {
+      "id": "114144",
+      "name": "Pan American Silver NQ",
+      "short_name": "PAA",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "498": {
+      "id": "114145",
+      "name": "Booking",
+      "short_name": "BKNG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "499": {
+      "id": "114146",
+      "name": "PepsiCo Inc",
+      "short_name": "PEP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "500": {
+      "id": "114147",
+      "name": "Peugeot SA",
+      "short_name": "PEUP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "501": {
+      "id": "114148",
+      "name": "P&G",
+      "short_name": "PG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "502": {
+      "id": "114149",
+      "name": "Philip Morris International Inc",
+      "short_name": "PMI",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "503": {
+      "id": "114150",
+      "name": "Pandora A\/S",
+      "short_name": "PNDORA",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "504": {
+      "id": "114151",
+      "name": "Procimmo Swiss Commercial",
+      "short_name": "PSCF",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "505": {
+      "id": "114152",
+      "name": "Prosiebensat 1 Media AG",
+      "short_name": "PSMGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "506": {
+      "id": "114153",
+      "name": "Patrimonium Swiss RE",
+      "short_name": "PSREF",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "507": {
+      "id": "114154",
+      "name": "PostNL",
+      "short_name": "PTNL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "508": {
+      "id": "114155",
+      "name": "Puma SE",
+      "short_name": "PUMG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "509": {
+      "id": "114156",
+      "name": "Qualcomm Incorporated",
+      "short_name": "QCOM",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "510": {
+      "id": "114157",
+      "name": "Raiffeisen Bank",
+      "short_name": "RBIV",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "511": {
+      "id": "114158",
+      "name": "NatWest Group PLC",
+      "short_name": "RBS",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "512": {
+      "id": "114159",
+      "name": "Shell PLC",
+      "short_name": "RDSa",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "513": {
+      "id": "114160",
+      "name": "Regeneron Pharma",
+      "short_name": "REGN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "514": {
+      "id": "114161",
+      "name": "Renault",
+      "short_name": "RENA",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "515": {
+      "id": "114162",
+      "name": "Rheinmetall AG",
+      "short_name": "RHMG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "516": {
+      "id": "114163",
+      "name": "Rio Tinto PLC",
+      "short_name": "RIO",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "517": {
+      "id": "114164",
+      "name": "Rolinco NV",
+      "short_name": "RLIN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "518": {
+      "id": "114165",
+      "name": "Realstone Swiss Pro-RTS",
+      "short_name": "RSPF",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "519": {
+      "id": "114166",
+      "name": "RWE AG ST O.N.",
+      "short_name": "RWEG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Utilities"
+    },
+    "520": {
+      "id": "114167",
+      "name": "SMA Solar AG",
+      "short_name": "S92G",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "521": {
+      "id": "114168",
+      "name": "SAP",
+      "short_name": "SAPG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "522": {
+      "id": "114169",
+      "name": "Sanofi SA",
+      "short_name": "SASY",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "523": {
+      "id": "114170",
+      "name": "Stroeer SE",
+      "short_name": "SAXG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "524": {
+      "id": "114171",
+      "name": "Schoeller-Bleckmann AG",
+      "short_name": "SBOE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "525": {
+      "id": "114172",
+      "name": "Starbucks Corporation",
+      "short_name": "SBUX",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "526": {
+      "id": "114173",
+      "name": "Svenska Cellulosa SCA AB B",
+      "short_name": "SCAb",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "527": {
+      "id": "114174",
+      "name": "SCOR SE",
+      "short_name": "SCR",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "528": {
+      "id": "114175",
+      "name": "K+S AG",
+      "short_name": "SDFGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "529": {
+      "id": "114176",
+      "name": "Vinci",
+      "short_name": "SGEF",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "530": {
+      "id": "114177",
+      "name": "Compagnie de Saint Gobain SA",
+      "short_name": "SGOB",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "531": {
+      "id": "114178",
+      "name": "Swiss Residential Siat",
+      "short_name": "SIAT",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "532": {
+      "id": "114179",
+      "name": "Swisscanto CH RE Ifca",
+      "short_name": "SIC",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "533": {
+      "id": "114180",
+      "name": "UBS CH Property Swiss Mixed Sima",
+      "short_name": "SIMA",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "534": {
+      "id": "114181",
+      "name": "Sixt SE",
+      "short_name": "SIXG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "535": {
+      "id": "114182",
+      "name": "Schlumberger",
+      "short_name": "SLB",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "536": {
+      "id": "114183",
+      "name": "Wheaton Precious Metals",
+      "short_name": "SLW",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "537": {
+      "id": "114184",
+      "name": "Societe Generale",
+      "short_name": "SOGN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "538": {
+      "id": "114185",
+      "name": "Solvalor 61",
+      "short_name": "SOL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "539": {
+      "id": "114186",
+      "name": "Splunk Inc",
+      "short_name": "SPLK",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "540": {
+      "id": "114187",
+      "name": "UBS SW Swissreal",
+      "short_name": "SREA",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "541": {
+      "id": "114188",
+      "name": "Swissinvest RE",
+      "short_name": "SREF",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "542": {
+      "id": "114189",
+      "name": "Schroder Immoplus",
+      "short_name": "SRI",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "543": {
+      "id": "114190",
+      "name": "RESIDENTIA CHF",
+      "short_name": "STAFR",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "544": {
+      "id": "114191",
+      "name": "Equinor",
+      "short_name": "STL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "545": {
+      "id": "114192",
+      "name": "Sierra Wireless Inc.",
+      "short_name": "SW",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "546": {
+      "id": "114193",
+      "name": "SHW AG",
+      "short_name": "SW1",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "547": {
+      "id": "114194",
+      "name": "AT&T",
+      "short_name": "T",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "548": {
+      "id": "114195",
+      "name": "Talanx AG NA O.N.",
+      "short_name": "TLXGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "549": {
+      "id": "114196",
+      "name": "T-Mobile US",
+      "short_name": "TMUS",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "550": {
+      "id": "114197",
+      "name": "Tesla",
+      "short_name": "TSLA",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "551": {
+      "id": "114198",
+      "name": "Tom Tailor AG",
+      "short_name": "TTIGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "552": {
+      "id": "114199",
+      "name": "Takkt AG O.N.",
+      "short_name": "TTKG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "553": {
+      "id": "114200",
+      "name": "Twitter Inc",
+      "short_name": "TWTR",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "554": {
+      "id": "114201",
+      "name": "Under Armour Inc A",
+      "short_name": "UAAA",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "555": {
+      "id": "114202",
+      "name": "Ubisoft",
+      "short_name": "UBIP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "556": {
+      "id": "114203",
+      "name": "Unisys",
+      "short_name": "UIS",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "557": {
+      "id": "114204",
+      "name": "United Internet AG",
+      "short_name": "UTDI",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "558": {
+      "id": "114205",
+      "name": "Rtx Corp",
+      "short_name": "UTX",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "559": {
+      "id": "114206",
+      "name": "Visa A",
+      "short_name": "V",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "560": {
+      "id": "114207",
+      "name": "Veolia Environnement VE SA",
+      "short_name": "VIE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Utilities"
+    },
+    "561": {
+      "id": "114208",
+      "name": "Vivendi SA",
+      "short_name": "VIV",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "562": {
+      "id": "114209",
+      "name": "Vallourec",
+      "short_name": "VLLP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "563": {
+      "id": "114210",
+      "name": "Valneva",
+      "short_name": "VLS",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "564": {
+      "id": "114211",
+      "name": "Vodafone Group PLC",
+      "short_name": "VOD",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "565": {
+      "id": "114212",
+      "name": "Volkswagen AG",
+      "short_name": "VOWG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "566": {
+      "id": "114213",
+      "name": "Bausch Health Companies Inc",
+      "short_name": "VRX",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "567": {
+      "id": "114214",
+      "name": "Vestas Wind",
+      "short_name": "VWS",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "568": {
+      "id": "114215",
+      "name": "Wacker Neuson",
+      "short_name": "WACGn",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "569": {
+      "id": "114216",
+      "name": "Wienerberger AG",
+      "short_name": "WBSV",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "570": {
+      "id": "114217",
+      "name": "Wirecard",
+      "short_name": "WDIG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "571": {
+      "id": "114218",
+      "name": "Wells Fargo&Co",
+      "short_name": "WFC",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "572": {
+      "id": "114219",
+      "name": "Walmart Inc",
+      "short_name": "WMT",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "573": {
+      "id": "114220",
+      "name": "Woodside Energy Ltd",
+      "short_name": "WPL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "574": {
+      "id": "114221",
+      "name": "Exxon Mobil",
+      "short_name": "XOM",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "575": {
+      "id": "114222",
+      "name": "Xerox",
+      "short_name": "XRX",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "576": {
+      "id": "114223",
+      "name": "Yara International",
+      "short_name": "YAR",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "577": {
+      "id": "114224",
+      "name": "Yamana Gold Inc",
+      "short_name": "YRI",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "578": {
+      "id": "114225",
+      "name": "Zalando SE",
+      "short_name": "ZALG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "579": {
+      "id": "114226",
+      "name": "Zynga",
+      "short_name": "ZNGA",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "580": {
+      "id": "114227",
+      "name": "Zooplus AG",
+      "short_name": "ZO1G",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "581": {
+      "id": "114228",
+      "name": "Colgate-Palmolive",
+      "short_name": "CLUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "582": {
+      "id": "114229",
+      "name": "Boeing Co",
+      "short_name": "BAUSD",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "583": {
+      "id": "114230",
+      "name": "Goldman Sachs",
+      "short_name": "GSUSD",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "584": {
+      "id": "114231",
+      "name": "Booking Holdings Inc",
+      "short_name": "BKNGUSD",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "585": {
+      "id": "114232",
+      "name": "PayPal Holdings Inc",
+      "short_name": "PYPLUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "586": {
+      "id": "114233",
+      "name": "TotalEnergies SE",
+      "short_name": "TOTF",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Energy"
+    },
+    "587": {
+      "id": "114234",
+      "name": "Snap",
+      "short_name": "SNAP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "588": {
+      "id": "114235",
+      "name": "Snap",
+      "short_name": "SNAPC",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "589": {
+      "id": "114236",
+      "name": "Geberit AG E",
+      "short_name": "GEBNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "590": {
+      "id": "114237",
+      "name": "Bitcoin Group SE",
+      "short_name": "BTC",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "591": {
+      "id": "114238",
+      "name": "CEVA Logistics",
+      "short_name": "CEVAL",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "592": {
+      "id": "114239",
+      "name": "Spotify Technology SA",
+      "short_name": "SPF",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "593": {
+      "id": "114240",
+      "name": "UBS Group",
+      "short_name": "UBSGE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "594": {
+      "id": "114241",
+      "name": "Forbo",
+      "short_name": "FORNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "595": {
+      "id": "114242",
+      "name": "Fundamenta Real Estate",
+      "short_name": "FREN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "596": {
+      "id": "114243",
+      "name": "SF Sustainable Property Fund",
+      "short_name": "SFPF",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "597": {
+      "id": "114244",
+      "name": "SF Retail Properties Fund",
+      "short_name": "SFRP",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "598": {
+      "id": "114245",
+      "name": "SF Commercial Properties Fund",
+      "short_name": "SFCC",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "599": {
+      "id": "114246",
+      "name": "IGEA Pharma",
+      "short_name": "IGPH",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "600": {
+      "id": "114248",
+      "name": "Tilray",
+      "short_name": "2HQ",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "601": {
+      "id": "114249",
+      "name": "Adecco",
+      "short_name": "ADENE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "602": {
+      "id": "114250",
+      "name": "Air France KLM SA",
+      "short_name": "AIRF",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "603": {
+      "id": "114251",
+      "name": "Activision Blizzard",
+      "short_name": "AIY",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "604": {
+      "id": "114252",
+      "name": "Linde PLC",
+      "short_name": "LIN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "605": {
+      "id": "114253",
+      "name": "Deutsche Pfandbriefbank AG",
+      "short_name": "PBBG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "606": {
+      "id": "114254",
+      "name": "Robeco Global Stars Equities Fund NV",
+      "short_name": "RBEN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "607": {
+      "id": "114255",
+      "name": "RIB Software AG",
+      "short_name": "RIB",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "608": {
+      "id": "114256",
+      "name": "SGL Carbon SE",
+      "short_name": "SGCG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "609": {
+      "id": "114257",
+      "name": "Telecom Italia",
+      "short_name": "TLIT",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "610": {
+      "id": "114258",
+      "name": "Uber Technologies Inc",
+      "short_name": "UBER",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "611": {
+      "id": "114259",
+      "name": "Aluflexpack",
+      "short_name": "AFPD",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "612": {
+      "id": "114260",
+      "name": "Softwareone",
+      "short_name": "SWON",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "613": {
+      "id": "114261",
+      "name": "Achiko",
+      "short_name": "ACHIN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "614": {
+      "id": "114262",
+      "name": "Novavest",
+      "short_name": "NREN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "615": {
+      "id": "121766",
+      "name": "ObsEva",
+      "short_name": "OBSN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "616": {
+      "id": "12595363",
+      "name": "Flughafen Zurich",
+      "short_name": "FHZN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "617": {
+      "id": "12595977",
+      "name": "V Zug",
+      "short_name": "VZUG",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "618": {
+      "id": "17227103",
+      "name": "PolyPeptide Group AG",
+      "short_name": "PPGN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "619": {
+      "id": "17652630",
+      "name": "Montana Aerospace AG",
+      "short_name": "AERO",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "620": {
+      "id": "18903693",
+      "name": "Rapid Nutrition",
+      "short_name": "RAPI",
+      "country": "switzerland",
+      "ccy": "EUR",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "621": {
+      "id": "20991002",
+      "name": "Adecco Group",
+      "short_name": "ADENES",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "622": {
+      "id": "20991003",
+      "name": "Julius Baer Gruppe",
+      "short_name": "BAERE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "623": {
+      "id": "20991004",
+      "name": "Formulafirst",
+      "short_name": "FFI",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "624": {
+      "id": "20991005",
+      "name": "Cham Swiss Properties",
+      "short_name": "CHAM",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "625": {
+      "id": "20991006",
+      "name": "Eli Lilly and Company",
+      "short_name": "LLY",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "626": {
+      "id": "20991007",
+      "name": "NIBE Industrier AB ser. B",
+      "short_name": "NIBEb",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "627": {
+      "id": "20991008",
+      "name": "Sonova Holding",
+      "short_name": "SOONEE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "628": {
+      "id": "20991009",
+      "name": "UBS Group",
+      "short_name": "UBSGEE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "629": {
+      "id": "22523873",
+      "name": "medmix",
+      "short_name": "MEDX",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "630": {
+      "id": "23214828",
+      "name": "Abb Ltd 2L",
+      "short_name": "ABBNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "631": {
+      "id": "23214829",
+      "name": "Alpine Select 2",
+      "short_name": "ALPNE_OLD",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "632": {
+      "id": "23848239",
+      "name": "Chocoladefabriken Lind",
+      "short_name": "LISPE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "633": {
+      "id": "23848240",
+      "name": "Chocoladefabriken Lindt Spruengli",
+      "short_name": "LISNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "634": {
+      "id": "23848241",
+      "name": "Robeco Global Total Return Bond Fund SICAV",
+      "short_name": "RNTO",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "635": {
+      "id": "24425908",
+      "name": "SKAN",
+      "short_name": "SKAN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "636": {
+      "id": "24690976",
+      "name": "Huber+Suhner",
+      "short_name": "HUBNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "637": {
+      "id": "25247180",
+      "name": "Goodyear Tire & Rubber Co",
+      "short_name": "GT",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Cyclicals"
+    },
+    "638": {
+      "id": "25931970",
+      "name": "Mobilezone Holding",
+      "short_name": "MOZN1",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "639": {
+      "id": "27096179",
+      "name": "RBC",
+      "short_name": "RY",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "640": {
+      "id": "27096180",
+      "name": "Swiss Life Holding",
+      "short_name": "SLHNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "641": {
+      "id": "27600587",
+      "name": "R S Holding",
+      "short_name": "RSGN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "642": {
+      "id": "28745665",
+      "name": "Novartis AG",
+      "short_name": "NOVNEE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "643": {
+      "id": "30621141",
+      "name": "Zehnder",
+      "short_name": "ZEHNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "644": {
+      "id": "30838440",
+      "name": "Vifor Pharma",
+      "short_name": "VIFNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "645": {
+      "id": "30838441",
+      "name": "Xlife Sciences",
+      "short_name": "XLS",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "646": {
+      "id": "32588663",
+      "name": "Meier Tobler AGMeier Tobler",
+      "short_name": "MTGE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "647": {
+      "id": "35019535",
+      "name": "Bank Linth LLB",
+      "short_name": "LINN2",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "648": {
+      "id": "36242336",
+      "name": "Leonteq Securities Wnt",
+      "short_name": "INFLTQ",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "649": {
+      "id": "36321148",
+      "name": "EPIC Suisse",
+      "short_name": "EPICN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Real Estate"
+    },
+    "650": {
+      "id": "36799225",
+      "name": "Sonova Holding",
+      "short_name": "SOONE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "651": {
+      "id": "37616603",
+      "name": "GOOD BUILDINGS Swiss",
+      "short_name": "GOODZ",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "652": {
+      "id": "38697553",
+      "name": "SGS",
+      "short_name": "SGSNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "653": {
+      "id": "39612114",
+      "name": "Gotion High tech DRC",
+      "short_name": "GOTIONq",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "654": {
+      "id": "40114256",
+      "name": "GEM DRC",
+      "short_name": "GEMq",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "655": {
+      "id": "40114257",
+      "name": "Keda Industrial DRC",
+      "short_name": "KEDAq",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "656": {
+      "id": "41890800",
+      "name": "Accelleron Industries AG",
+      "short_name": "ACLN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "657": {
+      "id": "42737125",
+      "name": "Joincare Pharmaceutical DRC",
+      "short_name": "JCAREq",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "658": {
+      "id": "42737126",
+      "name": "Lepu Medical Tech Beijing DRC",
+      "short_name": "LEPUq",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "659": {
+      "id": "43542995",
+      "name": "Sunwoda Electronic DRC",
+      "short_name": "SWDq",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "660": {
+      "id": "43841001",
+      "name": "Holcim AG",
+      "short_name": "HOLNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "661": {
+      "id": "44039860",
+      "name": "Zurich Insurance",
+      "short_name": "ZURNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "662": {
+      "id": "45877159",
+      "name": "Jiangsu Eastern Shenghong DRC",
+      "short_name": "DFSHq",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "663": {
+      "id": "47381898",
+      "name": "Zhejiang HangKe Technology DRC",
+      "short_name": "ZHTq",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "664": {
+      "id": "47902745",
+      "name": "FangDa Carbon New Material DRC",
+      "short_name": "FDCBq",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "665": {
+      "id": "48926712",
+      "name": "Leonteq",
+      "short_name": "LEONE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "666": {
+      "id": "48926713",
+      "name": "Lonza",
+      "short_name": "LONNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "667": {
+      "id": "49312574",
+      "name": "Zhejiang Supcon Technology DRC",
+      "short_name": "SUPCONq",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "668": {
+      "id": "49482648",
+      "name": "Yangzhou Yangjie Electronic DRC",
+      "short_name": "YJETq",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "669": {
+      "id": "50792678",
+      "name": "Phoenix Mecano AG",
+      "short_name": "PMN_Old",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "670": {
+      "id": "50829075",
+      "name": "Softwareone Holding N2",
+      "short_name": "SWONE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "671": {
+      "id": "51289863",
+      "name": "Kunshan Dongwei Technology DRC",
+      "short_name": "KUDOq",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "672": {
+      "id": "52206371",
+      "name": "HBM Healthcare Investments AG",
+      "short_name": "HBMNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "673": {
+      "id": "52344185",
+      "name": "Zhejiang Huayou Cobalt DRC",
+      "short_name": "HUAYOq",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "674": {
+      "id": "52854529",
+      "name": "GAM Holding",
+      "short_name": "GAME2",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "675": {
+      "id": "54963176",
+      "name": "Compagnie Financiere Tradition",
+      "short_name": "CFTE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "676": {
+      "id": "55160479",
+      "name": "EFG International",
+      "short_name": "EFGNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "677": {
+      "id": "55549407",
+      "name": "Logitech International SA",
+      "short_name": "LOGNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "678": {
+      "id": "56113887",
+      "name": "Sandoz Group AG",
+      "short_name": "SDZ",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "679": {
+      "id": "57778571",
+      "name": "OmniVision Integrated Circuits DRC",
+      "short_name": "WILLq",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "680": {
+      "id": "58023627",
+      "name": "Phoenix Mecano AG",
+      "short_name": "PMNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "681": {
+      "id": "59402364",
+      "name": "Shenzhen Senior Technology Material DRC",
+      "short_name": "SENIORq",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Industrials"
+    },
+    "682": {
+      "id": "60198693",
+      "name": "Crealogix Holding",
+      "short_name": "CLXNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "683": {
+      "id": "60275831",
+      "name": "Galderma",
+      "short_name": "GALD",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "684": {
+      "id": "60290209",
+      "name": "Aluflexpack",
+      "short_name": "AFPE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    "685": {
+      "id": "60290210",
+      "name": "Temenos AG",
+      "short_name": "TEMNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "686": {
+      "id": "60290211",
+      "name": "UBS AG",
+      "short_name": "UBSGE2",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Financials"
+    },
+    "687": {
+      "id": "60290212",
+      "name": "Alpine Select",
+      "short_name": "ALPNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "688": {
+      "id": "60290213",
+      "name": "BB Biotech",
+      "short_name": "BIOEE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "689": {
+      "id": "60378493",
+      "name": "Schindler Holding AG",
+      "short_name": "SCHPE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "690": {
+      "id": "60378494",
+      "name": "Schindler Holding AG",
+      "short_name": "SCHNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "691": {
+      "id": "60395829",
+      "name": "Sunrise Communications",
+      "short_name": "SUNN",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Technology"
+    },
+    "692": {
+      "id": "60515091",
+      "name": "Bioversys Ag",
+      "short_name": "BIOV",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Healthcare"
+    },
+    "693": {
+      "id": "60666223",
+      "name": "Bucher Industries",
+      "short_name": "BUCNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "694": {
+      "id": "60692405",
+      "name": "Ascom Holding",
+      "short_name": "ASCNE",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    },
+    "695": {
+      "id": "60719083",
+      "name": "Amrize",
+      "short_name": "AMRZ",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": ""
+    }
+  },
+  "info": {
+    "exchanges": [
+      "Switzerland",
+      "Frankfurt"
+    ],
+    "sectors": [
+      "Industrials",
+      "Financials",
+      "Healthcare",
+      "Consumer Non-Cyclicals",
+      "Consumer Cyclicals",
+      "Basic Materials",
+      "Technology",
+      "Real Estate",
+      "Utilities",
+      "Energy"
+    ],
+    "server_time": "2025-08-07 12:28:10 UTC",
+    "credit_count": 1,
+    "_t": "2025-08-07 12:28:10 UTC"
+  }
+}

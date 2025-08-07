@@ -1,0 +1,29 @@
+stock-alert:
+  fcs-api-key: "API_KEY" # test key for integration test
+  update-cron: "-"
+  config-url: "src/test/resources/config/integration-test-config.json"
+
+spring:
+  application:
+    name: stock-alert
+
+  mail:
+    host: localhost
+    username: test-user
+    password: test-pass
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: false
+          ssl:
+            enable: fals
+
+logging:
+  level:
+    com.github.arburk.stockalert: DEBUG
+    com.icegreen.greenmail: DEBUG
+    feign.Logger: DEBUG
+    feign.Request: DEBUG
+    feign.Response: DEBUG

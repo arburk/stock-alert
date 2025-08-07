@@ -3,6 +3,7 @@ package com.github.arburk.stockalert.application.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.arburk.stockalert.application.domain.config.AlertConfigRoot;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
+import io.micrometer.common.util.StringUtils;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,13 +11,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
+import java.nio.file.Path;
 
 @Slf4j
 @Getter
-@Configuration()
+@Configuration
 @ConfigurationProperties(prefix = "stock-alert")
 public class ApplicationConfig {
 
@@ -72,12 +74,26 @@ public class ApplicationConfig {
 
   public StockAlertsConfig getStockAlertsConfig() {
     try {
-      final URL input = URI.create(configUrl).normalize().toURL();
-      final AlertConfigRoot alertConfigRoot = objectMapper.readValue(input, AlertConfigRoot.class);
+      final AlertConfigRoot alertConfigRoot = objectMapper.readValue(getConfigFileAsUrl(), AlertConfigRoot.class);
       log.debug("updated config by source '{}':\n{}", configUrl, alertConfigRoot.toString());
       return alertConfigRoot.getConfig();
-    } catch (IOException e) {
+    } catch (Exception e) {
       throw new IllegalArgumentException("Failed to load config %s: %s".formatted(configUrl, e.getCause()), e);
     }
+  }
+
+  private URL getConfigFileAsUrl() throws MalformedURLException {
+    if (this.configUrl == null || StringUtils.isBlank(this.configUrl)) {
+      throw new IllegalArgumentException("Configuration is missing. Please set CONFIG-URL as environment variable.");
+    }
+
+    // check for valid pathes
+    if (this.configUrl.startsWith("file://")
+        || this.configUrl.startsWith("http://")
+        || this.configUrl.startsWith("https://")) {
+      return URI.create(configUrl).normalize().toURL();
+    }
+
+    return Path.of(this.configUrl).normalize().toAbsolutePath().toUri().toURL();
   }
 }

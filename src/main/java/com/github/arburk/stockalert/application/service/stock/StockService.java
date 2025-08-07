@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -30,7 +29,7 @@ public class StockService {
   }
 
   public void update() {
-    log.info("Updating stock alert config...");
+    log.debug("refresh stock alert config...");
     final List<SecurityConfig> alertConfig = this.applicationConfig.getStockAlertsConfig().getSecurities();
     final Set<String> symbolsToQueryFor = alertConfig.stream().map(SecurityConfig::getSymbol).collect(Collectors.toSet());
     log.debug("perform and process update for {}", symbolsToQueryFor);
@@ -38,30 +37,35 @@ public class StockService {
   }
 
   private void process(final List<SecurityConfig> alertConfig, final Collection<Security> latestSecurities) {
-    checkForCompleteness(alertConfig, latestSecurities);
+    final Collection<Security> latestRelevant = getRelevantFiltered(alertConfig, latestSecurities);
     final Collection<Security> persistedSecurites = persistanceProvider.getSecurites();
     alertConfig.forEach(configElement -> checkAndRaiseAlert(
         configElement,
-        getSecurity(latestSecurities, configElement),
+        getSecurity(latestRelevant, configElement),
         getSecurity(persistedSecurites, configElement)
     ));
-    updatePersistedSecurities(persistedSecurites, latestSecurities);
+    updatePersistedSecurities(persistedSecurites, latestRelevant);
   }
 
-  private void checkForCompleteness(final List<SecurityConfig> alertConfig, final Collection<Security> latestSecurities) {
-    final Set<String> alertConfigured = alertConfig.stream().map(
-            security -> "%s:%s".formatted(security.getSymbol(), security.getExchange()))
-        .sorted().collect(Collectors.toCollection(LinkedHashSet::new));
-    final Set<String> retrieved = latestSecurities.stream().map(
-            security -> "%s:%s".formatted(security.symbol(), security.exchange()))
-        .sorted().collect(Collectors.toCollection(LinkedHashSet::new));
-    if (alertConfigured.equals(retrieved)) {
-      log.debug("Found all stocks configured in alert config.");
-      return;
-    }
-    log.warn("Did not find all stocks configured in alert config.\nconfigured: {}\nretrieved: {}", alertConfigured, retrieved);
+  private Collection<Security> getRelevantFiltered(final List<SecurityConfig> alertConfig, final Collection<Security> latestSecurities) {
+    final Set<String> configKeys = alertConfig.stream()
+        .map(cfg -> cfg.getSymbol() + "::" + cfg.getExchange())
+        .collect(Collectors.toSet());
+    final List<Security> filteredSecurites = latestSecurities.stream()
+        .filter(sec -> configKeys.contains(sec.symbol() + "::" + sec.exchange()))
+        .toList();
 
-    //TODO: send warning to check config?
+    if (configKeys.size() != filteredSecurites.size()) {
+      log.warn("Did not find all stocks configured in alert config.\nconfigured: {}\nmatched: {}",
+          configKeys,
+          latestSecurities.stream()
+              .filter(sec -> configKeys.contains(sec.symbol() + "::" + sec.exchange()))
+              .collect(Collectors.toSet()));
+
+      //TODO: send warning to check config?
+    }
+
+    return filteredSecurites;
   }
 
   private Security getSecurity(final Collection<Security> securities, final SecurityConfig securityConfig) {
@@ -105,7 +109,7 @@ public class StockService {
 
     config.getAlerts().stream()
         .filter(alert -> isBetween(alert.getThreshold(), latest.price(), persisted.price()))
-        .peek(alert -> log.debug("Send alert for {}", alert))
+        .peek(alert -> log.info("Send alert for {} {}", latest.symbol(), alert))
         .forEach(alert -> notificationService.send(alert, latest, persisted));
   }
 
