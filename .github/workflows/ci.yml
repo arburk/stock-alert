@@ -46,6 +46,7 @@ jobs:
         with:
           name: stock-alert.jar
           path: target/*.jar
+          retention-days: 7
 
     outputs:
       artifact_version: ${{ steps.get_version.outputs.version }}

@@ -39,7 +39,7 @@ Define the following mandatory environment parameter:
 
 ### Docker
 Either build the source on your own as described in  [Build and Development](#build-and-development) or operate a pre-build
-image hosted on [docker hub](https://hub.docker.com/).
+image hosted on [docker hub](https://hub.docker.com/r/arburk/stock-alert).
 Required parameter from the table above are added by ``-e param=value`` syntax. 
 
 Examples:
@@ -50,7 +50,7 @@ docker run -e FCS-API-KEY=your-api-key \
            -e GATEWAY-EMAIL-HOST=smtp.provider.com \
            -e GATEWAY-EMAIL-USER=you@provider.com \
            -e GATEWAY-EMAIL-PWD=<your-secret-password> \
-           stock-alert:0.0.1-SNAPSHOT
+           arburk/stock-alert:0.0.1-SNAPSHOT
 ```
 - execute container with mounted config file, assuming, the config file is ``/home/user/my-config/my-config.json``
 ```
@@ -60,7 +60,7 @@ docker run -e FCS-API-KEY=your-api-key \
            -e GATEWAY-EMAIL-PWD=<your-secret-password> \
            -v /home/user/my-config:/config \
            -e CONFIG-URL=/config/my-config.json
-           stock-alert:0.0.1-SNAPSHOT
+           arburk/stock-alert:0.0.1-SNAPSHOT
 ```
 
 ## Build and Development
