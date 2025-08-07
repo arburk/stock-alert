@@ -37,23 +37,40 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: Read and save version for docker tag
-        if: github.ref == 'refs/heads/main'
         id: get_version
         run: echo "version=$(mvn help:evaluate -Dexpression='project.version' -q -DforceStdout)" >> $GITHUB_OUTPUT
 
-      - name: Set up Docker Buildx
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
         if: github.ref == 'refs/heads/main'
+        with:
+          name: stock-alert.jar
+          path: target/*.jar
+
+    outputs:
+      artifact_version: ${{ steps.get_version.outputs.version }}
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Download JAR
+        uses: actions/download-artifact@v4
+        with:
+          name: stock-alert.jar
+          path: target
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@master
       - name: Login to DockerHub
-        if: github.ref == 'refs/heads/main'
         uses: docker/login-action@master
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push arburk/stock-alert:${{ steps.get_version.outputs.version }}
-        if: github.ref == 'refs/heads/main'
+      - name: Build and push arburk/stock-alert:${{ needs.build.outputs.artifact_version }}
         id: docker_build
         uses: docker/build-push-action@master
         with:
           push: true
-          tags: arburk/stock-alert:${{ steps.get_version.outputs.version }}
+          tags: arburk/stock-alert:${{ needs.build.outputs.artifact_version }}
