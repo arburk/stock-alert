@@ -34,7 +34,6 @@ public class NotificationService {
           .send(alert, latest, persisted);
     } catch (Exception e) {
       log.error("Failed to send Alert: {}", e.getMessage());
-      // TODO: do we have to handle this any further
     }
   }
 

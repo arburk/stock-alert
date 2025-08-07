@@ -2,6 +2,7 @@ package com.github.arburk.stockalert.application.service.stock;
 
 import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.domain.Security;
+import com.github.arburk.stockalert.application.domain.config.Alert;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.service.notification.NotificationService;
 import lombok.extern.slf4j.Slf4j;
@@ -33,7 +34,11 @@ public class StockService {
     final List<SecurityConfig> alertConfig = this.applicationConfig.getStockAlertsConfig().getSecurities();
     final Set<String> symbolsToQueryFor = alertConfig.stream().map(SecurityConfig::getSymbol).collect(Collectors.toSet());
     log.debug("perform and process update for {}", symbolsToQueryFor);
-    process(alertConfig, stockProvider.getLatest(symbolsToQueryFor));
+    try {
+      process(alertConfig, stockProvider.getLatest(symbolsToQueryFor));
+    } catch (Exception e) {
+      log.error("update did not finish successful: {}", e.getMessage(), e);
+    }
   }
 
   private void process(final List<SecurityConfig> alertConfig, final Collection<Security> latestSecurities) {
@@ -107,7 +112,13 @@ public class StockService {
 
     // TODO: consider silence mode
 
-    config.getAlerts().stream()
+    final List<Alert> alerts = config.getAlerts();
+    if (alerts == null || alerts.isEmpty()) {
+      log.debug("Skip further checks since no alert defined for {}", latest.symbol());
+      return;
+    }
+
+    alerts.stream()
         .filter(alert -> isBetween(alert.getThreshold(), latest.price(), persisted.price()))
         .peek(alert -> log.info("Send alert for {} {}", latest.symbol(), alert))
         .forEach(alert -> notificationService.send(alert, latest, persisted));

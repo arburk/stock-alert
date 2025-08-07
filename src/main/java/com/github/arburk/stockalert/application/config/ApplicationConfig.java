@@ -75,7 +75,7 @@ public class ApplicationConfig {
   public StockAlertsConfig getStockAlertsConfig() {
     try {
       final AlertConfigRoot alertConfigRoot = objectMapper.readValue(getConfigFileAsUrl(), AlertConfigRoot.class);
-      log.debug("updated config by source '{}':\n{}", configUrl, alertConfigRoot.toString());
+      log.debug("read config by source '{}':\n{}", configUrl, alertConfigRoot.toString());
       return alertConfigRoot.getConfig();
     } catch (Exception e) {
       throw new IllegalArgumentException("Failed to load config %s: %s".formatted(configUrl, e.getCause()), e);

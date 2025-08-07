@@ -8,7 +8,10 @@ import jakarta.mail.internet.MimeMessage;
 import org.assertj.core.util.Files;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -28,9 +31,13 @@ import java.util.List;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
+import static com.github.tomakehurst.wiremock.client.WireMock.serverError;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertLinesMatch;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @EnableWireMock
@@ -38,20 +45,25 @@ import static org.junit.jupiter.api.Assertions.assertLinesMatch;
 @TestPropertySource(properties = {
     "stock-alert.base-url=${wiremock.server.baseUrl}",
 })
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class StockServiceIntegrationTest {
 
   private static final String userHome = System.getProperty("user.home");
   private static final Path TEST_HOME = Paths.get("target/test/", String.valueOf(System.currentTimeMillis()));
-
+  private static File expectedStorageFile;
   private static GreenMail greenMail;
+
+  @Autowired
+  private StockService stockService;
+
+  @Autowired
+  private PersistanceProvider persistanceProvider;
 
   @BeforeAll
   static void setUpAll() {
     System.setProperty("user.home", TEST_HOME.toString()); // redirect file storage to test
-    greenMail = new GreenMail(new ServerSetup(0 /* 0 = random port */, null, ServerSetup.PROTOCOL_SMTP));
-    greenMail.setUser("test-user", "test-pass"); // defined in src/test/resources/application-stock-service-int-test.yml
-    greenMail.start();
-    System.setProperty("spring.mail.port", String.valueOf(greenMail.getSmtp().getPort()));
+    expectedStorageFile = Path.of(TEST_HOME.toString(), "stock-alert", "securities.db").toFile();
+    mockEmailIntegration();
   }
 
   @AfterAll
@@ -60,19 +72,71 @@ class StockServiceIntegrationTest {
     greenMail.stop();
   }
 
-  @Autowired
-  private StockService stockService;
+  private static void mockEmailIntegration() {
+    greenMail = new GreenMail(new ServerSetup(0 /* 0 = random port */, null, ServerSetup.PROTOCOL_SMTP));
+    greenMail.setUser("test-user", "test-pass"); // defined in src/test/resources/application-stock-service-int-test.yml
+    greenMail.start();
+    System.setProperty("spring.mail.port", String.valueOf(greenMail.getSmtp().getPort()));
+  }
 
-  @Autowired
-  private PersistanceProvider persistanceProvider;
 
   @Test
+  @Order(1)
+    // no mail sent yet
+  void apiNotReachable() {
+    stubFor(get("/latest?symbol=ENI%2CFRO%2CPPGN%2CSUNN%2CMBLY%2CMRK%2CSIKA%2CALV%2CBSLN%2CPFE%2CSRAIL%2CVODI%2CLEHN%2CINGA%2CHELN%2CBALN%2CSTMN%2CVACD%2CCMBN%2CAMRZ%2CROG%2CMBTN%2CMMM%2CVUL%2CBANB%2CBIOV%2CBAER%2CMOZN%2CDTE%2CLEON%2CDKSH%2CDVN&access_key=API_KEY")
+        .willReturn(serverError()));
+
+    // now execute
+    assertDoesNotThrow(() -> stockService.update(), "error in API communication should not break the service");
+
+    MimeMessage[] receivedMessages = greenMail.getReceivedMessages();
+    //TODO: change when error notification is implemented
+    assertEquals(0, receivedMessages.length, "Mail message was not expected to be sent");
+  }
+
+  @Test
+  @Order(2)
   void happyFlow_WithAlerting() throws MessagingException, IOException {
     stubFor(get("/latest?symbol=ENI%2CFRO%2CPPGN%2CSUNN%2CMBLY%2CMRK%2CSIKA%2CALV%2CBSLN%2CPFE%2CSRAIL%2CVODI%2CLEHN%2CINGA%2CHELN%2CBALN%2CSTMN%2CVACD%2CCMBN%2CAMRZ%2CROG%2CMBTN%2CMMM%2CVUL%2CBANB%2CBIOV%2CBAER%2CMOZN%2CDTE%2CLEON%2CDKSH%2CDVN&access_key=API_KEY")
         .willReturn(okJson(extendedResponse())));
+
+    assertFalse(expectedStorageFile.exists());
+    persistanceProvider.updateSecurities(/* peristed file required for comparison */ getPreparedSecurities());
+    assertTrue(expectedStorageFile.exists(), "Expected FileStorage created file %s, but nothing found".formatted(expectedStorageFile.toString()));
+    final var fileSizeBeforeAddingResults = expectedStorageFile.length();
+
+    // now execute
+    stockService.update();
+
+    final Collection<Security> securites = persistanceProvider.getSecurites();
+    assertEquals(32, securites.size());
+    final Security baln = securites.stream().filter(security -> "BALN".equals(security.symbol())).findFirst().get();
+    assertEquals(207.4, baln.price());
+    assertTrue(expectedStorageFile.length() > fileSizeBeforeAddingResults, "expected more contents in storage file, but size did not grow");
+
+    MimeMessage[] receivedMessages = greenMail.getReceivedMessages();
+    assertEquals(1, receivedMessages.length, "Mail message was expected to be sent, which was apparently not the case");
+    final MimeMessage receivedMessage = receivedMessages[0];
+    assertEquals("Threshold CHF 200.0 for BALN crossed", receivedMessage.getSubject());
+    assertLinesMatch(getExpectedMailBodyLines(), Arrays.asList(receivedMessage.getContent().toString().split("\\R")));
+  }
+
+  @Test
+  @Order(3)
+  void emailNotSendable() {
+    stubFor(get("/latest?symbol=ENI%2CFRO%2CPPGN%2CSUNN%2CMBLY%2CMRK%2CSIKA%2CALV%2CBSLN%2CPFE%2CSRAIL%2CVODI%2CLEHN%2CINGA%2CHELN%2CBALN%2CSTMN%2CVACD%2CCMBN%2CAMRZ%2CROG%2CMBTN%2CMMM%2CVUL%2CBANB%2CBIOV%2CBAER%2CMOZN%2CDTE%2CLEON%2CDKSH%2CDVN&access_key=API_KEY")
+        .willReturn(okJson(extendedResponse())));
+
+    if (expectedStorageFile.exists()) {
+      assertTrue(expectedStorageFile.delete());
+    }
     persistanceProvider.updateSecurities(/* peristed file required for comparison */ getPreparedSecurities());
 
-    stockService.update();
+    greenMail.stop();
+
+    // now execute
+    assertDoesNotThrow(() -> stockService.update(), "error in notification service");
 
     final Collection<Security> securites = persistanceProvider.getSecurites();
     assertEquals(32, securites.size());
@@ -80,14 +144,14 @@ class StockServiceIntegrationTest {
     assertEquals(207.4, baln.price());
 
     MimeMessage[] receivedMessages = greenMail.getReceivedMessages();
-    assertEquals(1, receivedMessages.length);
-    final MimeMessage receivedMessage = receivedMessages[0];
-    assertEquals("Threshold CHF 200.0 for BALN crossed", receivedMessage.getSubject());
-    List<String> expectedLines = List.of(
+    assertEquals(0, receivedMessages.length, "No Mail was expected to be sent, but found one");
+  }
+
+  private static List<String> getExpectedMailBodyLines() {
+    return List.of(
         "Price for BALN moved from CHF 198.15 dated on 2025-08-07 15:06 to CHF 207.4 dated on 2025-08-07 08:35",
         "Data refers to stock exchange Switzerland."
     );
-    assertLinesMatch(expectedLines, Arrays.asList(receivedMessage.getContent().toString().split("\\R")));
   }
 
   private Collection<Security> getPreparedSecurities() {
@@ -102,4 +166,5 @@ class StockServiceIntegrationTest {
     final File mockedFile = Path.of("src/test/resources/rest-client/extended-response.json").toFile();
     return Files.contentOf(mockedFile, StandardCharsets.UTF_8);
   }
+
 }
