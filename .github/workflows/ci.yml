@@ -56,6 +56,9 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
+      - uses: actions/checkout@main
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: Download JAR
         uses: actions/download-artifact@v4
         with:
@@ -68,7 +71,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push arburk/stock-alert:${{ needs.build.outputs.artifact_version }}
+      - name: Build and push stock-alert:${{ needs.build.outputs.artifact_version }}
         id: docker_build
         uses: docker/build-push-action@master
         with:
