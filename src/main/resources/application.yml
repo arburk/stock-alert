@@ -24,4 +24,4 @@ spring:
 
 logging:
   level:
-    com.github.arburk.stockalert: DEBUG
+    com.github.arburk.stockalert: INFO

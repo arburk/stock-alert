@@ -37,10 +37,37 @@ Define the following mandatory environment parameter:
 | GATEWAY-EMAIL-TLS   | true/false defining if TLS should be activated (default port is 587)                                                                                                                                                                                  | true                  |
 | GATEWAY-EMAIL-SSL   | true/false defining if SSL should be activated (default port is 465)                                                                                                                                                                                  | false                 |
 
+### Docker
+Either build the source on your own as described in  [Build and Development](#build-and-development) or operate a pre-build
+image hosted on [docker hub](https://hub.docker.com/).
+Required parameter from the table above are added by ``-e param=value`` syntax. 
 
+Examples:
+- execute container with git hosted config
+```
+docker run -e FCS-API-KEY=your-api-key \
+           -e CONFIG-URL=https://raw.githubusercontent.com/arburk/stock-alert/refs/heads/main/src/main/resources/config-example.json \
+           -e GATEWAY-EMAIL-HOST=smtp.provider.com \
+           -e GATEWAY-EMAIL-USER=you@provider.com \
+           -e GATEWAY-EMAIL-PWD=<your-secret-password> \
+           stock-alert:0.0.1-SNAPSHOT
+```
+- execute container with mounted config file, assuming, the config file is ``/home/user/my-config/my-config.json``
+```
+docker run -e FCS-API-KEY=your-api-key \
+           -e GATEWAY-EMAIL-HOST=smtp.provider.com \
+           -e GATEWAY-EMAIL-USER=you@provider.com \
+           -e GATEWAY-EMAIL-PWD=<your-secret-password> \
+           -v /home/user/my-config:/config \
+           -e CONFIG-URL=/config/my-config.json
+           stock-alert:0.0.1-SNAPSHOT
+```
 
 ## Build and Development
 
 [![CI](https://github.com/arburk/stock-alert/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/arburk/stock-alert/actions/workflows/ci.yml)
 
+- build the source by ``mvn -B clean verify --file pom.xml``
+- build the Docker image by ``docker build -t stock-alert:0.0.1-SNAPSHOT . ``
+- run the docker image using this very version as described in [Docker](#docker)
 
