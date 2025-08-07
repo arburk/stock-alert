@@ -69,5 +69,6 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@master
         with:
+          context: .
           push: true
           tags: arburk/stock-alert:${{ env.tag_ref }}
