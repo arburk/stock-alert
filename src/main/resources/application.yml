@@ -3,6 +3,7 @@ stock-alert:
   base-url: https://fcsapi.com/api-v3/stock
   update-cron: ${UPDATE-CRON:0 16 9-21 * * MON-FRI}
   config-url: ${CONFIG-URL:src/main/resources/config-example.json}
+  run-on-startup:  ${UPDATE-ON-STARTUP:false}
 
 spring:
   application:

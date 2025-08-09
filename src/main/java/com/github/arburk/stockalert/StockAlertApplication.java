@@ -1,6 +1,7 @@
 package com.github.arburk.stockalert;
 
 import com.github.arburk.stockalert.application.config.ApplicationConfig;
+import com.github.arburk.stockalert.application.service.Scheduler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,7 +17,15 @@ public class StockAlertApplication {
 
 	public static void main(String[] args) {
     final ConfigurableApplicationContext app = SpringApplication.run(StockAlertApplication.class, args);
-    log.info("StockAlertConfig: {}", app.getBean(ApplicationConfig.class));
+    init(app);
+  }
+
+  private static void init(final ConfigurableApplicationContext app) {
+    final ApplicationConfig config = app.getBean(ApplicationConfig.class);
+    log.info("StockAlertConfig: {}", config);
+    if (config.isRunOnStartup()) {
+      app.getBean(Scheduler.class).updateStock();
+    }
   }
 
 }

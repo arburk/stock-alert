@@ -33,6 +33,9 @@ public class ApplicationConfig {
   @Setter
   private String configUrl;
 
+  @Setter
+  private boolean runOnStartup;
+
   @Getter(AccessLevel.NONE)
   private final ObjectMapper objectMapper;
 
@@ -49,8 +52,9 @@ public class ApplicationConfig {
     return "ApplicationConfig{" +
         "fcsApiKey=" + getMasked(fcsApiKey) +
         ",updateCron=" + updateCron +
-        ",baseUrl=" + baseUrl +
-        ",configUrl=" + configUrl +
+        ",baseUrl='" + baseUrl + "'" +
+        ",configUrl='" + configUrl + "'" +
+        ",runOnStartup=" + runOnStartup +
         '}';
   }
 
