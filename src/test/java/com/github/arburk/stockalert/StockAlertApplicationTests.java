@@ -11,6 +11,8 @@ import org.springframework.test.context.TestPropertySource;
 class StockAlertApplicationTests {
 
 	@Test
-	void contextLoads() {	}
+	void contextLoads() {
+    // ensure the app is generally starting up
+  }
 
 }

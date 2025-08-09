@@ -120,8 +120,10 @@ public class StockService {
 
     alerts.stream()
         .filter(alert -> isBetween(alert.getThreshold(), latest.price(), persisted.price()))
-        .peek(alert -> log.info("Send alert for {} {}", latest.symbol(), alert))
-        .forEach(alert -> notificationService.send(alert, latest, persisted));
+        .forEach(alert -> {
+          log.info("Send alert for {} {}", latest.symbol(), alert);
+          notificationService.send(alert, latest, persisted);
+        });
   }
 
 }

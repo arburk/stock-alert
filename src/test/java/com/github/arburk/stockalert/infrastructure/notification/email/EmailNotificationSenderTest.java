@@ -38,9 +38,9 @@ class EmailNotificationSenderTest {
   private StockAlertsConfig stockAlertsConfig;
   private EmailNotificationSender testee;
 
-  private static final String recipient1 = "me@here.com";
-  private static final String recipient2 = "myself@there.com";
-  private static final String recipient3 = "i@outa-space.com";
+  private static final String RECIPIENT_1 = "me@here.com";
+  private static final String RECIPIENT_2 = "myself@there.com";
+  private static final String RECIPIENT_3 = "i@outa-space.com";
 
 
   @BeforeEach
@@ -60,22 +60,22 @@ class EmailNotificationSenderTest {
   @Test
   void testRecipientsExtraction() {
     final NotificationChannel mailChannel = new NotificationChannel();
-    mailChannel.setRecipients(recipient1 + ", " + recipient2 + " ; " + recipient3);
+    mailChannel.setRecipients(RECIPIENT_1 + ", " + RECIPIENT_2 + " ; " + RECIPIENT_3);
     mailChannel.setType(Channel.EMAIL.getValue());
     stockAlertsConfig.setNotificationChannels(List.of(mailChannel));
 
     final String[] recipients = testee.getRecipients(appConfig);
 
     assertEquals(3, recipients.length);
-    assertTrue(Arrays.asList(recipients).contains(recipient1));
-    assertTrue(Arrays.asList(recipients).contains(recipient2));
-    assertTrue(Arrays.asList(recipients).contains(recipient3));
+    assertTrue(Arrays.asList(recipients).contains(RECIPIENT_1));
+    assertTrue(Arrays.asList(recipients).contains(RECIPIENT_2));
+    assertTrue(Arrays.asList(recipients).contains(RECIPIENT_3));
   }
 
   @Test
   void testRecipientExtraction_inconsistenConfig() {
     final NotificationChannel mailChannel = new NotificationChannel();
-    mailChannel.setRecipients(recipient1);
+    mailChannel.setRecipients(RECIPIENT_1);
     stockAlertsConfig.setNotificationChannels(List.of(mailChannel));
 
     final var caughtException = assertThrows(IllegalStateException.class, () -> testee.getRecipients(appConfig));
@@ -85,7 +85,7 @@ class EmailNotificationSenderTest {
   @Test
   void sendEmailHappyCase() throws MessagingException, IOException {
     final NotificationChannel mailChannel = new NotificationChannel();
-    mailChannel.setRecipients(recipient2);
+    mailChannel.setRecipients(RECIPIENT_2);
     mailChannel.setType(Channel.EMAIL.getValue());
     stockAlertsConfig.setNotificationChannels(List.of(mailChannel));
 
@@ -105,10 +105,12 @@ class EmailNotificationSenderTest {
 
 
     verify(mailSender).send(mimeMessage);
-    assertEquals(recipient2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
+    assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
     assertEquals("Threshold CHF 12.25 for ABC crossed", mimeMessage.getSubject());
-    assertEquals("Price for ABC moved from CHF 12.0 dated on 2025-07-17 12:16 to CHF 13.0 dated on 2025-08-12 09:16\n" +
-            "Data refers to stock exchange Switzerland.\n",
+    assertEquals("""
+            Price for ABC moved from CHF 12.0 dated on 2025-07-17 12:16 to CHF 13.0 dated on 2025-08-12 09:16
+            Data refers to stock exchange Switzerland.
+            """,
         mimeMessage.getContent().toString());
   }
 

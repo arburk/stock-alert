@@ -66,6 +66,7 @@ docker run -e FCS-API-KEY=your-api-key \
 ## Build and Development
 
 [![CI](https://github.com/arburk/stock-alert/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/arburk/stock-alert/actions/workflows/ci.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=arburk_stock-alert&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=arburk_stock-alert)
 
 - build the source by ``mvn -B clean verify --file pom.xml``
 - build the Docker image by ``docker build -t stock-alert:0.0.1-SNAPSHOT . ``

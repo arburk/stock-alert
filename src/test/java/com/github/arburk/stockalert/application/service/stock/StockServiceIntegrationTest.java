@@ -48,7 +48,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class StockServiceIntegrationTest {
 
-  private static final String userHome = System.getProperty("user.home");
+  private static final String USER_HOME = System.getProperty("user.home");
   private static final Path TEST_HOME = Paths.get("target/test/", String.valueOf(System.currentTimeMillis()));
   private static File expectedStorageFile;
   private static GreenMail greenMail;
@@ -68,7 +68,7 @@ class StockServiceIntegrationTest {
 
   @AfterAll
   static void tearDownAll() {
-    System.setProperty("user.home", userHome);  // rest user.home after test to default
+    System.setProperty("user.home", USER_HOME);  // rest user.home after test to default
     greenMail.stop();
   }
 
