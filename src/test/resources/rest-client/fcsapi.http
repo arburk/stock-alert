@@ -1,2 +1,14 @@
 ### GET Securities with Demo API KEY
 GET https://fcsapi.com/api-v3/stock/latest?symbol=IBM,AMD,AAPL,MSFT,FB,TSLA&access_key=API_KEY
+
+### GET Securities with Demo API KEY
+GET https://fcsapi.com/api-v3/stock/latest?symbol=VUL&access_key={{API-KEY}}
+
+### GET tradegate traded securities
+https://fcsapi.com/api-v3/stock/list?exchange=tradegate&access_key={{API-KEY}}
+
+### GET XETRA traded securities
+https://fcsapi.com/api-v3/stock/list?exchange=xetra&access_key={{API-KEY}}
+
+### GET German traded securities
+https://fcsapi.com/api-v3/stock/list?country=germany&access_key={{API-KEY}}

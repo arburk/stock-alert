@@ -1,0 +1,201 @@
+{
+  "status": true,
+  "code": 200,
+  "msg": "Successfully",
+  "response": {
+    "1": {
+      "id": "5603",
+      "name": "Liberty Media A",
+      "short_name": "LM0E",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": ""
+    },
+    "431": {
+      "id": "113177",
+      "name": "Jefferies Financial Group Inc",
+      "short_name": "LN3",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": "Financials"
+    },
+    "649": {
+      "id": "113397",
+      "name": "Diversified Healthcare Trust",
+      "short_name": "SNFG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": "Real Estate"
+    },
+    "773": {
+      "id": "113521",
+      "name": "Alliant Energy Corp",
+      "short_name": "LNT",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": "Utilities"
+    },
+    "833": {
+      "id": "113581",
+      "name": "Arrow Electronics Inc",
+      "short_name": "ARW",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": "Technology"
+    },
+    "836": {
+      "id": "113584",
+      "name": "Pinnacle West Capital Corp",
+      "short_name": "PNW",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": "Utilities"
+    },
+    "964": {
+      "id": "113712",
+      "name": "Ten Sixty Four",
+      "short_name": "MQG0",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": "Basic Materials"
+    },
+    "993": {
+      "id": "113741",
+      "name": "Allergan PLC",
+      "short_name": "A60",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": "Healthcare"
+    },
+    "1156": {
+      "id": "12622497",
+      "name": "Apollo Commercial Real Estate Finance Inc",
+      "short_name": "ARIC",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": "Real Estate"
+    },
+    "1207": {
+      "id": "12622548",
+      "name": "The Mosaic Company",
+      "short_name": "02M",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": "Basic Materials"
+    },
+    "1287": {
+      "id": "12622629",
+      "name": "Chubb",
+      "short_name": "ACEL",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": "Financials"
+    },
+    "1450": {
+      "id": "12622792",
+      "name": "Americas Silver Corp",
+      "short_name": "SZ71",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": "Basic Materials"
+    },
+    "1521": {
+      "id": "12622863",
+      "name": "Ryanair Holdings PLC ADR",
+      "short_name": "RYAy",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": "Industrials"
+    },
+    "1522": {
+      "id": "12622864",
+      "name": "Telia Company AB",
+      "short_name": "TLIA",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": "Technology"
+    },
+    "1668": {
+      "id": "34518662",
+      "name": "Perrigo Company PLC",
+      "short_name": "PIGG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": "Healthcare"
+    },
+    "1749": {
+      "id": "54156601",
+      "name": "Allison Transmission Holdings Inc",
+      "short_name": "1A7",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": "Industrials"
+    },
+    "1788": {
+      "id": "60287944",
+      "name": "Sensata Technologies Holding NV",
+      "short_name": "S94",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": "Technology"
+    },
+    "1850": {
+      "id": "60288006",
+      "name": "KST Beteiligungs AG",
+      "short_name": "KSWG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "TradeGate",
+      "sector": "Financials"
+    }
+  },
+  "info": {
+    "exchanges": [
+      "Xetra",
+      "Frankfurt",
+      "BATS Europe",
+      "Hamburg",
+      "Dusseldorf",
+      "Munich",
+      "Berlin",
+      "Ho Chi Minh",
+      "TradeGate",
+      "Stuttgart"
+    ],
+    "sectors": [
+      "Basic Materials",
+      "Consumer Cyclicals",
+      "Healthcare",
+      "Financials",
+      "Industrials",
+      "Technology",
+      "Consumer Non-Cyclicals",
+      "Utilities",
+      "Real Estate",
+      "Energy",
+      "Services",
+      "Academic & Educational Services",
+      "Capital Goods"
+    ],
+    "server_time": "2025-08-09 19:49:30 UTC",
+    "credit_count": 1,
+    "_t": "2025-08-09 19:49:30 UTC"
+  }
+}

@@ -18,6 +18,7 @@ target/
 *.iws
 *.iml
 *.ipr
+**/http-client.private.env.json
 
 # Package Files #
 *.jar
@@ -51,3 +52,5 @@ build/
 hs_err_pid*
 replay_pid*
 /.run/
+
+

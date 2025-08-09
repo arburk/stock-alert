@@ -34,13 +34,11 @@ jobs:
           settings-path: ${{ github.workspace }} # location for the settings.xml file
 
       - name: Maven build and sonar analysis
-        run: mvn -B package org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=arburk_stock-alert --file pom.xml
+        run: |
+          - mvn -B package org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=arburk_stock-alert --file pom.xml
+          - echo "version=$(mvn help:evaluate -Dexpression='project.version' -q -DforceStdout)" >> $GITHUB_OUTPUT
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-      - name: Read and save version for docker tag
-        id: get_version
-        run: echo "version=$(mvn help:evaluate -Dexpression='project.version' -q -DforceStdout)" >> $GITHUB_OUTPUT
 
       - name: Upload JAR
         uses: actions/upload-artifact@v4
