@@ -50,7 +50,7 @@ docker run -e FCS-API-KEY=your-api-key \
            -e GATEWAY-EMAIL-HOST=smtp.provider.com \
            -e GATEWAY-EMAIL-USER=you@provider.com \
            -e GATEWAY-EMAIL-PWD=<your-secret-password> \
-           arburk/stock-alert:0.0.1-SNAPSHOT
+           arburk/stock-alert:0.1.0-SNAPSHOT
 ```
 - execute container with mounted config file, assuming, the config file is ``/home/user/my-config/my-config.json``
 ```
@@ -60,7 +60,7 @@ docker run -e FCS-API-KEY=your-api-key \
            -e GATEWAY-EMAIL-PWD=<your-secret-password> \
            -v /home/user/my-config:/config \
            -e CONFIG-URL=/config/my-config.json
-           arburk/stock-alert:0.0.1-SNAPSHOT
+           arburk/stock-alert:0.1.0-SNAPSHOT
 ```
 
 ## Build and Development
@@ -69,6 +69,6 @@ docker run -e FCS-API-KEY=your-api-key \
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=arburk_stock-alert&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=arburk_stock-alert)
 
 - build the source by ``mvn -B clean verify --file pom.xml``
-- build the Docker image by ``docker build -t stock-alert:0.0.1-SNAPSHOT . ``
+- build the Docker image by ``docker build -t stock-alert:0.1.0-SNAPSHOT . ``
 - run the docker image using this very version as described in [Docker](#docker)
 
