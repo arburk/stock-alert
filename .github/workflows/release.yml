@@ -28,6 +28,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 21
+
       - name: Prepare release with Maven
         run: mvn -B release:prepare
         env:
