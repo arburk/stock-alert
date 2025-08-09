@@ -35,56 +35,58 @@ class ApplicationConfigTest {
   void keyIsMasked_Null() {
     testee.setFcsApiKey(null);
     assertNull(testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=null,updateCron=* 16 9-21 * * MON-FRI,baseUrl=https://stock-alert.io,configUrl=null}", testee.toString());
+    assertEquals("ApplicationConfig{fcsApiKey=null,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
   }
 
   @Test
   void keyIsMasked_Empty() {
+    final String expedted = "ApplicationConfig{fcsApiKey=,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}";
+
     testee.setFcsApiKey("");
     assertEquals("", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=,updateCron=* 16 9-21 * * MON-FRI,baseUrl=https://stock-alert.io,configUrl=null}", testee.toString());
+    assertEquals(expedted, testee.toString());
 
     testee.setFcsApiKey("  ");
     assertEquals("", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=,updateCron=* 16 9-21 * * MON-FRI,baseUrl=https://stock-alert.io,configUrl=null}", testee.toString());
+    assertEquals(expedted, testee.toString());
   }
 
   @Test
   void keyIsFullyMasked() {
     testee.setFcsApiKey("A");
     assertEquals("A", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=*,updateCron=* 16 9-21 * * MON-FRI,baseUrl=https://stock-alert.io,configUrl=null}", testee.toString());
+    assertEquals("ApplicationConfig{fcsApiKey=*,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
 
     testee.setFcsApiKey(" A");
     assertEquals("A", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=*,updateCron=* 16 9-21 * * MON-FRI,baseUrl=https://stock-alert.io,configUrl=null}", testee.toString());
+    assertEquals("ApplicationConfig{fcsApiKey=*,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
 
     testee.setFcsApiKey(" A ");
     assertEquals("A", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=*,updateCron=* 16 9-21 * * MON-FRI,baseUrl=https://stock-alert.io,configUrl=null}", testee.toString());
+    assertEquals("ApplicationConfig{fcsApiKey=*,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
 
     testee.setFcsApiKey("AB");
     assertEquals("AB", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=**,updateCron=* 16 9-21 * * MON-FRI,baseUrl=https://stock-alert.io,configUrl=null}", testee.toString());
+    assertEquals("ApplicationConfig{fcsApiKey=**,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
 
     testee.setFcsApiKey("ABc");
     assertEquals("ABc", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=***,updateCron=* 16 9-21 * * MON-FRI,baseUrl=https://stock-alert.io,configUrl=null}", testee.toString());
+    assertEquals("ApplicationConfig{fcsApiKey=***,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
 
     testee.setFcsApiKey("ABcD");
     assertEquals("ABcD", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=****,updateCron=* 16 9-21 * * MON-FRI,baseUrl=https://stock-alert.io,configUrl=null}", testee.toString());
+    assertEquals("ApplicationConfig{fcsApiKey=****,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
 
     testee.setFcsApiKey(" ABcD ");
     assertEquals("ABcD", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=****,updateCron=* 16 9-21 * * MON-FRI,baseUrl=https://stock-alert.io,configUrl=null}", testee.toString());
+    assertEquals("ApplicationConfig{fcsApiKey=****,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
   }
 
   @Test
   void keyIsPartiallyMasked() {
     testee.setFcsApiKey("MyApiKey");
     assertEquals("MyApiKey", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=My****ey,updateCron=* 16 9-21 * * MON-FRI,baseUrl=https://stock-alert.io,configUrl=null}", testee.toString());
+    assertEquals("ApplicationConfig{fcsApiKey=My****ey,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
   }
 
   @Nested
