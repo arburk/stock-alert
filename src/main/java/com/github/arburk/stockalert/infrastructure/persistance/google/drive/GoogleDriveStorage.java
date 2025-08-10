@@ -1,4 +1,4 @@
-package com.github.arburk.stockalert.infrastructure.persistance;
+package com.github.arburk.stockalert.infrastructure.persistance.google.drive;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,20 +17,22 @@ import java.util.List;
 
 @Slf4j
 @Component
-@ConditionalOnProperty(value = "stock-alert.storage-provider", havingValue = FileStorage.ENABLE_PROPERTY)
-public class FileStorage implements PersistanceProvider {
+@ConditionalOnProperty(value = "stock-alert.storage-provider", havingValue = GoogleDriveStorage.ENABLE_PROPERTY)
+public class GoogleDriveStorage implements PersistanceProvider {
 
-  public static final String ENABLE_PROPERTY = "default";
+  public static final String ENABLE_PROPERTY = "google-drive";
 
   private final Path filePath;
   private final ObjectMapper objectMapper;
+  private final GoogleDriveService googleDriveService;
 
   private Collection<Security> data;
 
-  public FileStorage(ObjectMapper objectMapper) {
+  public GoogleDriveStorage(ObjectMapper objectMapper, GoogleDriveService googleDriveService) {
     filePath = Path.of(System.getProperty("user.home"), "stock-alert", "securities.db");
     this.objectMapper = objectMapper;
-    log.debug("Initialized default PersistanceProvider");
+    this.googleDriveService = googleDriveService;
+    log.debug("Initialized GoogleDriveStorage as PersistanceProvider");
   }
 
   @Override
