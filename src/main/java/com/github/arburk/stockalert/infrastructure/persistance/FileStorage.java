@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.service.stock.PersistanceProvider;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -16,7 +17,10 @@ import java.util.List;
 
 @Slf4j
 @Component
+@ConditionalOnProperty(value = "stock-alert.storage-provider", havingValue = FileStorage.ENABLE_PROPERTY)
 public class FileStorage implements PersistanceProvider {
+
+  public static final String ENABLE_PROPERTY = "default";
 
   private final Path filePath;
   private final ObjectMapper objectMapper;
@@ -24,8 +28,9 @@ public class FileStorage implements PersistanceProvider {
   private Collection<Security> data;
 
   public FileStorage(ObjectMapper objectMapper) {
-    filePath = Path.of(System.getProperty("user.home"), "stock-alert", "securities.db");
+    filePath = Path.of(System.getProperty("user.home"), "stock-alert", PersistanceProvider.STORAGE_FILE_NAME);
     this.objectMapper = objectMapper;
+    log.debug("Initialized default PersistanceProvider");
   }
 
   @Override
