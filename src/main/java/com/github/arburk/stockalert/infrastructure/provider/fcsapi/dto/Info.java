@@ -1,5 +1,6 @@
 package com.github.arburk.stockalert.infrastructure.provider.fcsapi.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.ToString;
@@ -10,6 +11,7 @@ import java.util.List;
 @ToString
 @Getter
 @Service
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Info {
   private List<String> exchanges;
   private List<String> sectors;
