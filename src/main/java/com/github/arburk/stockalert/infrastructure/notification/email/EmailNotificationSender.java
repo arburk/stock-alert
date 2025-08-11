@@ -8,6 +8,7 @@ import com.github.arburk.stockalert.application.service.notification.Notificatio
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailSendException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -19,6 +20,9 @@ public class EmailNotificationSender implements NotificationSender {
 
   private final JavaMailSender mailSender;
   private final ApplicationConfig appConfig;
+
+  @Value("${spring.mail.properties.mail.smtp.sender-address}")
+  private String from;
 
   public EmailNotificationSender(final JavaMailSender mailSender, final ApplicationConfig appConfig) {
     this.mailSender = mailSender;
@@ -71,6 +75,7 @@ public class EmailNotificationSender implements NotificationSender {
       MimeMessageHelper helper = new MimeMessageHelper(mail, "UTF-8");
       helper.setValidateAddresses(true);
       helper.setTo(recipient);
+      helper.setFrom(from);
       helper.setSubject(subject);
       helper.setText(message, false);
       mailSender.send(mail);
@@ -81,6 +86,5 @@ public class EmailNotificationSender implements NotificationSender {
       throw new MailSendException(msg, e);
     }
   }
-
 
 }

@@ -47,7 +47,7 @@ public class Client implements StockProvider {
 
     if (response.status()) {
       return response.response().stream()
-          .peek(stock -> log.debug("{}: {} {}", stock.s(), stock.c(), stock.ccy()))
+          .peek(stock -> log.debug("{}: {} {} ({})", stock.s(), stock.c(), stock.ccy(), stock.cp()))
           .map(SecurityMapper.INSTANCE::fromStockItem)
           .collect(Collectors.toSet());
     }
