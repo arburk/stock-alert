@@ -1,5 +1,8 @@
 package com.github.arburk.stockalert.infrastructure.provider.fcsapi.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public record StockItem(
     String c,     // current price
     String h,     // high
