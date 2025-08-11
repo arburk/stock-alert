@@ -16,12 +16,14 @@ spring:
     password: ${GATEWAY-EMAIL-PWD:}
     properties:
       mail:
+        debug: ${GATEWAY-EMAIL-DEBUG:false}
         smtp:
+          sender-address: ${GATEWAY-EMAIL-SENDER-ADDRESS:stock-alert@arburk.github.com}
           auth: ${GATEWAY-EMAIL-AUTH:true}
           starttls:
             enable: ${GATEWAY-EMAIL-TLS:true}
           ssl:
-            enable: ${GATEWAY-EMAIL-SSL:false}
+            enable: ${GATEWAY-EMAIL-SSL:true}
 
 logging:
   level:

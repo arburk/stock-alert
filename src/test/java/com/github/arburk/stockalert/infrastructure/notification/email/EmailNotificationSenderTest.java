@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.mail.MailSendException;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -100,6 +101,7 @@ class EmailNotificationSenderTest {
     testAlert.setNotification(Channel.EMAIL.getValue());
     testAlert.setThreshold(12.25);
 
+    ReflectionTestUtils.setField(testee, "from", "mocked@example.com");
 
     testee.send(testAlert, latest, persisted);
 
