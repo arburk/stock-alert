@@ -4,6 +4,7 @@ stock-alert:
   update-cron: ${UPDATE-CRON:0 16 9-21 * * MON-FRI}
   config-url: ${CONFIG-URL:src/main/resources/config-example.json}
   run-on-startup:  ${UPDATE-ON-STARTUP:false}
+  storage-provider: ${STORAGE:default}
 
 spring:
   application:
@@ -24,6 +25,17 @@ spring:
             enable: ${GATEWAY-EMAIL-TLS:true}
           ssl:
             enable: ${GATEWAY-EMAIL-SSL:true}
+
+  cloud:
+    s3:
+      bucket: ${S3-BUCKET:stock-alert}
+      credentials:
+        access-key: ${S3-ACCESS-KEY:}
+        secret-key: ${S3-SECRET-KEY:}
+      region: ${S3-REGION:}
+      endpoint:
+        url: ${S3-ENDPOINT:}
+        force-path-style: ${S3-ENDPOINT-FORCE-PATH-STYLE:true}
 
 logging:
   level:
