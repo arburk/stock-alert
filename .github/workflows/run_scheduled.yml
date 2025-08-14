@@ -28,7 +28,8 @@ jobs:
       - name: execute
         run: |
           mvn -B clean compile --file pom.xml
-          nohup java -jar target/*.jar 2>&1 &
+          export build_version=$(mvn help:evaluate -Dexpression='project.version' -q -DforceStdout)
+          nohup java -jar target/stock-alert-$build_version.jar 2>&1 &
           echo $! > app.pid
         env:
           CONFIG-URL: ${{ vars.CONFIG_URL }}
