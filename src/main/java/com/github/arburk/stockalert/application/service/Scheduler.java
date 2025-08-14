@@ -23,5 +23,6 @@ public class Scheduler {
     } catch (Exception e) {
       log.error("failed to update stock data: {}", e.getMessage());
     }
+    log.info("Stock update finished.");
   }
 }

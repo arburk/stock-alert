@@ -40,8 +40,8 @@ jobs:
           GATEWAY-EMAIL-HOST: ${{ vars.GATEWAY_EMAIL_HOST }}
           GATEWAY-EMAIL-PORT: ${{ vars.GATEWAY_EMAIL_PORT }}
           GATEWAY-EMAIL-PWD: ${{ secrets.GATEWAY_EMAIL_PWD }}
-          GATEWAY-EMAIL-SENDER-ADDRESS: ${{ secrets.GATEWAY_EMAIL_SENDER }}
-          GATEWAY-EMAIL-USER: ${{ secrets.GATEWAY_EMAIL_SENDER }}
+          GATEWAY-EMAIL-SENDER-ADDRESS: ${{ vars.GATEWAY_EMAIL_SENDER }}
+          GATEWAY-EMAIL-USER: ${{ secrets.GATEWAY_EMAIL_USER }}
           S3-ACCESS-KEY: ${{ secrets.S3_ACCESS_KEY }}
           S3-SECRET-KEY: ${{ secrets.S3_SECRET_KEY }}
           S3-ENDPOINT: ${{ vars.S3_ENDPOINT }}
@@ -52,11 +52,23 @@ jobs:
           SPRING_APPLICATION_JSON: ${{ vars.SPRING_APPLICATION_JSON}}
 
       - name: Wait for execution
-        run: sleep 60  # 300 Sekunden = 5 Minuten
-
-      - name: Shutdown
         run: |
-          cat ${{ github.workspace }}/target/stock-alert-execution.log
+          end=$((SECONDS+60))
+          tail -n0 -F ${{ github.workspace }}/target/stock-alert-execution.log &
+          tail_pid=$!
+          while [ $SECONDS -lt $end ]; do
+            if grep -q "Stock update finished." ${{ github.workspace }}/target/stock-alert-execution.log; then
+              echo "✅ Update finished."
+              kill $tail_pid
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "⏱ Timeout reached"
+          kill $tail_pid
+
+      - name: Log result and shutdown
+        run: |
           if [ -f app.pid ]; then
             kill $(cat app.pid)
             rm app.pid
