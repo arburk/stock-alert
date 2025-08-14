@@ -29,16 +29,10 @@ jobs:
       - name: Compile
         run: mvn -B -DskipTests=true clean package --file pom.xml
 
-      - name: Check TLS, DNS & Connectivity
-        run: |
-          date -u
-          curl -v ${{ vars.S3_ENDPOINT }} || true
-          dig ${{ vars.S3_ENDPOINT }} || true
-
       - name: Execute
         run: |
           export build_version=$(mvn help:evaluate -Dexpression='project.version' -q -DforceStdout)
-          nohup java -jar ${{ github.workspace }}/target/stock-alert-$build_version.jar 2>&1 &
+          nohup java -jar ${{ github.workspace }}/target/stock-alert-$build_version.jar  > ${{ github.workspace }}/target/stock-alert-execution.log 2>&1 &
           echo $! > app.pid
         env:
           CONFIG-URL: ${{ vars.CONFIG_URL }}
@@ -62,6 +56,7 @@ jobs:
 
       - name: Shutdown
         run: |
+          cat ${{ github.workspace }}/target/stock-alert-execution.log
           if [ -f app.pid ]; then
             kill $(cat app.pid)
             rm app.pid
