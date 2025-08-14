@@ -1,0 +1,310 @@
+{
+  "stock-alert-config": {
+    "version": "0.1.2",
+    "silence-duration": "6h",
+    "notification-channels": [
+      {
+        "type": "email",
+        "recipients": "mail@arno-burkhart.ch",
+        "use-on-error": true
+      }
+    ],
+    "securities": [
+      {
+        "symbol": "BALN",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 200.00,
+            "notification": "email"
+          },{
+            "threshold": 220.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 250.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "MMM",
+        "exchange": "NYSE",
+        "alerts": [
+          {
+            "threshold": 200.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 185.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "INGA",
+        "exchange": "Amsterdam",
+        "alerts": [
+          {
+            "threshold": 25.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "BAER",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 60.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "ROG",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 275.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "DVN",
+        "exchange": "NYSE",
+        "alerts": [
+          {
+            "threshold": 45.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "FRO",
+        "exchange": "NYSE",
+        "alerts": [
+          {
+            "threshold": 22.50,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "MRK",
+        "exchange": "Xetra"
+      },
+      {
+        "symbol": "VODI",
+        "exchange": "Frankfurt",
+        "alerts": [
+          {
+            "threshold": 1.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 1.05,
+            "notification": "email"
+          },
+          {
+            "threshold": 1.10,
+            "notification": "email"
+          },
+          {
+            "threshold": 1.20,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "ENI",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 17.50,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "PFE",
+        "exchange": "Xetra"
+      },
+      {
+        "symbol": "DKSH",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 80.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "ALVG",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 60.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "BANB",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 60.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 70.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 75.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 78.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "CMBN",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 100.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 120.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 150.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 185.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "LEHN",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 1275.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 700.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 600.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 800.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 900.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "LEON",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 55.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 25.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "MBTN",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 1.5,
+            "notification": "email"
+          },
+          {
+            "threshold": 5.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "STMN",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 130.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 100.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "MOZN",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 30.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 13.89,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "VACD",
+        "exchange": "Frankfurt"
+      },
+      {
+        "symbol": "SRAIL",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "PPGN",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "MBLY",
+        "exchange": "NASDAQ"
+      },
+      {
+        "symbol": "SUNN",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "BIOV",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "AMRZ",
+        "exchange": "Switzerland"
+      }
+    ]
+  }
+}
