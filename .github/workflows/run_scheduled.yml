@@ -26,9 +26,17 @@ jobs:
           server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
           settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-      - name: Compile and Execute
+      - name: Compile
+        run: mvn -B -DskipTests=true clean package --file pom.xml
+
+      - name: Check TLS, DNS & Connectivity
         run: |
-          mvn -B -DskipTests=true clean package --file pom.xml
+          date -u
+          curl -v ${{ vars.S3_ENDPOINT }} || true
+          dig ${{ vars.S3_ENDPOINT }} || true
+
+      - name: Execute
+        run: |
           export build_version=$(mvn help:evaluate -Dexpression='project.version' -q -DforceStdout)
           nohup java -jar ${{ github.workspace }}/target/stock-alert-$build_version.jar 2>&1 &
           echo $! > app.pid
