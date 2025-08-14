@@ -29,7 +29,9 @@ jobs:
         run: |
           mvn -B clean compile --file pom.xml
           export build_version=$(mvn help:evaluate -Dexpression='project.version' -q -DforceStdout)
-          nohup java -jar target/stock-alert-$build_version.jar 2>&1 &
+          pwd
+          ls -lah
+          nohup java -jar ${{ github.workspace }}/target/stock-alert-$build_version.jar 2>&1 &
           echo $! > app.pid
         env:
           CONFIG-URL: ${{ vars.CONFIG_URL }}
