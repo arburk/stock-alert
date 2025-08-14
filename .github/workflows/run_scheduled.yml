@@ -47,6 +47,7 @@ jobs:
           STORAGE: ${{ vars.STORAGE }}
           UPDATE-CRON: "-"
           UPDATE-ON-STARTUP: true
+          SPRING_APPLICATION_JSON: ${{ vars.SPRING_APPLICATION_JSON}}
 
       - name: Wait for execution
         run: sleep 60  # 300 Sekunden = 5 Minuten
