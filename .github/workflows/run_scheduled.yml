@@ -67,7 +67,7 @@ jobs:
           echo "⏱ Timeout reached"
           kill $tail_pid
 
-      - name: Log result and shutdown
+      - name: Shutdown app
         run: |
           if [ -f app.pid ]; then
             kill $(cat app.pid)
