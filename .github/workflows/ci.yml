@@ -7,13 +7,14 @@ on:
       - 'feature/**'
       - 'feat/**'
       - 'fix/**'
-    paths-ignore:
-      - '.github/**'
+    paths:
+      - src/**
+      - pom.xml
   pull_request_target:
     branches:
       - main
     paths-ignore:
-      - '**' # Damit der PR-Trigger keine zusätzliche Ausführung verursacht, wenn push bereits getriggert hat
+      - '**' # preventing PR trigger causing an additional execution if push has already been triggered
 
 jobs:
   build:
