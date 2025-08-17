@@ -87,7 +87,7 @@ jobs:
             rm app.pid
           fi
           if grep -q "Stock update finished." ${{ github.workspace }}/stock-alert-execution.log; then
-            EXIT 0
+            exit 0
           else
-            EXIT -1
+            exit -1
           fi
