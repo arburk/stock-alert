@@ -18,6 +18,7 @@ jobs:
         uses: actions/checkout@main
         with:
           fetch-depth: 0
+
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
@@ -26,13 +27,24 @@ jobs:
           server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
           settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-      - name: Compile
-        run: mvn -B -DskipTests=true clean package --file pom.xml
+      - name: Get latest release
+        id: releaseIdent
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+          owner: arburk
+          repo: stock-alert
+          excludes: prerelease, draft
+
+      - name: Download executable v ${{ steps.releaseIdent.outputs.release }}
+        env:
+          GITHUB_USERNAME: x-access-token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mvn -B dependency:get --settings .github/maven-settings.xml -Dartifact=com.github.arburk.stockalert:stock-alert:${{ steps.releaseIdent.outputs.release }}
 
       - name: Execute
         run: |
-          export build_version=$(mvn help:evaluate -Dexpression='project.version' -q -DforceStdout)
-          nohup java -jar ${{ github.workspace }}/target/stock-alert-$build_version.jar  > ${{ github.workspace }}/target/stock-alert-execution.log 2>&1 &
+          nohup java -jar ${{ github.workspace }}/stock-alert-${{ steps.releaseIdent.outputs.release }}.jar  > ${{ github.workspace }}/stock-alert-execution.log 2>&1 &
           echo $! > app.pid
         env:
           CONFIG-URL: ${{ vars.CONFIG_URL }}
@@ -54,10 +66,10 @@ jobs:
       - name: Wait for execution
         run: |
           end=$((SECONDS+60))
-          tail -n0 -F ${{ github.workspace }}/target/stock-alert-execution.log &
+          tail -n0 -F ${{ github.workspace }}/stock-alert-execution.log &
           tail_pid=$!
           while [ $SECONDS -lt $end ]; do
-            if grep -q "Stock update finished." ${{ github.workspace }}/target/stock-alert-execution.log; then
+            if grep -q "Stock update finished." ${{ github.workspace }}/stock-alert-execution.log; then
               echo "✅ Update finished."
               kill $tail_pid
               exit 0
@@ -69,6 +81,7 @@ jobs:
 
       - name: Shutdown app
         run: |
+          cat ${{ github.workspace }}/stock-alert-execution.log | grep c.g.a. >> $GITHUB_STEP_SUMMARY
           if [ -f app.pid ]; then
             kill $(cat app.pid)
             rm app.pid
