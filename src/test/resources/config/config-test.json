@@ -1,6 +1,6 @@
 {
   "stock-alert-config": {
-    "version": "0.0.1",
+    "version": "0.1.2-SNAPSHOT",
     "silence-duration" : "6h",
     "notification-channels": [
       {
@@ -13,6 +13,7 @@
       {
         "symbol": "BALN",
         "exchange": "Switzerland",
+        "_comments" : "Do comments break things? shouldn't be the case",
         "alerts": [
           {
             "threshold": 200.00,

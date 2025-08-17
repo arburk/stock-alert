@@ -1,6 +1,6 @@
 {
   "stock-alert-config": {
-    "version": "0.1.2",
+    "version": "0.1.2-SNAPSHOT",
     "silence-duration": "6h",
     "notification-channels": [
       {
@@ -11,6 +11,22 @@
     ],
     "securities": [
       {
+        "symbol": "BNPP",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 116.00,
+            "notification": "email"
+          },{
+            "threshold": 90.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 75.00,
+            "notification": "email"
+          }
+        ]
+      },{
         "symbol": "BALN",
         "exchange": "Switzerland",
         "alerts": [
@@ -28,6 +44,33 @@
         ]
       },
       {
+        "symbol": "NETEASE",
+        "exchange": "NASDAQ",
+        "alerts": [
+          {
+            "threshold": 150.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 133.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "BYDDY",
+        "exchange": "OTC Markets",
+        "alerts": [
+          {
+            "threshold": 23.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 17.50,
+            "notification": "email"
+          }
+        ]
+      },{
         "symbol": "MMM",
         "exchange": "NYSE",
         "alerts": [
@@ -41,6 +84,7 @@
           }
         ]
       },
+
       {
         "symbol": "INGA",
         "exchange": "Amsterdam",
@@ -76,7 +120,7 @@
         "exchange": "NYSE",
         "alerts": [
           {
-            "threshold": 45.00,
+            "threshold": 50.00,
             "notification": "email"
           }
         ]
@@ -114,6 +158,10 @@
           {
             "threshold": 1.20,
             "notification": "email"
+          },
+          {
+            "threshold": 0.95,
+            "notification": "email"
           }
         ]
       },
@@ -129,7 +177,13 @@
       },
       {
         "symbol": "PFE",
-        "exchange": "Xetra"
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 35.0,
+            "notification": "email"
+          }
+        ]
       },
       {
         "symbol": "DKSH",
@@ -146,7 +200,29 @@
         "exchange": "Xetra",
         "alerts": [
           {
+            "threshold": 500.00,
+            "notification": "email"
+          },{
+            "threshold": 400.00,
+            "notification": "email"
+          },{
+            "threshold": 440.00,
+            "notification": "email"
+          },{
+            "threshold": 350.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "AXAF",
+        "exchange": "Xetra",
+        "alerts": [
+          {
             "threshold": 60.00,
+            "notification": "email"
+          },{
+            "threshold": 56.00,
             "notification": "email"
           }
         ]
@@ -254,7 +330,7 @@
         "exchange": "Switzerland",
         "alerts": [
           {
-            "threshold": 130.00,
+            "threshold": 125.00,
             "notification": "email"
           },
           {
@@ -279,7 +355,13 @@
       },
       {
         "symbol": "VACD",
-        "exchange": "Frankfurt"
+        "exchange": "Frankfurt",
+        "alerts": [
+          {
+            "threshold": 20.00,
+            "notification": "email"
+          }
+        ]
       },
       {
         "symbol": "SRAIL",
@@ -295,15 +377,52 @@
       },
       {
         "symbol": "SUNN",
-        "exchange": "Switzerland"
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 60.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 50.00,
+            "notification": "email"
+          }
+        ]
       },
       {
         "symbol": "BIOV",
         "exchange": "Switzerland"
       },
       {
+        "symbol": "BAEAG",
+        "exchange": "Switzerland",
+        "_comments" : "BAWAG NOT YET identified -> 100, 130, 120"
+      },
+      {
         "symbol": "AMRZ",
-        "exchange": "Switzerland"
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 50.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "MRCG",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 100.00,
+            "notification": "email"
+          }, {
+            "threshold": 120.00,
+            "notification": "email"
+          }, {
+            "threshold": 60.00,
+            "notification": "email"
+          }
+        ]
       }
     ]
   }
