@@ -40,11 +40,11 @@ jobs:
           GITHUB_USERNAME: x-access-token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          mvn -B dependency:get --settings .github/maven-settings.xml -Dartifact=com.github.arburk.stockalert:stock-alert:${{ steps.releaseIdent.outputs.release }}
+          wget https://github.com/arburk/stock-alert/releases/download/${{ steps.releaseIdent.outputs.release }}/stock-alert-${{ steps.releaseIdent.outputs.release }}.jar -O ${{ github.workspace }}/stock-alert.jar -q
 
       - name: Execute
         run: |
-          nohup java -jar ${{ github.workspace }}/stock-alert-${{ steps.releaseIdent.outputs.release }}.jar  > ${{ github.workspace }}/stock-alert-execution.log 2>&1 &
+          nohup java -jar ${{ github.workspace }}/stock-alert.jar  > ${{ github.workspace }}/stock-alert-execution.log 2>&1 &
           echo $! > app.pid
         env:
           CONFIG-URL: ${{ vars.CONFIG_URL }}
@@ -85,4 +85,9 @@ jobs:
           if [ -f app.pid ]; then
             kill $(cat app.pid)
             rm app.pid
+          fi
+          if grep -q "Stock update finished." ${{ github.workspace }}/stock-alert-execution.log; then
+            EXIT 0
+          else
+            EXIT -1
           fi
