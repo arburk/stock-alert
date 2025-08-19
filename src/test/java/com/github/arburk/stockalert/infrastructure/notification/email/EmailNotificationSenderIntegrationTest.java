@@ -13,6 +13,8 @@ import org.springframework.test.context.TestPropertySource;
 import java.time.LocalDateTime;
 import java.time.Month;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 @Disabled("Enable this test to verify SMTP settings with certain provider")
 @SpringBootTest
 @ActiveProfiles(profiles = "test")
@@ -42,6 +44,6 @@ class EmailNotificationSenderIntegrationTest {
     final Security persisted = new Security("ABC", 12.0, "CHF", persistedTs, "Switzerland");
     final Security latest = new Security("ABC", 13.0, "CHF", updatedTs, "Switzerland");
 
-    testee.send(testAlert, latest, persisted);
+    assertDoesNotThrow(() -> testee.send(testAlert, latest, persisted));
   }
 }

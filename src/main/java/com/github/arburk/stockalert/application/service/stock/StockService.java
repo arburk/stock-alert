@@ -61,16 +61,19 @@ public class StockService {
         .toList();
 
     if (configKeys.size() != filteredSecurites.size()) {
-      log.warn("Did not find all stocks configured in alert config.\nconfigured: {}\nmatched: {}",
-          configKeys,
-          latestSecurities.stream()
-              .filter(sec -> configKeys.contains(sec.symbol() + "::" + sec.exchange()))
-              .collect(Collectors.toSet()));
-
+      logUnidentifiedSecurities(latestSecurities, configKeys);
       //TODO: send warning to check config?
     }
 
     return filteredSecurites;
+  }
+
+  private static void logUnidentifiedSecurities(final Collection<Security> latestSecurities, final Set<String> configKeys) {
+    final Set<String> found = latestSecurities.stream()
+        .map(sec -> sec.symbol() + "::" + sec.exchange())
+        .collect(Collectors.toSet());
+    final List<String> unmatched = configKeys.stream().filter(entry -> !found.contains(entry)).toList();
+    log.warn("Did not find following stocks configured in alert config: {}", unmatched);
   }
 
   private Security getSecurity(final Collection<Security> securities, final SecurityConfig securityConfig) {

@@ -165,11 +165,10 @@ public class S3BucketStorage implements PersistanceProvider {
               /* true: use endpoint.tld/bucket
                  false use bucket.endpoint.tld  */
           )
-          .serviceConfiguration(builder -> {
-                // disable chucked encoding preventing following error:
-                // Transfering payloads in multiple chunks using aws-chunked is not supported.
-                builder.chunkedEncodingEnabled(false);
-              }
+          .serviceConfiguration(builder ->
+                  builder.chunkedEncodingEnabled(false)
+                /* disable chunked encoding preventing the following error:
+                   "Transfering payloads in multiple chunks using aws-chunked is not supported." */
           );
 
       if (StringUtils.isNotBlank(region)) {
