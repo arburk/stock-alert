@@ -409,17 +409,18 @@
         ]
       },
       {
-        "symbol": "MRCG",
-        "exchange": "Switzerland",
+        "symbol": "MRK",
+        "exchange": "NYSE",
+        "_comment" : "BX converted by factor .81",
         "alerts": [
           {
-            "threshold": 100.00,
+            "threshold": 123.50,
             "notification": "email"
           }, {
-            "threshold": 120.00,
+            "threshold": 148.00,
             "notification": "email"
           }, {
-            "threshold": 60.00,
+            "threshold": 74.00,
             "notification": "email"
           }
         ]
