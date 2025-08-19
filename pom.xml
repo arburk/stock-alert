@@ -37,6 +37,7 @@
     <java.version>21</java.version>
     <spring-cloud.version>2025.0.0</spring-cloud.version>
     <mapstruct.version>1.6.3</mapstruct.version>
+    <testcontainer.version>1.21.3</testcontainer.version>
     <sonar.organization>arburk</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     <sonar.java.codeCoveragePlugin>jacoco</sonar.java.codeCoveragePlugin>
@@ -87,7 +88,15 @@
       <groupId>software.amazon.awssdk</groupId>
       <artifactId>s3</artifactId>
       <version>2.32.24</version>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
+
+    <!-- dev and test dependencies -->
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -101,19 +110,35 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.wiremock.integrations</groupId>
       <artifactId>wiremock-spring-boot</artifactId>
       <version>3.10.6</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>com.icegreen</groupId>
       <artifactId>greenmail</artifactId>
       <version>2.1.5</version>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${testcontainer.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>minio</artifactId>
+      <version>${testcontainer.version}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+
 
   <dependencyManagement>
     <dependencies>

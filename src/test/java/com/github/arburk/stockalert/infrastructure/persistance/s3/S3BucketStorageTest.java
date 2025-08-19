@@ -33,6 +33,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Consumer;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -205,6 +206,7 @@ class S3BucketStorageTest {
       when(mockedClientBuilder.endpointOverride(any(URI.class))).thenReturn(mockedClientBuilder);
       when(mockedClientBuilder.forcePathStyle(anyBoolean())).thenReturn(mockedClientBuilder);
       when(mockedClientBuilder.region(any(Region.class))).thenReturn(mockedClientBuilder);
+      when(mockedClientBuilder.serviceConfiguration(any(Consumer.class))).thenReturn(mockedClientBuilder);
       final var credentialsProviderCaptor = ArgumentCaptor.forClass(StaticCredentialsProvider.class);
       when(mockedClientBuilder.credentialsProvider(credentialsProviderCaptor.capture())).thenReturn(mockedClientBuilder);
 
