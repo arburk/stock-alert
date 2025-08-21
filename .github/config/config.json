@@ -26,7 +26,8 @@
             "notification": "email"
           }
         ]
-      },{
+      },
+      {
         "symbol": "BALN",
         "exchange": "Switzerland",
         "alerts": [
@@ -39,6 +40,31 @@
           },
           {
             "threshold": 250.00,
+            "notification": "email"
+          }
+        ]
+      },
+      {
+        "symbol": "BSLN",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 45.00,
+            "notification": "email"
+          },{
+            "threshold": 48.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 50.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 55.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 70.00,
             "notification": "email"
           }
         ]
@@ -134,10 +160,6 @@
             "notification": "email"
           }
         ]
-      },
-      {
-        "symbol": "MRK",
-        "exchange": "Xetra"
       },
       {
         "symbol": "VODI",
@@ -365,15 +387,53 @@
       },
       {
         "symbol": "SRAIL",
-        "exchange": "Switzerland"
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 20.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 25.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 30.00,
+            "notification": "email"
+          }
+        ]
       },
       {
         "symbol": "PPGN",
-        "exchange": "Switzerland"
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 30.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 35.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 25.00,
+            "notification": "email"
+          }
+        ]
       },
       {
         "symbol": "MBLY",
-        "exchange": "NASDAQ"
+        "exchange": "NASDAQ",
+        "alerts": [
+          {
+            "threshold": 20.00,
+            "notification": "email"
+          },
+          {
+            "threshold": 10.00,
+            "notification": "email"
+          }
+        ]
       },
       {
         "symbol": "SUNN",
