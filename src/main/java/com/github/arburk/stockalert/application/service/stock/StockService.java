@@ -31,8 +31,8 @@ public class StockService {
 
   public void update() {
     log.debug("refresh stock alert config...");
-    final List<SecurityConfig> alertConfig = this.applicationConfig.getStockAlertsConfig().getSecurities();
-    final Set<String> symbolsToQueryFor = alertConfig.stream().map(SecurityConfig::getSymbol).collect(Collectors.toSet());
+    final List<SecurityConfig> alertConfig = this.applicationConfig.getStockAlertsConfig().securities();
+    final Set<String> symbolsToQueryFor = alertConfig.stream().map(SecurityConfig::symbol).collect(Collectors.toSet());
     log.debug("perform and process update for {}", symbolsToQueryFor);
     try {
       process(alertConfig, stockProvider.getLatest(symbolsToQueryFor));
@@ -54,7 +54,7 @@ public class StockService {
 
   private Collection<Security> getRelevantFiltered(final List<SecurityConfig> alertConfig, final Collection<Security> latestSecurities) {
     final Set<String> configKeys = alertConfig.stream()
-        .map(cfg -> cfg.getSymbol() + "::" + cfg.getExchange())
+        .map(cfg -> cfg.symbol() + "::" + cfg.exchange())
         .collect(Collectors.toSet());
     final List<Security> filteredSecurites = latestSecurities.stream()
         .filter(sec -> configKeys.contains(sec.symbol() + "::" + sec.exchange()))
@@ -82,8 +82,8 @@ public class StockService {
     }
 
     return securities.stream().filter(security ->
-            security.symbol().equals(securityConfig.getSymbol())
-                && security.exchange().equals(securityConfig.getExchange()))
+            security.symbol().equals(securityConfig.symbol())
+                && security.exchange().equals(securityConfig.exchange()))
         .findFirst().orElse(null);
   }
 
@@ -115,14 +115,14 @@ public class StockService {
 
     // TODO: consider silence mode
 
-    final List<Alert> alerts = config.getAlerts();
+    final List<Alert> alerts = config.alerts();
     if (alerts == null || alerts.isEmpty()) {
       log.debug("Skip further checks since no alert defined for {}", latest.symbol());
       return;
     }
 
     alerts.stream()
-        .filter(alert -> isBetween(alert.getThreshold(), latest.price(), persisted.price()))
+        .filter(alert -> isBetween(alert.threshold(), latest.price(), persisted.price()))
         .forEach(alert -> {
           log.info("Send alert for {} {}", latest.symbol(), alert);
           notificationService.send(alert, latest, persisted);

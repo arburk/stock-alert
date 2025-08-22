@@ -35,9 +35,7 @@ class EmailNotificationSenderIntegrationTest {
 
   @Test
   void name() {
-    final Alert testAlert = new Alert();
-    testAlert.setNotification(Channel.EMAIL.getValue());
-    testAlert.setThreshold(12.25);
+    final Alert testAlert = new Alert(12.25, Channel.EMAIL.getValue(), null);
 
     LocalDateTime persistedTs = LocalDateTime.of(2025, Month.JULY, 17, 12, 16, 24, 12);
     LocalDateTime updatedTs = LocalDateTime.of(2025, Month.AUGUST, 12, 9, 16, 17, 34);

@@ -20,6 +20,6 @@ public class NoopNotificationSender implements NotificationSender {
   public void send(final Alert alert, final Security latest, final Security persisted) {
     final String currency = latest.currency();
     log.info("Skip sending alert for {} with threshold {} {} sice stock price moved from {} {} to {} {} at {}",
-        latest.symbol(), currency, alert.getThreshold(), currency, persisted.price(), currency, latest.price(), latest.timestamp());
+        latest.symbol(), currency, alert.threshold(), currency, persisted.price(), currency, latest.price(), latest.timestamp());
   }
 }

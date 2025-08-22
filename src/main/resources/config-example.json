@@ -1,6 +1,6 @@
 {
   "stock-alert-config": {
-    "version": "0.0.1",
+    "version": "0.1.4-SNAPSHOT",
     "silence-duration" : "6h",
     "notification-channels": [
       {
@@ -12,19 +12,25 @@
     "securities": [
       {
         "symbol": "BALN",
+        "isin": "CH0012410517",
+        "_comment": "test comment",
         "exchange": "Switzerland",
+        "something-weird" : "won't crash things",
         "alerts": [
           {
             "threshold": 200.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": "Keep an eye on it."
           },
           {
             "threshold": 220.00,
-            "notification": "sms"
+            "notification": "sms",
+            "_comment": "Sell now!"
           },
           {
             "threshold": 185.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": "Consider selling."
           }
         ]
       }

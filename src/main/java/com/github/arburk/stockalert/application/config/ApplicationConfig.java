@@ -80,7 +80,7 @@ public class ApplicationConfig {
     try {
       final AlertConfigRoot alertConfigRoot = objectMapper.readValue(getConfigFileAsUrl(), AlertConfigRoot.class);
       log.debug("read config by source '{}':\n{}", configUrl, alertConfigRoot.toString());
-      return alertConfigRoot.getConfig();
+      return alertConfigRoot.config();
     } catch (Exception e) {
       throw new IllegalArgumentException("Failed to load config %s: %s".formatted(configUrl, e.getCause()), e);
     }

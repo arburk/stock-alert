@@ -13,15 +13,15 @@ public interface NotificationSender {
   void send(final Alert alert, final Security latest, final Security persisted);
 
   default String[] getRecipients(ApplicationConfig appConfig) throws IllegalStateException {
-    final var notificationChannels = appConfig.getStockAlertsConfig().getNotificationChannels();
+    final var notificationChannels = appConfig.getStockAlertsConfig().notificationChannels();
     final var channelConfig = notificationChannels.stream()
-        .filter(channel -> getChannel().getValue().equalsIgnoreCase(channel.getType()))
+        .filter(channel -> getChannel().getValue().equalsIgnoreCase(channel.type()))
         .findFirst()
         .orElseThrow(() ->
             new IllegalStateException("%s channel was invoked but not found in configuration"
                 .formatted(getChannel().getValue())));
 
-    return Arrays.stream(channelConfig.getRecipients()
+    return Arrays.stream(channelConfig.recipients()
             .split("[,;]"))
         .map(String::trim)
         .toArray(String[]::new);

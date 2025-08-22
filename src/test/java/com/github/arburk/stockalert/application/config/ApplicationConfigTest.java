@@ -5,6 +5,7 @@ import com.github.arburk.stockalert.application.domain.config.NotificationChanne
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -98,6 +99,7 @@ class ApplicationConfigTest {
       assertConfigExample(testee.getStockAlertsConfig());
     }
 
+    @Disabled("until new example is online")
     @Test
     void url_HappyFlow() {
       testee.setConfigUrl("https://raw.githubusercontent.com/arburk/stock-alert/refs/heads/main/src/main/resources/config-example.json");
@@ -128,20 +130,22 @@ class ApplicationConfigTest {
 
     private void assertConfigExample(final StockAlertsConfig stockAlertsConfig) {
       assertNotNull(stockAlertsConfig);
-      assertEquals("0.0.1", stockAlertsConfig.getVersion());
-      assertEquals("6h", stockAlertsConfig.getSilenceDuration());
-      final List<NotificationChannel> notificationChannels = stockAlertsConfig.getNotificationChannels();
+      assertEquals("0.1.4-SNAPSHOT", stockAlertsConfig.version());
+      assertEquals("6h", stockAlertsConfig.silenceDuration());
+      final List<NotificationChannel> notificationChannels = stockAlertsConfig.notificationChannels();
       assertNotNull(notificationChannels);
       assertEquals(1, notificationChannels.size());
-      assertEquals("email", notificationChannels.getFirst().getType());
-      assertEquals("me@company.com", notificationChannels.getFirst().getRecipients());
-      assertTrue(notificationChannels.getFirst().isUseOnError());
-      final List<SecurityConfig> securities = stockAlertsConfig.getSecurities();
+      assertEquals("email", notificationChannels.getFirst().type());
+      assertEquals("me@company.com", notificationChannels.getFirst().recipients());
+      assertTrue(notificationChannels.getFirst().useOnError());
+      final List<SecurityConfig> securities = stockAlertsConfig.securities();
       assertEquals(1, securities.size());
       final SecurityConfig first = securities.getFirst();
-      assertEquals("BALN", first.getSymbol());
-      assertEquals("Switzerland", first.getExchange());
-      assertAlerts(first.getAlerts());
+      assertEquals("BALN", first.symbol());
+      assertEquals("Switzerland", first.exchange());
+      assertEquals("CH0012410517", first.isin());
+      assertEquals("test comment", first._comment());
+      assertAlerts(first.alerts());
     }
 
     private void assertAlerts(final List<Alert> alerts) {
@@ -151,12 +155,12 @@ class ApplicationConfigTest {
       final Alert third = alerts.getLast();
 
       assertAll(
-          () -> assertEquals(200.00, first.getThreshold()),
-          () -> assertEquals("email", first.getNotification()),
-          () -> assertEquals(220.00, second.getThreshold()),
-          () -> assertEquals("sms", second.getNotification()),
-          () -> assertEquals(185.00, third.getThreshold()),
-          () -> assertEquals("email", third.getNotification())
+          () -> assertEquals(200.00, first.threshold()),
+          () -> assertEquals("email", first.notification()),
+          () -> assertEquals(220.00, second.threshold()),
+          () -> assertEquals("sms", second.notification()),
+          () -> assertEquals(185.00, third.threshold()),
+          () -> assertEquals("email", third.notification())
       );
     }
   }

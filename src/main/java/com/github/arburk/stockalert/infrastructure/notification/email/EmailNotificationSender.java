@@ -65,7 +65,7 @@ public class EmailNotificationSender implements NotificationSender {
 
   private String renderSubject(final Alert alert, final Security latest) {
     return "Threshold %s %s for %s crossed".formatted(
-        latest.currency(), alert.getThreshold(), latest.symbol());
+        latest.currency(), alert.threshold(), latest.symbol());
   }
 
   private void sendEmail(final String subject, String message) {
