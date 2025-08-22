@@ -22,6 +22,7 @@ import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.services.s3.model.S3Object;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.StringWriter;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
@@ -129,7 +130,7 @@ public class S3BucketStorage implements PersistanceProvider {
 
       if (s3Contents.isEmpty()) {
         log.warn("Storage file not found in S3 bucket: {}/{}", bucket, endpoint);
-        return new ArrayList<>();
+        return initDataByFallback();
       }
 
       if (s3Contents.size() > 1) {
@@ -137,18 +138,36 @@ public class S3BucketStorage implements PersistanceProvider {
             s3Contents.size(), STORAGE_FILE_NAME, endpoint, bucket);
       }
 
-      final S3Object s3Object = s3Contents.getFirst();
-      this.fileKey = s3Object.key();
-      log.debug("read file with key '{}' from S3 bucket {}/{}.", fileKey, endpoint, bucket);
-      try (var responseInputStream = getS3().getObject(GetObjectRequest.builder().bucket(bucket).key(fileKey).build())) {
-        return objectMapper.readValue(responseInputStream, new TypeReference<List<Security>>() {
-        });
-      }
+      return getSecurityListFromFromBucket(s3Contents);
 
     } catch (Exception e) {
       log.error("Failed to read securities from S3 bucket.", e);
       resetS3ClientToEnforceRefresh();
       return new ArrayList<>();
+    }
+  }
+
+  private Collection<Security> initDataByFallback() throws IOException {
+    final ListObjectsRequest req = ListObjectsRequest.builder()
+        .bucket(bucket).prefix(STORAGE_FILE_NAME_0_1_3).build();
+    final List<S3Object> s3Contents = getS3().listObjects(req)
+        .contents()
+        .stream()
+        .toList();
+
+    if (!s3Contents.isEmpty()) {
+      log.info("init data from former storage file for migration: {}", STORAGE_FILE_NAME_0_1_3);
+      return getSecurityListFromFromBucket(s3Contents);
+    }
+    return new ArrayList<>();
+  }
+
+  private List<Security> getSecurityListFromFromBucket(final List<S3Object> s3Contents) throws IOException {
+    this.fileKey = s3Contents.getFirst().key();
+    log.debug("read file with key '{}' from S3 bucket {}/{}.", fileKey, endpoint, bucket);
+    try (var responseInputStream = getS3().getObject(GetObjectRequest.builder().bucket(bucket).key(fileKey).build())) {
+      return objectMapper.readValue(responseInputStream, new TypeReference<List<Security>>() {
+      });
     }
   }
 

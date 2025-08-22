@@ -5,8 +5,10 @@ import com.github.arburk.stockalert.application.domain.Security;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.testcontainers.containers.MinIOContainer;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -25,6 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class S3BucketStorageContainerTest {
 
   private static final MinIOContainer MINIO_TESTCONTAINER = new MinIOContainer("minio/minio:RELEASE.2023-09-04T19-57-37Z")

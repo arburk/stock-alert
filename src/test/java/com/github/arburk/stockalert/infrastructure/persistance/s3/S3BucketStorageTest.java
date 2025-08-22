@@ -47,7 +47,6 @@ import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
 class S3BucketStorageTest {
 
   private static final String TEST_BUCKET = "test-bucket";
@@ -77,10 +76,16 @@ class S3BucketStorageTest {
     var result = testee.getSecurites();
 
     assertTrue(result.isEmpty());
-    final ListObjectsRequest capturedRequest = requestCaptor.getValue();
-    verify(mockS3).listObjects(capturedRequest);
-    assertEquals(TEST_BUCKET, capturedRequest.bucket());
-    assertEquals(PersistanceProvider.STORAGE_FILE_NAME, capturedRequest.prefix());
+    final List<ListObjectsRequest> allRequests = requestCaptor.getAllValues();
+    assertEquals(2, allRequests.size());
+    final ListObjectsRequest firstRequest = allRequests.getFirst();
+    final ListObjectsRequest secondRequest = allRequests.getLast();
+    verify(mockS3).listObjects(firstRequest);
+    verify(mockS3).listObjects(secondRequest);
+    assertEquals(TEST_BUCKET, firstRequest.bucket());
+    assertEquals(TEST_BUCKET, secondRequest.bucket());
+    assertEquals(PersistanceProvider.STORAGE_FILE_NAME, firstRequest.prefix());
+    assertEquals(PersistanceProvider.STORAGE_FILE_NAME_0_1_3, secondRequest.prefix());
     verify(mockS3, never()).getObject(any(GetObjectRequest.class));
   }
 

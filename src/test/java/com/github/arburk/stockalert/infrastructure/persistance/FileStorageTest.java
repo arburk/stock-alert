@@ -27,7 +27,7 @@ class FileStorageTest {
 
   private String userHome;
   private static final Path TEST_HOME = Paths.get("target/test/", String.valueOf(System.currentTimeMillis()));
-  private static final Path EXPECTED_FILE_PATH = Path.of(TEST_HOME.toString(), "stock-alert", "securities.db");
+  private static final Path EXPECTED_FILE_PATH = Path.of(TEST_HOME.toString(), "stock-alert", "securities.db.json");
   private static final LocalDateTime timestamp = LocalDateTime.of(2018, Month.SEPTEMBER, 24, 17, 12, 1, 12);
 
   private FileStorage testee;

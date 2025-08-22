@@ -6,7 +6,10 @@ import java.util.Collection;
 
 public interface PersistanceProvider {
 
-  String STORAGE_FILE_NAME = "securities.db";
+  String STORAGE_FILE_NAME = "securities.db.json";
+
+  @Deprecated(since = "0.1.4", forRemoval = true)
+  String STORAGE_FILE_NAME_0_1_3 = "securities.db";
 
   Collection<Security> getSecurites();
 

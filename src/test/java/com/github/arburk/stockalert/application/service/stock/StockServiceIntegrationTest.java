@@ -62,7 +62,7 @@ class StockServiceIntegrationTest {
   @BeforeAll
   static void setUpAll() {
     System.setProperty("user.home", TEST_HOME.toString()); // redirect file storage to test
-    expectedStorageFile = Path.of(TEST_HOME.toString(), "stock-alert", "securities.db").toFile();
+    expectedStorageFile = Path.of(TEST_HOME.toString(), "stock-alert", "securities.db.json").toFile();
     mockEmailIntegration();
   }
 

@@ -81,7 +81,7 @@ public class FileStorage implements PersistanceProvider {
     try {
       if (!filePath.toFile().exists()) {
         log.warn("Storage file not found: {}", filePath.toFile().getAbsoluteFile());
-        return new ArrayList<>();
+        return initDataByFallback();
       }
       return objectMapper.readValue(filePath.toFile(), new TypeReference<List<Security>>() {});
     } catch (IOException e) {
@@ -89,4 +89,14 @@ public class FileStorage implements PersistanceProvider {
       return new ArrayList<>();
     }
   }
+
+  private Collection<Security> initDataByFallback() throws IOException {
+    final Path fallback = Path.of(System.getProperty("user.home"), "stock-alert", PersistanceProvider.STORAGE_FILE_NAME_0_1_3);
+    if (fallback.toFile().exists()) {
+      log.info("init data from former storage file for migration: {}", fallback.toFile().getAbsoluteFile());
+      return objectMapper.readValue(fallback.toFile(), new TypeReference<List<Security>>() {});
+    }
+    return new ArrayList<>();
+  }
+
 }
