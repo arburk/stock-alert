@@ -2,6 +2,7 @@ package com.github.arburk.stockalert.infrastructure.persistance;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.arburk.stockalert.application.config.JacksonConfig;
+import com.github.arburk.stockalert.application.domain.MetaInfo;
 import com.github.arburk.stockalert.application.domain.Security;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -90,6 +91,7 @@ class FileStorageTest {
     );
 
     testee.updateSecurities(securities);
+    testee.updateMetaInfo(new MetaInfo(null));
 
     assertTrue(EXPECTED_FILE_PATH.toFile().exists());
 

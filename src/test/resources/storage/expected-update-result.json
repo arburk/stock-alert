@@ -1,77 +1,80 @@
-[
-  {
-    "symbol": "MOZN",
-    "price": 11.24,
-    "currency": "CHF",
-    "timestamp": [
-      2018,
-      9,
-      24,
-      17,
-      12,
-      1,
-      12
-    ],
-    "exchange": "Switzerland"
-  },
-  {
-    "symbol": "ROG",
-    "price": 251.34,
-    "currency": "CHF",
-    "timestamp": [
-      2018,
-      9,
-      24,
-      17,
-      12,
-      1,
-      12
-    ],
-    "exchange": "Switzerland"
-  },
-  {
-    "symbol": "BALN",
-    "price": 212.14,
-    "currency": "CHF",
-    "timestamp": [
-      2025,
-      8,
-      6,
-      14,
-      39,
-      12,
-      11
-    ],
-    "exchange": "Switzerland"
-  },
-  {
-    "symbol": "MOZN",
-    "price": 9.36,
-    "currency": "CHF",
-    "timestamp": [
-      2025,
-      8,
-      6,
-      14,
-      39,
-      12,
-      11
-    ],
-    "exchange": "unknown"
-  },
-  {
-    "symbol": "NOVN",
-    "price": 96.24,
-    "currency": "CHF",
-    "timestamp": [
-      2025,
-      8,
-      6,
-      14,
-      39,
-      12,
-      11
-    ],
-    "exchange": "Switzerland"
-  }
-]
+{
+  "securities": [
+    {
+      "symbol": "MOZN",
+      "price": 11.24,
+      "currency": "CHF",
+      "timestamp": [
+        2018,
+        9,
+        24,
+        17,
+        12,
+        1,
+        12
+      ],
+      "exchange": "Switzerland"
+    },
+    {
+      "symbol": "ROG",
+      "price": 251.34,
+      "currency": "CHF",
+      "timestamp": [
+        2018,
+        9,
+        24,
+        17,
+        12,
+        1,
+        12
+      ],
+      "exchange": "Switzerland"
+    },
+    {
+      "symbol": "BALN",
+      "price": 212.14,
+      "currency": "CHF",
+      "timestamp": [
+        2025,
+        8,
+        6,
+        14,
+        39,
+        12,
+        11
+      ],
+      "exchange": "Switzerland"
+    },
+    {
+      "symbol": "MOZN",
+      "price": 9.36,
+      "currency": "CHF",
+      "timestamp": [
+        2025,
+        8,
+        6,
+        14,
+        39,
+        12,
+        11
+      ],
+      "exchange": "unknown"
+    },
+    {
+      "symbol": "NOVN",
+      "price": 96.24,
+      "currency": "CHF",
+      "timestamp": [
+        2025,
+        8,
+        6,
+        14,
+        39,
+        12,
+        11
+      ],
+      "exchange": "Switzerland"
+    }
+  ],
+  "metaInfo" : null
+}

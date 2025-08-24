@@ -25,7 +25,7 @@ class StockServiceTest {
 
   private ApplicationConfig applicationConfig;
   private StockProvider stockProvider;
-  private PersistanceProvider persistanceProvider;
+  private PersistenceProvider persistenceProvider;
   private NotificationService notifyService;
 
   private StockService testee;
@@ -36,8 +36,8 @@ class StockServiceTest {
     applicationConfig.setConfigUrl(Path.of("src/main/resources/config-example.json").toUri().toString());
     stockProvider = Mockito.mock(StockProvider.class);
     notifyService = Mockito.mock(NotificationService.class);
-    persistanceProvider = Mockito.mock(PersistanceProvider.class);
-    testee = new StockService(applicationConfig, stockProvider, persistanceProvider, notifyService);
+    persistenceProvider = Mockito.mock(PersistenceProvider.class);
+    testee = new StockService(applicationConfig, stockProvider, persistenceProvider, notifyService);
   }
 
   @Test
@@ -47,11 +47,11 @@ class StockServiceTest {
     final LocalDateTime updatedTs = LocalDateTime.now();
     final LocalDateTime oldTs = LocalDateTime.of(2025, Month.JULY, 4, 17, 25, 32);
     when(stockProvider.getLatest(stringCollection.capture())).thenReturn(getSecurites(true, updatedTs));
-    when(persistanceProvider.getSecurites()).thenReturn(getSecurites(true, oldTs));
+    when(persistenceProvider.getSecurites()).thenReturn(getSecurites(true, oldTs));
 
     testee.update();
 
-    verify(persistanceProvider).updateSecurities(securityCollection.capture());
+    verify(persistenceProvider).updateSecurities(securityCollection.capture());
     final Collection<String> latestRequest = stringCollection.getValue();
     assertEquals(1, latestRequest.size());
     assertEquals("[BALN]", latestRequest.toString());
@@ -68,11 +68,11 @@ class StockServiceTest {
     final LocalDateTime updatedTs = LocalDateTime.now();
     final LocalDateTime oldTs = LocalDateTime.of(2025, Month.JULY, 4, 17, 25, 32);
     when(stockProvider.getLatest(stringCollection.capture())).thenReturn(getSecurites(false, updatedTs));
-    when(persistanceProvider.getSecurites()).thenReturn(getSecurites(true, oldTs));
+    when(persistenceProvider.getSecurites()).thenReturn(getSecurites(true, oldTs));
 
     testee.update();
 
-    verify(persistanceProvider, never()).updateSecurities(any());
+    verify(persistenceProvider, never()).updateSecurities(any());
     final Collection<String> latestRequest = stringCollection.getValue();
     assertEquals(1, latestRequest.size());
     assertEquals("[BALN]", latestRequest.toString());
@@ -92,7 +92,7 @@ class StockServiceTest {
 
     final Collection<Security> securitiesPersisted = getSecurites(true, oldTs);
     securitiesPersisted.add(new Security("HELN", 176.25, "CHF", oldTs, "Switzerland"));
-    when(persistanceProvider.getSecurites()).thenReturn(securitiesPersisted);
+    when(persistenceProvider.getSecurites()).thenReturn(securitiesPersisted);
 
     testee.update();
 
@@ -100,7 +100,7 @@ class StockServiceTest {
     assertEquals(2, latestRequest.size());
     assertEquals("[HELN, BALN]", latestRequest.toString());
 
-    verify(persistanceProvider).updateSecurities(securityCollection.capture());
+    verify(persistenceProvider).updateSecurities(securityCollection.capture());
     final Collection<Security> updated = securityCollection.getValue();
     assertEquals(2, updated.size());
     final Security first = updated.stream().filter(security -> "BALN".equals(security.symbol())).findFirst().get();

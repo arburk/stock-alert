@@ -130,7 +130,7 @@ class ApplicationConfigTest {
 
     private void assertConfigExample(final StockAlertsConfig stockAlertsConfig) {
       assertNotNull(stockAlertsConfig);
-      assertEquals("0.1.4-SNAPSHOT", stockAlertsConfig.version());
+      assertEquals("0.2.0-SNAPSHOT", stockAlertsConfig.version());
       assertEquals("6h", stockAlertsConfig.silenceDuration());
       final List<NotificationChannel> notificationChannels = stockAlertsConfig.notificationChannels();
       assertNotNull(notificationChannels);

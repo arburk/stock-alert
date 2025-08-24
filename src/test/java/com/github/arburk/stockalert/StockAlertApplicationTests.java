@@ -1,8 +1,8 @@
 package com.github.arburk.stockalert;
 
-import com.github.arburk.stockalert.application.service.stock.PersistanceProvider;
+import com.github.arburk.stockalert.application.service.stock.PersistenceProvider;
 import com.github.arburk.stockalert.infrastructure.persistance.FileStorage;
-import com.github.arburk.stockalert.infrastructure.persistance.s3.S3BucketStorage;
+import com.github.arburk.stockalert.infrastructure.persistance.S3BucketStorage;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ class StockAlertApplicationTests {
 
     @Test
     void contextLoads() {
-      assertInstanceOf(FileStorage.class, context.getBean(PersistanceProvider.class));
+      assertInstanceOf(FileStorage.class, context.getBean(PersistenceProvider.class));
     }
   }
 
@@ -45,7 +45,7 @@ class StockAlertApplicationTests {
 
     @Test
     void contextLoads() {
-      assertInstanceOf(S3BucketStorage.class, context.getBean(PersistanceProvider.class));
+      assertInstanceOf(S3BucketStorage.class, context.getBean(PersistenceProvider.class));
     }
   }
 }

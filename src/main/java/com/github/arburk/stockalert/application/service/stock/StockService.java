@@ -19,13 +19,13 @@ public class StockService {
 
   final ApplicationConfig applicationConfig;
   final StockProvider stockProvider;
-  final PersistanceProvider persistanceProvider;
+  final PersistenceProvider persistenceProvider;
   final NotificationService notificationService;
 
-  public StockService(ApplicationConfig applicationConfig, StockProvider stockProvider, PersistanceProvider persistanceProvider, NotificationService notificationService) {
+  public StockService(ApplicationConfig applicationConfig, StockProvider stockProvider, PersistenceProvider persistenceProvider, NotificationService notificationService) {
     this.stockProvider = stockProvider;
     this.applicationConfig = applicationConfig;
-    this.persistanceProvider = persistanceProvider;
+    this.persistenceProvider = persistenceProvider;
     this.notificationService = notificationService;
   }
 
@@ -43,7 +43,7 @@ public class StockService {
 
   private void process(final List<SecurityConfig> alertConfig, final Collection<Security> latestSecurities) {
     final Collection<Security> latestRelevant = getRelevantFiltered(alertConfig, latestSecurities);
-    final Collection<Security> persistedSecurites = persistanceProvider.getSecurites();
+    final Collection<Security> persistedSecurites = persistenceProvider.getSecurites();
     alertConfig.forEach(configElement -> checkAndRaiseAlert(
         configElement,
         getSecurity(latestRelevant, configElement),
@@ -100,7 +100,7 @@ public class StockService {
       persistedSecurities.add(latest);
     });
 
-    persistanceProvider.updateSecurities(persistedSecurities);
+    persistenceProvider.updateSecurities(persistedSecurities);
   }
 
   private static boolean isBetween(double threshold, double a1, double a2) {
