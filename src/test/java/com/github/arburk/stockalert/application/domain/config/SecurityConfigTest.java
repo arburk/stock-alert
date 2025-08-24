@@ -4,16 +4,18 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SecurityConfigTest {
 
   @Test
   void stringRepresentation() {
-    assertEquals("SecurityConfig[symbol=null, exchange=null, isin=null, _comment=null, alerts=null]",
-        new SecurityConfig(null, null, null, null, null).toString());
-
-    assertEquals("SecurityConfig[symbol=ABC, exchange=SIX, isin=CH0012410517, _comment=yeah, alerts=[]]",
-        new SecurityConfig("ABC", "SIX", "CH0012410517", "yeah", List.of()).toString());
+    assertAll(
+        () -> assertEquals("SecurityConfig[symbol=null, exchange=null, isin=null, _comment=null, percentageAlert=null, alerts=null]",
+            new SecurityConfig(null, null, null, null, null, null).toString()),
+        () -> assertEquals("SecurityConfig[symbol=ABC, exchange=SIX, isin=CH0012410517, _comment=yeah, percentageAlert=10%, alerts=[]]",
+            new SecurityConfig("ABC", "SIX", "CH0012410517", "yeah", "10%", List.of()).toString())
+    );
   }
 }

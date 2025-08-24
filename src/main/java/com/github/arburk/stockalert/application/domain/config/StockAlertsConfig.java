@@ -8,10 +8,15 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record StockAlertsConfig(
     String version,
-  @JsonProperty("silence-duration")
-  String silenceDuration,
-  @JsonProperty("notification-channels")
+    @JsonProperty("silence-duration")
+    String silenceDuration,
+    @JsonProperty("percentage-alert")
+    String percentageAlert,
+    @JsonProperty("notification-channels")
     List<NotificationChannel> notificationChannels,
     List<SecurityConfig> securities
 ) {
+  public Double getPercentageAlert() {
+    return PercentageConverter.asDouble(percentageAlert);
+  }
 }

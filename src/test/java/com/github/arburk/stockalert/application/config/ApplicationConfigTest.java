@@ -130,8 +130,10 @@ class ApplicationConfigTest {
 
     private void assertConfigExample(final StockAlertsConfig stockAlertsConfig) {
       assertNotNull(stockAlertsConfig);
-      assertEquals("0.2.0-SNAPSHOT", stockAlertsConfig.version());
+      assertEquals("0.2.1-SNAPSHOT", stockAlertsConfig.version());
       assertEquals("6h", stockAlertsConfig.silenceDuration());
+      assertEquals("5%", stockAlertsConfig.percentageAlert());
+      assertEquals(.05, stockAlertsConfig.getPercentageAlert());
       final List<NotificationChannel> notificationChannels = stockAlertsConfig.notificationChannels();
       assertNotNull(notificationChannels);
       assertEquals(1, notificationChannels.size());
@@ -144,7 +146,9 @@ class ApplicationConfigTest {
       assertEquals("BALN", first.symbol());
       assertEquals("Switzerland", first.exchange());
       assertEquals("CH0012410517", first.isin());
-      assertEquals("test comment", first._comment());
+      assertEquals("'symbol' and 'exchange' must match the FCSAPI symbol definition; 'isin' -> not used by FCSAPI; 'percentage-alert' -> overrides the stock-alert-config.percentage-alert. empty value resets this alert", first._comment());
+      assertEquals("10", first.percentageAlert());
+      assertEquals(.1, first.getPercentageAlert());
       assertAlerts(first.alerts());
     }
 

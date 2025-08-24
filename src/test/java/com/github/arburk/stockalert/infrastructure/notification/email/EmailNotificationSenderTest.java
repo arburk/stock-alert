@@ -62,7 +62,7 @@ class EmailNotificationSenderTest {
   @Test
   void testRecipientsExtraction() {
     final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), RECIPIENT_1 + ", " + RECIPIENT_2 + " ; " + RECIPIENT_3, false);
-    mockConfig(new StockAlertsConfig(null, null, List.of(mailChannel), List.of()));
+    mockConfig(new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of()));
     final String[] recipients = testee.getRecipients(appConfig);
 
     assertEquals(3, recipients.length);
@@ -74,7 +74,7 @@ class EmailNotificationSenderTest {
   @Test
   void testRecipientExtraction_inconsistenConfig() {
     final NotificationChannel mailChannel = new NotificationChannel(null, RECIPIENT_1, false);
-    mockConfig(new StockAlertsConfig(null, null, List.of(mailChannel), List.of()));
+    mockConfig(new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of()));
 
     final var caughtException = assertThrows(IllegalStateException.class, () -> testee.getRecipients(appConfig));
     assertEquals("email channel was invoked but not found in configuration", caughtException.getMessage());
@@ -83,7 +83,7 @@ class EmailNotificationSenderTest {
   @Test
   void sendEmailHappyCase() throws MessagingException, IOException {
     final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), RECIPIENT_2, false);
-    mockConfig(new StockAlertsConfig(null, null, List.of(mailChannel), List.of()));
+    mockConfig(new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of()));
 
     final MimeMessage mimeMessage = getMockedMimeMessage();
 
@@ -119,7 +119,7 @@ class EmailNotificationSenderTest {
   @Test
   void sendEmail_invalidAddress() {
     final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), "i_am_NOT_a_valid_Email-Address", false);
-    mockConfig(new StockAlertsConfig(null, null, List.of(mailChannel), List.of()));
+    mockConfig(new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of()));
 
     final Security persisted = new Security("ABC", 12.0, "CHF", LocalDateTime.now(), "Switzerland");
     final Security latest = new Security("ABC", 13.0, "CHF", LocalDateTime.now(), "Switzerland");
