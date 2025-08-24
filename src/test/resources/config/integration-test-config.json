@@ -27,7 +27,8 @@
       {
         "symbol": "MMM",
         "exchange": "NYSE",
-        "_comments" : "Do comments break things? shouldn't be the case"
+        "isin": "",
+        "_comment": "Do comments break things? shouldn't be the case"
       },
       {
         "symbol": "INGA",
@@ -35,6 +36,7 @@
       },
       {
         "symbol": "BAER",
+        "isin": "",
         "exchange": "Switzerland"
       },
       {
@@ -59,7 +61,8 @@
       },
       {
         "symbol": "MRK",
-        "exchange": "Xetra"
+        "exchange": "Xetra",
+        "_comment": ""
       },
       {
         "symbol": "VODI",

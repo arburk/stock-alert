@@ -1,8 +1,10 @@
-package com.github.arburk.stockalert.infrastructure.persistance.s3;
+package com.github.arburk.stockalert.infrastructure.persistance;
 
 import com.github.arburk.stockalert.application.config.JacksonConfig;
+import com.github.arburk.stockalert.application.domain.MetaInfo;
 import com.github.arburk.stockalert.application.domain.Security;
-import com.github.arburk.stockalert.application.service.stock.PersistanceProvider;
+import com.github.arburk.stockalert.application.domain.StockAlertDb;
+import com.github.arburk.stockalert.application.service.stock.PersistenceProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -35,6 +37,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -47,7 +50,6 @@ import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
 class S3BucketStorageTest {
 
   private static final String TEST_BUCKET = "test-bucket";
@@ -77,10 +79,16 @@ class S3BucketStorageTest {
     var result = testee.getSecurites();
 
     assertTrue(result.isEmpty());
-    final ListObjectsRequest capturedRequest = requestCaptor.getValue();
-    verify(mockS3).listObjects(capturedRequest);
-    assertEquals(TEST_BUCKET, capturedRequest.bucket());
-    assertEquals(PersistanceProvider.STORAGE_FILE_NAME, capturedRequest.prefix());
+    final List<ListObjectsRequest> allRequests = requestCaptor.getAllValues();
+    assertEquals(2, allRequests.size());
+    final ListObjectsRequest firstRequest = allRequests.getFirst();
+    final ListObjectsRequest secondRequest = allRequests.getLast();
+    verify(mockS3).listObjects(firstRequest);
+    verify(mockS3).listObjects(secondRequest);
+    assertEquals(TEST_BUCKET, firstRequest.bucket());
+    assertEquals(TEST_BUCKET, secondRequest.bucket());
+    assertEquals(PersistenceProvider.STORAGE_FILE_NAME, firstRequest.prefix());
+    assertEquals(PersistenceProvider.STORAGE_FILE_NAME_0_1_3, secondRequest.prefix());
     verify(mockS3, never()).getObject(any(GetObjectRequest.class));
   }
 
@@ -100,37 +108,39 @@ class S3BucketStorageTest {
   @Test
   void initData_oneFileFound_readsData() throws Exception {
     final ArgumentCaptor<ListObjectsRequest> listRequestCaptor = ArgumentCaptor.forClass(ListObjectsRequest.class);
-    final S3Object storageFile = S3Object.builder().key(PersistanceProvider.STORAGE_FILE_NAME).build();
+    final S3Object storageFile = S3Object.builder().key(PersistenceProvider.STORAGE_FILE_NAME).build();
     when(mockS3.listObjects(listRequestCaptor.capture()))
         .thenReturn(ListObjectsResponse.builder().contents(List.of(storageFile)).build());
 
     final LocalDateTime timestamp = LocalDateTime.now();
     final Security sec = new Security("AAPL", 154.2, "USD", timestamp, "NYSE");
-    final byte[] json = new JacksonConfig().objectMapper().writeValueAsBytes(List.of(sec));
+    final StockAlertDb mockedReturnDb = new StockAlertDb(new ArrayList<>(List.of(sec)), new MetaInfo(timestamp));
+    final byte[] json = new JacksonConfig().objectMapper().writeValueAsBytes(mockedReturnDb);
     final ArgumentCaptor<GetObjectRequest> getRequestCaptor = ArgumentCaptor.forClass(GetObjectRequest.class);
 
     when(mockS3.getObject(getRequestCaptor.capture()))
         .thenReturn(new ResponseInputStream<>(GetObjectResponse.builder().build(), new ByteArrayInputStream(json)));
 
     var result = testee.getSecurites();
-
     assertEquals(1, result.size());
     final Security first = result.stream().toList().getFirst();
-    assertEquals("AAPL", first.symbol());
-    assertEquals(154.2, first.price());
-    assertEquals("USD", first.currency());
-    assertEquals("NYSE", first.exchange());
-    assertEquals(timestamp, first.timestamp());
+    assertAll(
+        () -> assertEquals("AAPL", first.symbol()),
+        () -> assertEquals(154.2, first.price()),
+        () -> assertEquals("USD", first.currency()),
+        () -> assertEquals("NYSE", first.exchange()),
+        () -> assertEquals(timestamp, first.timestamp())
+    );
 
     final ListObjectsRequest capturedListReq = listRequestCaptor.getValue();
     verify(mockS3).listObjects(capturedListReq);
     assertEquals(TEST_BUCKET, capturedListReq.bucket());
-    assertEquals(PersistanceProvider.STORAGE_FILE_NAME, capturedListReq.prefix());
+    assertEquals(PersistenceProvider.STORAGE_FILE_NAME, capturedListReq.prefix());
 
     final GetObjectRequest capturedGetReq = getRequestCaptor.getValue();
     verify(mockS3).getObject(capturedGetReq);
     assertEquals(TEST_BUCKET, capturedGetReq.bucket());
-    assertEquals(PersistanceProvider.STORAGE_FILE_NAME, capturedGetReq.key());
+    assertEquals(PersistenceProvider.STORAGE_FILE_NAME, capturedGetReq.key());
     verify(mockS3, never()).close();
   }
 
@@ -146,9 +156,9 @@ class S3BucketStorageTest {
     final LocalDateTime timestamp = LocalDateTime.now();
     final Security secOld = new Security("AAPL", 143.2, "USD", timestamp, "NYSE");
     final Security secNew = new Security("AAPL", 19.2, "USD", timestamp, "NYSE");
-    final ArrayList<Object> objects = new ArrayList<>();
-    objects.add(secOld);
-    ReflectionTestUtils.setField(testee, "data", objects);
+    final StockAlertDb stockAlertDb = new StockAlertDb(new ArrayList<>(List.of(secOld)), null);
+    ReflectionTestUtils.setField(testee, "data", stockAlertDb);
+
     ArgumentCaptor<PutObjectRequest> putObjReqCaptor = ArgumentCaptor.forClass(PutObjectRequest.class);
     ArgumentCaptor<RequestBody> requestBodyCaptor = ArgumentCaptor.forClass(RequestBody.class);
     when(mockS3.putObject(putObjReqCaptor.capture(), requestBodyCaptor.capture()))
@@ -164,20 +174,21 @@ class S3BucketStorageTest {
     final RequestBody requestBodyCaptured = requestBodyCaptor.getValue();
     verify(mockS3).putObject(putObjValueCaptured, requestBodyCaptured);
     assertEquals(TEST_BUCKET, putObjValueCaptured.bucket());
-    assertEquals(PersistanceProvider.STORAGE_FILE_NAME, putObjValueCaptured.key());
+    assertEquals(PersistenceProvider.STORAGE_FILE_NAME, putObjValueCaptured.key());
     assertTrue(requestBodyCaptured.optionalContentLength().isPresent());
+
     final StringWriter jsonWriter = new StringWriter();
-    new JacksonConfig().objectMapper().writerWithDefaultPrettyPrinter().writeValue(jsonWriter, newData);
+    new JacksonConfig().objectMapper().writerWithDefaultPrettyPrinter().writeValue(jsonWriter, new StockAlertDb(new ArrayList<>(newData), null));
     final int expectedContentLength = jsonWriter.toString().getBytes(StandardCharsets.UTF_8).length;
     assertEquals(expectedContentLength, requestBodyCaptured.optionalContentLength().get());
     verify(mockS3, never()).close();
   }
 
   @Test
-  void persistInFile_whenPutFails_resetsClient() {
-    final ArrayList<Object> objects = new ArrayList<>();
+  void persist_whenPutFails_resetsClient() {
+    final ArrayList<Security> objects = new ArrayList<>();
     objects.add(new Security("MSFT", 143.2, "USD", LocalDateTime.now(), "NYSE"));
-    ReflectionTestUtils.setField(testee, "data", objects);
+    ReflectionTestUtils.setField(testee, "data", new StockAlertDb(objects, null));
     when(mockS3.putObject(any(PutObjectRequest.class), any(RequestBody.class)))
         .thenThrow(S3Exception.builder().message("Could not upload").build());
 

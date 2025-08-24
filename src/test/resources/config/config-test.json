@@ -13,11 +13,13 @@
       {
         "symbol": "BALN",
         "exchange": "Switzerland",
-        "_comments" : "Do comments break things? shouldn't be the case",
+        "isin": "",
+        "_comment":  "Do comments break things? shouldn't be the case",
         "alerts": [
           {
             "threshold": 200.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment":  "Do comments break things? shouldn't be the case"
           },
           {
             "threshold": 185.00,
@@ -28,6 +30,7 @@
       {
         "symbol": "HELN",
         "exchange": "Switzerland",
+        "isin": "",
         "alerts": [
           {
             "threshold": 199.25,
@@ -35,7 +38,8 @@
           },
           {
             "threshold": 210.50,
-            "notification": "email"
+            "notification": "email",
+            "_comment":  "Do comments break things? shouldn't be the case"
           }
         ]
       }

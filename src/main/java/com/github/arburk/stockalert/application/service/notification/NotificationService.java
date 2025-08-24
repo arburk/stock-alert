@@ -30,7 +30,7 @@ public class NotificationService {
 
   public void send(final Alert alert, final Security latest, final Security persisted) {
     try {
-      getSender(Channel.ofValue(alert.getNotification()))
+      getSender(Channel.ofValue(alert.notification()))
           .send(alert, latest, persisted);
     } catch (Exception e) {
       log.error("Failed to send Alert: {}", e.getMessage());

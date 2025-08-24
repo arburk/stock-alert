@@ -57,12 +57,12 @@ class StockServiceIntegrationTest {
   private StockService stockService;
 
   @Autowired
-  private PersistanceProvider persistanceProvider;
+  private PersistenceProvider persistenceProvider;
 
   @BeforeAll
   static void setUpAll() {
     System.setProperty("user.home", TEST_HOME.toString()); // redirect file storage to test
-    expectedStorageFile = Path.of(TEST_HOME.toString(), "stock-alert", "securities.db").toFile();
+    expectedStorageFile = Path.of(TEST_HOME.toString(), "stock-alert", "securities.db.json").toFile();
     mockEmailIntegration();
   }
 
@@ -102,14 +102,14 @@ class StockServiceIntegrationTest {
         .willReturn(okJson(extendedResponse())));
 
     assertFalse(expectedStorageFile.exists());
-    persistanceProvider.updateSecurities(/* peristed file required for comparison */ getPreparedSecurities());
+    persistenceProvider.updateSecurities(/* peristed file required for comparison */ getPreparedSecurities());
     assertTrue(expectedStorageFile.exists(), "Expected FileStorage created file %s, but nothing found".formatted(expectedStorageFile.toString()));
     final var fileSizeBeforeAddingResults = expectedStorageFile.length();
 
     // now execute
     stockService.update();
 
-    final Collection<Security> securites = persistanceProvider.getSecurites();
+    final Collection<Security> securites = persistenceProvider.getSecurites();
     assertEquals(32, securites.size());
     final Security baln = securites.stream().filter(security -> "BALN".equals(security.symbol())).findFirst().get();
     assertEquals(207.4, baln.price());
@@ -131,14 +131,14 @@ class StockServiceIntegrationTest {
     if (expectedStorageFile.exists()) {
       assertTrue(expectedStorageFile.delete());
     }
-    persistanceProvider.updateSecurities(/* peristed file required for comparison */ getPreparedSecurities());
+    persistenceProvider.updateSecurities(/* peristed file required for comparison */ getPreparedSecurities());
 
     greenMail.stop();
 
     // now execute
     assertDoesNotThrow(() -> stockService.update(), "error in notification service");
 
-    final Collection<Security> securites = persistanceProvider.getSecurites();
+    final Collection<Security> securites = persistenceProvider.getSecurites();
     assertEquals(32, securites.size());
     final Security baln = securites.stream().filter(security -> "BALN".equals(security.symbol())).findFirst().get();
     assertEquals(207.4, baln.price());

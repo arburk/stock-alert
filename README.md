@@ -81,6 +81,6 @@ docker run -e FCS-API-KEY=your-api-key \
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=arburk_stock-alert&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=arburk_stock-alert)
 
 - build the source by ``mvn -B clean verify --file pom.xml``
-- build the Docker image by ``docker build -t stock-alert:0.1.4-SNAPSHOT . ``
+- build the Docker image by ``docker build -t stock-alert:0.2.0-SNAPSHOT . ``
 - run the docker image using this very version as described in [Docker](#docker)
 

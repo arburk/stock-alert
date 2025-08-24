@@ -12,476 +12,625 @@
     "securities": [
       {
         "symbol": "BNPP",
+        "isin": "",
+        "_comment": "",
         "exchange": "Xetra",
         "alerts": [
           {
             "threshold": 116.00,
-            "notification": "email"
-          },{
+            "notification": "email",
+            "_comment": ""
+          },
+          {
             "threshold": 90.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 75.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "BALN",
+        "isin": "",
+        "_comment": "",
         "exchange": "Switzerland",
         "alerts": [
           {
             "threshold": 200.00,
-            "notification": "email"
-          },{
+            "notification": "email",
+            "_comment": ""
+          },
+          {
             "threshold": 220.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 250.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "BSLN",
+        "isin": "",
+        "_comment": "",
         "exchange": "Switzerland",
         "alerts": [
           {
             "threshold": 45.00,
-            "notification": "email"
-          },{
+            "notification": "email",
+            "_comment": ""
+          },
+          {
             "threshold": 48.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 50.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 55.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 70.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "NTES",
+        "isin": "",
+        "_comment": "",
         "exchange": "NASDAQ",
         "alerts": [
           {
             "threshold": 150.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 133.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "BYDDY",
+        "isin": "",
+        "_comment": "",
         "exchange": "OTC Markets",
         "alerts": [
           {
             "threshold": 23.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 17.50,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },{
         "symbol": "MMM",
+        "isin": "",
+        "_comment": "",
         "exchange": "NYSE",
         "alerts": [
           {
             "threshold": 200.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 185.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
-
       {
         "symbol": "INGA",
+        "isin": "",
+        "_comment": "",
         "exchange": "Amsterdam",
         "alerts": [
           {
             "threshold": 25.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "BAER",
+        "isin": "",
+        "_comment": "",
         "exchange": "Switzerland",
         "alerts": [
           {
             "threshold": 60.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
+          },
+          {
+            "threshold": 65.00,
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "ROG",
+        "isin": "",
+        "_comment": "",
         "exchange": "Switzerland",
         "alerts": [
           {
             "threshold": 275.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "DVN",
+        "isin": "",
+        "_comment": "",
         "exchange": "NYSE",
         "alerts": [
           {
             "threshold": 50.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "FRO",
+        "isin": "",
+        "_comment": "",
         "exchange": "NYSE",
         "alerts": [
           {
             "threshold": 22.50,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "VODI",
+        "isin": "",
+        "_comment": "",
         "exchange": "Frankfurt",
         "alerts": [
           {
             "threshold": 1.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 1.05,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 1.10,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 1.20,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 0.95,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "ENI",
+        "isin": "",
+        "_comment": "",
         "exchange": "Xetra",
         "alerts": [
           {
             "threshold": 17.50,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "PFE",
+        "isin": "",
+        "_comment": "",
         "exchange": "Xetra",
         "alerts": [
           {
             "threshold": 35.0,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "DKSH",
+        "isin": "",
+        "_comment": "",
         "exchange": "Switzerland",
         "alerts": [
           {
             "threshold": 80.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "ALVG",
+        "isin": "",
+        "_comment": "",
         "exchange": "Xetra",
         "alerts": [
           {
             "threshold": 500.00,
-            "notification": "email"
-          },{
+            "notification": "email",
+            "_comment": ""
+          },
+          {
             "threshold": 400.00,
-            "notification": "email"
-          },{
+            "notification": "email",
+            "_comment": ""
+          },
+          {
             "threshold": 440.00,
-            "notification": "email"
-          },{
+            "notification": "email",
+            "_comment": ""
+          },
+          {
             "threshold": 350.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "AXAF",
+        "isin": "",
+        "_comment": "",
         "exchange": "Xetra",
         "alerts": [
           {
             "threshold": 60.00,
-            "notification": "email"
-          },{
+            "notification": "email",
+            "_comment": ""
+          },
+          {
             "threshold": 56.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "BANB",
+        "isin": "",
+        "_comment": "",
         "exchange": "Switzerland",
         "alerts": [
           {
             "threshold": 60.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 70.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 75.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 78.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "CMBN",
+        "isin": "",
+        "_comment": "",
         "exchange": "Switzerland",
         "alerts": [
           {
             "threshold": 100.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 120.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 150.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 185.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "LEHN",
+        "isin": "",
+        "_comment": "",
         "exchange": "Switzerland",
         "alerts": [
           {
             "threshold": 1275.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 700.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 600.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 800.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 900.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "LEON",
+        "isin": "",
+        "_comment": "",
         "exchange": "Switzerland",
         "alerts": [
           {
             "threshold": 55.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 25.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "MBTN",
+        "isin": "",
+        "_comment": "",
         "exchange": "Switzerland",
         "alerts": [
           {
             "threshold": 1.5,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 5.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "STMN",
+        "isin": "",
+        "_comment": "",
         "exchange": "Switzerland",
         "alerts": [
           {
             "threshold": 125.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 100.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "MOZN",
+        "isin": "",
+        "_comment": "",
         "exchange": "Switzerland",
         "alerts": [
           {
             "threshold": 30.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 13.89,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "VACD",
+        "isin": "",
+        "_comment": "",
         "exchange": "Frankfurt",
         "alerts": [
           {
             "threshold": 20.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "SRAIL",
+        "isin": "",
+        "_comment": "",
         "exchange": "Switzerland",
         "alerts": [
           {
             "threshold": 20.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 25.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 30.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "PPGN",
+        "isin": "",
+        "_comment": "",
         "exchange": "Switzerland",
         "alerts": [
           {
             "threshold": 30.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 35.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 25.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "MBLY",
+        "isin": "",
+        "_comment": "",
         "exchange": "NASDAQ",
         "alerts": [
           {
             "threshold": 20.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 10.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "SUNN",
+        "isin": "",
+        "_comment": "",
         "exchange": "Switzerland",
         "alerts": [
           {
             "threshold": 60.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           },
           {
             "threshold": 50.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "BIOV",
+        "isin": "",
+        "_comment": "",
         "exchange": "Switzerland"
       },
       {
         "symbol": "BAEAG",
-        "exchange": "Switzerland",
-        "_comments" : "BAWAG NOT YET identified -> 100, 130, 120"
+        "isin": "",
+        "_comment" : "BAWAG NOT YET identified -> 100, 130, 120",
+        "exchange": "Switzerland"
       },
       {
         "symbol": "AMRZ",
+        "isin": "",
+        "_comment": "",
         "exchange": "Switzerland",
         "alerts": [
           {
             "threshold": 50.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
       {
         "symbol": "MRK",
+        "isin": "",
+        "_comment": "BX converted by factor .81",
         "exchange": "NYSE",
-        "_comment" : "BX converted by factor .81",
         "alerts": [
           {
             "threshold": 123.50,
-            "notification": "email"
-          }, {
+            "notification": "email",
+            "_comment": ""
+          },
+          {
             "threshold": 148.00,
-            "notification": "email"
-          }, {
+            "notification": "email",
+            "_comment": ""
+          },
+          {
             "threshold": 74.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment": ""
           }
         ]
       }

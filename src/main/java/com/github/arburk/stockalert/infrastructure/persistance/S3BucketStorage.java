@@ -1,9 +1,9 @@
-package com.github.arburk.stockalert.infrastructure.persistance.s3;
+package com.github.arburk.stockalert.infrastructure.persistance;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.arburk.stockalert.application.domain.Security;
-import com.github.arburk.stockalert.application.service.stock.PersistanceProvider;
+import com.github.arburk.stockalert.application.domain.StockAlertDb;
+import com.github.arburk.stockalert.application.service.stock.PersistenceProvider;
 import io.micrometer.common.util.StringUtils;
 import jakarta.annotation.PreDestroy;
 import lombok.extern.slf4j.Slf4j;
@@ -22,17 +22,17 @@ import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.services.s3.model.S3Object;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.StringWriter;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Slf4j
 @Component
 @ConditionalOnProperty(value = "stock-alert.storage-provider", havingValue = S3BucketStorage.ENABLE_PROPERTY)
-public class S3BucketStorage implements PersistanceProvider {
+public class S3BucketStorage extends AbstractPersistenceProvider implements PersistenceProvider {
 
   public static final String ENABLE_PROPERTY = "s3";
 
@@ -50,22 +50,12 @@ public class S3BucketStorage implements PersistanceProvider {
   private String bucket;
 
   private final ObjectMapper objectMapper;
-  private Collection<Security> data;
 
   private S3Client s3;
-  private String fileKey;
 
   public S3BucketStorage(ObjectMapper objectMapper) {
     this.objectMapper = objectMapper;
     log.debug("Initialized S3BucketStorage as PersistanceProvider");
-  }
-
-  @Override
-  public Collection<Security> getSecurites() {
-    if (data == null || data.isEmpty()) {
-      data = initData();
-    }
-    return new ArrayList<>(data);
   }
 
   @PreDestroy
@@ -74,49 +64,27 @@ public class S3BucketStorage implements PersistanceProvider {
   }
 
   @Override
-  public void updateSecurities(final Collection<Security> securities) {
-    if (securities == null || securities.isEmpty()) {
-      log.warn("update was called with empty securities. skip to prevent data loss.");
-      log.info("If you want to reset data, stop the application and delete storage file in S3 bucket: {}/{}/{}."
-          , endpoint, bucket, PersistanceProvider.STORAGE_FILE_NAME);
-      return;
-    }
-
-    securities.forEach(latest -> {
-      getSecurites().stream().filter(security ->
-              security.symbol().equals(latest.symbol()) && security.exchange().equals(latest.exchange()))
-          .findFirst().ifPresent(data::remove);
-      data.add(latest);
-    });
-
-    persistInFile();
-  }
-
-  private void persistInFile() {
-    if (StringUtils.isBlank(fileKey)) {
-      fileKey = PersistanceProvider.STORAGE_FILE_NAME;
-      log.debug("Set fileKey to {} ", PersistanceProvider.STORAGE_FILE_NAME);
-    }
-
+  void persist() {
     try {
       final StringWriter jsonWriter = new StringWriter();
-      objectMapper.writerWithDefaultPrettyPrinter().writeValue(jsonWriter, data);
+      objectMapper.writerWithDefaultPrettyPrinter().writeValue(jsonWriter, getData());
       final byte[] resultAsBytes = jsonWriter.toString().getBytes(StandardCharsets.UTF_8);
       log.debug("serialized data of lenth {}", resultAsBytes.length);
 
       try (ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(resultAsBytes)) {
-        final var req = PutObjectRequest.builder().bucket(bucket).key(fileKey).build();
+        final var req = PutObjectRequest.builder().bucket(bucket).key(STORAGE_FILE_NAME).build();
         final var putResponse = getS3().putObject(req, RequestBody.fromInputStream(byteArrayInputStream, resultAsBytes.length));
-        log.debug("Put {} to S3 bucket {}: {}", fileKey, bucket, putResponse);
-        log.info("Securities successfully updated in {}/{}/{}.}", endpoint, bucket, PersistanceProvider.STORAGE_FILE_NAME);
+        log.debug("Put {} to S3 bucket {}: {}", STORAGE_FILE_NAME, bucket, putResponse);
+        log.info("Securities successfully updated in {}/{}/{}.}", endpoint, bucket, STORAGE_FILE_NAME);
       }
     } catch (Exception e) {
-      log.error("Failed to write securities to {}/{}/{}.", endpoint, bucket, PersistanceProvider.STORAGE_FILE_NAME, e);
+      log.error("Failed to write securities to {}/{}/{}.", endpoint, bucket, STORAGE_FILE_NAME, e);
       resetS3ClientToEnforceRefresh();
     }
   }
 
-  private Collection<Security> initData() {
+  @Override
+  StockAlertDb initData() {
     try {
       final ListObjectsRequest req = ListObjectsRequest.builder()
           .bucket(bucket).prefix(STORAGE_FILE_NAME).build();
@@ -129,7 +97,7 @@ public class S3BucketStorage implements PersistanceProvider {
 
       if (s3Contents.isEmpty()) {
         log.warn("Storage file not found in S3 bucket: {}/{}", bucket, endpoint);
-        return new ArrayList<>();
+        return initDataByFallback();
       }
 
       if (s3Contents.size() > 1) {
@@ -137,19 +105,34 @@ public class S3BucketStorage implements PersistanceProvider {
             s3Contents.size(), STORAGE_FILE_NAME, endpoint, bucket);
       }
 
-      final S3Object s3Object = s3Contents.getFirst();
-      this.fileKey = s3Object.key();
-      log.debug("read file with key '{}' from S3 bucket {}/{}.", fileKey, endpoint, bucket);
-      try (var responseInputStream = getS3().getObject(GetObjectRequest.builder().bucket(bucket).key(fileKey).build())) {
-        return objectMapper.readValue(responseInputStream, new TypeReference<List<Security>>() {
+      try (var responseInputStream = getS3().getObject(GetObjectRequest.builder().bucket(bucket).key(STORAGE_FILE_NAME).build())) {
+        return objectMapper.readValue(responseInputStream, new TypeReference<>() {
         });
       }
 
     } catch (Exception e) {
       log.error("Failed to read securities from S3 bucket.", e);
       resetS3ClientToEnforceRefresh();
-      return new ArrayList<>();
+      return new StockAlertDb(new ArrayList<>(/* must not be immutable */), null);
     }
+  }
+
+  private StockAlertDb initDataByFallback() throws IOException {
+    final ListObjectsRequest req = ListObjectsRequest.builder()
+        .bucket(bucket).prefix(STORAGE_FILE_NAME_0_1_3).build();
+    final List<S3Object> s3Contents = getS3().listObjects(req)
+        .contents()
+        .stream()
+        .toList();
+
+    if (!s3Contents.isEmpty()) {
+      log.info("init data from former storage file for migration: {}", STORAGE_FILE_NAME_0_1_3);
+      try (var responseInputStream = getS3().getObject(GetObjectRequest.builder().bucket(bucket).key(STORAGE_FILE_NAME_0_1_3).build())) {
+        return new StockAlertDb(objectMapper.readValue(responseInputStream, new TypeReference<>() {
+        }), null);
+      }
+    }
+    return new StockAlertDb(new ArrayList<>(/* must not be immutable */), null);
   }
 
   private S3Client getS3() {
