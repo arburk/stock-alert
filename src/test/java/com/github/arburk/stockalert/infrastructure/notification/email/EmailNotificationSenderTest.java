@@ -61,7 +61,7 @@ class EmailNotificationSenderTest {
 
   @Test
   void testRecipientsExtraction() {
-    final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), RECIPIENT_1 + ", " + RECIPIENT_2 + " ; " + RECIPIENT_3, false);
+    final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), RECIPIENT_1 + ", " + RECIPIENT_2 + " ; " + RECIPIENT_3, false, false);
     mockConfig(new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of()));
     final String[] recipients = testee.getRecipients(appConfig);
 
@@ -73,7 +73,7 @@ class EmailNotificationSenderTest {
 
   @Test
   void testRecipientExtraction_inconsistenConfig() {
-    final NotificationChannel mailChannel = new NotificationChannel(null, RECIPIENT_1, false);
+    final NotificationChannel mailChannel = new NotificationChannel(null, RECIPIENT_1, false, false);
     mockConfig(new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of()));
 
     final var caughtException = assertThrows(IllegalStateException.class, () -> testee.getRecipients(appConfig));
@@ -82,7 +82,7 @@ class EmailNotificationSenderTest {
 
   @Test
   void sendEmailHappyCase() throws MessagingException, IOException {
-    final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), RECIPIENT_2, false);
+    final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), RECIPIENT_2, false,false);
     mockConfig(new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of()));
 
     final MimeMessage mimeMessage = getMockedMimeMessage();
@@ -108,6 +108,34 @@ class EmailNotificationSenderTest {
         mimeMessage.getContent().toString());
   }
 
+  @Test
+  void sendPercentageEmailHappyCase() throws MessagingException, IOException {
+    final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), RECIPIENT_2, false,true);
+    mockConfig(new StockAlertsConfig(null, null, "5%", List.of(mailChannel), List.of()));
+
+    final MimeMessage mimeMessage = getMockedMimeMessage();
+
+    LocalDateTime persistedTs = LocalDateTime.of(2025, Month.JULY, 17, 12, 16, 24, 12);
+    LocalDateTime updatedTs = LocalDateTime.of(2025, Month.AUGUST, 12, 9, 16, 17, 34);
+    final Security persisted = new Security("ABC", 12.0, "CHF", persistedTs, "Switzerland");
+    final Security latest = new Security("ABC", 12.64, "CHF", updatedTs, "Switzerland");
+
+    ReflectionTestUtils.setField(testee, "from", "mocked@example.com");
+
+    testee.send(latest, persisted, .05, 0.0527);
+
+
+    verify(mailSender).send(mimeMessage);
+    assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
+    assertEquals("Threshold of 5.00 % crossed for ABC", mimeMessage.getSubject());
+    assertEquals("""
+            Price for ABC moved from CHF 12.0 dated on 2025-07-17 12:16 to CHF 12.64.
+            Price change is 5.27 % while defined threshold is 5.00 %.
+            Data refers to stock exchange Switzerland dated on 2025-08-12 09:16.
+            """,
+        mimeMessage.getContent().toString());
+  }
+
   private MimeMessage getMockedMimeMessage() {
     final Session sessionMock = Mockito.mock(Session.class);
     when(sessionMock.getProperties()).thenReturn(new Properties());
@@ -118,7 +146,7 @@ class EmailNotificationSenderTest {
 
   @Test
   void sendEmail_invalidAddress() {
-    final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), "i_am_NOT_a_valid_Email-Address", false);
+    final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), "i_am_NOT_a_valid_Email-Address", false, false);
     mockConfig(new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of()));
 
     final Security persisted = new Security("ABC", 12.0, "CHF", LocalDateTime.now(), "Switzerland");

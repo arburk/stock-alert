@@ -3,20 +3,27 @@ package com.github.arburk.stockalert.application.service.stock;
 import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.config.JacksonConfig;
 import com.github.arburk.stockalert.application.domain.Security;
+import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.service.notification.NotificationService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyDouble;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -118,5 +125,49 @@ class StockServiceTest {
     return securites;
   }
 
+  @Nested
+  class CheckAndRaisePercentageAlert {
 
+    @Test
+    void checkAndRaisePercentageAlert_Increased() {
+      final SecurityConfig config = new SecurityConfig(null, null, null, null, null, null);
+      final Security latest = new Security(null, 105., null, null, null);
+      final Security persisted = new Security(null, 100., null, null, null);
+      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", config, latest, persisted, 0.05);
+
+      ArgumentCaptor<Double> captor = ArgumentCaptor.forClass(Double.class);
+      verify(notifyService).sendPercentage(any(List.class), eq(latest), eq(persisted), eq(0.05), captor.capture());
+      assertTrue(captor.getValue() >= 0.05);
+    }
+
+    @Test
+    void checkAndRaisePercentageAlert_Decreased() {
+      final SecurityConfig config = new SecurityConfig(null, null, null, null, "0.05", null);
+      final Security latest = new Security(null, 95., null, null, null);
+      final Security persisted = new Security(null, 100., null, null, null);
+      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", config, latest, persisted, null);
+
+      ArgumentCaptor<Double> captor = ArgumentCaptor.forClass(Double.class);
+      verify(notifyService).sendPercentage(any(List.class), eq(latest), eq(persisted), eq(0.05), captor.capture());
+      assertTrue(captor.getValue() >= 0.05);
+    }
+
+    @Test
+    void checkAndRaisePercentageAlert_NotRequired() {
+      final SecurityConfig config = new SecurityConfig(null, null, null, null, null, null);
+      final Security latest = new Security(null, 96., null, null, null);
+      final Security persisted = new Security(null, 100., null, null, null);
+      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", config, latest, persisted, 0.05);
+      verify(notifyService, never()).sendPercentage(any(List.class), any(Security.class), any(Security.class), eq(0.05), anyDouble());
+    }
+
+    @Test
+    void checkAndRaisePercentageAlert_GlobalValueResetted() {
+      final SecurityConfig config = new SecurityConfig(null, null, null, null, "0", null);
+      final Security latest = new Security(null, 90., null, null, null);
+      final Security persisted = new Security(null, 100., null, null, null);
+      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", config, latest, persisted, 0.05);
+      verify(notifyService, never()).sendPercentage(any(List.class), any(Security.class), any(Security.class), eq(0.05), anyDouble());
+    }
+  }
 }

@@ -4,7 +4,9 @@ import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.domain.config.Alert;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
+import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import com.github.arburk.stockalert.application.service.notification.NotificationService;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -31,23 +33,23 @@ public class StockService {
 
   public void update() {
     log.debug("refresh stock alert config...");
-    final List<SecurityConfig> alertConfig = this.applicationConfig.getStockAlertsConfig().securities();
+    final StockAlertsConfig stockAlertsConfig = this.applicationConfig.getStockAlertsConfig();
+    final List<SecurityConfig> alertConfig = stockAlertsConfig.securities();
     final Set<String> symbolsToQueryFor = alertConfig.stream().map(SecurityConfig::symbol).collect(Collectors.toSet());
     log.debug("perform and process update for {}", symbolsToQueryFor);
     try {
-      process(alertConfig, stockProvider.getLatest(symbolsToQueryFor));
+      process(alertConfig, stockProvider.getLatest(symbolsToQueryFor), stockAlertsConfig.getPercentageAlert());
     } catch (Exception e) {
       log.error("update did not finish successful: {}", e.getMessage(), e);
     }
   }
 
-  private void process(final List<SecurityConfig> alertConfig, final Collection<Security> latestSecurities) {
+  private void process(final List<SecurityConfig> alertConfig, final Collection<Security> latestSecurities, Double percentageAlert) {
     final Collection<Security> latestRelevant = getRelevantFiltered(alertConfig, latestSecurities);
     final Collection<Security> persistedSecurites = persistenceProvider.getSecurites();
-    alertConfig.forEach(configElement -> checkAndRaiseAlert(
+    alertConfig.forEach(configElement -> checkSecurityAndRaiseAlert(
         configElement,
-        getSecurity(latestRelevant, configElement),
-        getSecurity(persistedSecurites, configElement)
+        getSecurity(latestRelevant, configElement), getSecurity(persistedSecurites, configElement), percentageAlert
     ));
     updatePersistedSecurities(persistedSecurites, latestRelevant);
   }
@@ -107,26 +109,63 @@ public class StockService {
     return threshold >= Math.min(a1, a2) && threshold <= Math.max(a1, a2);
   }
 
-  private void checkAndRaiseAlert(final SecurityConfig config, final Security latest, final Security persisted) {
-    if (latest==null || persisted==null) {
-      log.warn("Cannot check alert requirement since either latest[{}] or persisted[{}] value is empty.", latest, persisted);
+  private void checkSecurityAndRaiseAlert(final SecurityConfig config, final Security latest, final Security persisted, final Double percentageAlert) {
+    if (latest == null) {
+      log.warn("Cannot check alert requirement since latest value is empty. Check configuration for proper security settings.");
       return;
     }
 
-    // TODO: consider silence mode
+    boolean skipPercentageCalculation = false;
+    if (percentageAlert != null && percentageAlert > 0) {
+      // TODO: check for percentage alert
+      // map from api
+      // notificationService.sendPercentage(config, latest, persisted, value2consider, division);
+      // if send, set true: skipPercentageCalculation = true;
+    }
+
+    if (persisted == null) {
+      log.info("Cannot check alert requirement since persisted value is empty.");
+      return;
+    }
 
     final List<Alert> alerts = config.alerts();
-    if (alerts == null || alerts.isEmpty()) {
-      log.debug("Skip further checks since no alert defined for {}", latest.symbol());
+    if (alerts != null && !alerts.isEmpty()) {
+      alerts.stream()
+          .filter(alert -> isBetween(alert.threshold(), latest.price(), persisted.price()))
+          .forEach(alert -> {
+            log.info("Send alert for {} {}", latest.symbol(), alert);
+            notificationService.send(alert, latest, persisted);
+          });
+    }
+
+    if (!skipPercentageCalculation) {
+      checkAndRaisePercentageAlert(config, latest, persisted, percentageAlert);
+    }
+  }
+
+  private void checkAndRaisePercentageAlert(
+      @NonNull final SecurityConfig config,
+      @NonNull final Security latest,
+      @NonNull final Security persisted,
+      final Double percentageAlert) {
+
+    var globalDef = (percentageAlert != null && percentageAlert > 0) ? percentageAlert : null;
+    var overrideDef = (config.getPercentageAlert() != null) ? config.getPercentageAlert() : null;
+    var value2consider = overrideDef != null ? overrideDef : globalDef;
+    if (value2consider == null || value2consider == 0) {
+      log.debug("skip percentage alert");
       return;
     }
 
-    alerts.stream()
-        .filter(alert -> isBetween(alert.threshold(), latest.price(), persisted.price()))
-        .forEach(alert -> {
-          log.info("Send alert for {} {}", latest.symbol(), alert);
-          notificationService.send(alert, latest, persisted);
-        });
+    final Double latestPrice = latest.price();
+    final Double persistedPrice = persisted.price();
+
+    double division = Math.abs(1 - (latestPrice / persistedPrice));
+
+    if (division >= value2consider) {
+      log.debug("Percentage deviation {} > {} -> raise alert!", division, value2consider);
+      notificationService.sendPercentage(applicationConfig.getStockAlertsConfig().notificationChannels(), latest, persisted, value2consider, division);
+    }
   }
 
 }

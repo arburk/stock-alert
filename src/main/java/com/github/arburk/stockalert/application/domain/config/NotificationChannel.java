@@ -8,6 +8,8 @@ public record NotificationChannel(
     String type,
     String recipients,
     @JsonProperty("use-on-error")
-    boolean useOnError
+    boolean useOnError,
+    @JsonProperty("is-default")
+    boolean isDefault
 ) {
 }
