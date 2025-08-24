@@ -55,8 +55,7 @@ public class FileStorage extends AbstractPersistenceProvider implements Persiste
         log.warn("Storage file not found: {}", filePath.toFile().getAbsoluteFile());
         return initDataByFallback();
       }
-      return objectMapper.readValue(filePath.toFile(), new TypeReference<>() {
-      });
+      return objectMapper.readValue(filePath.toFile(), StockAlertDb.class);
     } catch (IOException e) {
       log.error("Failed to read securities from file", e);
       return new StockAlertDb(new ArrayList<>(/* must not be immutable */), null);
