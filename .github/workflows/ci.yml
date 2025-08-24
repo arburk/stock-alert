@@ -33,7 +33,7 @@ jobs:
       - name: Maven build and sonar analysis
         id: maven
         run: |
-          mvn -B package org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=arburk_stock-alert --file pom.xml
+          mvn -B package org.sonarsource.scanner.maven:sonar-maven-plugin:5.1.0.4751:sonar -Dsonar.projectKey=arburk_stock-alert --file pom.xml
           echo "version=$(mvn help:evaluate -Dexpression='project.version' -q -DforceStdout)" >> $GITHUB_OUTPUT
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
