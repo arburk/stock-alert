@@ -10,7 +10,15 @@ public interface NotificationSender {
 
   Channel getChannel();
 
+  /**
+   * Send alert based on certain security crossed currency value based threshold
+   */
   void send(final Alert alert, final Security latest, final Security persisted);
+
+  /**
+   * Send alert based on percentage deviation exceeded threshold defined globally or security specific
+   */
+  void send(final Security latest, final Security persisted, final Double threshold, final double deviation);
 
   default String[] getRecipients(ApplicationConfig appConfig) throws IllegalStateException {
     final var notificationChannels = appConfig.getStockAlertsConfig().notificationChannels();

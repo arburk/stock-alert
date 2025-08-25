@@ -2,6 +2,7 @@
   "stock-alert-config": {
     "version": "0.1.2-SNAPSHOT",
     "silence-duration": "6h",
+    "percentage-alert" : "5%",
     "notification-channels": [
       {
         "type": "email",
@@ -476,7 +477,8 @@
       {
         "symbol": "MOZN",
         "isin": "",
-        "_comment": "",
+        "percentage-alert" : "0",
+        "_comment": "Skip percentage alert for the moment",
         "exchange": "Switzerland",
         "alerts": [
           {

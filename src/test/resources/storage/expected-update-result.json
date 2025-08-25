@@ -4,6 +4,7 @@
       "symbol": "MOZN",
       "price": 11.24,
       "currency": "CHF",
+      "changePercentage": null,
       "timestamp": [
         2018,
         9,
@@ -19,6 +20,7 @@
       "symbol": "ROG",
       "price": 251.34,
       "currency": "CHF",
+      "changePercentage": null,
       "timestamp": [
         2018,
         9,
@@ -34,6 +36,7 @@
       "symbol": "BALN",
       "price": 212.14,
       "currency": "CHF",
+      "changePercentage": 0.0217,
       "timestamp": [
         2025,
         8,
@@ -49,6 +52,7 @@
       "symbol": "MOZN",
       "price": 9.36,
       "currency": "CHF",
+      "changePercentage": -0.0026,
       "timestamp": [
         2025,
         8,
@@ -64,6 +68,7 @@
       "symbol": "NOVN",
       "price": 96.24,
       "currency": "CHF",
+      "changePercentage": null,
       "timestamp": [
         2025,
         8,
@@ -76,5 +81,5 @@
       "exchange": "Switzerland"
     }
   ],
-  "metaInfo" : null
+  "metaInfo": null
 }

@@ -36,12 +36,8 @@ public class EmailNotificationSender implements NotificationSender {
 
   @Override
   public void send(final Alert alert, final Security latest, final Security persisted) {
-    sendEmail(renderSubject(alert, latest), renderMessage(latest, persisted));
-  }
-
-  private String renderMessage(final Security latest, final Security persisted) {
     String currency = latest.currency();
-    return """
+    final String message = """
         Price for %s moved from %s %s dated on %s to %s %s dated on %s
         Data refers to stock exchange %s.
         """.formatted(
@@ -50,6 +46,32 @@ public class EmailNotificationSender implements NotificationSender {
         currency, latest.price(), latest.getTimestampFormatted(),
         getStockExchange(latest, persisted)
     );
+    final String subject = "Threshold %s %s for %s crossed".formatted(
+        latest.currency(), alert.threshold(), latest.symbol());
+    sendEmail(subject, message);
+  }
+
+  @Override
+  public void send(final Security latest, final Security persisted, final Double threshold, final double deviation) {
+    String currency = latest.currency();
+    final String message = """
+        Price for %s moved from %s %s dated on %s to %s %s.
+        Price change is %s while defined threshold is %s.
+        Data refers to stock exchange %s dated on %s.
+        """.formatted(
+        latest.symbol(),
+        currency, persisted.price(), persisted.getTimestampFormatted(),
+        currency, latest.price(),
+        formatPercentage(deviation), formatPercentage(threshold),
+        getStockExchange(latest, persisted), latest.getTimestampFormatted()
+    );
+    final String subject = "Threshold of %s crossed for %s".formatted(
+        formatPercentage(threshold), latest.symbol());
+    sendEmail(subject, message);
+  }
+
+  private String formatPercentage(final double percentage) {
+    return String.format("%.2f %%", percentage * 100);
   }
 
   private String getStockExchange(final Security latest, final Security persisted) {
@@ -61,11 +83,6 @@ public class EmailNotificationSender implements NotificationSender {
     return latest.exchange().equals(persitedOne)
         ? persitedOne
         : latest.exchange() + "/" + persitedOne;
-  }
-
-  private String renderSubject(final Alert alert, final Security latest) {
-    return "Threshold %s %s for %s crossed".formatted(
-        latest.currency(), alert.threshold(), latest.symbol());
   }
 
   private void sendEmail(final String subject, String message) {

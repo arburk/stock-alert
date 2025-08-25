@@ -1,21 +1,24 @@
 {
   "stock-alert-config": {
-    "version": "0.2.0-SNAPSHOT",
+    "version": "0.2.1-SNAPSHOT",
     "silence-duration" : "6h",
+    "percentage-alert" : "5%",
     "notification-channels": [
       {
         "type": "email",
         "recipients": "me@company.com",
-        "use-on-error" : true
+        "use-on-error" : true,
+        "is-default" : true
       }
     ],
     "securities": [
       {
         "symbol": "BALN",
         "isin": "CH0012410517",
-        "_comment": "test comment",
+        "_comment": "'symbol' and 'exchange' must match the FCSAPI symbol definition; 'isin' -> not used by FCSAPI; 'percentage-alert' -> overrides the stock-alert-config.percentage-alert. empty value resets this alert",
         "exchange": "Switzerland",
         "something-weird" : "won't crash things",
+        "percentage-alert" : "10",
         "alerts": [
           {
             "threshold": 200.00,

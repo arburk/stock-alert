@@ -2,6 +2,8 @@ package com.github.arburk.stockalert.application.service.notification;
 
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.domain.config.Alert;
+import com.github.arburk.stockalert.application.domain.config.NotificationChannel;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -44,4 +46,27 @@ public class NotificationService {
     return registry.get(channel);
   }
 
+  public void sendPercentage(
+      final List<NotificationChannel> notificationChannels,
+      final @NonNull Security latest, final @NonNull Security persisted,
+      final Double threshold, final double deviation) {
+
+    if (notificationChannels == null || notificationChannels.isEmpty()) {
+      log.warn("No notification channels could be found.");
+      return;
+    }
+
+    final List<NotificationChannel> defaultChannels = notificationChannels.stream().filter(NotificationChannel::isDefault).toList();
+    if (defaultChannels.isEmpty()) {
+      log.warn("No default notification channel defined.");
+      return;
+    }
+
+    try {
+      defaultChannels.forEach(channel ->
+          getSender(Channel.ofValue(channel.type())).send(latest, persisted, threshold, deviation));
+    } catch (Exception e) {
+      log.error("Failed to send Percentage-Alert: {}", e.getMessage());
+    }
+  }
 }

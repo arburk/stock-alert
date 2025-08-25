@@ -6,7 +6,8 @@
       {
         "type": "email",
         "recipients": "me@company.com",
-        "use-on-error" : true
+        "use-on-error" : true,
+        "is-default" : true
       }
     ],
     "securities": [
@@ -32,6 +33,7 @@
       },
       {
         "symbol": "INGA",
+        "percentage-alert" : "5",
         "exchange": "Amsterdam"
       },
       {

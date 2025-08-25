@@ -9,6 +9,7 @@ public record Security(
     String symbol,
     Double price,
     String currency,
+    Double changePercentage,
     LocalDateTime timestamp,
     String exchange
 ) {

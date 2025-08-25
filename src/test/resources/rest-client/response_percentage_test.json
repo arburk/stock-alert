@@ -1,0 +1,27 @@
+{
+  "status": true,
+  "code": 200,
+  "msg": "Successfully",
+  "response": [
+    {
+      "c": "20.18",
+      "h": "20.2",
+      "l": "19.94",
+      "ch": "0.32",
+      "cp": "1.6%",
+      "t": "1754556769",
+      "s": "INGA",
+      "cty": "netherlands",
+      "ccy": "EUR",
+      "exch": "Amsterdam",
+      "id": "69151",
+      "tm": "2025-08-07 08:52:49"
+    }
+  ],
+  "info": {
+    "exchanges": [],
+    "sectors": [],
+    "server_time": "2025-08-07 08:59:44 UTC",
+    "credit_count": 1
+  }
+}

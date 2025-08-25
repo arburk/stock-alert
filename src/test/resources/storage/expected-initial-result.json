@@ -1,20 +1,10 @@
 {
-  "metaInfo": {
-    "lastErrorAlert": [
-      2025,
-      8,
-      24,
-      18,
-      17,
-      35,
-      12
-    ]
-  },
   "securities": [
     {
       "symbol": "BALN",
       "price": 199.99,
       "currency": "CHF",
+      "changePercentage": null,
       "timestamp": [
         2018,
         9,
@@ -30,6 +20,7 @@
       "symbol": "MOZN",
       "price": 11.24,
       "currency": "CHF",
+      "changePercentage": 0.0121,
       "timestamp": [
         2018,
         9,
@@ -45,6 +36,7 @@
       "symbol": "ROG",
       "price": 251.34,
       "currency": "CHF",
+      "changePercentage": -0.0324,
       "timestamp": [
         2018,
         9,
@@ -56,5 +48,16 @@
       ],
       "exchange": "Switzerland"
     }
-  ]
+  ],
+  "metaInfo": {
+    "lastErrorAlert": [
+      2025,
+      8,
+      24,
+      18,
+      17,
+      35,
+      12
+    ]
+  }
 }
