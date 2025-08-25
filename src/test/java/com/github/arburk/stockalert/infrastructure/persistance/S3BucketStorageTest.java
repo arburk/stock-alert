@@ -113,7 +113,7 @@ class S3BucketStorageTest {
         .thenReturn(ListObjectsResponse.builder().contents(List.of(storageFile)).build());
 
     final LocalDateTime timestamp = LocalDateTime.now();
-    final Security sec = new Security("AAPL", 154.2, "USD", timestamp, "NYSE");
+    final Security sec = new Security("AAPL", 154.2, "USD", null, timestamp, "NYSE");
     final StockAlertDb mockedReturnDb = new StockAlertDb(new ArrayList<>(List.of(sec)), new MetaInfo(timestamp));
     final byte[] json = new JacksonConfig().objectMapper().writeValueAsBytes(mockedReturnDb);
     final ArgumentCaptor<GetObjectRequest> getRequestCaptor = ArgumentCaptor.forClass(GetObjectRequest.class);
@@ -154,8 +154,8 @@ class S3BucketStorageTest {
   @Test
   void updateSecurities_withData_persistsSuccessfully() throws IOException {
     final LocalDateTime timestamp = LocalDateTime.now();
-    final Security secOld = new Security("AAPL", 143.2, "USD", timestamp, "NYSE");
-    final Security secNew = new Security("AAPL", 19.2, "USD", timestamp, "NYSE");
+    final Security secOld = new Security("AAPL", 143.2, "USD", null, timestamp, "NYSE");
+    final Security secNew = new Security("AAPL", 19.2, "USD", null, timestamp, "NYSE");
     final StockAlertDb stockAlertDb = new StockAlertDb(new ArrayList<>(List.of(secOld)), null);
     ReflectionTestUtils.setField(testee, "data", stockAlertDb);
 
@@ -187,12 +187,12 @@ class S3BucketStorageTest {
   @Test
   void persist_whenPutFails_resetsClient() {
     final ArrayList<Security> objects = new ArrayList<>();
-    objects.add(new Security("MSFT", 143.2, "USD", LocalDateTime.now(), "NYSE"));
+    objects.add(new Security("MSFT", 143.2, "USD", null, LocalDateTime.now(), "NYSE"));
     ReflectionTestUtils.setField(testee, "data", new StockAlertDb(objects, null));
     when(mockS3.putObject(any(PutObjectRequest.class), any(RequestBody.class)))
         .thenThrow(S3Exception.builder().message("Could not upload").build());
 
-    final Security sec = new Security("AAPL", 143.2, "USD", LocalDateTime.now(), "NYSE");
+    final Security sec = new Security("AAPL", 143.2, "USD", null, LocalDateTime.now(), "NYSE");
     assertDoesNotThrow(() -> testee.updateSecurities(List.of(sec)));
 
     verify(mockS3).close();

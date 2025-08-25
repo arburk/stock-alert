@@ -198,8 +198,8 @@ class StockServiceIntegrationTest {
     // to trigger alert
     final LocalDateTime timestamp = LocalDateTime.of(2025, Month.AUGUST, 7, 15, 6, 1, 99);
     return List.of(
-        new Security("BALN", 198.15, "CHF", timestamp, "Switzerland"),
-        new Security("INGA", 18.95, "EUR", timestamp, "Amsterdam")
+        new Security("BALN", 198.15, "CHF", null, timestamp, "Switzerland"),
+        new Security("INGA", 18.95, "EUR", null, timestamp, "Amsterdam")
     );
   }
 

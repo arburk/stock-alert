@@ -94,11 +94,11 @@ class StockServiceTest {
     final LocalDateTime oldTs = LocalDateTime.of(2025, Month.JULY, 4, 17, 25, 32);
 
     final Collection<Security> providedSecurities = getSecurites(false, updatedTs);
-    providedSecurities.add(new Security("HELN", 176.25, "CHF", updatedTs, "Switzerland"));
+    providedSecurities.add(new Security("HELN", 176.25, "CHF", null, updatedTs, "Switzerland"));
     when(stockProvider.getLatest(stringCollection.capture())).thenReturn(providedSecurities);
 
     final Collection<Security> securitiesPersisted = getSecurites(true, oldTs);
-    securitiesPersisted.add(new Security("HELN", 176.25, "CHF", oldTs, "Switzerland"));
+    securitiesPersisted.add(new Security("HELN", 176.25, "CHF", null, oldTs, "Switzerland"));
     when(persistenceProvider.getSecurites()).thenReturn(securitiesPersisted);
 
     testee.update();
@@ -120,7 +120,7 @@ class StockServiceTest {
     // complete according to config-example.json
     ArrayList<Security> securites = new ArrayList<>();
     if (completeForTest) {
-      securites.add(new Security("BALN", 170.25, "CHF", timestamp, "Switzerland"));
+      securites.add(new Security("BALN", 170.25, "CHF", null, timestamp, "Switzerland"));
     }
     return securites;
   }
@@ -128,45 +128,52 @@ class StockServiceTest {
   @Nested
   class CheckAndRaisePercentageAlert {
 
+    public static final Security PERSISTED = new Security(null, 100., null, null, null, null);
+    private static final SecurityConfig EMPTY_CONFIG = new SecurityConfig(null, null, null, null, null, null);
+
     @Test
     void checkAndRaisePercentageAlert_Increased() {
-      final SecurityConfig config = new SecurityConfig(null, null, null, null, null, null);
-      final Security latest = new Security(null, 105., null, null, null);
-      final Security persisted = new Security(null, 100., null, null, null);
-      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", config, latest, persisted, 0.05);
+      final Security latestExceedsThreshold = new Security(null, 105., null, null, null, null);
+      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", EMPTY_CONFIG, latestExceedsThreshold, PERSISTED, 0.05);
 
       ArgumentCaptor<Double> captor = ArgumentCaptor.forClass(Double.class);
-      verify(notifyService).sendPercentage(any(List.class), eq(latest), eq(persisted), eq(0.05), captor.capture());
+      verify(notifyService).sendPercentage(any(List.class), eq(latestExceedsThreshold), eq(PERSISTED), eq(0.05), captor.capture());
       assertTrue(captor.getValue() >= 0.05);
     }
 
     @Test
     void checkAndRaisePercentageAlert_Decreased() {
       final SecurityConfig config = new SecurityConfig(null, null, null, null, "0.05", null);
-      final Security latest = new Security(null, 95., null, null, null);
-      final Security persisted = new Security(null, 100., null, null, null);
-      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", config, latest, persisted, null);
+      final Security latestDecreasedCrossingThreshold = new Security(null, 95., null, null, null, null);
+      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", config, latestDecreasedCrossingThreshold, PERSISTED, null);
 
       ArgumentCaptor<Double> captor = ArgumentCaptor.forClass(Double.class);
-      verify(notifyService).sendPercentage(any(List.class), eq(latest), eq(persisted), eq(0.05), captor.capture());
-      assertTrue(captor.getValue() >= 0.05);
+      verify(notifyService).sendPercentage(any(List.class), eq(latestDecreasedCrossingThreshold), eq(PERSISTED), eq(0.05), captor.capture());
+      assertTrue(captor.getValue() <= 0.05);
     }
 
     @Test
     void checkAndRaisePercentageAlert_NotRequired() {
-      final SecurityConfig config = new SecurityConfig(null, null, null, null, null, null);
-      final Security latest = new Security(null, 96., null, null, null);
-      final Security persisted = new Security(null, 100., null, null, null);
-      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", config, latest, persisted, 0.05);
+      final Security latestWithinBoundary = new Security(null, 96., null, null, null, null);
+      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", EMPTY_CONFIG, latestWithinBoundary, PERSISTED, 0.05);
       verify(notifyService, never()).sendPercentage(any(List.class), any(Security.class), any(Security.class), eq(0.05), anyDouble());
+    }
+
+    @Test
+    void checkAndRaisePercentageAlert_ProvideValueTrigger() {
+      final Security latest = new Security(null, 96., null, .0536, null, null);
+      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", EMPTY_CONFIG, latest, PERSISTED, 0.05);
+
+      ArgumentCaptor<Double> captor = ArgumentCaptor.forClass(Double.class);
+      verify(notifyService).sendPercentage(any(List.class), eq(latest), eq(PERSISTED), eq(0.05), captor.capture());
+      assertEquals(.0536, captor.getValue());
     }
 
     @Test
     void checkAndRaisePercentageAlert_GlobalValueResetted() {
       final SecurityConfig config = new SecurityConfig(null, null, null, null, "0", null);
-      final Security latest = new Security(null, 90., null, null, null);
-      final Security persisted = new Security(null, 100., null, null, null);
-      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", config, latest, persisted, 0.05);
+      final Security latest = new Security(null, 90., null, null, null, null);
+      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", config, latest, PERSISTED, 0.05);
       verify(notifyService, never()).sendPercentage(any(List.class), any(Security.class), any(Security.class), eq(0.05), anyDouble());
     }
   }

@@ -115,14 +115,6 @@ public class StockService {
       return;
     }
 
-    boolean skipPercentageCalculation = false;
-    if (percentageAlert != null && percentageAlert > 0) {
-      // TODO: check for percentage alert
-      // map from api
-      // notificationService.sendPercentage(config, latest, persisted, value2consider, division);
-      // if send, set true: skipPercentageCalculation = true;
-    }
-
     if (persisted == null) {
       log.info("Cannot check alert requirement since persisted value is empty.");
       return;
@@ -138,9 +130,7 @@ public class StockService {
           });
     }
 
-    if (!skipPercentageCalculation) {
-      checkAndRaisePercentageAlert(config, latest, persisted, percentageAlert);
-    }
+    checkAndRaisePercentageAlert(config, latest, persisted, percentageAlert);
   }
 
   private void checkAndRaisePercentageAlert(
@@ -151,20 +141,23 @@ public class StockService {
 
     var globalDef = (percentageAlert != null && percentageAlert > 0) ? percentageAlert : null;
     var overrideDef = (config.getPercentageAlert() != null) ? config.getPercentageAlert() : null;
-    var value2consider = overrideDef != null ? overrideDef : globalDef;
-    if (value2consider == null || value2consider == 0) {
-      log.debug("skip percentage alert");
+    var threshold2consider = overrideDef != null ? overrideDef : globalDef;
+    if (threshold2consider == null || threshold2consider == 0) {
+      log.debug("skip percentage alert for {}", latest.symbol());
       return;
     }
 
+    final double cpProvided = latest.changePercentage() != null ? latest.changePercentage() : 0;
+
     final Double latestPrice = latest.price();
     final Double persistedPrice = persisted.price();
+    double cpCalculated = (latestPrice / persistedPrice) - 1;
 
-    double division = Math.abs(1 - (latestPrice / persistedPrice));
+    double cpBiggest = Math.abs(cpProvided) > Math.abs(cpCalculated) ? cpProvided : cpCalculated;
 
-    if (division >= value2consider) {
-      log.debug("Percentage deviation {} > {} -> raise alert!", division, value2consider);
-      notificationService.sendPercentage(applicationConfig.getStockAlertsConfig().notificationChannels(), latest, persisted, value2consider, division);
+    if (Math.abs(cpBiggest) >= threshold2consider) {
+      log.debug("Percentage deviation calculated {} / provided {} > {} -> raise alert for {}!", cpCalculated, cpProvided, threshold2consider, latest.symbol());
+      notificationService.sendPercentage(applicationConfig.getStockAlertsConfig().notificationChannels(), latest, persisted, threshold2consider, cpBiggest);
     }
   }
 
