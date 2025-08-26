@@ -7,7 +7,8 @@
       {
         "type": "email",
         "recipients": "mail@arno-burkhart.ch",
-        "use-on-error": true
+        "use-on-error": true,
+        "is-default" : true
       }
     ],
     "securities": [
