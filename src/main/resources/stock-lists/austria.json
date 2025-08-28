@@ -1,0 +1,34 @@
+{
+  "status": true,
+  "code": 200,
+  "msg": "Successfully",
+  "response": [
+    {
+      "id": "69332",
+      "name": "Adler Real Estate",
+      "short_name": "ADLG",
+      "country": "austria",
+      "ccy": "EUR",
+      "exch": "Vienna",
+      "sector": "Real Estate"
+    },
+    {
+      "id": "69443",
+      "name": "New Work",
+      "short_name": "NWOn",
+      "country": "austria",
+      "ccy": "EUR",
+      "exch": "Vienna",
+      "sector": "Technology"
+    }
+  ],
+  "info": {
+    "exchanges": [],
+    "sectors": [
+      "Real Estate",
+      "Technology"
+    ],
+    "server_time": "2025-08-28 18:42:15 UTC",
+    "credit_count": 1
+  }
+}

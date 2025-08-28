@@ -154,6 +154,11 @@
             "threshold": 25.00,
             "notification": "email",
             "_comment": ""
+          },
+          {
+            "threshold": 20.00,
+            "notification": "email",
+            "_comment": ""
           }
         ]
       },
@@ -600,6 +605,24 @@
         "isin": "",
         "_comment" : "BAWAG NOT YET identified -> 100, 130, 120",
         "exchange": "Switzerland"
+      },
+      {
+        "symbol": "DTEGn",
+        "isin": "",
+        "_comment": "Deutsche Telekom AG Na",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 40.00,
+            "notification": "email",
+            "_comment": "Sell"
+          },
+          {
+            "threshold": 30.00,
+            "notification": "email",
+            "_comment": ""
+          }
+        ]
       },
       {
         "symbol": "AMRZ",
