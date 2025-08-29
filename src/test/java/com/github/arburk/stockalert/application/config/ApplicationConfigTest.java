@@ -5,7 +5,6 @@ import com.github.arburk.stockalert.application.domain.config.NotificationChanne
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -99,7 +98,6 @@ class ApplicationConfigTest {
       assertConfigExample(testee.getStockAlertsConfig());
     }
 
-    @Disabled("until new example is online")
     @Test
     void url_HappyFlow() {
       testee.setConfigUrl("https://raw.githubusercontent.com/arburk/stock-alert/refs/heads/main/src/main/resources/config-example.json");

@@ -1,8 +1,8 @@
 package com.github.arburk.stockalert.application.service.notification;
 
-import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.domain.config.Alert;
+import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 
 import java.util.Arrays;
 
@@ -13,15 +13,15 @@ public interface NotificationSender {
   /**
    * Send alert based on certain security crossed currency value based threshold
    */
-  void send(final Alert alert, final Security latest, final Security persisted);
+  void send(final StockAlertsConfig stockAlertsConfig, final Alert alert, final Security latest, final Security persisted);
 
   /**
    * Send alert based on percentage deviation exceeded threshold defined globally or security specific
    */
-  void send(final Security latest, final Security persisted, final Double threshold, final double deviation);
+  void send(final StockAlertsConfig stockAlertsConfig, final Security latest, final Security persisted, final Double threshold, final double deviation);
 
-  default String[] getRecipients(ApplicationConfig appConfig) throws IllegalStateException {
-    final var notificationChannels = appConfig.getStockAlertsConfig().notificationChannels();
+  default String[] getRecipients(final StockAlertsConfig stockAlertsConfig) throws IllegalStateException {
+    final var notificationChannels = stockAlertsConfig.notificationChannels();
     final var channelConfig = notificationChannels.stream()
         .filter(channel -> getChannel().getValue().equalsIgnoreCase(channel.type()))
         .findFirst()

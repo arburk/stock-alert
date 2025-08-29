@@ -3,6 +3,7 @@ package com.github.arburk.stockalert.application.service.notification;
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.domain.config.Alert;
 import com.github.arburk.stockalert.application.domain.config.NotificationChannel;
+import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -30,10 +31,10 @@ public class NotificationService {
 
   }
 
-  public void send(final Alert alert, final Security latest, final Security persisted) {
+  public void send(final StockAlertsConfig stockAlertsConfig, final Alert alert, final Security latest, final Security persisted) {
     try {
       getSender(Channel.ofValue(alert.notification()))
-          .send(alert, latest, persisted);
+          .send(stockAlertsConfig, alert, latest, persisted);
     } catch (Exception e) {
       log.error("Failed to send Alert: {}", e.getMessage());
     }
@@ -47,16 +48,19 @@ public class NotificationService {
   }
 
   public void sendPercentage(
-      final List<NotificationChannel> notificationChannels,
+      final StockAlertsConfig stockAlertsConfig,
       final @NonNull Security latest, final @NonNull Security persisted,
       final Double threshold, final double deviation) {
 
-    if (notificationChannels == null || notificationChannels.isEmpty()) {
+    if (stockAlertsConfig.notificationChannels() == null || stockAlertsConfig.notificationChannels().isEmpty()) {
       log.warn("No notification channels could be found.");
       return;
     }
 
-    final List<NotificationChannel> defaultChannels = notificationChannels.stream().filter(NotificationChannel::isDefault).toList();
+    final List<NotificationChannel> defaultChannels = stockAlertsConfig.notificationChannels()
+        .stream()
+        .filter(NotificationChannel::isDefault)
+        .toList();
     if (defaultChannels.isEmpty()) {
       log.warn("No default notification channel defined.");
       return;
@@ -64,7 +68,8 @@ public class NotificationService {
 
     try {
       defaultChannels.forEach(channel ->
-          getSender(Channel.ofValue(channel.type())).send(latest, persisted, threshold, deviation));
+          getSender(Channel.ofValue(channel.type()))
+              .send(stockAlertsConfig, latest, persisted, threshold, deviation));
     } catch (Exception e) {
       log.error("Failed to send Percentage-Alert: {}", e.getMessage());
     }

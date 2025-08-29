@@ -1,6 +1,5 @@
 package com.github.arburk.stockalert.infrastructure.notification.email;
 
-import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.domain.config.Alert;
 import com.github.arburk.stockalert.application.domain.config.NotificationChannel;
@@ -35,7 +34,6 @@ import static org.mockito.Mockito.when;
 class EmailNotificationSenderTest {
 
   private JavaMailSender mailSender;
-  private ApplicationConfig appConfig;
   private EmailNotificationSender testee;
 
   private static final String RECIPIENT_1 = "me@here.com";
@@ -46,12 +44,7 @@ class EmailNotificationSenderTest {
   @BeforeEach
   void setUp() {
     mailSender = Mockito.mock(JavaMailSender.class);
-    appConfig = Mockito.mock(ApplicationConfig.class);
-    testee = new EmailNotificationSender(mailSender, appConfig);
-  }
-
-  private void mockConfig(StockAlertsConfig stockAlertsConfig) {
-    when(appConfig.getStockAlertsConfig()).thenReturn(stockAlertsConfig);
+    testee = new EmailNotificationSender(mailSender);
   }
 
   @Test
@@ -62,8 +55,8 @@ class EmailNotificationSenderTest {
   @Test
   void testRecipientsExtraction() {
     final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), RECIPIENT_1 + ", " + RECIPIENT_2 + " ; " + RECIPIENT_3, false, false);
-    mockConfig(new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of()));
-    final String[] recipients = testee.getRecipients(appConfig);
+    final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of());
+    final String[] recipients = testee.getRecipients(stockAlertsConfig);
 
     assertEquals(3, recipients.length);
     assertTrue(Arrays.asList(recipients).contains(RECIPIENT_1));
@@ -74,17 +67,16 @@ class EmailNotificationSenderTest {
   @Test
   void testRecipientExtraction_inconsistenConfig() {
     final NotificationChannel mailChannel = new NotificationChannel(null, RECIPIENT_1, false, false);
-    mockConfig(new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of()));
+    final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of());
 
-    final var caughtException = assertThrows(IllegalStateException.class, () -> testee.getRecipients(appConfig));
+    final var caughtException = assertThrows(IllegalStateException.class, () -> testee.getRecipients(stockAlertsConfig));
     assertEquals("email channel was invoked but not found in configuration", caughtException.getMessage());
   }
 
   @Test
   void sendEmailHappyCase() throws MessagingException, IOException {
     final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), RECIPIENT_2, false,false);
-    mockConfig(new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of()));
-
+    final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of());
     final MimeMessage mimeMessage = getMockedMimeMessage();
 
     LocalDateTime persistedTs = LocalDateTime.of(2025, Month.JULY, 17, 12, 16, 24, 12);
@@ -95,7 +87,7 @@ class EmailNotificationSenderTest {
 
     ReflectionTestUtils.setField(testee, "from", "mocked@example.com");
 
-    testee.send(testAlert, latest, persisted);
+    testee.send(stockAlertsConfig, testAlert, latest, persisted);
 
 
     verify(mailSender).send(mimeMessage);
@@ -111,8 +103,7 @@ class EmailNotificationSenderTest {
   @Test
   void sendPercentageEmailHappyCase() throws MessagingException, IOException {
     final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), RECIPIENT_2, false,true);
-    mockConfig(new StockAlertsConfig(null, null, "5%", List.of(mailChannel), List.of()));
-
+    final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, "5%", List.of(mailChannel), List.of());
     final MimeMessage mimeMessage = getMockedMimeMessage();
 
     LocalDateTime persistedTs = LocalDateTime.of(2025, Month.JULY, 17, 12, 16, 24, 12);
@@ -122,7 +113,7 @@ class EmailNotificationSenderTest {
 
     ReflectionTestUtils.setField(testee, "from", "mocked@example.com");
 
-    testee.send(latest, persisted, .05, 0.0527);
+    testee.send(stockAlertsConfig, latest, persisted, .05, 0.0527);
 
 
     verify(mailSender).send(mimeMessage);
@@ -147,13 +138,12 @@ class EmailNotificationSenderTest {
   @Test
   void sendEmail_invalidAddress() {
     final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), "i_am_NOT_a_valid_Email-Address", false, false);
-    mockConfig(new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of()));
-
+    final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of());
     final Security persisted = new Security("ABC", 12.0, "CHF", null, LocalDateTime.now(), "Switzerland");
     final Security latest = new Security("ABC", 13.0, "CHF", null, LocalDateTime.now(), "Switzerland");
     final Alert testAlert = new Alert(0, Channel.EMAIL.getValue(), null);
 
-    final MailSendException runtimeException = assertThrows(MailSendException.class, () -> testee.send(testAlert, latest, persisted));
+    final MailSendException runtimeException = assertThrows(MailSendException.class, () -> testee.send(stockAlertsConfig, testAlert, latest, persisted));
 
     verify(mailSender, never()).send(any(MimeMessage.class));
     assertEquals("Failed to send email to i_am_NOT_a_valid_Email-Address: Missing final '@domain'", runtimeException.getMessage());

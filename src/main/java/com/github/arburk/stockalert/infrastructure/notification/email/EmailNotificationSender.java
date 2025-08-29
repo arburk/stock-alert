@@ -1,8 +1,8 @@
 package com.github.arburk.stockalert.infrastructure.notification.email;
 
-import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.domain.config.Alert;
+import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import com.github.arburk.stockalert.application.service.notification.Channel;
 import com.github.arburk.stockalert.application.service.notification.NotificationSender;
 import jakarta.mail.MessagingException;
@@ -19,14 +19,12 @@ import org.springframework.stereotype.Component;
 public class EmailNotificationSender implements NotificationSender {
 
   private final JavaMailSender mailSender;
-  private final ApplicationConfig appConfig;
 
   @Value("${spring.mail.properties.mail.smtp.sender-address}")
   private String from;
 
-  public EmailNotificationSender(final JavaMailSender mailSender, final ApplicationConfig appConfig) {
+  public EmailNotificationSender(final JavaMailSender mailSender) {
     this.mailSender = mailSender;
-    this.appConfig = appConfig;
   }
 
   @Override
@@ -35,7 +33,7 @@ public class EmailNotificationSender implements NotificationSender {
   }
 
   @Override
-  public void send(final Alert alert, final Security latest, final Security persisted) {
+  public void send(final StockAlertsConfig stockAlertsConfig, final Alert alert, final Security latest, final Security persisted) {
     String currency = latest.currency();
     final String message = """
         Price for %s moved from %s %s dated on %s to %s %s dated on %s
@@ -48,11 +46,11 @@ public class EmailNotificationSender implements NotificationSender {
     );
     final String subject = "Threshold %s %s for %s crossed".formatted(
         latest.currency(), alert.threshold(), latest.symbol());
-    sendEmail(subject, message);
+    sendEmail(subject, message, stockAlertsConfig);
   }
 
   @Override
-  public void send(final Security latest, final Security persisted, final Double threshold, final double deviation) {
+  public void send(final StockAlertsConfig stockAlertsConfig, final Security latest, final Security persisted, final Double threshold, final double deviation) {
     String currency = latest.currency();
     final String message = """
         Price for %s moved from %s %s dated on %s to %s %s.
@@ -67,7 +65,7 @@ public class EmailNotificationSender implements NotificationSender {
     );
     final String subject = "Threshold of %s crossed for %s".formatted(
         formatPercentage(threshold), latest.symbol());
-    sendEmail(subject, message);
+    sendEmail(subject, message, stockAlertsConfig);
   }
 
   private String formatPercentage(final double percentage) {
@@ -85,8 +83,8 @@ public class EmailNotificationSender implements NotificationSender {
         : latest.exchange() + "/" + persitedOne;
   }
 
-  private void sendEmail(final String subject, String message) {
-    final String[] recipient = getRecipients(appConfig);
+  private void sendEmail(final String subject, final String message, final StockAlertsConfig stockAlertsConfig) {
+    final String[] recipient = getRecipients(stockAlertsConfig);
     try {
       MimeMessage mail = mailSender.createMimeMessage();
       MimeMessageHelper helper = new MimeMessageHelper(mail, "UTF-8");
