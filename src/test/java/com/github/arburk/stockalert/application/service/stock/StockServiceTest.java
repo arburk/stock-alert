@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -134,10 +133,10 @@ class StockServiceTest {
     @Test
     void checkAndRaisePercentageAlert_Increased() {
       final Security latestExceedsThreshold = new Security(null, 105., null, null, null, null);
-      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", EMPTY_CONFIG, latestExceedsThreshold, PERSISTED, 0.05);
+      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", applicationConfig.getStockAlertsConfig(), EMPTY_CONFIG, latestExceedsThreshold, PERSISTED);
 
       ArgumentCaptor<Double> captor = ArgumentCaptor.forClass(Double.class);
-      verify(notifyService).sendPercentage(any(List.class), eq(latestExceedsThreshold), eq(PERSISTED), eq(0.05), captor.capture());
+      verify(notifyService).sendPercentage(eq(applicationConfig.getStockAlertsConfig()), eq(latestExceedsThreshold), eq(PERSISTED), eq(0.05), captor.capture());
       assertTrue(captor.getValue() >= 0.05);
     }
 
@@ -145,27 +144,27 @@ class StockServiceTest {
     void checkAndRaisePercentageAlert_Decreased() {
       final SecurityConfig config = new SecurityConfig(null, null, null, null, "0.05", null);
       final Security latestDecreasedCrossingThreshold = new Security(null, 95., null, null, null, null);
-      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", config, latestDecreasedCrossingThreshold, PERSISTED, null);
+      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", applicationConfig.getStockAlertsConfig(), config, latestDecreasedCrossingThreshold, PERSISTED);
 
       ArgumentCaptor<Double> captor = ArgumentCaptor.forClass(Double.class);
-      verify(notifyService).sendPercentage(any(List.class), eq(latestDecreasedCrossingThreshold), eq(PERSISTED), eq(0.05), captor.capture());
+      verify(notifyService).sendPercentage(eq(applicationConfig.getStockAlertsConfig()), eq(latestDecreasedCrossingThreshold), eq(PERSISTED), eq(0.05), captor.capture());
       assertTrue(captor.getValue() <= 0.05);
     }
 
     @Test
     void checkAndRaisePercentageAlert_NotRequired() {
       final Security latestWithinBoundary = new Security(null, 96., null, null, null, null);
-      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", EMPTY_CONFIG, latestWithinBoundary, PERSISTED, 0.05);
-      verify(notifyService, never()).sendPercentage(any(List.class), any(Security.class), any(Security.class), eq(0.05), anyDouble());
+      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", applicationConfig.getStockAlertsConfig(), EMPTY_CONFIG, latestWithinBoundary, PERSISTED);
+      verify(notifyService, never()).sendPercentage(eq(applicationConfig.getStockAlertsConfig()), any(Security.class), any(Security.class), eq(0.05), anyDouble());
     }
 
     @Test
     void checkAndRaisePercentageAlert_ProvideValueTrigger() {
       final Security latest = new Security(null, 96., null, .0536, null, null);
-      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", EMPTY_CONFIG, latest, PERSISTED, 0.05);
+      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", applicationConfig.getStockAlertsConfig(), EMPTY_CONFIG, latest, PERSISTED);
 
       ArgumentCaptor<Double> captor = ArgumentCaptor.forClass(Double.class);
-      verify(notifyService).sendPercentage(any(List.class), eq(latest), eq(PERSISTED), eq(0.05), captor.capture());
+      verify(notifyService).sendPercentage(eq(applicationConfig.getStockAlertsConfig()), eq(latest), eq(PERSISTED), eq(0.05), captor.capture());
       assertEquals(.0536, captor.getValue());
     }
 
@@ -173,8 +172,8 @@ class StockServiceTest {
     void checkAndRaisePercentageAlert_GlobalValueResetted() {
       final SecurityConfig config = new SecurityConfig(null, null, null, null, "0", null);
       final Security latest = new Security(null, 90., null, null, null, null);
-      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", config, latest, PERSISTED, 0.05);
-      verify(notifyService, never()).sendPercentage(any(List.class), any(Security.class), any(Security.class), eq(0.05), anyDouble());
+      ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", applicationConfig.getStockAlertsConfig(), config, latest, PERSISTED);
+      verify(notifyService, never()).sendPercentage(eq(applicationConfig.getStockAlertsConfig()), any(Security.class), any(Security.class), eq(0.05), anyDouble());
     }
   }
 }

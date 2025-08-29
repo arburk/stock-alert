@@ -1,5 +1,6 @@
 package com.github.arburk.stockalert.infrastructure.notification.email;
 
+import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.domain.config.Alert;
 import com.github.arburk.stockalert.application.service.notification.Channel;
@@ -33,6 +34,9 @@ class EmailNotificationSenderIntegrationTest {
   @Autowired
   private EmailNotificationSender testee;
 
+  @Autowired
+  ApplicationConfig applicationConfig;
+
   @Test
   void name() {
     final Alert testAlert = new Alert(12.25, Channel.EMAIL.getValue(), null);
@@ -42,6 +46,6 @@ class EmailNotificationSenderIntegrationTest {
     final Security persisted = new Security("ABC", 12.0, "CHF", null, persistedTs, "Switzerland");
     final Security latest = new Security("ABC", 13.0, "CHF", null, updatedTs, "Switzerland");
 
-    assertDoesNotThrow(() -> testee.send(testAlert, latest, persisted));
+    assertDoesNotThrow(() -> testee.send(applicationConfig.getStockAlertsConfig(), testAlert, latest, persisted));
   }
 }

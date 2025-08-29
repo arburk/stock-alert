@@ -37,21 +37,20 @@ public class StockService {
     final List<SecurityConfig> alertConfig = stockAlertsConfig.securities();
     final Set<String> symbolsToQueryFor = alertConfig.stream().map(SecurityConfig::symbol).collect(Collectors.toSet());
     log.debug("perform and process update for {}", symbolsToQueryFor);
+
     try {
-      process(alertConfig, stockProvider.getLatest(symbolsToQueryFor), stockAlertsConfig.getPercentageAlert());
+      final Collection<Security> latestRelevant = getRelevantFiltered(alertConfig, stockProvider.getLatest(symbolsToQueryFor));
+      final Collection<Security> persistedSecurites = persistenceProvider.getSecurites();
+      alertConfig.forEach(configElement -> checkSecurityAndRaiseAlert(
+          stockAlertsConfig, configElement,
+          getSecurity(latestRelevant, configElement),
+          getSecurity(persistedSecurites, configElement)
+      ));
+
+      updatePersistedSecurities(persistedSecurites, latestRelevant);
     } catch (Exception e) {
       log.error("update did not finish successful: {}", e.getMessage(), e);
     }
-  }
-
-  private void process(final List<SecurityConfig> alertConfig, final Collection<Security> latestSecurities, Double percentageAlert) {
-    final Collection<Security> latestRelevant = getRelevantFiltered(alertConfig, latestSecurities);
-    final Collection<Security> persistedSecurites = persistenceProvider.getSecurites();
-    alertConfig.forEach(configElement -> checkSecurityAndRaiseAlert(
-        configElement,
-        getSecurity(latestRelevant, configElement), getSecurity(persistedSecurites, configElement), percentageAlert
-    ));
-    updatePersistedSecurities(persistedSecurites, latestRelevant);
   }
 
   private Collection<Security> getRelevantFiltered(final List<SecurityConfig> alertConfig, final Collection<Security> latestSecurities) {
@@ -109,7 +108,7 @@ public class StockService {
     return threshold >= Math.min(a1, a2) && threshold <= Math.max(a1, a2);
   }
 
-  private void checkSecurityAndRaiseAlert(final SecurityConfig config, final Security latest, final Security persisted, final Double percentageAlert) {
+  private void checkSecurityAndRaiseAlert(final StockAlertsConfig stockAlertsConfig, final SecurityConfig securityConfig, final Security latest, final Security persisted) {
     if (latest == null) {
       log.warn("Cannot check alert requirement since latest value is empty. Check configuration for proper security settings.");
       return;
@@ -120,26 +119,29 @@ public class StockService {
       return;
     }
 
-    final List<Alert> alerts = config.alerts();
+    final List<Alert> alerts = securityConfig.alerts();
     if (alerts != null && !alerts.isEmpty()) {
       alerts.stream()
           .filter(alert -> isBetween(alert.threshold(), latest.price(), persisted.price()))
           .forEach(alert -> {
             log.info("Send alert for {} {}", latest.symbol(), alert);
-            notificationService.send(alert, latest, persisted);
+            notificationService.send(stockAlertsConfig, alert, latest, persisted);
           });
     }
 
-    checkAndRaisePercentageAlert(config, latest, persisted, percentageAlert);
+    checkAndRaisePercentageAlert(stockAlertsConfig, securityConfig, latest, persisted);
   }
 
   private void checkAndRaisePercentageAlert(
+      @NonNull final StockAlertsConfig stockAlertsConfig,
       @NonNull final SecurityConfig config,
       @NonNull final Security latest,
-      @NonNull final Security persisted,
-      final Double percentageAlert) {
+      @NonNull final Security persisted) {
 
-    var globalDef = (percentageAlert != null && percentageAlert > 0) ? percentageAlert : null;
+    final Double percentageAlert = stockAlertsConfig.getPercentageAlert();
+    var globalDef = (percentageAlert != null && percentageAlert > 0)
+        ? percentageAlert
+        : null;
     var overrideDef = (config.getPercentageAlert() != null) ? config.getPercentageAlert() : null;
     var threshold2consider = overrideDef != null ? overrideDef : globalDef;
     if (threshold2consider == null || threshold2consider == 0) {
@@ -157,7 +159,7 @@ public class StockService {
 
     if (Math.abs(cpBiggest) >= threshold2consider) {
       log.debug("Percentage deviation calculated {} / provided {} > {} -> raise alert for {}!", cpCalculated, cpProvided, threshold2consider, latest.symbol());
-      notificationService.sendPercentage(applicationConfig.getStockAlertsConfig().notificationChannels(), latest, persisted, threshold2consider, cpBiggest);
+      notificationService.sendPercentage(stockAlertsConfig, latest, persisted, threshold2consider, cpBiggest);
     }
   }
 
