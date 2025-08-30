@@ -30,7 +30,7 @@ public class FileStorage extends AbstractPersistenceProvider implements Persiste
   }
 
   @Override
-  void persist() {
+  public void commitChanges() {
     try {
       final File parentDir = filePath.toFile().getParentFile();
       if (parentDir != null && !parentDir.exists()) {

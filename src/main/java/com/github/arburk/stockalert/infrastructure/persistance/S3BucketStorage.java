@@ -64,7 +64,7 @@ public class S3BucketStorage extends AbstractPersistenceProvider implements Pers
   }
 
   @Override
-  void persist() {
+  public void commitChanges() {
     try {
       final StringWriter jsonWriter = new StringWriter();
       objectMapper.writerWithDefaultPrettyPrinter().writeValue(jsonWriter, getData());

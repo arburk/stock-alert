@@ -42,7 +42,7 @@ public abstract class AbstractPersistenceProvider implements PersistenceProvider
       return;
     }
     securities.forEach(this::updateSecurity);
-    persist();
+    commitChanges();
   }
 
   @Override
@@ -57,7 +57,7 @@ public abstract class AbstractPersistenceProvider implements PersistenceProvider
             : new ArrayList<>(/* must not be immutable */),
         metaInfo
     );
-    persist();
+    commitChanges();
   }
 
   @Override
@@ -78,12 +78,6 @@ public abstract class AbstractPersistenceProvider implements PersistenceProvider
     data.securities().add(security);
   }
 
-  @Override
-  public void commitChanges() {
-    persist();
-  }
-
   abstract StockAlertDb initData();
 
-  abstract void persist();
 }

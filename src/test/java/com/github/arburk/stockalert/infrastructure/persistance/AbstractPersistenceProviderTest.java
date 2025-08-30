@@ -80,7 +80,7 @@ class AbstractPersistenceProviderTest extends AbstractPersistenceProvider {
   }
 
   @Override
-  void persist() {
-
+  public void commitChanges() {
+    // unused here as not relevant for this test
   }
 }
