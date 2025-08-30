@@ -44,15 +44,15 @@ public class StockService {
 
     try {
       final Collection<Security> latestRelevant = getRelevantFiltered(alertConfig, stockProvider.getLatest(symbolsToQueryFor));
-      //TODO: refactor using persistenceProvider
-      final Collection<Security> persistedSecurites = persistenceProvider.getSecurites();
-      alertConfig.forEach(configElement -> checkSecurityAndRaiseAlert(
-          stockAlertsConfig, configElement,
-          getSecurity(latestRelevant, configElement),
-          getSecurity(persistedSecurites, configElement)
-      ));
-
-      updatePersistedSecurities(persistedSecurites, latestRelevant);
+      if (!latestRelevant.isEmpty()) {
+        alertConfig.forEach(configElement -> checkSecurityAndRaiseAlert(
+            stockAlertsConfig,
+            configElement,
+            latestRelevant.stream().filter(security -> security.equals(configElement)).findFirst()
+        ));
+        latestRelevant.forEach(persistenceProvider::updateSecurity);
+        persistenceProvider.commitChanges();
+      }
     } catch (Exception e) {
       log.error("update did not finish successful: {}", e.getMessage(), e);
     }
@@ -82,37 +82,17 @@ public class StockService {
     log.warn("Did not find following stocks configured in alert config: {}", unmatched);
   }
 
-  private Optional<Security> getSecurity(final Collection<Security> securities, final SecurityConfig securityConfig) {
-    return securities == null || securities.isEmpty()
-        ? Optional.empty()
-        : securities.stream().filter(security -> security.equals(securityConfig)).findFirst();
-  }
-
-  private void updatePersistedSecurities(final Collection<Security> persistedSecurities, final Collection<Security> latestSecurities) {
-    if (latestSecurities == null || latestSecurities.isEmpty()) {
-      log.debug("skip updating persisted securities.");
-      return;
-    }
-
-    latestSecurities.forEach(latest -> {
-      persistedSecurities.stream().filter(security -> security.equals(latest))
-          .findFirst().ifPresent(persistedSecurities::remove);
-      persistedSecurities.add(latest);
-    });
-
-    persistenceProvider.updateSecurities(persistedSecurities);
-  }
-
   private static boolean isBetween(double threshold, double a1, double a2) {
     return threshold >= Math.min(a1, a2) && threshold <= Math.max(a1, a2);
   }
 
-  private void checkSecurityAndRaiseAlert(final StockAlertsConfig stockAlertsConfig, final SecurityConfig securityConfig, final Optional<Security> latest, final Optional<Security> persisted) {
+  private void checkSecurityAndRaiseAlert(final StockAlertsConfig stockAlertsConfig, final SecurityConfig securityConfig, final Optional<Security> latest) {
     if (latest.isEmpty()) {
       log.warn("Cannot check alert requirement since latest value is empty. Check configuration for proper security settings.");
       return;
     }
 
+    final Optional<Security> persisted = persistenceProvider.getSecurity(Security.fromConfig(securityConfig));
     if (persisted.isEmpty()) {
       log.info("Cannot check alert requirement since persisted value is empty.");
       return;

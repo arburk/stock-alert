@@ -2,6 +2,7 @@ package com.github.arburk.stockalert.application.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
+import lombok.NonNull;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -18,6 +19,10 @@ public record Security(
     Collection<Alert> alertLog) {
 
   private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+  public static @NonNull Security fromConfig(final SecurityConfig configElement) {
+    return new Security(configElement.symbol(), null, null, null, null, configElement.exchange(), null);
+  }
 
   @JsonIgnore
   public String getTimestampFormatted() {

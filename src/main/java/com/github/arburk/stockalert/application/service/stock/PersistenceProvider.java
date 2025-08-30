@@ -19,11 +19,11 @@ public interface PersistenceProvider {
 
   Collection<Security> getSecurites();
   void updateSecurities(Collection<Security> securities);
-  Optional<Security> getSecurity(@NonNull Security latest);
+  Optional<Security> getSecurity(@NonNull Security identifier);
   void updateSecurity(@NonNull Security securities);
 
   MetaInfo getMetaInfo();
-
   void updateMetaInfo(MetaInfo metaInfo);
 
+  void commitChanges();
 }

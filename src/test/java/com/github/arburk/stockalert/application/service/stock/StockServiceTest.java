@@ -49,23 +49,19 @@ class StockServiceTest {
   @Test
   void updateHappyFlow() {
     final ArgumentCaptor<Collection<String>> stringCollection = ArgumentCaptor.forClass(Collection.class);
-    final ArgumentCaptor<Collection<Security>> securityCollection = ArgumentCaptor.forClass(Collection.class);
     final LocalDateTime updatedTs = LocalDateTime.now();
     final LocalDateTime oldTs = LocalDateTime.of(2025, Month.JULY, 4, 17, 25, 32);
     when(stockProvider.getLatest(stringCollection.capture())).thenReturn(getSecurites(true, updatedTs));
-    when(persistenceProvider.getSecurites()).thenReturn(getSecurites(true, oldTs));
+    final Collection<Security> testSecurities = getSecurites(true, oldTs);
+    when(persistenceProvider.getSecurites()).thenReturn(testSecurities);
 
     testee.update();
 
-    verify(persistenceProvider).updateSecurities(securityCollection.capture());
     final Collection<String> latestRequest = stringCollection.getValue();
     assertEquals(1, latestRequest.size());
     assertEquals("[BALN]", latestRequest.toString());
-    final Collection<Security> updated = securityCollection.getValue();
-    assertEquals(1, updated.size());
-    final Security first = updated.stream().toList().getFirst();
-    assertEquals("BALN", first.symbol());
-    assertEquals(updatedTs, first.timestamp());
+    testSecurities.forEach(security -> verify(persistenceProvider).updateSecurity(security));
+    verify(persistenceProvider).commitChanges();
   }
 
   @Test
@@ -88,7 +84,6 @@ class StockServiceTest {
   void updateIncomplete() {
     applicationConfig.setConfigUrl(Path.of("src/test/resources/config/config-test.json").toUri().toString());
     final ArgumentCaptor<Collection<String>> stringCollection = ArgumentCaptor.forClass(Collection.class);
-    final ArgumentCaptor<Collection<Security>> securityCollection = ArgumentCaptor.forClass(Collection.class);
     final LocalDateTime updatedTs = LocalDateTime.now();
     final LocalDateTime oldTs = LocalDateTime.of(2025, Month.JULY, 4, 17, 25, 32);
 
@@ -106,13 +101,8 @@ class StockServiceTest {
     assertEquals(2, latestRequest.size());
     assertEquals("[HELN, BALN]", latestRequest.toString());
 
-    verify(persistenceProvider).updateSecurities(securityCollection.capture());
-    final Collection<Security> updated = securityCollection.getValue();
-    assertEquals(2, updated.size());
-    final Security first = updated.stream().filter(security -> "BALN".equals(security.symbol())).findFirst().get();
-    assertEquals(oldTs, first.timestamp());
-    final Security second = updated.stream().filter(security -> "HELN".equals(security.symbol())).findFirst().get();
-    assertEquals(updatedTs, second.timestamp());
+    providedSecurities.forEach(security -> verify(persistenceProvider).updateSecurity(security));
+    verify(persistenceProvider).commitChanges();
   }
 
   private Collection<Security> getSecurites(final boolean completeForTest, final LocalDateTime timestamp) {
