@@ -21,7 +21,10 @@ public record StockAlertsConfig(
     List<SecurityConfig> securities
 ) {
 
-  private static final Pattern DURATION_PATTERN = Pattern.compile("(\\d+)\\s*(d|h|m){1}\\s*$");
+  /**
+   * Regex is safe: uses possessive quantifiers to prevent ReDoS.
+   */
+  private static final Pattern DURATION_PATTERN = Pattern.compile("^\\s*(\\d++)\\s*([dhm])\\s*$");
 
   public Double getPercentageAlert() {
     return PercentageConverter.asDouble(percentageAlert);

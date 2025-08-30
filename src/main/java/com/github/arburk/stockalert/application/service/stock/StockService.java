@@ -47,7 +47,7 @@ public class StockService {
         alertConfig.forEach(configElement -> checkSecurityAndRaiseAlert(
             stockAlertsConfig,
             configElement,
-            latestRelevant.stream().filter(security -> security.equals(configElement)).findFirst()
+            latestRelevant.stream().filter(security -> security.isSameSymbolAndExchange(configElement)).findFirst()
         ));
         latestRelevant.forEach(persistenceProvider::updateSecurity);
         persistenceProvider.commitChanges();
@@ -153,24 +153,26 @@ public class StockService {
       return false;
     }
 
-    try {
-      final Duration silenceDuration = stockAlertsConfig.getSilenceDuration();
-      if (silenceDuration != Duration.ZERO) {
-        final Optional<Security> security = persistenceProvider.getSecurity(latest);
-        if (security.isPresent()) {
-          final var alertLog = security.get().alertLog();
-          if (alertLog != null && !alertLog.isEmpty()) {
-            final var lastPercentageAlert = alertLog.stream().sorted().toList().getFirst().timestamp();
-            if (lastPercentageAlert != null) {
-              return lastPercentageAlert.isAfter(LocalDateTime.now().minus(silenceDuration));
-            }
-          }
-        }
-      }
-    } catch (Exception e) {
-      log.warn(e.getMessage());
+    final Duration silenceDuration = stockAlertsConfig.getSilenceDuration();
+    if (silenceDuration == null || silenceDuration == Duration.ZERO) {
+      return false;
     }
-    return false;
+
+    final Optional<Security> security = persistenceProvider.getSecurity(latest);
+    if (security.isEmpty() || security.get().alertLog() == null || security.get().alertLog().isEmpty()) {
+      return false;
+    }
+
+    final var lastPercentageAlert = security.get().alertLog().stream().sorted().toList().getFirst().timestamp();
+    if (lastPercentageAlert == null) {
+      return false;
+    }
+
+    final boolean result = lastPercentageAlert.isAfter(LocalDateTime.now().minus(silenceDuration));
+    if (result) {
+      log.debug("Skip notification due to silence config: {}", stockAlertsConfig.silenceDuration());
+    }
+    return result;
   }
 
 }

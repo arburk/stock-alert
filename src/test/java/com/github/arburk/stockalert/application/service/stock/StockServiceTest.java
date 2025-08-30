@@ -193,6 +193,14 @@ class StockServiceTest {
     }
 
     @Test
+    void skipProvidedDueToSilencer_silenceDurationZero_isFalse() {
+      final Security latestSecurity = new Security(null, null, null, null, null, null, null);
+      var stockAlertsConfig = mock(StockAlertsConfig.class);
+      when(stockAlertsConfig.getSilenceDuration()).thenReturn(Duration.ZERO);
+      assertResultIsFalse(stockAlertsConfig, true, latestSecurity);
+    }
+
+    @Test
     void skipProvidedDueToSilencer_unpersistedSecurity_isFalse() {
       final Security latestSecurity = new Security(null, null, null, null, null, null, null);
       var stockAlertsConfig = mock(StockAlertsConfig.class);

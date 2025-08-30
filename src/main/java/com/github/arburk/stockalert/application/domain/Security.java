@@ -43,12 +43,16 @@ public record Security(
         : timestamp.format(FORMATTER);
   }
 
+  public boolean isSameSymbolAndExchange(SecurityConfig securityConfig) {
+    return securityConfig != null
+        && Objects.equals(symbol, securityConfig.symbol())
+        && Objects.equals(exchange, securityConfig.exchange());
+  }
+
   @Override
   public boolean equals(final Object o) {
     return switch (o) {
       case Security security -> Objects.equals(symbol, security.symbol) && Objects.equals(exchange, security.exchange);
-      case SecurityConfig securityConfig ->
-          Objects.equals(symbol, securityConfig.symbol()) && Objects.equals(exchange, securityConfig.exchange());
       case null, default -> false;
     };
   }
