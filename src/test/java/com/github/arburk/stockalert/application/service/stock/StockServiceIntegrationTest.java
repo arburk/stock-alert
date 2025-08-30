@@ -1,5 +1,6 @@
 package com.github.arburk.stockalert.application.service.stock;
 
+import com.github.arburk.stockalert.application.domain.Alert;
 import com.github.arburk.stockalert.application.domain.Security;
 import com.icegreen.greenmail.util.GreenMail;
 import com.icegreen.greenmail.util.ServerSetup;
@@ -40,6 +41,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertLinesMatch;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -114,6 +116,7 @@ class StockServiceIntegrationTest {
     persistenceProvider.updateSecurities(/* peristed file required for comparison */ getPreparedSecurities());
     assertTrue(expectedStorageFile.exists(), "Expected FileStorage created file %s, but nothing found".formatted(expectedStorageFile.toString()));
     final var fileSizeBeforeAddingResults = expectedStorageFile.length();
+    assertTrue(persistenceProvider.getSecurites().stream().allMatch(sec -> sec.alertLog().isEmpty()));
 
     // now execute
     stockService.update();
@@ -133,6 +136,13 @@ class StockServiceIntegrationTest {
         "Data refers to stock exchange Switzerland."
     );
     assertLinesMatch(expectedMailBodyLines, Arrays.asList(receivedMessage.getContent().toString().split("\\R")));
+
+    final Collection<Alert> alerts = persistenceProvider.getSecurity(baln).get().alertLog();
+    assertNotNull(alerts);
+    assertEquals(1, alerts.size());
+    final Alert first = alerts.stream().toList().getFirst();
+    assertEquals(200, first.threshold());
+    assertEquals("CHF", first.unit());
   }
 
   @Test
@@ -145,17 +155,16 @@ class StockServiceIntegrationTest {
     ReflectionTestUtils.setField(persistenceProvider, "data", null); //
     persistenceProvider.updateSecurities(/* peristed file required for comparison */ getPreparedSecurities());
     assertTrue(expectedStorageFile.exists(), "Expected FileStorage created file %s, but nothing found".formatted(expectedStorageFile.toString()));
+    assertTrue(persistenceProvider.getSecurites().stream().allMatch(sec -> sec.alertLog().isEmpty()));
 
     // now execute
     stockService.update();
 
-    final Collection<Security> securites = persistenceProvider.getSecurites();
-    assertEquals(2, securites.size());
-    final Security inga = securites.stream().filter(security -> "INGA".equals(security.symbol())).findFirst().get();
+    assertEquals(2, persistenceProvider.getSecurites().size());
+    final Security inga = persistenceProvider.getSecurity(new Security( "INGA", null,null,null,null,"Amsterdam", null)).get();
     assertEquals(20.18 /* > 5% deviation compared to getPreparedSecurities()*/, inga.price());
 
-    MimeMessage[] receivedMessages = greenMail.getReceivedMessages();
-
+    final MimeMessage[] receivedMessages = greenMail.getReceivedMessages();
     assertTrue(receivedMessages.length > 0, "percentage alert email was expected to be sent, which was apparently not the case");
     final MimeMessage receivedMessage = Arrays.asList(receivedMessages).getLast();
     assertEquals("Threshold of 5.00 % crossed for INGA", receivedMessage.getSubject());
@@ -165,6 +174,13 @@ class StockServiceIntegrationTest {
         "Data refers to stock exchange Amsterdam dated on 2025-08-07 08:52."
     );
     assertLinesMatch(expectedMailBodyLines, Arrays.asList(receivedMessage.getContent().toString().split("\\R")));
+
+    final Collection<Alert> alerts = persistenceProvider.getSecurity(inga).get().alertLog();
+    assertNotNull(alerts);
+    assertEquals(1, alerts.size());
+    final Alert first = alerts.stream().toList().getFirst();
+    assertEquals(0.06490765171503954, first.threshold());
+    assertEquals("%", first.unit());
   }
 
   @Test
@@ -198,8 +214,8 @@ class StockServiceIntegrationTest {
     // to trigger alert
     final LocalDateTime timestamp = LocalDateTime.of(2025, Month.AUGUST, 7, 15, 6, 1, 99);
     return List.of(
-        new Security("BALN", 198.15, "CHF", null, timestamp, "Switzerland"),
-        new Security("INGA", 18.95, "EUR", null, timestamp, "Amsterdam")
+        new Security("BALN", 198.15, "CHF", null, timestamp, "Switzerland", null),
+        new Security("INGA", 18.95, "EUR", null, timestamp, "Amsterdam", null)
     );
   }
 

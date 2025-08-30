@@ -2,8 +2,10 @@ package com.github.arburk.stockalert.application.service.stock;
 
 import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.config.JacksonConfig;
+import com.github.arburk.stockalert.application.domain.Alert;
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
+import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import com.github.arburk.stockalert.application.service.notification.NotificationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -13,16 +15,22 @@ import org.mockito.Mockito;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import java.nio.file.Path;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -49,23 +57,19 @@ class StockServiceTest {
   @Test
   void updateHappyFlow() {
     final ArgumentCaptor<Collection<String>> stringCollection = ArgumentCaptor.forClass(Collection.class);
-    final ArgumentCaptor<Collection<Security>> securityCollection = ArgumentCaptor.forClass(Collection.class);
     final LocalDateTime updatedTs = LocalDateTime.now();
     final LocalDateTime oldTs = LocalDateTime.of(2025, Month.JULY, 4, 17, 25, 32);
     when(stockProvider.getLatest(stringCollection.capture())).thenReturn(getSecurites(true, updatedTs));
-    when(persistenceProvider.getSecurites()).thenReturn(getSecurites(true, oldTs));
+    final Collection<Security> testSecurities = getSecurites(true, oldTs);
+    when(persistenceProvider.getSecurites()).thenReturn(testSecurities);
 
     testee.update();
 
-    verify(persistenceProvider).updateSecurities(securityCollection.capture());
     final Collection<String> latestRequest = stringCollection.getValue();
     assertEquals(1, latestRequest.size());
     assertEquals("[BALN]", latestRequest.toString());
-    final Collection<Security> updated = securityCollection.getValue();
-    assertEquals(1, updated.size());
-    final Security first = updated.stream().toList().getFirst();
-    assertEquals("BALN", first.symbol());
-    assertEquals(updatedTs, first.timestamp());
+    testSecurities.forEach(security -> verify(persistenceProvider).updateSecurity(security));
+    verify(persistenceProvider).commitChanges();
   }
 
   @Test
@@ -88,16 +92,15 @@ class StockServiceTest {
   void updateIncomplete() {
     applicationConfig.setConfigUrl(Path.of("src/test/resources/config/config-test.json").toUri().toString());
     final ArgumentCaptor<Collection<String>> stringCollection = ArgumentCaptor.forClass(Collection.class);
-    final ArgumentCaptor<Collection<Security>> securityCollection = ArgumentCaptor.forClass(Collection.class);
     final LocalDateTime updatedTs = LocalDateTime.now();
     final LocalDateTime oldTs = LocalDateTime.of(2025, Month.JULY, 4, 17, 25, 32);
 
     final Collection<Security> providedSecurities = getSecurites(false, updatedTs);
-    providedSecurities.add(new Security("HELN", 176.25, "CHF", null, updatedTs, "Switzerland"));
+    providedSecurities.add(new Security("HELN", 176.25, "CHF", null, updatedTs, "Switzerland", null));
     when(stockProvider.getLatest(stringCollection.capture())).thenReturn(providedSecurities);
 
     final Collection<Security> securitiesPersisted = getSecurites(true, oldTs);
-    securitiesPersisted.add(new Security("HELN", 176.25, "CHF", null, oldTs, "Switzerland"));
+    securitiesPersisted.add(new Security("HELN", 176.25, "CHF", null, oldTs, "Switzerland", null));
     when(persistenceProvider.getSecurites()).thenReturn(securitiesPersisted);
 
     testee.update();
@@ -106,20 +109,15 @@ class StockServiceTest {
     assertEquals(2, latestRequest.size());
     assertEquals("[HELN, BALN]", latestRequest.toString());
 
-    verify(persistenceProvider).updateSecurities(securityCollection.capture());
-    final Collection<Security> updated = securityCollection.getValue();
-    assertEquals(2, updated.size());
-    final Security first = updated.stream().filter(security -> "BALN".equals(security.symbol())).findFirst().get();
-    assertEquals(oldTs, first.timestamp());
-    final Security second = updated.stream().filter(security -> "HELN".equals(security.symbol())).findFirst().get();
-    assertEquals(updatedTs, second.timestamp());
+    providedSecurities.forEach(security -> verify(persistenceProvider).updateSecurity(security));
+    verify(persistenceProvider).commitChanges();
   }
 
   private Collection<Security> getSecurites(final boolean completeForTest, final LocalDateTime timestamp) {
     // complete according to config-example.json
     ArrayList<Security> securites = new ArrayList<>();
     if (completeForTest) {
-      securites.add(new Security("BALN", 170.25, "CHF", null, timestamp, "Switzerland"));
+      securites.add(new Security("BALN", 170.25, "CHF", null, timestamp, "Switzerland", null));
     }
     return securites;
   }
@@ -127,12 +125,12 @@ class StockServiceTest {
   @Nested
   class CheckAndRaisePercentageAlert {
 
-    public static final Security PERSISTED = new Security(null, 100., null, null, null, null);
+    public static final Security PERSISTED = new Security(null, 100., null, null, null, null, null);
     private static final SecurityConfig EMPTY_CONFIG = new SecurityConfig(null, null, null, null, null, null);
 
     @Test
     void checkAndRaisePercentageAlert_Increased() {
-      final Security latestExceedsThreshold = new Security(null, 105., null, null, null, null);
+      final Security latestExceedsThreshold = new Security(null, 105., null, null, null, null, null);
       ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", applicationConfig.getStockAlertsConfig(), EMPTY_CONFIG, latestExceedsThreshold, PERSISTED);
 
       ArgumentCaptor<Double> captor = ArgumentCaptor.forClass(Double.class);
@@ -143,7 +141,7 @@ class StockServiceTest {
     @Test
     void checkAndRaisePercentageAlert_Decreased() {
       final SecurityConfig config = new SecurityConfig(null, null, null, null, "0.05", null);
-      final Security latestDecreasedCrossingThreshold = new Security(null, 95., null, null, null, null);
+      final Security latestDecreasedCrossingThreshold = new Security(null, 95., null, null, null, null, null);
       ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", applicationConfig.getStockAlertsConfig(), config, latestDecreasedCrossingThreshold, PERSISTED);
 
       ArgumentCaptor<Double> captor = ArgumentCaptor.forClass(Double.class);
@@ -153,14 +151,14 @@ class StockServiceTest {
 
     @Test
     void checkAndRaisePercentageAlert_NotRequired() {
-      final Security latestWithinBoundary = new Security(null, 96., null, null, null, null);
+      final Security latestWithinBoundary = new Security(null, 96., null, null, null, null, null);
       ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", applicationConfig.getStockAlertsConfig(), EMPTY_CONFIG, latestWithinBoundary, PERSISTED);
       verify(notifyService, never()).sendPercentage(eq(applicationConfig.getStockAlertsConfig()), any(Security.class), any(Security.class), eq(0.05), anyDouble());
     }
 
     @Test
     void checkAndRaisePercentageAlert_ProvideValueTrigger() {
-      final Security latest = new Security(null, 96., null, .0536, null, null);
+      final Security latest = new Security(null, 96., null, .0536, null, null, null);
       ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", applicationConfig.getStockAlertsConfig(), EMPTY_CONFIG, latest, PERSISTED);
 
       ArgumentCaptor<Double> captor = ArgumentCaptor.forClass(Double.class);
@@ -171,9 +169,92 @@ class StockServiceTest {
     @Test
     void checkAndRaisePercentageAlert_GlobalValueResetted() {
       final SecurityConfig config = new SecurityConfig(null, null, null, null, "0", null);
-      final Security latest = new Security(null, 90., null, null, null, null);
+      final Security latest = new Security(null, 90., null, null, null, null, null);
       ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", applicationConfig.getStockAlertsConfig(), config, latest, PERSISTED);
       verify(notifyService, never()).sendPercentage(eq(applicationConfig.getStockAlertsConfig()), any(Security.class), any(Security.class), eq(0.05), anyDouble());
     }
+  }
+
+  @Nested
+  class SkipProvidedDueToSilencer {
+
+    @Test
+    void skipProvidedDueToSilencer_notProvided_isFalse() {
+      final Security latestSecurity = new Security(null, null, null, null, null, null, null);
+      assertResultIsFalse(applicationConfig.getStockAlertsConfig(), false, latestSecurity);
+    }
+
+    @Test
+    void skipProvidedDueToSilencer_silenceDurationNotProvided_isFalse() {
+      final Security latestSecurity = new Security(null, null, null, null, null, null, null);
+      var stockAlertsConfig = mock(StockAlertsConfig.class);
+      when(stockAlertsConfig.getSilenceDuration()).thenReturn(null);
+      assertResultIsFalse(stockAlertsConfig, true, latestSecurity);
+    }
+
+    @Test
+    void skipProvidedDueToSilencer_silenceDurationZero_isFalse() {
+      final Security latestSecurity = new Security(null, null, null, null, null, null, null);
+      var stockAlertsConfig = mock(StockAlertsConfig.class);
+      when(stockAlertsConfig.getSilenceDuration()).thenReturn(Duration.ZERO);
+      assertResultIsFalse(stockAlertsConfig, true, latestSecurity);
+    }
+
+    @Test
+    void skipProvidedDueToSilencer_unpersistedSecurity_isFalse() {
+      final Security latestSecurity = new Security(null, null, null, null, null, null, null);
+      var stockAlertsConfig = mock(StockAlertsConfig.class);
+      when(stockAlertsConfig.getSilenceDuration()).thenReturn(Duration.ofMinutes(1));
+      when(persistenceProvider.getSecurity(any(Security.class))).thenReturn(Optional.empty());
+      assertResultIsFalse(stockAlertsConfig, true, latestSecurity);
+    }
+
+    @Test
+    void skipProvidedDueToSilencer_persistedSecurityWithoutAlert_isFalse() {
+      final Security latestSecurity = new Security(null, null, null, null, null, null, null);
+      var stockAlertsConfig = mock(StockAlertsConfig.class);
+      when(stockAlertsConfig.getSilenceDuration()).thenReturn(Duration.ofMinutes(1));
+      when(persistenceProvider.getSecurity(any(Security.class))).thenReturn(Optional.of(latestSecurity));
+      assertResultIsFalse(stockAlertsConfig, true, latestSecurity);
+    }
+
+    @Test
+    void skipProvidedDueToSilencer_persistedSecurity_RecentAlertTooOld_isFalse() {
+      final Security latestSecurity = new Security(null, null, null, null, null, null, null);
+      var stockAlertsConfig = mock(StockAlertsConfig.class);
+      when(stockAlertsConfig.getSilenceDuration()).thenReturn(Duration.ofMinutes(2));
+      final Collection<Alert> alertLog = Arrays.asList(
+          new Alert(LocalDateTime.now().minusMinutes(5), null, null),
+          new Alert(LocalDateTime.now().minusDays(1), null, null)
+      );
+      final Security persistedSecurity = new Security(null, null, null, null, null, null, alertLog);
+
+      when(persistenceProvider.getSecurity(any(Security.class))).thenReturn(Optional.of(persistedSecurity));
+      assertResultIsFalse(stockAlertsConfig, true, latestSecurity);
+    }
+
+    private void assertResultIsFalse(final StockAlertsConfig stockAlertsConfig, final boolean isProvided, final Security latestSecurity) {
+      final Boolean result = ReflectionTestUtils.invokeMethod(testee, "skipProvidedDueToSilencer", stockAlertsConfig, isProvided, latestSecurity);
+      assertNotNull(result);
+      assertFalse(result);
+    }
+
+    @Test
+    void skipProvidedDueToSilencer_persistedSecurity_RecentAlertToYoung_isTrue() {
+      final Security latestSecurity = new Security(null, null, null, null, null, null, null);
+      var stockAlertsConfig = mock(StockAlertsConfig.class);
+      when(stockAlertsConfig.getSilenceDuration()).thenReturn(Duration.ofMinutes(2));
+      final Collection<Alert> alertLog = Arrays.asList(
+          new Alert(LocalDateTime.now(), null, null),
+          new Alert(LocalDateTime.now().minusDays(1), null, null)
+      );
+      final Security persistedSecurity = new Security(null, null, null, null, null, null, alertLog);
+
+      when(persistenceProvider.getSecurity(any(Security.class))).thenReturn(Optional.of(persistedSecurity));
+      final Boolean result = ReflectionTestUtils.invokeMethod(testee, "skipProvidedDueToSilencer", stockAlertsConfig, true, latestSecurity);
+      assertNotNull(result);
+      assertTrue(result);
+    }
+
   }
 }

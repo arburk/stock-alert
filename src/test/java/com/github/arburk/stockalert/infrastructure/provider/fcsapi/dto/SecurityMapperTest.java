@@ -25,7 +25,7 @@ class SecurityMapperTest {
     assertEquals(LocalDateTime.of(2025, Month.AUGUST, 4, 19, 59, 59)
         , output.timestamp());
     assertEquals("NYSE", output.exchange());
-    assertEquals("Security[symbol=DVN, price=31.94, currency=USD, changePercentage=-0.0062, timestamp=2025-08-04T19:59:59, exchange=NYSE]", output.toString());
+    assertEquals("Security[symbol=DVN, price=31.94, currency=USD, changePercentage=-0.0062, timestamp=2025-08-04T19:59:59, exchange=NYSE, alertLog=[]]", output.toString());
   }
 
   @Test

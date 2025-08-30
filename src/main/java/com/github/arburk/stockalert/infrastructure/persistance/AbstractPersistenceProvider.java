@@ -5,11 +5,12 @@ import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.domain.StockAlertDb;
 import com.github.arburk.stockalert.application.service.stock.PersistenceProvider;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Objects;
+import java.util.Optional;
 
 @Slf4j
 public abstract class AbstractPersistenceProvider implements PersistenceProvider {
@@ -22,7 +23,7 @@ public abstract class AbstractPersistenceProvider implements PersistenceProvider
     if (data == null || data.securities() == null || data.securities().isEmpty()) {
       data = initData();
     }
-    return new ArrayList<>(Objects.requireNonNull(data).securities());
+    return data.securities();
   }
 
   @Override
@@ -40,15 +41,8 @@ public abstract class AbstractPersistenceProvider implements PersistenceProvider
       log.info("If you want to reset data, stop the application and delete storage file '{}'.", STORAGE_FILE_NAME);
       return;
     }
-
-    securities.forEach(latest -> {
-      getSecurites().stream().filter(security ->
-              security.symbol().equals(latest.symbol()) && security.exchange().equals(latest.exchange()))
-          .findFirst().ifPresent(getData().securities()::remove);
-      getData().securities().add(latest);
-    });
-
-    persist();
+    securities.forEach(this::updateSecurity);
+    commitChanges();
   }
 
   @Override
@@ -63,11 +57,27 @@ public abstract class AbstractPersistenceProvider implements PersistenceProvider
             : new ArrayList<>(/* must not be immutable */),
         metaInfo
     );
-    persist();
+    commitChanges();
   }
 
+  @Override
+  public Optional<Security> getSecurity(@NonNull Security identifier) {
+    final Collection<Security> securites = getSecurites();
+    return securites.isEmpty()
+        ? Optional.empty()
+        : securites.stream().filter(current -> current.equals(identifier)).findFirst();
+  }
+
+  @Override
+  public void updateSecurity(@NonNull final Security security) {
+    final Optional<Security> stored = getSecurity(security);
+    stored.ifPresent(value -> {
+      security.alertLog().addAll(value.alertLog());
+      data.securities().remove(value);
+    });
+    data.securities().add(security);
+  }
 
   abstract StockAlertDb initData();
 
-  abstract void persist();
 }

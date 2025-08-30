@@ -7,12 +7,17 @@ import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.net.MalformedURLException;
 import java.nio.file.Path;
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -91,6 +96,36 @@ class ApplicationConfigTest {
 
   @Nested
   class StockAlertsConfigTest {
+
+    @Test
+    void getSilenceDuration_HappyFlows() {
+      assertAll(
+          () -> assertEquals(Duration.ZERO, assertDoesNotThrow((() -> new StockAlertsConfig(null, null, null, null, null).getSilenceDuration()))),
+          () -> assertEquals(Duration.ZERO, assertDoesNotThrow(() -> new StockAlertsConfig(null, "", null, null, null).getSilenceDuration())),
+          () -> assertEquals(Duration.ZERO, assertDoesNotThrow(() -> new StockAlertsConfig(null, "  ", null, null, null).getSilenceDuration())),
+
+          () -> assertEquals(Duration.of(1, ChronoUnit.MINUTES), assertDoesNotThrow((() -> new StockAlertsConfig(null, "1m", null, null, null).getSilenceDuration()))),
+          () -> assertEquals(Duration.of(1, ChronoUnit.MINUTES), assertDoesNotThrow((() -> new StockAlertsConfig(null, " 1m ", null, null, null).getSilenceDuration()))),
+          () -> assertEquals(Duration.of(1, ChronoUnit.MINUTES), assertDoesNotThrow((() -> new StockAlertsConfig(null, " 1  m  ", null, null, null).getSilenceDuration()))),
+
+          () -> assertEquals(Duration.of(6, ChronoUnit.HOURS), assertDoesNotThrow((() -> new StockAlertsConfig(null, "6h", null, null, null).getSilenceDuration()))),
+          () -> assertEquals(Duration.of(6, ChronoUnit.HOURS), assertDoesNotThrow((() -> new StockAlertsConfig(null, " 6h ", null, null, null).getSilenceDuration()))),
+          () -> assertEquals(Duration.of(6, ChronoUnit.HOURS), assertDoesNotThrow((() -> new StockAlertsConfig(null, " 6  h  ", null, null, null).getSilenceDuration()))),
+
+          () -> assertEquals(Duration.of(2, ChronoUnit.DAYS), assertDoesNotThrow((() -> new StockAlertsConfig(null, "2d", null, null, null).getSilenceDuration()))),
+          () -> assertEquals(Duration.of(2, ChronoUnit.DAYS), assertDoesNotThrow((() -> new StockAlertsConfig(null, " 2d ", null, null, null).getSilenceDuration()))),
+          () -> assertEquals(Duration.of(2, ChronoUnit.DAYS), assertDoesNotThrow((() -> new StockAlertsConfig(null, " 2  d  ", null, null, null).getSilenceDuration())))
+      );
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"2days", "2 Days", "2"})
+    void getSilenceDuration_UnhappyFlows(String input) {
+      final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, input, null, null, null);
+      final IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, stockAlertsConfig::getSilenceDuration);
+      assertEquals("invalid format: " + input + ". use m(inutes), h(ours), or d(ays), e.g., 120m, 2h or 1d",
+          exception.getMessage());
+    }
 
     @Test
     void file_HappyFlow() {

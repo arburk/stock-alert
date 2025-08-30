@@ -43,8 +43,8 @@ class EmailNotificationSenderIntegrationTest {
 
     LocalDateTime persistedTs = LocalDateTime.of(2025, Month.JULY, 17, 12, 16, 24, 12);
     LocalDateTime updatedTs = LocalDateTime.of(2025, Month.AUGUST, 12, 9, 16, 17, 34);
-    final Security persisted = new Security("ABC", 12.0, "CHF", null, persistedTs, "Switzerland");
-    final Security latest = new Security("ABC", 13.0, "CHF", null, updatedTs, "Switzerland");
+    final Security persisted = new Security("ABC", 12.0, "CHF", null, persistedTs, "Switzerland", null);
+    final Security latest = new Security("ABC", 13.0, "CHF", null, updatedTs, "Switzerland", null);
 
     assertDoesNotThrow(() -> testee.send(applicationConfig.getStockAlertsConfig(), testAlert, latest, persisted));
   }

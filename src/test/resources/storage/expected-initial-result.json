@@ -14,7 +14,8 @@
         1,
         12
       ],
-      "exchange": "Switzerland"
+      "exchange": "Switzerland",
+      "alertLog": []
     },
     {
       "symbol": "MOZN",
@@ -30,7 +31,8 @@
         1,
         12
       ],
-      "exchange": "Switzerland"
+      "exchange": "Switzerland",
+      "alertLog": []
     },
     {
       "symbol": "ROG",
@@ -46,7 +48,8 @@
         1,
         12
       ],
-      "exchange": "Switzerland"
+      "exchange": "Switzerland",
+      "alertLog": []
     }
   ],
   "metaInfo": {
