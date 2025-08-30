@@ -2,8 +2,10 @@ package com.github.arburk.stockalert.application.service.stock;
 
 import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.config.JacksonConfig;
+import com.github.arburk.stockalert.application.domain.Alert;
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
+import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import com.github.arburk.stockalert.application.service.notification.NotificationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -13,16 +15,22 @@ import org.mockito.Mockito;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import java.nio.file.Path;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -165,5 +173,80 @@ class StockServiceTest {
       ReflectionTestUtils.invokeMethod(testee, "checkAndRaisePercentageAlert", applicationConfig.getStockAlertsConfig(), config, latest, PERSISTED);
       verify(notifyService, never()).sendPercentage(eq(applicationConfig.getStockAlertsConfig()), any(Security.class), any(Security.class), eq(0.05), anyDouble());
     }
+  }
+
+  @Nested
+  class SkipProvidedDueToSilencer {
+
+    @Test
+    void skipProvidedDueToSilencer_notProvided_isFalse() {
+      final Security latestSecurity = new Security(null, null, null, null, null, null, null);
+      assertResultIsFalse(applicationConfig.getStockAlertsConfig(), false, latestSecurity);
+    }
+
+    @Test
+    void skipProvidedDueToSilencer_silenceDurationNotProvided_isFalse() {
+      final Security latestSecurity = new Security(null, null, null, null, null, null, null);
+      var stockAlertsConfig = mock(StockAlertsConfig.class);
+      when(stockAlertsConfig.getSilenceDuration()).thenReturn(null);
+      assertResultIsFalse(stockAlertsConfig, true, latestSecurity);
+    }
+
+    @Test
+    void skipProvidedDueToSilencer_unpersistedSecurity_isFalse() {
+      final Security latestSecurity = new Security(null, null, null, null, null, null, null);
+      var stockAlertsConfig = mock(StockAlertsConfig.class);
+      when(stockAlertsConfig.getSilenceDuration()).thenReturn(Duration.ofMinutes(1));
+      when(persistenceProvider.getSecurity(any(Security.class))).thenReturn(Optional.empty());
+      assertResultIsFalse(stockAlertsConfig, true, latestSecurity);
+    }
+
+    @Test
+    void skipProvidedDueToSilencer_persistedSecurityWithoutAlert_isFalse() {
+      final Security latestSecurity = new Security(null, null, null, null, null, null, null);
+      var stockAlertsConfig = mock(StockAlertsConfig.class);
+      when(stockAlertsConfig.getSilenceDuration()).thenReturn(Duration.ofMinutes(1));
+      when(persistenceProvider.getSecurity(any(Security.class))).thenReturn(Optional.of(latestSecurity));
+      assertResultIsFalse(stockAlertsConfig, true, latestSecurity);
+    }
+
+    @Test
+    void skipProvidedDueToSilencer_persistedSecurity_RecentAlertTooOld_isFalse() {
+      final Security latestSecurity = new Security(null, null, null, null, null, null, null);
+      var stockAlertsConfig = mock(StockAlertsConfig.class);
+      when(stockAlertsConfig.getSilenceDuration()).thenReturn(Duration.ofMinutes(2));
+      final Collection<Alert> alertLog = Arrays.asList(
+          new Alert(LocalDateTime.now().minusMinutes(5), null, null),
+          new Alert(LocalDateTime.now().minusDays(1), null, null)
+      );
+      final Security persistedSecurity = new Security(null, null, null, null, null, null, alertLog);
+
+      when(persistenceProvider.getSecurity(any(Security.class))).thenReturn(Optional.of(persistedSecurity));
+      assertResultIsFalse(stockAlertsConfig, true, latestSecurity);
+    }
+
+    private void assertResultIsFalse(final StockAlertsConfig stockAlertsConfig, final boolean isProvided, final Security latestSecurity) {
+      final Boolean result = ReflectionTestUtils.invokeMethod(testee, "skipProvidedDueToSilencer", stockAlertsConfig, isProvided, latestSecurity);
+      assertNotNull(result);
+      assertFalse(result);
+    }
+
+    @Test
+    void skipProvidedDueToSilencer_persistedSecurity_RecentAlertToYoung_isTrue() {
+      final Security latestSecurity = new Security(null, null, null, null, null, null, null);
+      var stockAlertsConfig = mock(StockAlertsConfig.class);
+      when(stockAlertsConfig.getSilenceDuration()).thenReturn(Duration.ofMinutes(2));
+      final Collection<Alert> alertLog = Arrays.asList(
+          new Alert(LocalDateTime.now(), null, null),
+          new Alert(LocalDateTime.now().minusDays(1), null, null)
+      );
+      final Security persistedSecurity = new Security(null, null, null, null, null, null, alertLog);
+
+      when(persistenceProvider.getSecurity(any(Security.class))).thenReturn(Optional.of(persistedSecurity));
+      final Boolean result = ReflectionTestUtils.invokeMethod(testee, "skipProvidedDueToSilencer", stockAlertsConfig, true, latestSecurity);
+      assertNotNull(result);
+      assertTrue(result);
+    }
+
   }
 }

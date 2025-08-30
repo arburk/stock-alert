@@ -60,16 +60,12 @@ public class EmailNotificationSender implements NotificationSender {
         latest.symbol(),
         currency, persisted.price(), persisted.getTimestampFormatted(),
         currency, latest.price(),
-        formatPercentage(deviation), formatPercentage(threshold),
+        Security.formatPercentage(deviation), Security.formatPercentage(threshold),
         getStockExchange(latest, persisted), latest.getTimestampFormatted()
     );
     final String subject = "Threshold of %s crossed for %s".formatted(
-        formatPercentage(threshold), latest.symbol());
+        Security.formatPercentage(threshold), latest.symbol());
     sendEmail(subject, message, stockAlertsConfig);
-  }
-
-  private String formatPercentage(final double percentage) {
-    return String.format("%.2f %%", percentage * 100);
   }
 
   private String getStockExchange(final Security latest, final Security persisted) {

@@ -18,6 +18,12 @@ public interface PersistenceProvider {
   String STORAGE_FILE_NAME_0_1_3 = "securities.db";
 
   Collection<Security> getSecurites();
+
+  /**
+   * @deprecated Meanwhile only used in tests any longer. Use  {@link #updateSecurity(Security)} instead
+   * and {@link #commitChanges()} when all securities are updated.
+   */
+  @Deprecated(since = "0.2.2")
   void updateSecurities(Collection<Security> securities);
   Optional<Security> getSecurity(@NonNull Security identifier);
   void updateSecurity(@NonNull Security securities);

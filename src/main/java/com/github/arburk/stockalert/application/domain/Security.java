@@ -6,6 +6,7 @@ import lombok.NonNull;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -18,10 +19,21 @@ public record Security(
     String exchange,
     Collection<Alert> alertLog) {
 
+  public Security {
+    if(alertLog == null) {
+      // ensure never empty so new entries can be added
+      alertLog = new ArrayList<>();
+    }
+  }
+
   private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
   public static @NonNull Security fromConfig(final SecurityConfig configElement) {
     return new Security(configElement.symbol(), null, null, null, null, configElement.exchange(), null);
+  }
+
+  public static String formatPercentage(final double percentage) {
+    return String.format("%.2f %%", percentage * 100);
   }
 
   @JsonIgnore

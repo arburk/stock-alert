@@ -41,14 +41,7 @@ public abstract class AbstractPersistenceProvider implements PersistenceProvider
       log.info("If you want to reset data, stop the application and delete storage file '{}'.", STORAGE_FILE_NAME);
       return;
     }
-
-    securities.forEach(latest -> {
-      getSecurites().stream().filter(security ->
-              security.symbol().equals(latest.symbol()) && security.exchange().equals(latest.exchange()))
-          .findFirst().ifPresent(getData().securities()::remove);
-      getData().securities().add(latest);
-    });
-
+    securities.forEach(this::updateSecurity);
     persist();
   }
 
@@ -78,7 +71,10 @@ public abstract class AbstractPersistenceProvider implements PersistenceProvider
   @Override
   public void updateSecurity(@NonNull final Security security) {
     final Optional<Security> stored = getSecurity(security);
-    stored.ifPresent(value -> data.securities().remove(value));
+    stored.ifPresent(value -> {
+      security.alertLog().addAll(value.alertLog());
+      data.securities().remove(value);
+    });
     data.securities().add(security);
   }
 

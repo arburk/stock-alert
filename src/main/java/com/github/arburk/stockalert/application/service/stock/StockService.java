@@ -6,7 +6,6 @@ import com.github.arburk.stockalert.application.domain.config.Alert;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import com.github.arburk.stockalert.application.service.notification.NotificationService;
-import io.micrometer.common.util.StringUtils;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -107,7 +106,8 @@ public class StockService {
           .forEach(alert -> {
             log.info("Send alert for {} {}", latestSecurity.symbol(), alert);
             notificationService.send(stockAlertsConfig, alert, latestSecurity, persistedSecurity);
-            //TODO add alert and update if suceeded
+            persistedSecurity.alertLog().add(
+                new com.github.arburk.stockalert.application.domain.Alert(LocalDateTime.now(), alert.threshold(), latestSecurity.currency()));
           });
     }
 
@@ -143,14 +143,13 @@ public class StockService {
       log.debug("Percentage deviation calculated {} / provided {} > {} -> raise alert for {}!", cpCalculated, cpProvided, threshold2consider, latest.symbol());
       if (!skipProvidedDueToSilencer(stockAlertsConfig, (cpBiggest == cpProvided), latest)) {
         notificationService.sendPercentage(stockAlertsConfig, latest, persisted, threshold2consider, cpBiggest);
-        //TODO add alert and update if suceeded
+        persisted.alertLog().add(new com.github.arburk.stockalert.application.domain.Alert(LocalDateTime.now(), cpBiggest, "%"));
       }
     }
   }
 
   private boolean skipProvidedDueToSilencer(final @NonNull StockAlertsConfig stockAlertsConfig, final boolean isProvided, final @NonNull Security latest) {
-    //TODO: add test
-    if (!isProvided || StringUtils.isBlank(stockAlertsConfig.silenceDuration())) {
+    if (!isProvided) {
       return false;
     }
 
