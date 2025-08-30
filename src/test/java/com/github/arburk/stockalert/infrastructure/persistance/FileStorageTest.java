@@ -131,9 +131,9 @@ class FileStorageTest {
   @Test
   void test_WriteInitialData_HappyFlow() throws IOException {
     final List<Security> securities = List.of(
-        new Security("BALN", 199.99, "CHF", null, TIMESTAMP, "Switzerland"),
-        new Security("MOZN", 11.24, "CHF", .0121, TIMESTAMP, "Switzerland"),
-        new Security("ROG", 251.34, "CHF", -.0324, TIMESTAMP, "Switzerland")
+        new Security("BALN", 199.99, "CHF", null, TIMESTAMP, "Switzerland", null),
+        new Security("MOZN", 11.24, "CHF", .0121, TIMESTAMP, "Switzerland", null),
+        new Security("ROG", 251.34, "CHF", -.0324, TIMESTAMP, "Switzerland", null)
     );
 
     testee.updateSecurities(securities);
@@ -151,18 +151,18 @@ class FileStorageTest {
   @Test
   void updateData() throws IOException {
     final List<Security> initalData = List.of(
-        new Security("BALN", 199.99, "CHF", null, TIMESTAMP, "Switzerland"),
-        new Security("MOZN", 11.24, "CHF", null, TIMESTAMP, "Switzerland"),
-        new Security("ROG", 251.34, "CHF", null, TIMESTAMP, "Switzerland")
+        new Security("BALN", 199.99, "CHF", null, TIMESTAMP, "Switzerland", null),
+        new Security("MOZN", 11.24, "CHF", null, TIMESTAMP, "Switzerland", null),
+        new Security("ROG", 251.34, "CHF", null, TIMESTAMP, "Switzerland", null)
     );
 
     testee.updateSecurities(initalData); //inital data is written
 
     final LocalDateTime newTs = LocalDateTime.of(2025, Month.AUGUST, 6, 14, 39, 12, 11);
     final List<Security> updatedData = List.of(
-        new Security("BALN", 212.14, "CHF", .0217, newTs, "Switzerland"),
-        new Security("MOZN", 9.36, "CHF", -.0026, newTs, "unknown"),
-        new Security("NOVN", 96.24, "CHF", null, newTs, "Switzerland")
+        new Security("BALN", 212.14, "CHF", .0217, newTs, "Switzerland", null),
+        new Security("MOZN", 9.36, "CHF", -.0026, newTs, "unknown", null),
+        new Security("NOVN", 96.24, "CHF", null, newTs, "Switzerland", null)
     );
 
     testee.updateSecurities(updatedData); //update stuff

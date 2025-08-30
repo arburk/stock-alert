@@ -6,12 +6,16 @@ import com.github.arburk.stockalert.application.domain.config.Alert;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import com.github.arburk.stockalert.application.service.notification.NotificationService;
+import io.micrometer.common.util.StringUtils;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -40,6 +44,7 @@ public class StockService {
 
     try {
       final Collection<Security> latestRelevant = getRelevantFiltered(alertConfig, stockProvider.getLatest(symbolsToQueryFor));
+      //TODO: refactor using persistenceProvider
       final Collection<Security> persistedSecurites = persistenceProvider.getSecurites();
       alertConfig.forEach(configElement -> checkSecurityAndRaiseAlert(
           stockAlertsConfig, configElement,
@@ -77,15 +82,10 @@ public class StockService {
     log.warn("Did not find following stocks configured in alert config: {}", unmatched);
   }
 
-  private Security getSecurity(final Collection<Security> securities, final SecurityConfig securityConfig) {
-    if (securities == null || securities.isEmpty()) {
-      return null;
-    }
-
-    return securities.stream().filter(security ->
-            security.symbol().equals(securityConfig.symbol())
-                && security.exchange().equals(securityConfig.exchange()))
-        .findFirst().orElse(null);
+  private Optional<Security> getSecurity(final Collection<Security> securities, final SecurityConfig securityConfig) {
+    return securities == null || securities.isEmpty()
+        ? Optional.empty()
+        : securities.stream().filter(security -> security.equals(securityConfig)).findFirst();
   }
 
   private void updatePersistedSecurities(final Collection<Security> persistedSecurities, final Collection<Security> latestSecurities) {
@@ -95,8 +95,7 @@ public class StockService {
     }
 
     latestSecurities.forEach(latest -> {
-      persistedSecurities.stream().filter(security ->
-              security.symbol().equals(latest.symbol()) && security.exchange().equals(latest.exchange()))
+      persistedSecurities.stream().filter(security -> security.equals(latest))
           .findFirst().ifPresent(persistedSecurities::remove);
       persistedSecurities.add(latest);
     });
@@ -108,28 +107,31 @@ public class StockService {
     return threshold >= Math.min(a1, a2) && threshold <= Math.max(a1, a2);
   }
 
-  private void checkSecurityAndRaiseAlert(final StockAlertsConfig stockAlertsConfig, final SecurityConfig securityConfig, final Security latest, final Security persisted) {
-    if (latest == null) {
+  private void checkSecurityAndRaiseAlert(final StockAlertsConfig stockAlertsConfig, final SecurityConfig securityConfig, final Optional<Security> latest, final Optional<Security> persisted) {
+    if (latest.isEmpty()) {
       log.warn("Cannot check alert requirement since latest value is empty. Check configuration for proper security settings.");
       return;
     }
 
-    if (persisted == null) {
+    if (persisted.isEmpty()) {
       log.info("Cannot check alert requirement since persisted value is empty.");
       return;
     }
 
+    final Security latestSecurity = latest.get();
+    final Security persistedSecurity = persisted.get();
     final List<Alert> alerts = securityConfig.alerts();
     if (alerts != null && !alerts.isEmpty()) {
       alerts.stream()
-          .filter(alert -> isBetween(alert.threshold(), latest.price(), persisted.price()))
+          .filter(alert -> isBetween(alert.threshold(), latestSecurity.price(), persistedSecurity.price()))
           .forEach(alert -> {
-            log.info("Send alert for {} {}", latest.symbol(), alert);
-            notificationService.send(stockAlertsConfig, alert, latest, persisted);
+            log.info("Send alert for {} {}", latestSecurity.symbol(), alert);
+            notificationService.send(stockAlertsConfig, alert, latestSecurity, persistedSecurity);
+            //TODO add alert and update if suceeded
           });
     }
 
-    checkAndRaisePercentageAlert(stockAlertsConfig, securityConfig, latest, persisted);
+    checkAndRaisePercentageAlert(stockAlertsConfig, securityConfig, latestSecurity, persistedSecurity);
   }
 
   private void checkAndRaisePercentageAlert(
@@ -159,8 +161,37 @@ public class StockService {
 
     if (Math.abs(cpBiggest) >= threshold2consider) {
       log.debug("Percentage deviation calculated {} / provided {} > {} -> raise alert for {}!", cpCalculated, cpProvided, threshold2consider, latest.symbol());
-      notificationService.sendPercentage(stockAlertsConfig, latest, persisted, threshold2consider, cpBiggest);
+      if (!skipProvidedDueToSilencer(stockAlertsConfig, (cpBiggest == cpProvided), latest)) {
+        notificationService.sendPercentage(stockAlertsConfig, latest, persisted, threshold2consider, cpBiggest);
+        //TODO add alert and update if suceeded
+      }
     }
+  }
+
+  private boolean skipProvidedDueToSilencer(final @NonNull StockAlertsConfig stockAlertsConfig, final boolean isProvided, final @NonNull Security latest) {
+    //TODO: add test
+    if (!isProvided || StringUtils.isBlank(stockAlertsConfig.silenceDuration())) {
+      return false;
+    }
+
+    try {
+      final Duration silenceDuration = stockAlertsConfig.getSilenceDuration();
+      if (silenceDuration != Duration.ZERO) {
+        final Optional<Security> security = persistenceProvider.getSecurity(latest);
+        if (security.isPresent()) {
+          final var alertLog = security.get().alertLog();
+          if (alertLog != null && !alertLog.isEmpty()) {
+            final var lastPercentageAlert = alertLog.stream().sorted().toList().getFirst().timestamp();
+            if (lastPercentageAlert != null) {
+              return lastPercentageAlert.isAfter(LocalDateTime.now().minus(silenceDuration));
+            }
+          }
+        }
+      }
+    } catch (Exception e) {
+      log.warn(e.getMessage());
+    }
+    return false;
   }
 
 }

@@ -49,10 +49,10 @@ class S3BucketStorageContainerTest {
   private static final String BUCKET_NAME = "stock-alert";
   private static final StockAlertDb STOCK_ALERT_DB = new StockAlertDb(
       new ArrayList<>(Arrays.asList(
-      new Security("ABC", 19.1, "CHF", null, LocalDateTime.now(), "SIX"),
-      new Security("DEF", 755.9, "EUR", null, LocalDateTime.now(), "XETRA"),
-      new Security("GHI", 0.47, "USD", null, LocalDateTime.now(), "NASDAQ"),
-      new Security("JKL", 82.24, "GBP", null, LocalDateTime.now(), "LSX")
+      new Security("ABC", 19.1, "CHF", null, LocalDateTime.now(), "SIX", null),
+      new Security("DEF", 755.9, "EUR", null, LocalDateTime.now(), "XETRA", null),
+      new Security("GHI", 0.47, "USD", null, LocalDateTime.now(), "NASDAQ", null),
+      new Security("JKL", 82.24, "GBP", null, LocalDateTime.now(), "LSX", null)
       )),
       new MetaInfo(LocalDateTime.of(2025, JULY, 24, 15, 27, 16, 5))
   );

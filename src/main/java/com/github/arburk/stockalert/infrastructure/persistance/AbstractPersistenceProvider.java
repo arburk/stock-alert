@@ -5,11 +5,13 @@ import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.domain.StockAlertDb;
 import com.github.arburk.stockalert.application.service.stock.PersistenceProvider;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.Optional;
 
 @Slf4j
 public abstract class AbstractPersistenceProvider implements PersistenceProvider {
@@ -66,6 +68,20 @@ public abstract class AbstractPersistenceProvider implements PersistenceProvider
     persist();
   }
 
+  @Override
+  public Optional<Security> getSecurity(@NonNull Security security) {
+    final Collection<Security> securites = getSecurites();
+    return securites.isEmpty()
+        ? Optional.empty()
+        : securites.stream().filter(current -> current.equals(security)).findFirst();
+  }
+
+  @Override
+  public void updateSecurity(@NonNull final Security security) {
+    final Optional<Security> stored = getSecurity(security);
+    stored.ifPresent(value -> data.securities().remove(value));
+    data.securities().add(security);
+  }
 
   abstract StockAlertDb initData();
 
