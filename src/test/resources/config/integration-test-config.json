@@ -14,10 +14,12 @@
       {
         "symbol": "BALN",
         "exchange": "Switzerland",
+        "_comment" : "Test comment to be sent",
         "alerts": [
           {
             "threshold": 200.00,
-            "notification": "email"
+            "notification": "email",
+            "_comment" : "alert comment to be present"
           },
           {
             "threshold": 250.00,

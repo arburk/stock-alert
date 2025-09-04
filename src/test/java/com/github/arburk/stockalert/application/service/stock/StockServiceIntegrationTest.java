@@ -133,6 +133,7 @@ class StockServiceIntegrationTest {
     assertEquals("Threshold CHF 200.0 for BALN crossed", receivedMessage.getSubject());
     final List<String> expectedMailBodyLines = List.of(
         "Price for BALN moved from CHF 198.15 dated on 2025-08-07 15:06 to CHF 207.4 dated on 2025-08-07 08:35",
+        "Test comment to be sent | alert comment to be present",
         "Data refers to stock exchange Switzerland."
     );
     assertLinesMatch(expectedMailBodyLines, Arrays.asList(receivedMessage.getContent().toString().split("\\R")));
