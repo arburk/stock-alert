@@ -14,24 +14,24 @@
     "securities": [
       {
         "symbol": "BNPP",
-        "isin": "",
+        "isin": "FR0000131104",
         "_comment": "",
         "exchange": "Xetra",
         "alerts": [
           {
-            "threshold": 116.00,
+            "threshold": 100.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "max forecast"
           },
           {
             "threshold": 90.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "average"
           },
           {
             "threshold": 75.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "check reasons"
           }
         ]
       },
@@ -52,9 +52,9 @@
             "_comment": ""
           },
           {
-            "threshold": 250.00,
+            "threshold": 230.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "max forecast"
           }
         ]
       },
@@ -93,37 +93,52 @@
       },
       {
         "symbol": "NTES",
-        "isin": "",
+        "isin": "US64110W1027",
         "_comment": "",
         "exchange": "NASDAQ",
         "alerts": [
           {
-            "threshold": 150.00,
+            "threshold": 170.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "max forecast"
           },
           {
-            "threshold": 133.00,
+            "threshold": 150.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "average"
+          },
+          {
+            "threshold": 128.00,
+            "notification": "email",
+            "_comment": "check reasons"
           }
         ]
       },
       {
         "symbol": "BYDDY",
-        "isin": "",
+        "isin": "CNE100000296",
         "_comment": "",
         "exchange": "OTC Markets",
         "alerts": [
           {
-            "threshold": 23.00,
+            "threshold": 25.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "max forecast"
           },
           {
-            "threshold": 17.50,
+            "threshold": 18.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "double"
+          },
+          {
+            "threshold": 14.00,
+            "notification": "email",
+            "_comment": "50%"
+          },
+          {
+            "threshold": 11.00,
+            "notification": "email",
+            "_comment": "check reasons"
           }
         ]
       },{
@@ -146,7 +161,7 @@
       },
       {
         "symbol": "INGA",
-        "isin": "",
+        "isin": "NL0011821202",
         "_comment": "",
         "exchange": "Amsterdam",
         "alerts": [
@@ -195,7 +210,7 @@
       },
       {
         "symbol": "DVN",
-        "isin": "",
+        "isin": "US25179M1036",
         "_comment": "",
         "exchange": "NYSE",
         "alerts": [
@@ -203,37 +218,52 @@
             "threshold": 50.00,
             "notification": "email",
             "_comment": ""
+          },
+          {
+            "threshold": 70.00,
+            "notification": "email",
+            "_comment": "max forecast"
           }
         ]
       },
       {
         "symbol": "FRO",
-        "isin": "",
+        "isin": "CY0200352116",
         "_comment": "",
         "exchange": "NYSE",
         "alerts": [
           {
             "threshold": 22.50,
             "notification": "email",
-            "_comment": ""
+            "_comment": "status quo"
+          },
+          {
+            "threshold": 25.00,
+            "notification": "email",
+            "_comment": "average"
+          },
+          {
+            "threshold": 28.00,
+            "notification": "email",
+            "_comment": "max"
           }
         ]
       },
       {
         "symbol": "VODI",
-        "isin": "",
-        "_comment": "",
+        "isin": "GB00BH4HKS39",
+        "_comment": "Vodafone Group",
         "exchange": "Frankfurt",
         "alerts": [
           {
             "threshold": 1.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "magic threshold"
           },
           {
-            "threshold": 1.05,
+            "threshold": 1.50,
             "notification": "email",
-            "_comment": ""
+            "_comment": "max forecast"
           },
           {
             "threshold": 1.10,
@@ -267,14 +297,19 @@
       },
       {
         "symbol": "PFE",
-        "isin": "",
+        "isin": "US7170811035",
         "_comment": "",
         "exchange": "Xetra",
         "alerts": [
           {
-            "threshold": 35.0,
+            "threshold": 30.0,
             "notification": "email",
-            "_comment": ""
+            "_comment": "Max forecast"
+          },
+          {
+            "threshold": 20.0,
+            "notification": "email",
+            "_comment": "Check for reasons"
           }
         ]
       },
@@ -293,8 +328,8 @@
       },
       {
         "symbol": "ALVG",
-        "isin": "",
-        "_comment": "",
+        "isin": "DE0008404005",
+        "_comment": "Allianz SE",
         "exchange": "Xetra",
         "alerts": [
           {
@@ -310,30 +345,30 @@
           {
             "threshold": 440.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "double"
           },
           {
             "threshold": 350.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "check reasons"
           }
         ]
       },
       {
         "symbol": "AXAF",
-        "isin": "",
+        "isin": "FR0000120628",
         "_comment": "",
         "exchange": "Xetra",
         "alerts": [
           {
-            "threshold": 60.00,
+            "threshold": 48.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "max forecast"
           },
           {
             "threshold": 56.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "double"
           }
         ]
       },
@@ -413,6 +448,11 @@
             "threshold": 600.00,
             "notification": "email",
             "_comment": ""
+          },
+          {
+            "threshold": 500.00,
+            "notification": "email",
+            "_comment": "increasing again"
           },
           {
             "threshold": 800.00,
@@ -657,6 +697,132 @@
             "threshold": 74.00,
             "notification": "email",
             "_comment": ""
+          }
+        ]
+      },
+      {
+        "symbol": "ZEAL",
+        "isin": "DK0060257814",
+        "_comment": "BX converted by factor 1.17",
+        "exchange": "NASDAQ",
+        "alerts": [
+          {
+            "threshold": 145.50,
+            "notification": "email",
+            "_comment": ""
+          },
+          {
+            "threshold": 173.00,
+            "notification": "email",
+            "_comment": "max"
+          },
+          {
+            "threshold": 116.5,
+            "notification": "email",
+            "_comment": "average"
+          }
+        ]
+      },
+      {
+        "symbol": "SASY",
+        "isin": "FR0000120578",
+        "_comment": "Sanofi",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 120.00,
+            "notification": "email",
+            "_comment": ""
+          },{
+            "threshold": 100.00,
+            "notification": "email",
+            "_comment": "average"
+          },
+          {
+            "threshold": 92.00,
+            "notification": "email",
+            "_comment": "NE"
+          },
+          {
+            "threshold": 75.00,
+            "notification": "email",
+            "_comment": "check"
+          }
+        ]
+      },
+      {
+        "symbol": "VLLP",
+        "isin": "FR0013506730",
+        "_comment": "Vallourec",
+        "exchange": "Paris",
+        "alerts": [
+          {
+            "threshold": 20.00,
+            "notification": "email",
+            "_comment": ""
+          },{
+            "threshold": 15.28,
+            "notification": "email",
+            "_comment": "NE"
+          },
+          {
+            "threshold": 22.00,
+            "notification": "email",
+            "_comment": "max"
+          },
+          {
+            "threshold": 14.00,
+            "notification": "email",
+            "_comment": "check"
+          }
+        ]
+      },
+      {
+        "symbol": "ISOS",
+        "isin": "FR0000073298",
+        "_comment": "Ipsos",
+        "exchange": "Paris",
+        "alerts": [
+          {
+            "threshold": 60.00,
+            "notification": "email",
+            "_comment": "average"
+          },{
+            "threshold": 44.00,
+            "notification": "email",
+            "_comment": "NE"
+          },
+          {
+            "threshold": 73.00,
+            "notification": "email",
+            "_comment": "max"
+          },
+          {
+            "threshold": 30.00,
+            "notification": "email",
+            "_comment": "check"
+          }
+        ]
+      },
+      {
+        "symbol": "ENI",
+        "isin": "IT0003132476",
+        "_comment": "",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 15.27,
+            "notification": "email",
+            "_comment": "average"
+          },{
+            "threshold": 14.78,
+            "notification": "email",
+            "_comment": "NE"
+          },
+          {
+            "threshold": 17.50,
+            "notification": "email",
+            "_comment": "max"
           }
         ]
       }

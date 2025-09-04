@@ -1,0 +1,176 @@
+{
+  "status": true,
+  "code": 200,
+  "msg": "Successfully",
+  "response": [
+    {
+      "id": "84815",
+      "name": "Storebrand ASA",
+      "short_name": "STB",
+      "country": "norway",
+      "ccy": "NOK",
+      "exch": "Oslo",
+      "sector": "Financials"
+    },
+    {
+      "id": "84816",
+      "name": "DnB ASA",
+      "short_name": "DNB",
+      "country": "norway",
+      "ccy": "NOK",
+      "exch": "Oslo",
+      "sector": "Financials"
+    },
+    {
+      "id": "84817",
+      "name": "Gjensidige Forsikring ASA",
+      "short_name": "GJFG",
+      "country": "norway",
+      "ccy": "NOK",
+      "exch": "Oslo",
+      "sector": "Financials"
+    },
+    {
+      "id": "84835",
+      "name": "Mowi ASA",
+      "short_name": "MOWI",
+      "country": "norway",
+      "ccy": "NOK",
+      "exch": "Oslo",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    {
+      "id": "84838",
+      "name": "P\/f Bakkafrost",
+      "short_name": "BAKKA",
+      "country": "norway",
+      "ccy": "NOK",
+      "exch": "Oslo",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    {
+      "id": "84839",
+      "name": "Leroy Seafood Group ASA",
+      "short_name": "LSG",
+      "country": "norway",
+      "ccy": "NOK",
+      "exch": "Oslo",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    {
+      "id": "84840",
+      "name": "SalMar ASA",
+      "short_name": "SALM",
+      "country": "norway",
+      "ccy": "NOK",
+      "exch": "Oslo",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    {
+      "id": "84841",
+      "name": "Vend Marketplaces ASA",
+      "short_name": "VENDA",
+      "country": "norway",
+      "ccy": "NOK",
+      "exch": "Oslo",
+      "sector": "Consumer Cyclicals"
+    },
+    {
+      "id": "84862",
+      "name": "Equinor ASA",
+      "short_name": "EQNR",
+      "country": "norway",
+      "ccy": "NOK",
+      "exch": "Oslo",
+      "sector": "Energy"
+    },
+    {
+      "id": "84863",
+      "name": "Subsea 7 SA",
+      "short_name": "SUBC",
+      "country": "norway",
+      "ccy": "NOK",
+      "exch": "Oslo",
+      "sector": "Energy"
+    },
+    {
+      "id": "84864",
+      "name": "TGS NOPEC Geophysical Company ASA",
+      "short_name": "TGS",
+      "country": "norway",
+      "ccy": "NOK",
+      "exch": "Oslo",
+      "sector": "Energy"
+    },
+    {
+      "id": "84865",
+      "name": "Aker BP ASA",
+      "short_name": "AKRBP",
+      "country": "norway",
+      "ccy": "NOK",
+      "exch": "Oslo",
+      "sector": "Energy"
+    },
+    {
+      "id": "84884",
+      "name": "Tomra Systems ASA",
+      "short_name": "TOM",
+      "country": "norway",
+      "ccy": "NOK",
+      "exch": "Oslo",
+      "sector": "Industrials"
+    },
+    {
+      "id": "84905",
+      "name": "Orkla ASA",
+      "short_name": "ORK",
+      "country": "norway",
+      "ccy": "NOK",
+      "exch": "Oslo",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    {
+      "id": "84913",
+      "name": "Norsk Hydro ASA",
+      "short_name": "NHY",
+      "country": "norway",
+      "ccy": "NOK",
+      "exch": "Oslo",
+      "sector": "Basic Materials"
+    },
+    {
+      "id": "84914",
+      "name": "Yara International ASA",
+      "short_name": "YAR",
+      "country": "norway",
+      "ccy": "NOK",
+      "exch": "Oslo",
+      "sector": "Basic Materials"
+    },
+    {
+      "id": "84923",
+      "name": "Telenor ASA",
+      "short_name": "TEL",
+      "country": "norway",
+      "ccy": "NOK",
+      "exch": "Oslo",
+      "sector": "Technology"
+    }
+  ],
+  "info": {
+    "exchanges": [
+      "Oslo"
+    ],
+    "sectors": [
+      "Financials",
+      "Consumer Non-Cyclicals",
+      "Consumer Cyclicals",
+      "Energy",
+      "Industrials",
+      "Basic Materials",
+      "Technology"
+    ],
+    "server_time": "2025-09-04 08:52:25 UTC",
+    "credit_count": 1
+  }
+}
