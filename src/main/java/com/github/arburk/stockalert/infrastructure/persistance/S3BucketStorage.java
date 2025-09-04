@@ -66,8 +66,10 @@ public class S3BucketStorage extends AbstractPersistenceProvider implements Pers
   @Override
   public void commitChanges() {
     try {
+      final StockAlertDb data = getData();
+      final StockAlertDb copy = new StockAlertDb(data.securities() /* sort securities before saving*/, data.metaInfo());
       final StringWriter jsonWriter = new StringWriter();
-      objectMapper.writerWithDefaultPrettyPrinter().writeValue(jsonWriter, getData());
+      objectMapper.writerWithDefaultPrettyPrinter().writeValue(jsonWriter, copy);
       final byte[] resultAsBytes = jsonWriter.toString().getBytes(StandardCharsets.UTF_8);
       log.debug("serialized data of lenth {}", resultAsBytes.length);
 

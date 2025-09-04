@@ -169,7 +169,7 @@ class FileStorageTest {
 
     assertTrue(EXPECTED_FILE_PATH.toFile().exists());
     final String generatedContents = Files.readString(EXPECTED_FILE_PATH);
-    final String expectedContents = Files.readString(Path.of("src/test/resources/storage/expected-update-result.json"));
+    final String expectedContents = Files.readString(Path.of("src/test/resources/storage/expected-update-result_sorted.json"));
     final ObjectMapper objectMapper = new JacksonConfig().objectMapper();
     assertEquals(objectMapper.readTree(expectedContents), objectMapper.readTree(generatedContents),
         "JSON-contents do not match");

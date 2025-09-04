@@ -41,7 +41,9 @@ public class FileStorage extends AbstractPersistenceProvider implements Persiste
         }
       }
 
-      objectMapper.writerWithDefaultPrettyPrinter().writeValue(filePath.toFile(), getData());
+      final StockAlertDb data = getData();
+      final StockAlertDb copy = new StockAlertDb(data.securities() /* sort securities before saving*/, data.metaInfo());
+      objectMapper.writerWithDefaultPrettyPrinter().writeValue(filePath.toFile(), copy);
       log.info("Securities successfully updated to file: {}", filePath.toFile().getAbsoluteFile());
     } catch (IOException e) {
       log.error("Failed to write securities to file '{}}'", filePath.toFile().getAbsoluteFile(), e);
