@@ -1,40 +1,6 @@
 {
   "securities": [
     {
-      "symbol": "MOZN",
-      "price": 11.24,
-      "currency": "CHF",
-      "changePercentage": null,
-      "timestamp": [
-        2018,
-        9,
-        24,
-        17,
-        12,
-        1,
-        12
-      ],
-      "exchange": "Switzerland",
-      "alertLog": []
-    },
-    {
-      "symbol": "ROG",
-      "price": 251.34,
-      "currency": "CHF",
-      "changePercentage": null,
-      "timestamp": [
-        2018,
-        9,
-        24,
-        17,
-        12,
-        1,
-        12
-      ],
-      "exchange": "Switzerland",
-      "alertLog": []
-    },
-    {
       "symbol": "BALN",
       "price": 212.14,
       "currency": "CHF",
@@ -47,6 +13,23 @@
         39,
         12,
         11
+      ],
+      "exchange": "Switzerland",
+      "alertLog": []
+    },
+    {
+      "symbol": "MOZN",
+      "price": 11.24,
+      "currency": "CHF",
+      "changePercentage": null,
+      "timestamp": [
+        2018,
+        9,
+        24,
+        17,
+        12,
+        1,
+        12
       ],
       "exchange": "Switzerland",
       "alertLog": []
@@ -81,6 +64,23 @@
         39,
         12,
         11
+      ],
+      "exchange": "Switzerland",
+      "alertLog": []
+    },
+    {
+      "symbol": "ROG",
+      "price": 251.34,
+      "currency": "CHF",
+      "changePercentage": null,
+      "timestamp": [
+        2018,
+        9,
+        24,
+        17,
+        12,
+        1,
+        12
       ],
       "exchange": "Switzerland",
       "alertLog": []
