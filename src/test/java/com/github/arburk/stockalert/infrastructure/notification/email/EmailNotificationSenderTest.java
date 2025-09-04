@@ -3,6 +3,7 @@ package com.github.arburk.stockalert.infrastructure.notification.email;
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.domain.config.Alert;
 import com.github.arburk.stockalert.application.domain.config.NotificationChannel;
+import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import com.github.arburk.stockalert.application.service.notification.Channel;
 import jakarta.mail.Message;
@@ -10,6 +11,7 @@ import jakarta.mail.MessagingException;
 import jakarta.mail.Session;
 import jakarta.mail.internet.MimeMessage;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.mail.MailSendException;
@@ -73,31 +75,104 @@ class EmailNotificationSenderTest {
     assertEquals("email channel was invoked but not found in configuration", caughtException.getMessage());
   }
 
-  @Test
-  void sendEmailHappyCase() throws MessagingException, IOException {
-    final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), RECIPIENT_2, false,false);
-    final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of());
-    final MimeMessage mimeMessage = getMockedMimeMessage();
+  @Nested
+  class HappyCasesThresholds {
 
-    LocalDateTime persistedTs = LocalDateTime.of(2025, Month.JULY, 17, 12, 16, 24, 12);
-    LocalDateTime updatedTs = LocalDateTime.of(2025, Month.AUGUST, 12, 9, 16, 17, 34);
-    final Security persisted = new Security("ABC", 12.0, "CHF", null, persistedTs, "Switzerland", null);
-    final Security latest = new Security("ABC", 13.0, "CHF", null, updatedTs, "Switzerland", null);
-    final Alert testAlert = new Alert(12.25, Channel.EMAIL.getValue(), null);
+    public static final NotificationChannel NOTIFICATION_CHANNEL = new NotificationChannel(Channel.EMAIL.getValue(), RECIPIENT_2, false, false);
+    private static final LocalDateTime PERSISTED_TS = LocalDateTime.of(2025, Month.JULY, 17, 12, 16, 24, 12);
+    private static final Security PERSISTED = new Security("ABC", 12.0, "CHF", null, PERSISTED_TS, "Switzerland", null);
+    private static final LocalDateTime UPDATED_TS = LocalDateTime.of(2025, Month.AUGUST, 12, 9, 16, 17, 34);
+    private static final Security LATEST = new Security("ABC", 13.0, "CHF", null, UPDATED_TS, "Switzerland", null);
 
-    ReflectionTestUtils.setField(testee, "from", "mocked@example.com");
+    @Test
+    void sendEmailHappyCase_NoComment() throws MessagingException, IOException {
+      final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, null, List.of(NOTIFICATION_CHANNEL), List.of());
+      final MimeMessage mimeMessage = getMockedMimeMessage();
 
-    testee.send(stockAlertsConfig, testAlert, latest, persisted);
+      final Alert testAlert = new Alert(12.25, Channel.EMAIL.getValue(), null);
 
+      ReflectionTestUtils.setField(testee, "from", "mocked@example.com");
 
-    verify(mailSender).send(mimeMessage);
-    assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
-    assertEquals("Threshold CHF 12.25 for ABC crossed", mimeMessage.getSubject());
-    assertEquals("""
+      testee.send(stockAlertsConfig, testAlert, LATEST, PERSISTED);
+
+      verify(mailSender).send(mimeMessage);
+      assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
+      assertEquals("Threshold CHF 12.25 for ABC crossed", mimeMessage.getSubject());
+      assertEquals("""
+              Price for ABC moved from CHF 12.0 dated on 2025-07-17 12:16 to CHF 13.0 dated on 2025-08-12 09:16
+              
+              Data refers to stock exchange Switzerland.
+              """,
+          mimeMessage.getContent().toString());
+    }
+
+    @Test
+    void sendEmailHappyCase_ConfigComment() throws MessagingException, IOException {
+      final SecurityConfig secConfig = new SecurityConfig("ABC", "Switzerland", null, "expected comment is present", null, null);
+      final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, null, List.of(NOTIFICATION_CHANNEL), List.of(secConfig));
+      final MimeMessage mimeMessage = getMockedMimeMessage();
+
+      final Alert testAlert = new Alert(12.25, Channel.EMAIL.getValue(), null);
+
+      ReflectionTestUtils.setField(testee, "from", "mocked@example.com");
+
+      testee.send(stockAlertsConfig, testAlert, LATEST, PERSISTED);
+
+      verify(mailSender).send(mimeMessage);
+      assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
+      assertEquals("Threshold CHF 12.25 for ABC crossed", mimeMessage.getSubject());
+      assertEquals("""
             Price for ABC moved from CHF 12.0 dated on 2025-07-17 12:16 to CHF 13.0 dated on 2025-08-12 09:16
+            expected comment is present
             Data refers to stock exchange Switzerland.
             """,
-        mimeMessage.getContent().toString());
+          mimeMessage.getContent().toString());
+    }
+
+    @Test
+    void sendEmailHappyCase_AlertComment() throws MessagingException, IOException {
+      final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, null, List.of(NOTIFICATION_CHANNEL), List.of());
+      final MimeMessage mimeMessage = getMockedMimeMessage();
+
+      final Alert testAlert = new Alert(12.25, Channel.EMAIL.getValue(), "Maximum forecast reached");
+
+      ReflectionTestUtils.setField(testee, "from", "mocked@example.com");
+
+      testee.send(stockAlertsConfig, testAlert, LATEST, PERSISTED);
+
+      verify(mailSender).send(mimeMessage);
+      assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
+      assertEquals("Threshold CHF 12.25 for ABC crossed", mimeMessage.getSubject());
+      assertEquals("""
+              Price for ABC moved from CHF 12.0 dated on 2025-07-17 12:16 to CHF 13.0 dated on 2025-08-12 09:16
+              Maximum forecast reached
+              Data refers to stock exchange Switzerland.
+              """,
+          mimeMessage.getContent().toString());
+    }
+
+    @Test
+    void sendEmailHappyCase_CombinedComments() throws MessagingException, IOException {
+      final SecurityConfig secConfig = new SecurityConfig("ABC", "Switzerland", null, "expected comment is present", null, null);
+      final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, null, List.of(NOTIFICATION_CHANNEL), List.of(secConfig));
+      final MimeMessage mimeMessage = getMockedMimeMessage();
+
+      final Alert testAlert = new Alert(12.25, Channel.EMAIL.getValue(), "Maximum forecast reached");
+
+      ReflectionTestUtils.setField(testee, "from", "mocked@example.com");
+
+      testee.send(stockAlertsConfig, testAlert, LATEST, PERSISTED);
+
+      verify(mailSender).send(mimeMessage);
+      assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
+      assertEquals("Threshold CHF 12.25 for ABC crossed", mimeMessage.getSubject());
+      assertEquals("""
+            Price for ABC moved from CHF 12.0 dated on 2025-07-17 12:16 to CHF 13.0 dated on 2025-08-12 09:16
+            expected comment is present | Maximum forecast reached
+            Data refers to stock exchange Switzerland.
+            """,
+          mimeMessage.getContent().toString());
+    }
   }
 
   @Test

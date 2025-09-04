@@ -2,6 +2,7 @@ package com.github.arburk.stockalert.application.domain.config;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.github.arburk.stockalert.application.domain.Security;
 import io.micrometer.common.util.StringUtils;
 
 import java.time.Duration;
@@ -49,6 +50,12 @@ public record StockAlertsConfig(
       };
     }
     throw new IllegalArgumentException("invalid format: " + silenceDuration + ". use m(inutes), h(ours), or d(ays), e.g., 120m, 2h or 1d");
+  }
+
+  public SecurityConfig findConfig(Security security) {
+    return security == null || securities == null || securities.isEmpty()
+        ? null
+        : securities.stream().filter(security::isSameSymbolAndExchange).findFirst().orElse(null);
   }
 
 }

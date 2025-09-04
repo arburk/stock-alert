@@ -2,12 +2,14 @@ package com.github.arburk.stockalert.infrastructure.notification.email;
 
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.domain.config.Alert;
+import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import com.github.arburk.stockalert.application.service.notification.Channel;
 import com.github.arburk.stockalert.application.service.notification.NotificationSender;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailSendException;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -37,16 +39,33 @@ public class EmailNotificationSender implements NotificationSender {
     String currency = latest.currency();
     final String message = """
         Price for %s moved from %s %s dated on %s to %s %s dated on %s
+        %s
         Data refers to stock exchange %s.
         """.formatted(
         latest.symbol(),
         currency, persisted.price(), persisted.getTimestampFormatted(),
         currency, latest.price(), latest.getTimestampFormatted(),
+        renderComment(alert, stockAlertsConfig.findConfig(latest)),
         getStockExchange(latest, persisted)
     );
     final String subject = "Threshold %s %s for %s crossed".formatted(
         latest.currency(), alert.threshold(), latest.symbol());
     sendEmail(subject, message, stockAlertsConfig);
+  }
+
+  private String renderComment(final Alert alert, final SecurityConfig stockAlertsConfig) {
+    String result = "";
+    if (stockAlertsConfig != null && StringUtils.isNotBlank(stockAlertsConfig._comment())) {
+      result += stockAlertsConfig._comment().trim();
+    }
+
+    if (alert != null && StringUtils.isNotBlank(alert._comment())) {
+      if (!result.isEmpty()) {
+        result += " | ";
+      }
+      result += alert._comment().trim();
+    }
+    return result.trim();
   }
 
   @Override
