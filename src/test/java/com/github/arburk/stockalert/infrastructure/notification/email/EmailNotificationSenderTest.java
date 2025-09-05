@@ -99,7 +99,7 @@ class EmailNotificationSenderTest {
       assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
       assertEquals("Threshold CHF 12.25 for ABC crossed", mimeMessage.getSubject());
       assertEquals("""
-              Price for ABC moved from CHF 12.0 dated on 2025-07-17 12:16 to CHF 13.0 dated on 2025-08-12 09:16
+              Price for ABC moved to CHF 13.0 dated on 2025-08-12 09:16 - from formerly CHF 12.0 dated on 2025-07-17 12:16
               
               Data refers to stock exchange Switzerland.
               """,
@@ -122,7 +122,7 @@ class EmailNotificationSenderTest {
       assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
       assertEquals("Threshold CHF 12.25 for ABC crossed", mimeMessage.getSubject());
       assertEquals("""
-            Price for ABC moved from CHF 12.0 dated on 2025-07-17 12:16 to CHF 13.0 dated on 2025-08-12 09:16
+            Price for ABC moved to CHF 13.0 dated on 2025-08-12 09:16 - from formerly CHF 12.0 dated on 2025-07-17 12:16
             expected comment is present
             Data refers to stock exchange Switzerland.
             """,
@@ -144,7 +144,7 @@ class EmailNotificationSenderTest {
       assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
       assertEquals("Threshold CHF 12.25 for ABC crossed", mimeMessage.getSubject());
       assertEquals("""
-              Price for ABC moved from CHF 12.0 dated on 2025-07-17 12:16 to CHF 13.0 dated on 2025-08-12 09:16
+              Price for ABC moved to CHF 13.0 dated on 2025-08-12 09:16 - from formerly CHF 12.0 dated on 2025-07-17 12:16
               Maximum forecast reached
               Data refers to stock exchange Switzerland.
               """,
@@ -167,7 +167,7 @@ class EmailNotificationSenderTest {
       assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
       assertEquals("Threshold CHF 12.25 for ABC crossed", mimeMessage.getSubject());
       assertEquals("""
-            Price for ABC moved from CHF 12.0 dated on 2025-07-17 12:16 to CHF 13.0 dated on 2025-08-12 09:16
+            Price for ABC moved to CHF 13.0 dated on 2025-08-12 09:16 - from formerly CHF 12.0 dated on 2025-07-17 12:16
             expected comment is present | Maximum forecast reached
             Data refers to stock exchange Switzerland.
             """,
@@ -195,7 +195,7 @@ class EmailNotificationSenderTest {
     assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
     assertEquals("Threshold of 5.00 % crossed for ABC", mimeMessage.getSubject());
     assertEquals("""
-            Price for ABC moved from CHF 12.0 dated on 2025-07-17 12:16 to CHF 12.64.
+            Price for ABC moved to CHF 12.64 - from formerly CHF 12.0 dated on 2025-07-17 12:16.
             Price change is 5.27 % while defined threshold is 5.00 %.
             Data refers to stock exchange Switzerland dated on 2025-08-12 09:16.
             """,
