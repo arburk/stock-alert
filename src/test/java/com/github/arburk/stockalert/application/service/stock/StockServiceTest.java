@@ -143,7 +143,7 @@ class StockServiceTest {
       final Security latestExceedsThreshold = new Security("ABC", 102., "CHF", null, null, null, null);
       ReflectionTestUtils.invokeMethod(testee, "checkSecurityAndRaiseAlert", applicationConfig.getStockAlertsConfig(), SECURITY_CONFIG, Optional.of(latestExceedsThreshold));
 
-      verify(notifyService).send(eq(applicationConfig.getStockAlertsConfig()), eq(email), eq(latestExceedsThreshold), eq(persisted));
+      verify(notifyService).send(applicationConfig.getStockAlertsConfig(), email, latestExceedsThreshold, persisted);
       assertFalse(persisted.alertLog().isEmpty());
       assertEquals(1 , persisted.alertLog().size());
       final Alert alertAdd = persisted.alertLog().stream().toList().getFirst();
@@ -159,7 +159,7 @@ class StockServiceTest {
       final Security latestExceedsThreshold = new Security("ABC", 102., "CHF", null, CURRENT_TIMESTAMP, null,null);
       ReflectionTestUtils.invokeMethod(testee, "checkSecurityAndRaiseAlert", applicationConfig.getStockAlertsConfig(), SECURITY_CONFIG, Optional.of(latestExceedsThreshold));
 
-      verify(notifyService).send(eq(applicationConfig.getStockAlertsConfig()), eq(email), eq(latestExceedsThreshold), eq(persisted));
+      verify(notifyService).send(applicationConfig.getStockAlertsConfig(), email, latestExceedsThreshold, persisted);
       assertFalse(persisted.alertLog().isEmpty());
       assertEquals(1 , persisted.alertLog().size());
       final Alert alertAdd = persisted.alertLog().stream().toList().getFirst();
@@ -175,13 +175,12 @@ class StockServiceTest {
       final Security latestExceedsThreshold = new Security("ABC", 102., "CHF", null, CURRENT_TIMESTAMP.minusHours(1), null, null);
       ReflectionTestUtils.invokeMethod(testee, "checkSecurityAndRaiseAlert", applicationConfig.getStockAlertsConfig(), SECURITY_CONFIG, Optional.of(latestExceedsThreshold));
 
-      verify(notifyService, never()).send(eq(applicationConfig.getStockAlertsConfig()), eq(email), eq(latestExceedsThreshold), eq(persisted));
+      verify(notifyService, never()).send(applicationConfig.getStockAlertsConfig(), email, latestExceedsThreshold, persisted);
       assertFalse(persisted.alertLog().isEmpty());
       assertEquals(1 , persisted.alertLog().size());
       final Alert alertAdd = persisted.alertLog().stream().toList().getFirst();
       assertEquals(currentEntry, alertAdd);
     }
-
   }
 
   @Nested

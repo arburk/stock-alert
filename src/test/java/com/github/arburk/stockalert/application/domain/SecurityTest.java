@@ -14,12 +14,12 @@ class SecurityTest {
   @Test
   void addLogSameTypeNotDuplicated() {
     final LocalDateTime now = LocalDateTime.now();
-    final LocalDateTime one_hor_ago = now.minusHours(1);
+    final LocalDateTime oneHorAgo = now.minusHours(1);
 
     final Security testee = new Security(null, null, null, null, null, null, null);
     assertTrue(testee.alertLog().isEmpty());
 
-    final Alert alert1 = new Alert(one_hor_ago, 1., "CHF");
+    final Alert alert1 = new Alert(oneHorAgo, 1., "CHF");
 
     IntStream.of(3).forEach(run -> {
       testee.addLog(alert1);
@@ -27,7 +27,7 @@ class SecurityTest {
       assertTrue(testee.alertLog().contains(alert1));
     });
 
-    final Alert alert2 = new Alert(one_hor_ago, 1.1, "CHF");
+    final Alert alert2 = new Alert(oneHorAgo, 1.1, "CHF");
     testee.addLog(alert2);
     assertEquals(2, testee.alertLog().size());
     assertTrue(testee.alertLog().contains(alert1));
