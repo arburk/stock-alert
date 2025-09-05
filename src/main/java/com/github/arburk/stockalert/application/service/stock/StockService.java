@@ -103,15 +103,30 @@ public class StockService {
     if (alerts != null && !alerts.isEmpty()) {
       alerts.stream()
           .filter(alert -> isBetween(alert.threshold(), latestSecurity.price(), persistedSecurity.price()))
+          .filter(alert -> isRecentAlertNotPresentOrOutdated(alert, persistedSecurity.alertLog(), latestSecurity))
           .forEach(alert -> {
             log.info("Send alert for {} {}", latestSecurity.symbol(), alert);
             notificationService.send(stockAlertsConfig, alert, latestSecurity, persistedSecurity);
-            persistedSecurity.alertLog().add(
+            persistedSecurity.addLog(
                 new com.github.arburk.stockalert.application.domain.Alert(LocalDateTime.now(), alert.threshold(), latestSecurity.currency()));
           });
     }
 
     checkAndRaisePercentageAlert(stockAlertsConfig, securityConfig, latestSecurity, persistedSecurity);
+  }
+
+  private boolean isRecentAlertNotPresentOrOutdated(final Alert alert, final Collection<com.github.arburk.stockalert.application.domain.Alert> logs, final Security latestSecurity) {
+    if (alert == null || logs.isEmpty()) {
+      return true;
+    }
+
+    final var recentAlert = logs.stream()
+        .filter(log -> log.threshold().equals(alert.threshold())
+            && log.unit().equals(latestSecurity.currency()))
+        .sorted()
+        .findFirst().orElse(null);
+
+    return recentAlert == null || recentAlert.timestamp().isBefore(latestSecurity.timestamp());
   }
 
   private void checkAndRaisePercentageAlert(

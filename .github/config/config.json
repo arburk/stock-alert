@@ -184,14 +184,9 @@
         "exchange": "Switzerland",
         "alerts": [
           {
-            "threshold": 60.00,
+            "threshold": 50.00,
             "notification": "email",
-            "_comment": ""
-          },
-          {
-            "threshold": 65.00,
-            "notification": "email",
-            "_comment": ""
+            "_comment": "check reasons and re-entry"
           }
         ]
       },
@@ -409,17 +404,17 @@
           {
             "threshold": 100.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "max forecast"
           },
           {
             "threshold": 120.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "double"
           },
           {
-            "threshold": 150.00,
+            "threshold": 125.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "boom"
           },
           {
             "threshold": 185.00,

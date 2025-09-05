@@ -21,6 +21,7 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -123,9 +124,70 @@ class StockServiceTest {
   }
 
   @Nested
+  class CheckAndRaisePriceAlert {
+
+    private static final LocalDateTime CURRENT_TIMESTAMP = LocalDateTime.now();
+    private static final com.github.arburk.stockalert.application.domain.config.Alert email = new com.github.arburk.stockalert.application.domain.config.Alert(101.,"email", "test");
+    private static final SecurityConfig SECURITY_CONFIG = new SecurityConfig("ABC", "SIX", null, null, null, List.of(email));
+
+    private Security persisted;
+
+    @BeforeEach
+    void setUp() {
+      persisted = new Security("ABC", 100., "CHF", null, null, "SIX", null);
+      when(persistenceProvider.getSecurity(Security.fromConfig(SECURITY_CONFIG))).thenReturn(Optional.of(persisted));
+    }
+
+    @Test
+    void checkAndRaisePriceAlert_EmptyLog() {
+      final Security latestExceedsThreshold = new Security("ABC", 102., "CHF", null, null, null, null);
+      ReflectionTestUtils.invokeMethod(testee, "checkSecurityAndRaiseAlert", applicationConfig.getStockAlertsConfig(), SECURITY_CONFIG, Optional.of(latestExceedsThreshold));
+
+      verify(notifyService).send(eq(applicationConfig.getStockAlertsConfig()), eq(email), eq(latestExceedsThreshold), eq(persisted));
+      assertFalse(persisted.alertLog().isEmpty());
+      assertEquals(1 , persisted.alertLog().size());
+      final Alert alertAdd = persisted.alertLog().stream().toList().getFirst();
+      assertTrue(alertAdd.timestamp().isAfter(CURRENT_TIMESTAMP));
+      assertEquals(101,  alertAdd.threshold());
+      assertEquals("CHF", alertAdd.unit());
+    }
+
+    @Test
+    void checkAndRaisePriceAlert_OutdatedLog() {
+      final Alert outdatedEntry = new Alert(CURRENT_TIMESTAMP.minusHours(1), 101., "CHF");
+      persisted.alertLog().add(outdatedEntry);
+      final Security latestExceedsThreshold = new Security("ABC", 102., "CHF", null, CURRENT_TIMESTAMP, null,null);
+      ReflectionTestUtils.invokeMethod(testee, "checkSecurityAndRaiseAlert", applicationConfig.getStockAlertsConfig(), SECURITY_CONFIG, Optional.of(latestExceedsThreshold));
+
+      verify(notifyService).send(eq(applicationConfig.getStockAlertsConfig()), eq(email), eq(latestExceedsThreshold), eq(persisted));
+      assertFalse(persisted.alertLog().isEmpty());
+      assertEquals(1 , persisted.alertLog().size());
+      final Alert alertAdd = persisted.alertLog().stream().toList().getFirst();
+      assertTrue(alertAdd.timestamp().isAfter(CURRENT_TIMESTAMP));
+      assertEquals(101,  alertAdd.threshold());
+      assertEquals("CHF", alertAdd.unit());
+    }
+
+    @Test
+    void checkAndRaisePriceAlert_CurrenLog_OutdatedStockInfo_SkipNotification() {
+      final Alert currentEntry = new Alert(CURRENT_TIMESTAMP, 101., "CHF");
+      persisted.alertLog().add(currentEntry);
+      final Security latestExceedsThreshold = new Security("ABC", 102., "CHF", null, CURRENT_TIMESTAMP.minusHours(1), null, null);
+      ReflectionTestUtils.invokeMethod(testee, "checkSecurityAndRaiseAlert", applicationConfig.getStockAlertsConfig(), SECURITY_CONFIG, Optional.of(latestExceedsThreshold));
+
+      verify(notifyService, never()).send(eq(applicationConfig.getStockAlertsConfig()), eq(email), eq(latestExceedsThreshold), eq(persisted));
+      assertFalse(persisted.alertLog().isEmpty());
+      assertEquals(1 , persisted.alertLog().size());
+      final Alert alertAdd = persisted.alertLog().stream().toList().getFirst();
+      assertEquals(currentEntry, alertAdd);
+    }
+
+  }
+
+  @Nested
   class CheckAndRaisePercentageAlert {
 
-    public static final Security PERSISTED = new Security(null, 100., null, null, null, null, null);
+    private static final Security PERSISTED = new Security(null, 100., null, null, null, null, null);
     private static final SecurityConfig EMPTY_CONFIG = new SecurityConfig(null, null, null, null, null, null);
 
     @Test

@@ -1,6 +1,7 @@
 package com.github.arburk.stockalert.application.domain;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public record Alert(
     LocalDateTime timestamp,
@@ -20,4 +21,12 @@ public record Alert(
         ? 1
         : other.timestamp.compareTo(this.timestamp); // reversed order
   }
+
+  @Override
+  public boolean equals(final Object o) {
+    if (o == null || getClass() != o.getClass()) return false;
+    final Alert alert = (Alert) o;
+    return Objects.equals(unit, alert.unit) && Objects.equals(threshold, alert.threshold);
+  }
+
 }

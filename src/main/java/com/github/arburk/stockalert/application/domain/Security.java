@@ -62,4 +62,14 @@ public record Security(
     return Objects.hash(symbol, price, currency, changePercentage, timestamp, exchange, alertLog);
   }
 
+  public void addLog(final Alert alert) {
+    if (!alertLog.isEmpty()) {
+      // remove entry before adding to update timestamp only
+      alertLog.stream()
+          .filter(log -> log.equals(alert))
+          .sorted()
+          .findFirst().ifPresent(alertLog::remove);
+    }
+    alertLog.add(alert);
+  }
 }

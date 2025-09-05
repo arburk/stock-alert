@@ -66,17 +66,17 @@ class StockServiceIntegrationTest {
 
   @BeforeAll
   static void setUpAll() {
-    System.setProperty("user.home", TEST_HOME.toString()); // redirect file storage to test
+    System.setProperty("user.home", TEST_HOME.toString() /* redirect file storage to test */);
     expectedStorageFile = Path.of(TEST_HOME.toString(), "stock-alert", PersistenceProvider.STORAGE_FILE_NAME).toFile();
     greenMail = new GreenMail(new ServerSetup(0 /* 0 = random port */, null, ServerSetup.PROTOCOL_SMTP));
-    greenMail.setUser("test-user", "test-pass"); // defined in src/test/resources/application-stock-service-int-test.yml
+    greenMail.setUser("test-user", "test-pass" /* defined in src/test/resources/application-stock-service-int-test.yml */);
     greenMail.start();
     System.setProperty("spring.mail.port", String.valueOf(greenMail.getSmtp().getPort()));
   }
 
   @AfterAll
   static void tearDownAll() {
-    System.setProperty("user.home", USER_HOME);  // rest user.home after test to default
+    System.setProperty("user.home", USER_HOME /* rest user.home after test to default */);
   }
 
   @BeforeEach
@@ -123,7 +123,8 @@ class StockServiceIntegrationTest {
 
     final Collection<Security> securites = persistenceProvider.getSecurites();
     assertEquals(32, securites.size());
-    final Security baln = securites.stream().filter(security -> "BALN".equals(security.symbol())).findFirst().get();
+    final Security baln = securites.stream().filter(security -> "BALN".equals(security.symbol())).findFirst()
+        .orElseThrow(() -> new RuntimeException("Test failed. Expected Security is present."));
     assertEquals(207.4, baln.price());
     assertTrue(expectedStorageFile.length() > fileSizeBeforeAddingResults, "expected more contents in storage file, but size did not grow");
 
@@ -138,7 +139,8 @@ class StockServiceIntegrationTest {
     );
     assertLinesMatch(expectedMailBodyLines, Arrays.asList(receivedMessage.getContent().toString().split("\\R")));
 
-    final Collection<Alert> alerts = persistenceProvider.getSecurity(baln).get().alertLog();
+    final Collection<Alert> alerts = persistenceProvider.getSecurity(baln)
+        .orElseThrow(() -> new RuntimeException("Test failed. Expected Security is present.")).alertLog();
     assertNotNull(alerts);
     assertEquals(1, alerts.size());
     final Alert first = alerts.stream().toList().getFirst();
@@ -162,7 +164,8 @@ class StockServiceIntegrationTest {
     stockService.update();
 
     assertEquals(2, persistenceProvider.getSecurites().size());
-    final Security inga = persistenceProvider.getSecurity(new Security( "INGA", null,null,null,null,"Amsterdam", null)).get();
+    final Security inga = persistenceProvider.getSecurity(new Security("INGA", null, null, null, null, "Amsterdam", null))
+        .orElseThrow(() -> new RuntimeException("Test failed. Expected Security is present."));
     assertEquals(20.18 /* > 5% deviation compared to getPreparedSecurities()*/, inga.price());
 
     final MimeMessage[] receivedMessages = greenMail.getReceivedMessages();
@@ -176,7 +179,8 @@ class StockServiceIntegrationTest {
     );
     assertLinesMatch(expectedMailBodyLines, Arrays.asList(receivedMessage.getContent().toString().split("\\R")));
 
-    final Collection<Alert> alerts = persistenceProvider.getSecurity(inga).get().alertLog();
+    final Collection<Alert> alerts = persistenceProvider.getSecurity(inga)
+        .orElseThrow(() -> new RuntimeException("Test failed. Expected Security is present.")).alertLog();
     assertNotNull(alerts);
     assertEquals(1, alerts.size());
     final Alert first = alerts.stream().toList().getFirst();
@@ -202,7 +206,8 @@ class StockServiceIntegrationTest {
 
     final Collection<Security> securites = persistenceProvider.getSecurites();
     assertEquals(32, securites.size());
-    final Security baln = securites.stream().filter(security -> "BALN".equals(security.symbol())).findFirst().get();
+    final Security baln = securites.stream().filter(security -> "BALN".equals(security.symbol())).findFirst()
+        .orElseThrow(() -> new RuntimeException("Test failed. Expected Security is present."));
     assertEquals(207.4, baln.price());
 
     MimeMessage[] receivedMessages = greenMail.getReceivedMessages();
