@@ -88,13 +88,13 @@ public class StockService {
 
   private void checkSecurityAndRaiseAlert(final StockAlertsConfig stockAlertsConfig, final SecurityConfig securityConfig, final Optional<Security> latest) {
     if (latest.isEmpty()) {
-      log.warn("Cannot check alert requirement since latest value is empty. Check configuration for proper security settings.");
+      log.warn("Cannot check alert requirement for {} since latest value is empty. Check configuration for proper security settings.", securityConfig.symbol());
       return;
     }
 
     final Optional<Security> persisted = persistenceProvider.getSecurity(Security.fromConfig(securityConfig));
     if (persisted.isEmpty()) {
-      log.info("Cannot check alert requirement since persisted value is empty.");
+      log.info("Cannot check alert requirement for {} since persisted value is empty.", securityConfig.symbol());
       return;
     }
 
@@ -125,7 +125,14 @@ public class StockService {
         .sorted()
         .findFirst();
 
-    return recentAlert.isEmpty() || recentAlert.get().timestamp().isBefore(alertTimestamp);
+
+    final boolean isEmpty = recentAlert.isEmpty();
+    final boolean isLogOutdated = !isEmpty && recentAlert.get().timestamp().isBefore(alertTimestamp);
+    if (isEmpty || isLogOutdated) {
+      return true;
+    }
+    log.debug("Skip notification due to recent alert present: {}", recentAlert.get());
+    return false;
   }
 
   private void checkAndRaisePercentageAlert(
