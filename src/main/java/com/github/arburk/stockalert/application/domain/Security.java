@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 public record Security(
@@ -65,10 +66,9 @@ public record Security(
   public void addLog(final Alert alert) {
     if (!alertLog.isEmpty()) {
       // remove entry before adding to update timestamp only
-      alertLog.stream()
-          .filter(log -> log.equals(alert))
-          .sorted()
-          .findFirst().ifPresent(alertLog::remove);
+      final List<Alert> alertToReplace = alertLog.stream()
+          .filter(log -> log.equals(alert)).toList();
+      alertToReplace.forEach(alertLog::remove);
     }
     alertLog.add(alert);
   }

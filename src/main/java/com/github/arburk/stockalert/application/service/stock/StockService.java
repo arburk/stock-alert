@@ -1,8 +1,9 @@
 package com.github.arburk.stockalert.application.service.stock;
 
 import com.github.arburk.stockalert.application.config.ApplicationConfig;
+import com.github.arburk.stockalert.application.domain.Alert;
 import com.github.arburk.stockalert.application.domain.Security;
-import com.github.arburk.stockalert.application.domain.config.Alert;
+import com.github.arburk.stockalert.application.domain.config.AlertConfig;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import com.github.arburk.stockalert.application.service.notification.NotificationService;
@@ -99,34 +100,32 @@ public class StockService {
 
     final Security latestSecurity = latest.get();
     final Security persistedSecurity = persisted.get();
-    final List<Alert> alerts = securityConfig.alerts();
-    if (alerts != null && !alerts.isEmpty()) {
-      alerts.stream()
-          .filter(alert -> isBetween(alert.threshold(), latestSecurity.price(), persistedSecurity.price()))
-          .filter(alert -> isRecentAlertNotPresentOrOutdated(alert, persistedSecurity.alertLog(), latestSecurity))
-          .forEach(alert -> {
-            log.info("Send alert for {} {}", latestSecurity.symbol(), alert);
-            notificationService.send(stockAlertsConfig, alert, latestSecurity, persistedSecurity);
-            persistedSecurity.addLog(
-                new com.github.arburk.stockalert.application.domain.Alert(LocalDateTime.now(), alert.threshold(), latestSecurity.currency()));
+    final List<AlertConfig> alertConfigs = securityConfig.alerts();
+    if (alertConfigs != null && !alertConfigs.isEmpty()) {
+      alertConfigs.stream()
+          .filter(alertConfig -> isBetween(alertConfig.threshold(), latestSecurity.price(), persistedSecurity.price()))
+          .filter(alertConfig -> isRecentAlertNotPresentOrOutdated(alertConfig.asAlert(latestSecurity.currency()), persistedSecurity.alertLog(), latestSecurity.timestamp()))
+          .forEach(alertConfig -> {
+            log.info("Send alert for {} {}", latestSecurity.symbol(), alertConfig);
+            notificationService.send(stockAlertsConfig, alertConfig, latestSecurity, persistedSecurity);
+            persistedSecurity.addLog(alertConfig.asAlert(latestSecurity.currency()));
           });
     }
 
     checkAndRaisePercentageAlert(stockAlertsConfig, securityConfig, latestSecurity, persistedSecurity);
   }
 
-  private boolean isRecentAlertNotPresentOrOutdated(final Alert alert, final Collection<com.github.arburk.stockalert.application.domain.Alert> logs, final Security latestSecurity) {
-    if (alert == null || logs.isEmpty()) {
+  private boolean isRecentAlertNotPresentOrOutdated(final Alert potentialAlert, final Collection<Alert> logs, final LocalDateTime alertTimestamp) {
+    if (potentialAlert == null || logs.isEmpty()) {
       return true;
     }
 
     final var recentAlert = logs.stream()
-        .filter(log -> log.threshold().equals(alert.threshold())
-            && log.unit().equals(latestSecurity.currency()))
+        .filter(log -> log.equals(potentialAlert))
         .sorted()
-        .findFirst().orElse(null);
+        .findFirst();
 
-    return recentAlert == null || recentAlert.timestamp().isBefore(latestSecurity.timestamp());
+    return recentAlert.isEmpty() || recentAlert.get().timestamp().isBefore(alertTimestamp);
   }
 
   private void checkAndRaisePercentageAlert(
@@ -156,9 +155,12 @@ public class StockService {
 
     if (Math.abs(cpBiggest) >= threshold2consider) {
       log.debug("Percentage deviation calculated {} / provided {} > {} -> raise alert for {}!", cpCalculated, cpProvided, threshold2consider, latest.symbol());
-      if (!skipProvidedDueToSilencer(stockAlertsConfig, (cpBiggest == cpProvided), latest)) {
+
+      final var alertToRaise = new Alert(LocalDateTime.now(), cpBiggest, "%");
+      if (!skipProvidedDueToSilencer(stockAlertsConfig, (cpBiggest == cpProvided), latest)
+          && isRecentAlertNotPresentOrOutdated(alertToRaise, persisted.alertLog(), latest.timestamp())) {
         notificationService.sendPercentage(stockAlertsConfig, latest, persisted, threshold2consider, cpBiggest);
-        persisted.alertLog().add(new com.github.arburk.stockalert.application.domain.Alert(LocalDateTime.now(), cpBiggest, "%"));
+        persisted.alertLog().add(alertToRaise);
       }
     }
   }

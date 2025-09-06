@@ -1,7 +1,7 @@
 package com.github.arburk.stockalert.infrastructure.notification;
 
 import com.github.arburk.stockalert.application.domain.Security;
-import com.github.arburk.stockalert.application.domain.config.Alert;
+import com.github.arburk.stockalert.application.domain.config.AlertConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import com.github.arburk.stockalert.application.service.notification.Channel;
 import com.github.arburk.stockalert.application.service.notification.NotificationSender;
@@ -18,10 +18,10 @@ public class NoopNotificationSender implements NotificationSender {
   }
 
   @Override
-  public void send(final StockAlertsConfig stockAlertsConfig, final Alert alert, final Security latest, final Security persisted) {
+  public void send(final StockAlertsConfig stockAlertsConfig, final AlertConfig alertConfig, final Security latest, final Security persisted) {
     final String currency = latest.currency();
     log.info("Skip sending alert for {} with threshold {} {} sice stock price moved from {} {} to {} {} at {}",
-        latest.symbol(), currency, alert.threshold(), currency, persisted.price(), currency, latest.price(), latest.timestamp());
+        latest.symbol(), currency, alertConfig.threshold(), currency, persisted.price(), currency, latest.price(), latest.timestamp());
   }
 
   @Override

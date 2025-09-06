@@ -4,6 +4,7 @@ import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.config.JacksonConfig;
 import com.github.arburk.stockalert.application.domain.Alert;
 import com.github.arburk.stockalert.application.domain.Security;
+import com.github.arburk.stockalert.application.domain.config.AlertConfig;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import com.github.arburk.stockalert.application.service.notification.NotificationService;
@@ -127,7 +128,7 @@ class StockServiceTest {
   class CheckAndRaisePriceAlert {
 
     private static final LocalDateTime CURRENT_TIMESTAMP = LocalDateTime.now();
-    private static final com.github.arburk.stockalert.application.domain.config.Alert email = new com.github.arburk.stockalert.application.domain.config.Alert(101.,"email", "test");
+    private static final AlertConfig email = new AlertConfig(101.,"email", "test");
     private static final SecurityConfig SECURITY_CONFIG = new SecurityConfig("ABC", "SIX", null, null, null, List.of(email));
 
     private Security persisted;
@@ -143,7 +144,7 @@ class StockServiceTest {
       final Security latestExceedsThreshold = new Security("ABC", 102., "CHF", null, null, null, null);
       ReflectionTestUtils.invokeMethod(testee, "checkSecurityAndRaiseAlert", applicationConfig.getStockAlertsConfig(), SECURITY_CONFIG, Optional.of(latestExceedsThreshold));
 
-      verify(notifyService).send(eq(applicationConfig.getStockAlertsConfig()), eq(email), eq(latestExceedsThreshold), eq(persisted));
+      verify(notifyService).send(applicationConfig.getStockAlertsConfig(), email, latestExceedsThreshold, persisted);
       assertFalse(persisted.alertLog().isEmpty());
       assertEquals(1 , persisted.alertLog().size());
       final Alert alertAdd = persisted.alertLog().stream().toList().getFirst();
@@ -159,7 +160,7 @@ class StockServiceTest {
       final Security latestExceedsThreshold = new Security("ABC", 102., "CHF", null, CURRENT_TIMESTAMP, null,null);
       ReflectionTestUtils.invokeMethod(testee, "checkSecurityAndRaiseAlert", applicationConfig.getStockAlertsConfig(), SECURITY_CONFIG, Optional.of(latestExceedsThreshold));
 
-      verify(notifyService).send(eq(applicationConfig.getStockAlertsConfig()), eq(email), eq(latestExceedsThreshold), eq(persisted));
+      verify(notifyService).send(applicationConfig.getStockAlertsConfig(), email, latestExceedsThreshold, persisted);
       assertFalse(persisted.alertLog().isEmpty());
       assertEquals(1 , persisted.alertLog().size());
       final Alert alertAdd = persisted.alertLog().stream().toList().getFirst();
@@ -175,13 +176,12 @@ class StockServiceTest {
       final Security latestExceedsThreshold = new Security("ABC", 102., "CHF", null, CURRENT_TIMESTAMP.minusHours(1), null, null);
       ReflectionTestUtils.invokeMethod(testee, "checkSecurityAndRaiseAlert", applicationConfig.getStockAlertsConfig(), SECURITY_CONFIG, Optional.of(latestExceedsThreshold));
 
-      verify(notifyService, never()).send(eq(applicationConfig.getStockAlertsConfig()), eq(email), eq(latestExceedsThreshold), eq(persisted));
+      verify(notifyService, never()).send(applicationConfig.getStockAlertsConfig(), email, latestExceedsThreshold, persisted);
       assertFalse(persisted.alertLog().isEmpty());
       assertEquals(1 , persisted.alertLog().size());
       final Alert alertAdd = persisted.alertLog().stream().toList().getFirst();
       assertEquals(currentEntry, alertAdd);
     }
-
   }
 
   @Nested

@@ -1,7 +1,7 @@
 package com.github.arburk.stockalert.infrastructure.notification.email;
 
 import com.github.arburk.stockalert.application.domain.Security;
-import com.github.arburk.stockalert.application.domain.config.Alert;
+import com.github.arburk.stockalert.application.domain.config.AlertConfig;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import com.github.arburk.stockalert.application.service.notification.Channel;
@@ -35,7 +35,7 @@ public class EmailNotificationSender implements NotificationSender {
   }
 
   @Override
-  public void send(final StockAlertsConfig stockAlertsConfig, final Alert alert, final Security latest, final Security persisted) {
+  public void send(final StockAlertsConfig stockAlertsConfig, final AlertConfig alertConfig, final Security latest, final Security persisted) {
     String currency = latest.currency();
     final String message = """
         Price for %s moved to %s %s dated on %s - from formerly %s %s dated on %s
@@ -45,25 +45,25 @@ public class EmailNotificationSender implements NotificationSender {
         latest.symbol(),
         currency, latest.price(), latest.getTimestampFormatted(),
         currency, persisted.price(), persisted.getTimestampFormatted(),
-        renderComment(alert, stockAlertsConfig.findConfig(latest)),
+        renderComment(alertConfig, stockAlertsConfig.findConfig(latest)),
         getStockExchange(latest, persisted)
     );
     final String subject = "Threshold %s %s for %s crossed".formatted(
-        latest.currency(), alert.threshold(), latest.symbol());
+        latest.currency(), alertConfig.threshold(), latest.symbol());
     sendEmail(subject, message, stockAlertsConfig);
   }
 
-  private String renderComment(final Alert alert, final SecurityConfig stockAlertsConfig) {
+  private String renderComment(final AlertConfig alertConfig, final SecurityConfig stockAlertsConfig) {
     String result = "";
     if (stockAlertsConfig != null && StringUtils.isNotBlank(stockAlertsConfig._comment())) {
       result += stockAlertsConfig._comment().trim();
     }
 
-    if (alert != null && StringUtils.isNotBlank(alert._comment())) {
+    if (alertConfig != null && StringUtils.isNotBlank(alertConfig._comment())) {
       if (!result.isEmpty()) {
         result += " | ";
       }
-      result += alert._comment().trim();
+      result += alertConfig._comment().trim();
     }
     return result.trim();
   }
