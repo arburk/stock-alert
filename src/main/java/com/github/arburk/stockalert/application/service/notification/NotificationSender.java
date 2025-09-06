@@ -1,7 +1,7 @@
 package com.github.arburk.stockalert.application.service.notification;
 
 import com.github.arburk.stockalert.application.domain.Security;
-import com.github.arburk.stockalert.application.domain.config.Alert;
+import com.github.arburk.stockalert.application.domain.config.AlertConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 
 import java.util.Arrays;
@@ -13,7 +13,7 @@ public interface NotificationSender {
   /**
    * Send alert based on certain security crossed currency value based threshold
    */
-  void send(final StockAlertsConfig stockAlertsConfig, final Alert alert, final Security latest, final Security persisted);
+  void send(final StockAlertsConfig stockAlertsConfig, final AlertConfig alertConfig, final Security latest, final Security persisted);
 
   /**
    * Send alert based on percentage deviation exceeded threshold defined globally or security specific

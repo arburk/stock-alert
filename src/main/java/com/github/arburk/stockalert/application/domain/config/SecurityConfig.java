@@ -13,7 +13,7 @@ public record SecurityConfig(
     String _comment,
     @JsonProperty("percentage-alert")
     String percentageAlert,
-    List<Alert> alerts
+    List<AlertConfig> alerts
 ) {
   public Double getPercentageAlert() {
     return PercentageConverter.asDouble(percentageAlert);

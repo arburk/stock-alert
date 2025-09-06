@@ -1,6 +1,6 @@
 package com.github.arburk.stockalert.application.config;
 
-import com.github.arburk.stockalert.application.domain.config.Alert;
+import com.github.arburk.stockalert.application.domain.config.AlertConfig;
 import com.github.arburk.stockalert.application.domain.config.NotificationChannel;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
@@ -185,11 +185,11 @@ class ApplicationConfigTest {
       assertAlerts(first.alerts());
     }
 
-    private void assertAlerts(final List<Alert> alerts) {
-      assertEquals(3, alerts.size());
-      final Alert first = alerts.getFirst();
-      final Alert second = alerts.get(1);
-      final Alert third = alerts.getLast();
+    private void assertAlerts(final List<AlertConfig> alertConfigs) {
+      assertEquals(3, alertConfigs.size());
+      final AlertConfig first = alertConfigs.getFirst();
+      final AlertConfig second = alertConfigs.get(1);
+      final AlertConfig third = alertConfigs.getLast();
 
       assertAll(
           () -> assertEquals(200.00, first.threshold()),

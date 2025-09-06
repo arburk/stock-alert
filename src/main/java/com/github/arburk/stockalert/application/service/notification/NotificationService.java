@@ -1,7 +1,7 @@
 package com.github.arburk.stockalert.application.service.notification;
 
 import com.github.arburk.stockalert.application.domain.Security;
-import com.github.arburk.stockalert.application.domain.config.Alert;
+import com.github.arburk.stockalert.application.domain.config.AlertConfig;
 import com.github.arburk.stockalert.application.domain.config.NotificationChannel;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import lombok.NonNull;
@@ -31,10 +31,10 @@ public class NotificationService {
 
   }
 
-  public void send(final StockAlertsConfig stockAlertsConfig, final Alert alert, final Security latest, final Security persisted) {
+  public void send(final StockAlertsConfig stockAlertsConfig, final AlertConfig alertConfig, final Security latest, final Security persisted) {
     try {
-      getSender(Channel.ofValue(alert.notification()))
-          .send(stockAlertsConfig, alert, latest, persisted);
+      getSender(Channel.ofValue(alertConfig.notification()))
+          .send(stockAlertsConfig, alertConfig, latest, persisted);
     } catch (Exception e) {
       log.error("Failed to send Alert: {}", e.getMessage());
     }

@@ -2,7 +2,7 @@ package com.github.arburk.stockalert.infrastructure.notification.email;
 
 import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.domain.Security;
-import com.github.arburk.stockalert.application.domain.config.Alert;
+import com.github.arburk.stockalert.application.domain.config.AlertConfig;
 import com.github.arburk.stockalert.application.service.notification.Channel;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -39,13 +39,13 @@ class EmailNotificationSenderIntegrationTest {
 
   @Test
   void name() {
-    final Alert testAlert = new Alert(12.25, Channel.EMAIL.getValue(), null);
+    final AlertConfig testAlertConfig = new AlertConfig(12.25, Channel.EMAIL.getValue(), null);
 
     LocalDateTime persistedTs = LocalDateTime.of(2025, Month.JULY, 17, 12, 16, 24, 12);
     LocalDateTime updatedTs = LocalDateTime.of(2025, Month.AUGUST, 12, 9, 16, 17, 34);
     final Security persisted = new Security("ABC", 12.0, "CHF", null, persistedTs, "Switzerland", null);
     final Security latest = new Security("ABC", 13.0, "CHF", null, updatedTs, "Switzerland", null);
 
-    assertDoesNotThrow(() -> testee.send(applicationConfig.getStockAlertsConfig(), testAlert, latest, persisted));
+    assertDoesNotThrow(() -> testee.send(applicationConfig.getStockAlertsConfig(), testAlertConfig, latest, persisted));
   }
 }

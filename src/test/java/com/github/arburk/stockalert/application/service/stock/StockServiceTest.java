@@ -4,6 +4,7 @@ import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.config.JacksonConfig;
 import com.github.arburk.stockalert.application.domain.Alert;
 import com.github.arburk.stockalert.application.domain.Security;
+import com.github.arburk.stockalert.application.domain.config.AlertConfig;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import com.github.arburk.stockalert.application.service.notification.NotificationService;
@@ -127,7 +128,7 @@ class StockServiceTest {
   class CheckAndRaisePriceAlert {
 
     private static final LocalDateTime CURRENT_TIMESTAMP = LocalDateTime.now();
-    private static final com.github.arburk.stockalert.application.domain.config.Alert email = new com.github.arburk.stockalert.application.domain.config.Alert(101.,"email", "test");
+    private static final AlertConfig email = new AlertConfig(101.,"email", "test");
     private static final SecurityConfig SECURITY_CONFIG = new SecurityConfig("ABC", "SIX", null, null, null, List.of(email));
 
     private Security persisted;

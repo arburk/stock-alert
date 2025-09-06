@@ -1,7 +1,7 @@
 package com.github.arburk.stockalert.infrastructure.notification.email;
 
 import com.github.arburk.stockalert.application.domain.Security;
-import com.github.arburk.stockalert.application.domain.config.Alert;
+import com.github.arburk.stockalert.application.domain.config.AlertConfig;
 import com.github.arburk.stockalert.application.domain.config.NotificationChannel;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
@@ -89,11 +89,11 @@ class EmailNotificationSenderTest {
       final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, null, List.of(NOTIFICATION_CHANNEL), List.of());
       final MimeMessage mimeMessage = getMockedMimeMessage();
 
-      final Alert testAlert = new Alert(12.25, Channel.EMAIL.getValue(), null);
+      final AlertConfig testAlertConfig = new AlertConfig(12.25, Channel.EMAIL.getValue(), null);
 
       ReflectionTestUtils.setField(testee, "from", "mocked@example.com");
 
-      testee.send(stockAlertsConfig, testAlert, LATEST, PERSISTED);
+      testee.send(stockAlertsConfig, testAlertConfig, LATEST, PERSISTED);
 
       verify(mailSender).send(mimeMessage);
       assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
@@ -112,11 +112,11 @@ class EmailNotificationSenderTest {
       final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, null, List.of(NOTIFICATION_CHANNEL), List.of(secConfig));
       final MimeMessage mimeMessage = getMockedMimeMessage();
 
-      final Alert testAlert = new Alert(12.25, Channel.EMAIL.getValue(), null);
+      final AlertConfig testAlertConfig = new AlertConfig(12.25, Channel.EMAIL.getValue(), null);
 
       ReflectionTestUtils.setField(testee, "from", "mocked@example.com");
 
-      testee.send(stockAlertsConfig, testAlert, LATEST, PERSISTED);
+      testee.send(stockAlertsConfig, testAlertConfig, LATEST, PERSISTED);
 
       verify(mailSender).send(mimeMessage);
       assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
@@ -134,11 +134,11 @@ class EmailNotificationSenderTest {
       final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, null, List.of(NOTIFICATION_CHANNEL), List.of());
       final MimeMessage mimeMessage = getMockedMimeMessage();
 
-      final Alert testAlert = new Alert(12.25, Channel.EMAIL.getValue(), "Maximum forecast reached");
+      final AlertConfig testAlertConfig = new AlertConfig(12.25, Channel.EMAIL.getValue(), "Maximum forecast reached");
 
       ReflectionTestUtils.setField(testee, "from", "mocked@example.com");
 
-      testee.send(stockAlertsConfig, testAlert, LATEST, PERSISTED);
+      testee.send(stockAlertsConfig, testAlertConfig, LATEST, PERSISTED);
 
       verify(mailSender).send(mimeMessage);
       assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
@@ -157,11 +157,11 @@ class EmailNotificationSenderTest {
       final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, null, List.of(NOTIFICATION_CHANNEL), List.of(secConfig));
       final MimeMessage mimeMessage = getMockedMimeMessage();
 
-      final Alert testAlert = new Alert(12.25, Channel.EMAIL.getValue(), "Maximum forecast reached");
+      final AlertConfig testAlertConfig = new AlertConfig(12.25, Channel.EMAIL.getValue(), "Maximum forecast reached");
 
       ReflectionTestUtils.setField(testee, "from", "mocked@example.com");
 
-      testee.send(stockAlertsConfig, testAlert, LATEST, PERSISTED);
+      testee.send(stockAlertsConfig, testAlertConfig, LATEST, PERSISTED);
 
       verify(mailSender).send(mimeMessage);
       assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
@@ -216,9 +216,9 @@ class EmailNotificationSenderTest {
     final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of());
     final Security persisted = new Security("ABC", 12.0, "CHF", null, LocalDateTime.now(), "Switzerland", null);
     final Security latest = new Security("ABC", 13.0, "CHF", null, LocalDateTime.now(), "Switzerland", null);
-    final Alert testAlert = new Alert(0, Channel.EMAIL.getValue(), null);
+    final AlertConfig testAlertConfig = new AlertConfig(0, Channel.EMAIL.getValue(), null);
 
-    final MailSendException runtimeException = assertThrows(MailSendException.class, () -> testee.send(stockAlertsConfig, testAlert, latest, persisted));
+    final MailSendException runtimeException = assertThrows(MailSendException.class, () -> testee.send(stockAlertsConfig, testAlertConfig, latest, persisted));
 
     verify(mailSender, never()).send(any(MimeMessage.class));
     assertEquals("Failed to send email to i_am_NOT_a_valid_Email-Address: Missing final '@domain'", runtimeException.getMessage());
