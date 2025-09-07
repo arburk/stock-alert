@@ -80,9 +80,9 @@ class EmailNotificationSenderTest {
 
     public static final NotificationChannel NOTIFICATION_CHANNEL = new NotificationChannel(Channel.EMAIL.getValue(), RECIPIENT_2, false, false);
     private static final LocalDateTime PERSISTED_TS = LocalDateTime.of(2025, Month.JULY, 17, 12, 16, 24, 12);
-    private static final Security PERSISTED = new Security("ABC", 12.0, "CHF", null, PERSISTED_TS, "Switzerland", null);
+    private static final Security PERSISTED = new Security("ABC", 13.0, "CHF", null, PERSISTED_TS, "Switzerland", null);
     private static final LocalDateTime UPDATED_TS = LocalDateTime.of(2025, Month.AUGUST, 12, 9, 16, 17, 34);
-    private static final Security LATEST = new Security("ABC", 13.0, "CHF", null, UPDATED_TS, "Switzerland", null);
+    private static final Security LATEST = new Security("ABC", 12.0, "CHF", null, UPDATED_TS, "Switzerland", null);
 
     @Test
     void sendEmailHappyCase_NoComment() throws MessagingException, IOException {
@@ -99,7 +99,7 @@ class EmailNotificationSenderTest {
       assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
       assertEquals("Threshold CHF 12.25 for ABC crossed", mimeMessage.getSubject());
       assertEquals("""
-              Price for ABC moved to CHF 13.0 dated on 2025-08-12 09:16 - from formerly CHF 12.0 dated on 2025-07-17 12:16
+              Price for ABC fell to CHF 12.0 dated on 2025-08-12 09:16 - from formerly CHF 13.0 dated on 2025-07-17 12:16
               
               Data refers to stock exchange Switzerland.
               """,
@@ -122,7 +122,7 @@ class EmailNotificationSenderTest {
       assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
       assertEquals("Threshold CHF 12.25 for ABC crossed", mimeMessage.getSubject());
       assertEquals("""
-            Price for ABC moved to CHF 13.0 dated on 2025-08-12 09:16 - from formerly CHF 12.0 dated on 2025-07-17 12:16
+            Price for ABC fell to CHF 12.0 dated on 2025-08-12 09:16 - from formerly CHF 13.0 dated on 2025-07-17 12:16
             expected comment is present
             Data refers to stock exchange Switzerland.
             """,
@@ -144,7 +144,7 @@ class EmailNotificationSenderTest {
       assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
       assertEquals("Threshold CHF 12.25 for ABC crossed", mimeMessage.getSubject());
       assertEquals("""
-              Price for ABC moved to CHF 13.0 dated on 2025-08-12 09:16 - from formerly CHF 12.0 dated on 2025-07-17 12:16
+              Price for ABC fell to CHF 12.0 dated on 2025-08-12 09:16 - from formerly CHF 13.0 dated on 2025-07-17 12:16
               Maximum forecast reached
               Data refers to stock exchange Switzerland.
               """,
@@ -167,7 +167,7 @@ class EmailNotificationSenderTest {
       assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
       assertEquals("Threshold CHF 12.25 for ABC crossed", mimeMessage.getSubject());
       assertEquals("""
-            Price for ABC moved to CHF 13.0 dated on 2025-08-12 09:16 - from formerly CHF 12.0 dated on 2025-07-17 12:16
+            Price for ABC fell to CHF 12.0 dated on 2025-08-12 09:16 - from formerly CHF 13.0 dated on 2025-07-17 12:16
             expected comment is present | Maximum forecast reached
             Data refers to stock exchange Switzerland.
             """,
@@ -183,8 +183,8 @@ class EmailNotificationSenderTest {
 
     LocalDateTime persistedTs = LocalDateTime.of(2025, Month.JULY, 17, 12, 16, 24, 12);
     LocalDateTime updatedTs = LocalDateTime.of(2025, Month.AUGUST, 12, 9, 16, 17, 34);
-    final Security persisted = new Security("ABC", 12.0, "CHF", null, persistedTs, "Switzerland", null);
-    final Security latest = new Security("ABC", 12.64, "CHF", null, updatedTs, "Switzerland", null);
+    final Security persisted = new Security("ABC", 12.64, "CHF", null, persistedTs, "Switzerland", null);
+    final Security latest = new Security("ABC", 12., "CHF", null, updatedTs, "Switzerland", null);
 
     ReflectionTestUtils.setField(testee, "from", "mocked@example.com");
 
@@ -195,7 +195,7 @@ class EmailNotificationSenderTest {
     assertEquals(RECIPIENT_2, mimeMessage.getRecipients(Message.RecipientType.TO)[0].toString());
     assertEquals("Threshold of 5.00 % crossed for ABC", mimeMessage.getSubject());
     assertEquals("""
-            Price for ABC moved to CHF 12.64 - from formerly CHF 12.0 dated on 2025-07-17 12:16.
+            Price for ABC fell to CHF 12.0 - from formerly CHF 12.64 dated on 2025-07-17 12:16.
             Price change is 5.27 % while defined threshold is 5.00 %.
             Data refers to stock exchange Switzerland dated on 2025-08-12 09:16.
             """,

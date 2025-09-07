@@ -133,7 +133,7 @@ class StockServiceIntegrationTest {
     final MimeMessage receivedMessage = receivedMessages[0];
     assertEquals("Threshold CHF 200.0 for BALN crossed", receivedMessage.getSubject());
     final List<String> expectedMailBodyLines = List.of(
-        "Price for BALN moved to CHF 207.4 dated on 2025-08-07 08:35 - from formerly CHF 198.15 dated on 2025-08-07 15:06",
+        "Price for BALN raised to CHF 207.4 dated on 2025-08-07 08:35 - from formerly CHF 198.15 dated on 2025-08-07 15:06",
         "Test comment to be sent | alert comment to be present",
         "Data refers to stock exchange Switzerland."
     );
@@ -173,7 +173,7 @@ class StockServiceIntegrationTest {
     final MimeMessage receivedMessage = Arrays.asList(receivedMessages).getLast();
     assertEquals("Threshold of 5.00 % crossed for INGA", receivedMessage.getSubject());
     final List<String> expectedMailBodyLines = List.of(
-        "Price for INGA moved to EUR 20.18 - from formerly EUR 18.95 dated on 2025-08-07 15:06.",
+        "Price for INGA raised to EUR 20.18 - from formerly EUR 18.95 dated on 2025-08-07 15:06.",
         "Price change is 6.49 % while defined threshold is 5.00 %.",
         "Data refers to stock exchange Amsterdam dated on 2025-08-07 08:52."
     );

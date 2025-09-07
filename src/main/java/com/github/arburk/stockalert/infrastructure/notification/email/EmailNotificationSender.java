@@ -37,12 +37,14 @@ public class EmailNotificationSender implements NotificationSender {
   @Override
   public void send(final StockAlertsConfig stockAlertsConfig, final AlertConfig alertConfig, final Security latest, final Security persisted) {
     String currency = latest.currency();
+    final String verb = (latest.price() < persisted.price()) ? "fell" : "raised";
     final String message = """
-        Price for %s moved to %s %s dated on %s - from formerly %s %s dated on %s
+        Price for %s %s to %s %s dated on %s - from formerly %s %s dated on %s
         %s
         Data refers to stock exchange %s.
         """.formatted(
         latest.symbol(),
+        verb,
         currency, latest.price(), latest.getTimestampFormatted(),
         currency, persisted.price(), persisted.getTimestampFormatted(),
         renderComment(alertConfig, stockAlertsConfig.findConfig(latest)),
@@ -70,13 +72,15 @@ public class EmailNotificationSender implements NotificationSender {
 
   @Override
   public void send(final StockAlertsConfig stockAlertsConfig, final Security latest, final Security persisted, final Double threshold, final double deviation) {
-    String currency = latest.currency();
+    final String currency = latest.currency();
+    final String verb = (latest.price() < persisted.price()) ? "fell" : "raised";
     final String message = """
-        Price for %s moved to %s %s - from formerly %s %s dated on %s.
+        Price for %s %s to %s %s - from formerly %s %s dated on %s.
         Price change is %s while defined threshold is %s.
         Data refers to stock exchange %s dated on %s.
         """.formatted(
         latest.symbol(),
+        verb,
         currency, latest.price(),
         currency, persisted.price(), persisted.getTimestampFormatted(),
         Security.formatPercentage(deviation), Security.formatPercentage(threshold),
