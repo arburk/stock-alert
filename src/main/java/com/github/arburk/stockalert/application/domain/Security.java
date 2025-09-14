@@ -2,6 +2,7 @@ package com.github.arburk.stockalert.application.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
+import java.util.Locale;
 import lombok.NonNull;
 
 import java.time.LocalDateTime;
@@ -34,7 +35,7 @@ public record Security(
   }
 
   public static String formatPercentage(final double percentage) {
-    return String.format("%.2f %%", percentage * 100);
+    return String.format(Locale.ROOT, "%.2f %%", percentage * 100);
   }
 
   @JsonIgnore

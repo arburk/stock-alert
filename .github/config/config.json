@@ -482,7 +482,8 @@
       {
         "symbol": "MBTN",
         "isin": "",
-        "_comment": "",
+        "percentage-alert" : "0",
+        "_comment": "Skip percentage alert for the moment",
         "exchange": "Switzerland",
         "alerts": [
           {
@@ -518,8 +519,7 @@
       {
         "symbol": "MOZN",
         "isin": "",
-        "percentage-alert" : "0",
-        "_comment": "Skip percentage alert for the moment",
+        "_comment": "",
         "exchange": "Switzerland",
         "alerts": [
           {
