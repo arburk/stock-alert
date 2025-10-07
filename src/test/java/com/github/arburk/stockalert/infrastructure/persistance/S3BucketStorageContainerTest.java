@@ -107,7 +107,11 @@ class S3BucketStorageContainerTest {
   void writeDataIntoBucket() {
     ReflectionTestUtils.setField(testee, "bucket", BUCKET_NAME);
 
-    assertDoesNotThrow(() -> testee.updateSecurities(STOCK_ALERT_DB.securities()));
+    assertDoesNotThrow(() -> {
+      final Collection<Security> securities = STOCK_ALERT_DB.securities();
+      securities.forEach(testee::updateSecurity);
+      testee.commitChanges();
+    });
     assertDoesNotThrow(() -> testee.updateMetaInfo(STOCK_ALERT_DB.metaInfo()));
 
     final List<S3Object> s3Contents = s3Client.listObjects(ListObjectsRequest.builder()

@@ -35,17 +35,6 @@ public abstract class AbstractPersistenceProvider implements PersistenceProvider
   }
 
   @Override
-  public void updateSecurities(final Collection<Security> securities) {
-    if (securities == null || securities.isEmpty()) {
-      log.warn("updateSecurities was called with empty securities. skip to prevent data loss.");
-      log.info("If you want to reset data, stop the application and delete storage file '{}'.", STORAGE_FILE_NAME);
-      return;
-    }
-    securities.forEach(this::updateSecurity);
-    commitChanges();
-  }
-
-  @Override
   public void updateMetaInfo(final MetaInfo metaInfo) {
     if (metaInfo == null) {
       log.warn("updateMetaInfo was called with empty object. skip to prevent data loss.");

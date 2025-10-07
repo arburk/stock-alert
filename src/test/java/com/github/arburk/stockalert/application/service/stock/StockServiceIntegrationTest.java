@@ -113,7 +113,8 @@ class StockServiceIntegrationTest {
         .willReturn(okJson(Files.contentOf(Path.of("src/test/resources/rest-client/extended-response.json").toFile(), StandardCharsets.UTF_8))));
 
     assertFalse(expectedStorageFile.exists());
-    persistenceProvider.updateSecurities(/* peristed file required for comparison */ getPreparedSecurities());
+    getPreparedSecurities().forEach(persistenceProvider::updateSecurity);
+    persistenceProvider.commitChanges(/* peristed file required for comparison */);
     assertTrue(expectedStorageFile.exists(), "Expected FileStorage created file %s, but nothing found".formatted(expectedStorageFile.toString()));
     final var fileSizeBeforeAddingResults = expectedStorageFile.length();
     assertTrue(persistenceProvider.getSecurites().stream().allMatch(sec -> sec.alertLog().isEmpty()));
@@ -156,7 +157,8 @@ class StockServiceIntegrationTest {
 
     assertFalse(expectedStorageFile.exists());
     ReflectionTestUtils.setField(persistenceProvider, "data", null); //
-    persistenceProvider.updateSecurities(/* peristed file required for comparison */ getPreparedSecurities());
+    getPreparedSecurities().forEach(persistenceProvider::updateSecurity);
+    persistenceProvider.commitChanges(/* peristed file required for comparison */);
     assertTrue(expectedStorageFile.exists(), "Expected FileStorage created file %s, but nothing found".formatted(expectedStorageFile.toString()));
     assertTrue(persistenceProvider.getSecurites().stream().allMatch(sec -> sec.alertLog().isEmpty()));
 
@@ -197,7 +199,8 @@ class StockServiceIntegrationTest {
     if (expectedStorageFile.exists()) {
       assertTrue(expectedStorageFile.delete());
     }
-    persistenceProvider.updateSecurities(/* peristed file required for comparison */ getPreparedSecurities());
+    getPreparedSecurities().forEach(persistenceProvider::updateSecurity);
+    persistenceProvider.commitChanges(/* peristed file required for comparison */);
 
     greenMail.stop();
 
