@@ -136,7 +136,7 @@ class FileStorageTest {
         new Security("ROG", 251.34, "CHF", -.0324, TIMESTAMP, "Switzerland", null)
     );
 
-    testee.updateSecurities(securities);
+    securities.forEach(testee::updateSecurity);
     testee.updateMetaInfo(new MetaInfo(EXPECTED_LAST_ERROR));
 
     assertTrue(EXPECTED_FILE_PATH.toFile().exists());
@@ -156,7 +156,9 @@ class FileStorageTest {
         new Security("ROG", 251.34, "CHF", null, TIMESTAMP, "Switzerland", null)
     );
 
-    testee.updateSecurities(initalData); //inital data is written
+    //inital data is written
+    initalData.forEach(testee::updateSecurity);
+    testee.commitChanges();
 
     final LocalDateTime newTs = LocalDateTime.of(2025, Month.AUGUST, 6, 14, 39, 12, 11);
     final List<Security> updatedData = List.of(
@@ -165,7 +167,9 @@ class FileStorageTest {
         new Security("NOVN", 96.24, "CHF", null, newTs, "Switzerland", null)
     );
 
-    testee.updateSecurities(updatedData); //update stuff
+    //update stuff
+    updatedData.forEach(testee::updateSecurity);
+    testee.commitChanges();
 
     assertTrue(EXPECTED_FILE_PATH.toFile().exists());
     final String generatedContents = Files.readString(EXPECTED_FILE_PATH);

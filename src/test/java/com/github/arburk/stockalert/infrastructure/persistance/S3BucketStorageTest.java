@@ -145,13 +145,6 @@ class S3BucketStorageTest {
   }
 
   @Test
-  void updateSecurities_emptyList_skipsPersist() {
-    testee.updateSecurities(List.of());
-    verify(mockS3, never()).putObject(any(PutObjectRequest.class), any(RequestBody.class));
-    verify(mockS3, never()).close();
-  }
-
-  @Test
   void updateSecurities_withData_persistsSuccessfully() throws IOException {
     final LocalDateTime timestamp = LocalDateTime.now();
     final Security secOld = new Security("AAPL", 143.2, "USD", null, timestamp, "NYSE", null);
@@ -166,7 +159,8 @@ class S3BucketStorageTest {
 
     assertEquals(secOld, testee.getSecurites().stream().toList().getFirst());
 
-    testee.updateSecurities(List.of(secNew));
+    testee.updateSecurity(secNew);
+    testee.commitChanges();
 
     final Collection<Security> newData = testee.getSecurites();
     assertEquals(secNew, newData.stream().toList().getFirst());
@@ -193,7 +187,10 @@ class S3BucketStorageTest {
         .thenThrow(S3Exception.builder().message("Could not upload").build());
 
     final Security sec = new Security("AAPL", 143.2, "USD", null, LocalDateTime.now(), "NYSE", null);
-    assertDoesNotThrow(() -> testee.updateSecurities(List.of(sec)));
+    assertDoesNotThrow(() -> {
+      testee.updateSecurity(sec);
+      testee.commitChanges();
+    });
 
     verify(mockS3).close();
     assertNull(ReflectionTestUtils.getField(testee, "s3")); // client should be reset to null

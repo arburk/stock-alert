@@ -84,7 +84,7 @@ class StockServiceTest {
 
     testee.update();
 
-    verify(persistenceProvider, never()).updateSecurities(any());
+    verify(persistenceProvider, never()).updateSecurity(any());
     final Collection<String> latestRequest = stringCollection.getValue();
     assertEquals(1, latestRequest.size());
     assertEquals("[BALN]", latestRequest.toString());
