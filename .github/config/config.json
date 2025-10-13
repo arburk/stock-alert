@@ -1,6 +1,6 @@
 {
   "stock-alert-config": {
-    "version": "0.1.2-SNAPSHOT",
+    "version": "0.4.0-SNAPSHOT",
     "silence-duration": "6h",
     "percentage-alert" : "5%",
     "notification-channels": [
@@ -315,9 +315,13 @@
         "exchange": "Switzerland",
         "alerts": [
           {
-            "threshold": 80.00,
+            "threshold": 75.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "shot"
+          },{
+            "threshold": 59.00,
+            "notification": "email",
+            "_comment": "NE"
           }
         ]
       },
@@ -816,6 +820,28 @@
           },
           {
             "threshold": 17.50,
+            "notification": "email",
+            "_comment": "max"
+          }
+        ]
+      },
+      {
+        "symbol": "IFXGn",
+        "isin": "DE0006231004",
+        "_comment": "Infineon Technologies",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 42.00,
+            "notification": "email",
+            "_comment": "average/sell"
+          },{
+            "threshold": 32.00,
+            "notification": "email",
+            "_comment": "NE"
+          },
+          {
+            "threshold": 50.00,
             "notification": "email",
             "_comment": "max"
           }
