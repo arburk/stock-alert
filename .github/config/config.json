@@ -92,23 +92,23 @@
         ]
       },
       {
-        "symbol": "NTES",
-        "isin": "US64110W1027",
+        "symbol": "TOTF",
+        "isin": "FR0000120271",
         "_comment": "",
-        "exchange": "NASDAQ",
+        "exchange": "Xetra",
         "alerts": [
           {
-            "threshold": 170.00,
+            "threshold": 71.00,
             "notification": "email",
             "_comment": "max forecast"
           },
           {
-            "threshold": 150.00,
+            "threshold": 62.00,
             "notification": "email",
             "_comment": "average"
           },
           {
-            "threshold": 128.00,
+            "threshold": 50.00,
             "notification": "email",
             "_comment": "check reasons"
           }
