@@ -2,7 +2,8 @@ name: Execute
 
 on:
   schedule:
-    - cron: '16 7-19 * * 1-5' # 7–19 UTC correlates to 9–21 Uhr GMT+2, 1-5 represents working days
+#    - cron: '16 7-19 * * 1-5' # 7–19 UTC correlates to 9–21 Uhr GMT+2, 1-5 represents working days
+    - cron: '16 8-20 * * 1-5' # 7–19 UTC correlates to 9–21 Uhr GMT+1, 1-5 represents working days
   workflow_dispatch:
 
 jobs:

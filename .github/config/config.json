@@ -677,6 +677,28 @@
         ]
       },
       {
+        "symbol": "HOLN",
+        "isin": "CH0012214059",
+        "_comment": "Holcim AG",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 80.00,
+            "notification": "email",
+            "_comment": ""
+          },{
+            "threshold": 75.00,
+            "notification": "email",
+            "_comment": "Stop"
+          },
+          {
+            "threshold": 50.00,
+            "notification": "email",
+            "_comment": "Check Reason"
+          }
+        ]
+      },
+      {
         "symbol": "MRK",
         "isin": "",
         "_comment": "BX converted by factor .81",
