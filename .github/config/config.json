@@ -245,39 +245,6 @@
         ]
       },
       {
-        "symbol": "VODI",
-        "isin": "GB00BH4HKS39",
-        "_comment": "Vodafone Group",
-        "exchange": "Frankfurt",
-        "alerts": [
-          {
-            "threshold": 1.00,
-            "notification": "email",
-            "_comment": "magic threshold"
-          },
-          {
-            "threshold": 1.50,
-            "notification": "email",
-            "_comment": "max forecast"
-          },
-          {
-            "threshold": 1.10,
-            "notification": "email",
-            "_comment": ""
-          },
-          {
-            "threshold": 1.20,
-            "notification": "email",
-            "_comment": ""
-          },
-          {
-            "threshold": 0.95,
-            "notification": "email",
-            "_comment": ""
-          }
-        ]
-      },
-      {
         "symbol": "ENI",
         "isin": "",
         "_comment": "",
