@@ -114,14 +114,8 @@
     <dependency>
       <groupId>org.wiremock.integrations</groupId>
       <artifactId>wiremock-spring-boot</artifactId>
-      <version>4.0.5</version>
+      <version>4.0.6</version>
       <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>org.eclipse.jetty.ee10</groupId>
-          <artifactId>jetty-ee10-bom</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
 
     <dependency>

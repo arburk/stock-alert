@@ -199,7 +199,12 @@
           {
             "threshold": 275.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "NE"
+          },
+          {
+            "threshold": 295.00,
+            "notification": "email",
+            "_comment": "Close to halve"
           }
         ]
       },
