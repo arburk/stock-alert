@@ -395,6 +395,34 @@
         ]
       },
       {
+        "symbol": "LONN",
+        "isin": "CH0013841017",
+        "_comment": "Lonza Group AG",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 630.00,
+            "notification": "email",
+            "_comment": "target"
+          },
+          {
+            "threshold": 600.00,
+            "notification": "email",
+            "_comment": ""
+          },
+          {
+            "threshold": 530.00,
+            "notification": "email",
+            "_comment": "NE"
+          },
+          {
+            "threshold": 500.00,
+            "notification": "email",
+            "_comment": "check reason"
+          }
+        ]
+      },
+      {
         "symbol": "LEHN",
         "isin": "",
         "_comment": "",
