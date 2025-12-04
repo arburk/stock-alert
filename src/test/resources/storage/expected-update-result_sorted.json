@@ -5,15 +5,7 @@
       "price": 212.14,
       "currency": "CHF",
       "changePercentage": 0.0217,
-      "timestamp": [
-        2025,
-        8,
-        6,
-        14,
-        39,
-        12,
-        11
-      ],
+      "timestamp": "2025-08-06T14:39:12.000000011",
       "exchange": "Switzerland",
       "alertLog": []
     },
@@ -22,15 +14,7 @@
       "price": 11.24,
       "currency": "CHF",
       "changePercentage": null,
-      "timestamp": [
-        2018,
-        9,
-        24,
-        17,
-        12,
-        1,
-        12
-      ],
+      "timestamp": "2018-09-24T17:12:01.000000012",
       "exchange": "Switzerland",
       "alertLog": []
     },
@@ -39,15 +23,7 @@
       "price": 9.36,
       "currency": "CHF",
       "changePercentage": -0.0026,
-      "timestamp": [
-        2025,
-        8,
-        6,
-        14,
-        39,
-        12,
-        11
-      ],
+      "timestamp": "2025-08-06T14:39:12.000000011",
       "exchange": "unknown",
       "alertLog": []
     },
@@ -56,15 +32,7 @@
       "price": 96.24,
       "currency": "CHF",
       "changePercentage": null,
-      "timestamp": [
-        2025,
-        8,
-        6,
-        14,
-        39,
-        12,
-        11
-      ],
+      "timestamp": "2025-08-06T14:39:12.000000011",
       "exchange": "Switzerland",
       "alertLog": []
     },
@@ -73,15 +41,7 @@
       "price": 251.34,
       "currency": "CHF",
       "changePercentage": null,
-      "timestamp": [
-        2018,
-        9,
-        24,
-        17,
-        12,
-        1,
-        12
-      ],
+      "timestamp": "2018-09-24T17:12:01.000000012",
       "exchange": "Switzerland",
       "alertLog": []
     }

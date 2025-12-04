@@ -699,29 +699,6 @@
         ]
       },
       {
-        "symbol": "MRK",
-        "isin": "",
-        "_comment": "BX converted by factor .81",
-        "exchange": "NYSE",
-        "alerts": [
-          {
-            "threshold": 123.50,
-            "notification": "email",
-            "_comment": ""
-          },
-          {
-            "threshold": 148.00,
-            "notification": "email",
-            "_comment": ""
-          },
-          {
-            "threshold": 74.00,
-            "notification": "email",
-            "_comment": ""
-          }
-        ]
-      },
-      {
         "symbol": "ZEAL",
         "isin": "DK0060257814",
         "_comment": "BX converted by factor 1.17",
@@ -866,6 +843,57 @@
             "threshold": 50.00,
             "notification": "email",
             "_comment": "max"
+          }
+        ]
+      },
+      {
+        "symbol": "SMHNn",
+        "isin": "DE000A1K0235",
+        "_comment": "SUSS MicroTec SE",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 45.00,
+            "notification": "email",
+            "_comment": "average/sell"
+          },{
+            "threshold": 33.00,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "GSZ",
+        "isin": "FR0010208488",
+        "_comment": "Engie SA",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 26.00,
+            "notification": "email",
+            "_comment": "average/sell"
+          },{
+            "threshold": 21.80,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "ZALG",
+        "isin": "DE000ZAL1111",
+        "_comment": "Zalando SE",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 26.00,
+            "notification": "email",
+            "_comment": "average/sell"
+          },{
+            "threshold": 22.50,
+            "notification": "email",
+            "_comment": "NE"
           }
         ]
       }

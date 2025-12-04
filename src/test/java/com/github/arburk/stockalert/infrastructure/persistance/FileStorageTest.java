@@ -1,6 +1,6 @@
 package com.github.arburk.stockalert.infrastructure.persistance;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectMapper;
 import com.github.arburk.stockalert.application.config.JacksonConfig;
 import com.github.arburk.stockalert.application.domain.MetaInfo;
 import com.github.arburk.stockalert.application.domain.Security;
@@ -15,7 +15,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.Collection;
@@ -35,7 +34,7 @@ import static org.mockito.Mockito.when;
 
 class FileStorageTest {
 
-  private static final Path TEST_HOME = Paths.get("target/test/", String.valueOf(System.currentTimeMillis()));
+  private static final Path TEST_HOME = Path.of("target/test/", String.valueOf(System.currentTimeMillis()));
   private static final Path EXPECTED_FILE_PATH = Path.of(TEST_HOME.toString(), "stock-alert", "securities.db.json");
   private static final LocalDateTime TIMESTAMP = LocalDateTime.of(2018, Month.SEPTEMBER, 24, 17, 12, 1, 12);
   private static final LocalDateTime EXPECTED_LAST_ERROR = LocalDateTime.of(2025, Month.AUGUST, 24, 18, 17, 35, 12);
@@ -103,12 +102,12 @@ class FileStorageTest {
   }
 
   @Test
-  void test_InitData_ExcpetionReturnsEmptyDataFile() throws IOException {
+  void test_InitData_ExcpetionReturnsEmptyDataFile() {
     final Path pathMock = mock(Path.class);
     final ObjectMapper objectMapperMock = mock(ObjectMapper.class);
     ReflectionTestUtils.setField(testee, "filePath", pathMock);
     ReflectionTestUtils.setField(testee, "objectMapper", objectMapperMock);
-    doThrow(new IOException("Test Exception")).when(objectMapperMock).readValue(any(File.class), any(Class.class));
+    doThrow(new RuntimeException("Test Exception")).when(objectMapperMock).readValue(any(File.class), any(Class.class));
     final File mockedFile = mock(File.class);
     when(pathMock.toFile()).thenReturn(mockedFile);
     when(mockedFile.exists()).thenReturn(true);

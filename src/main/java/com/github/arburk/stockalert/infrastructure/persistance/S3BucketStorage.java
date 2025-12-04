@@ -1,7 +1,7 @@
 package com.github.arburk.stockalert.infrastructure.persistance;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.ObjectMapper;
 import com.github.arburk.stockalert.application.domain.StockAlertDb;
 import com.github.arburk.stockalert.application.service.stock.PersistenceProvider;
 import io.micrometer.common.util.StringUtils;

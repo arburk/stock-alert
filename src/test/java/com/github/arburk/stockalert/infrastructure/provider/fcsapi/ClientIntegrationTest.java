@@ -1,6 +1,6 @@
 package com.github.arburk.stockalert.infrastructure.provider.fcsapi;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectMapper;
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.service.stock.StockProvider;
 import com.github.arburk.stockalert.infrastructure.provider.fcsapi.dto.StockApiResponse;
