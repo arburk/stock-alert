@@ -34,7 +34,7 @@
     </repository>
   </distributionManagement>
   <properties>
-    <java.version>21</java.version>
+    <java.version>25</java.version>
     <mapstruct.version>1.6.3</mapstruct.version>
     <sonar.organization>arburk</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>

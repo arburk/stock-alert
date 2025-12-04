@@ -24,7 +24,7 @@ class SecurityTest {
 
     final Alert alert1 = new Alert(oneHorAgo, 1., "CHF");
 
-    IntStream.of(3).forEach(run -> {
+    IntStream.of(3).forEach(_ -> {
       testee.addLog(alert1);
       assertEquals(1, testee.alertLog().size());
       assertTrue(testee.alertLog().contains(alert1));

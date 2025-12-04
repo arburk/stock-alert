@@ -17,7 +17,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.io.StringReader;
 import java.net.URI;
 import java.nio.file.Path;
 
@@ -111,7 +110,7 @@ public class ApplicationConfig {
         while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
           outputStream.write(dataBuffer, 0, bytesRead);
         }
-        return new StringReader(outputStream.toString());
+        return Reader.of(outputStream.toString());
       }
     }
 
