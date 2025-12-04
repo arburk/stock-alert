@@ -26,7 +26,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.Arrays;
@@ -54,7 +53,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class StockServiceIntegrationTest {
 
   private static final String USER_HOME = System.getProperty("user.home");
-  private static final Path TEST_HOME = Paths.get("target/test/", String.valueOf(System.currentTimeMillis()));
+  private static final Path TEST_HOME = Path.of("target/test/", String.valueOf(System.currentTimeMillis()));
   private static File expectedStorageFile;
   private static GreenMail greenMail;
 

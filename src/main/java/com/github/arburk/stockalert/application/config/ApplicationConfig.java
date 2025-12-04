@@ -1,6 +1,5 @@
 package com.github.arburk.stockalert.application.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.arburk.stockalert.application.domain.config.AlertConfigRoot;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import io.micrometer.common.util.StringUtils;
@@ -10,10 +9,16 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import tools.jackson.databind.ObjectMapper;
 
-import java.net.MalformedURLException;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.StringReader;
 import java.net.URI;
-import java.net.URL;
 import java.nio.file.Path;
 
 @Slf4j
@@ -86,18 +91,30 @@ public class ApplicationConfig {
     }
   }
 
-  private URL getConfigFileAsUrl() throws MalformedURLException {
+  private Reader getConfigFileAsUrl() throws IOException {
     if (this.configUrl == null || StringUtils.isBlank(this.configUrl)) {
       throw new IllegalArgumentException("Configuration is missing. Please set CONFIG-URL as environment variable.");
     }
 
     // check for valid pathes
-    if (this.configUrl.startsWith("file://")
-        || this.configUrl.startsWith("http://")
-        || this.configUrl.startsWith("https://")) {
-      return URI.create(configUrl).normalize().toURL();
+    if (this.configUrl.startsWith("file://")) {
+      return new FileReader(new File(URI.create(configUrl).normalize()));
     }
 
-    return Path.of(this.configUrl).normalize().toAbsolutePath().toUri().toURL();
+    if( this.configUrl.startsWith("http://")
+        || this.configUrl.startsWith("https://")) {
+
+      try (BufferedInputStream in = new BufferedInputStream(URI.create(this.configUrl).toURL().openStream());
+           ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+        byte[] dataBuffer = new byte[1024];
+        int bytesRead;
+        while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
+          outputStream.write(dataBuffer, 0, bytesRead);
+        }
+        return new StringReader(outputStream.toString());
+      }
+    }
+
+    return new FileReader(new File(Path.of(this.configUrl).normalize().toAbsolutePath().toUri()));
   }
 }

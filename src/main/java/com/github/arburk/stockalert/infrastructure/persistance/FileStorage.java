@@ -1,15 +1,15 @@
 package com.github.arburk.stockalert.infrastructure.persistance;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.arburk.stockalert.application.domain.StockAlertDb;
 import com.github.arburk.stockalert.application.service.stock.PersistenceProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
+import tools.jackson.core.JacksonException;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.ObjectMapper;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
@@ -45,7 +45,7 @@ public class FileStorage extends AbstractPersistenceProvider implements Persiste
       final StockAlertDb copy = new StockAlertDb(data.securities() /* sort securities before saving*/, data.metaInfo());
       objectMapper.writerWithDefaultPrettyPrinter().writeValue(filePath.toFile(), copy);
       log.info("Securities successfully updated to file: {}", filePath.toFile().getAbsoluteFile());
-    } catch (IOException e) {
+    } catch (Exception e) {
       log.error("Failed to write securities to file '{}}'", filePath.toFile().getAbsoluteFile(), e);
     }
   }
@@ -58,13 +58,13 @@ public class FileStorage extends AbstractPersistenceProvider implements Persiste
         return initDataByFallback();
       }
       return objectMapper.readValue(filePath.toFile(), StockAlertDb.class);
-    } catch (IOException e) {
+    } catch (Exception e) {
       log.error("Failed to read securities from file", e);
       return new StockAlertDb(new ArrayList<>(/* must not be immutable */), null);
     }
   }
 
-  private StockAlertDb initDataByFallback() throws IOException {
+  private StockAlertDb initDataByFallback() throws JacksonException {
     final Path fallback = Path.of(System.getProperty("user.home"), "stock-alert", PersistenceProvider.STORAGE_FILE_NAME_0_1_3);
     if (fallback.toFile().exists()) {
       log.info("init data from former storage file for migration: {}", fallback.toFile().getAbsoluteFile());
