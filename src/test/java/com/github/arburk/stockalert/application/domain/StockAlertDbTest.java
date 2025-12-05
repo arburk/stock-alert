@@ -17,7 +17,7 @@ class StockAlertDbTest {
     Security s4 = new Security("DEF", null,null,null,null,null,null);
 
     final StockAlertDb stockAlertDb = new StockAlertDb(new ArrayList<>(Arrays.asList(s1, s2, s3, s4)), null);
-    assertEquals(s2, stockAlertDb.securities().get(0));
+    assertEquals(s2, stockAlertDb.securities().getFirst());
     assertEquals(s4, stockAlertDb.securities().get(1));
     assertEquals(s3, stockAlertDb.securities().get(2));
     assertEquals(s1, stockAlertDb.securities().get(3));
