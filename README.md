@@ -62,7 +62,7 @@ docker run -e FCS-API-KEY=your-api-key \
            -e GATEWAY-EMAIL-HOST=smtp.provider.com \
            -e GATEWAY-EMAIL-USER=you@provider.com \
            -e GATEWAY-EMAIL-PWD=<your-secret-password> \
-           arburk/stock-alert:0.3.1
+           arburk/stock-alert:0.5.0
 ```
 - execute container with mounted config file, assuming, the config file is ``/home/user/my-config/my-config.json``
 ```
@@ -72,7 +72,7 @@ docker run -e FCS-API-KEY=your-api-key \
            -e GATEWAY-EMAIL-PWD=<your-secret-password> \
            -v /home/user/my-config:/config \
            -e CONFIG-URL=/config/my-config.json
-           arburk/stock-alert:0.3.1
+           arburk/stock-alert:0.5.0
 ```
 
 ## Build and Development
@@ -81,6 +81,10 @@ docker run -e FCS-API-KEY=your-api-key \
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=arburk_stock-alert&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=arburk_stock-alert)
 
 - build the source by ``mvn -B clean verify --file pom.xml``
-- build the Docker image by ``docker build -t stock-alert:0.3.2-SNAPSHOT . ``
+- build the Docker image by ``docker build -t stock-alert:0.5.1-SNAPSHOT . ``
 - run the docker image using this very version as described in [Docker](#docker)
 
+## Change Log
+- 0.5.0 - __!Breaking!__ - upgrade to Java 25 and Spring Boot 4
+- 0.4.1 - dependency updates
+- 0.4.0 - removed deprecated methods
