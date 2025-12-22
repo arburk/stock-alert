@@ -2831,7 +2831,7 @@
     },
     {
       "id": "113960",
-      "name": "Coca-Cola",
+      "name": "Coca-Cola Co",
       "short_name": "KOUSD",
       "country": "switzerland",
       "ccy": "USD",
@@ -4973,7 +4973,7 @@
     },
     {
       "id": "114199",
-      "name": "Takkt AG O.N.",
+      "name": "Takkt AG",
       "short_name": "TTKG",
       "country": "switzerland",
       "ccy": "CHF",
@@ -6311,6 +6311,33 @@
       "ccy": "",
       "exch": "",
       "sector": "Industrials"
+    },
+    {
+      "id": "60842984",
+      "name": "Symrise AG Inh. O.N.",
+      "short_name": "SY1G",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
+    },
+    {
+      "id": "60842985",
+      "name": "Walmart Inc",
+      "short_name": "WMTUSD",
+      "country": "switzerland",
+      "ccy": "USD",
+      "exch": "Switzerland",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    {
+      "id": "60847494",
+      "name": "Anglo American PLC",
+      "short_name": "AAM",
+      "country": "switzerland",
+      "ccy": "CHF",
+      "exch": "Switzerland",
+      "sector": "Basic Materials"
     }
   ],
   "info": {
@@ -6330,7 +6357,7 @@
       "Utilities",
       "Energy"
     ],
-    "server_time": "2025-12-10 19:59:12 UTC",
+    "server_time": "2025-12-22 21:05:49 UTC",
     "credit_count": 1
   }
 }

@@ -2,7 +2,7 @@
 GET https://fcsapi.com/api-v3/stock/latest?symbol=IBM,AMD,AAPL,MSFT,FB,TSLA&access_key=API_KEY
 
 ### GET Securities
-GET https://fcsapi.com/api-v3/stock/latest?symbol=HBAN&access_key={{API-KEY}}
+GET https://fcsapi.com/api-v3/stock/latest?symbol=HELN&access_key={{API-KEY}}
 
 ### GET tradegate traded securities
 GET https://fcsapi.com/api-v3/stock/list?exchange=tradegate&access_key={{API-KEY}}
@@ -20,7 +20,7 @@ GET https://fcsapi.com/api-v3/stock/list?country=france&access_key={{API-KEY}}
 GET https://fcsapi.com/api-v3/stock/list?country=Switzerland&access_key={{API-KEY}}
 
 ### GET SYMBOL
-https://fcsapi.com/api-v3/stock/profile?symbol=ZEAL&access_key={{API-KEY}}
+https://fcsapi.com/api-v3/stock/profile?symbol=HELN&access_key={{API-KEY}}
 
 ### GET traded securities
 GET https://fcsapi.com/api-v3/stock/list?exchange=Vienna&access_key={{API-KEY}}

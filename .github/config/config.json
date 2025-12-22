@@ -36,9 +36,9 @@
         ]
       },
       {
-        "symbol": "HBAN",
+        "symbol": "HELN",
         "isin": "",
-        "_comment": "",
+        "_comment": "Helvetia Baloise",
         "exchange": "Switzerland",
         "alerts": [
           {
