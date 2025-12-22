@@ -94,7 +94,7 @@
       {
         "symbol": "TOTF",
         "isin": "FR0000120271",
-        "_comment": "",
+        "_comment": "TOTALENERGIES",
         "exchange": "Xetra",
         "alerts": [
           {
@@ -892,6 +892,57 @@
             "_comment": "average/sell"
           },{
             "threshold": 22.50,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "SIKA",
+        "isin": "CH0418792922",
+        "_comment": "Sika AG",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 195,
+            "notification": "email",
+            "_comment": "average/sell"
+          },{
+            "threshold": 160,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "SRENH",
+        "isin": "CH0126881561",
+        "_comment": "Swiss Re AG",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 150,
+            "notification": "email",
+            "_comment": "average/sell"
+          },{
+            "threshold": 130,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "VICI",
+        "isin": "CH0126881561",
+        "_comment": "VICI Properties Inc",
+        "exchange": "NYSE",
+        "alerts": [
+          {
+            "threshold": 44,
+            "notification": "email",
+            "_comment": "average/sell"
+          },{
+            "threshold": 30,
             "notification": "email",
             "_comment": "NE"
           }
