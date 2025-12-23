@@ -634,12 +634,6 @@
         ]
       },
       {
-        "symbol": "BIOV",
-        "isin": "",
-        "_comment": "",
-        "exchange": "Switzerland"
-      },
-      {
         "symbol": "BAEAG",
         "isin": "",
         "_comment" : "BAWAG NOT YET identified -> 100, 130, 120",
@@ -828,7 +822,7 @@
         "symbol": "IFXGn",
         "isin": "DE0006231004",
         "_comment": "Infineon Technologies",
-        "exchange": "Switzerland",
+        "exchange": "Xetra",
         "alerts": [
           {
             "threshold": 42.00,

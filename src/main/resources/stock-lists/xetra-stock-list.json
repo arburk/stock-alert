@@ -109,7 +109,7 @@
       "country": "germany",
       "ccy": "EUR",
       "exch": "Xetra",
-      "sector": ""
+      "sector": "Basic Materials"
     },
     "17": {
       "id": "69132",
@@ -536,7 +536,7 @@
     },
     "66": {
       "id": "69232",
-      "name": "Fuchs Petrolub AG VZO Pref",
+      "name": "Fuchs Se Pref",
       "short_name": "FPE3_p",
       "country": "germany",
       "ccy": "EUR",
@@ -878,7 +878,7 @@
     },
     "118": {
       "id": "69284",
-      "name": "Francotyp-Postalia Hldg",
+      "name": "Francotyp-Postalia",
       "short_name": "FPHG",
       "country": "germany",
       "ccy": "EUR",
@@ -1706,7 +1706,7 @@
     },
     "226": {
       "id": "69434",
-      "name": "Aixtron",
+      "name": "Aixtron SE",
       "short_name": "AIXGn",
       "country": "germany",
       "ccy": "EUR",
@@ -2373,7 +2373,7 @@
     "302": {
       "id": "69511",
       "name": "Voltabox AG",
-      "short_name": "VBX",
+      "short_name": "VOTR",
       "country": "germany",
       "ccy": "EUR",
       "exch": "Xetra",
@@ -2721,7 +2721,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "1129": {
+    "1128": {
       "id": "114247",
       "name": "Covestro AG",
       "short_name": "1COVG",
@@ -2786,7 +2786,7 @@
     },
     "1541": {
       "id": "12622884",
-      "name": "INTC",
+      "name": "Intel Corporation",
       "short_name": "INTC",
       "country": "germany",
       "ccy": "EUR",
@@ -2804,7 +2804,7 @@
     },
     "1543": {
       "id": "12622886",
-      "name": "Howmet Aerospace\u00c2\u00a0Inc",
+      "name": "Howmet AerospaceÂ Inc",
       "short_name": "48Z",
       "country": "germany",
       "ccy": "EUR",
@@ -2858,7 +2858,7 @@
     },
     "1550": {
       "id": "12622893",
-      "name": "McDonald\u00e2\u20ac\u2122s Corporation",
+      "name": "McDonaldâ€™s Corporation",
       "short_name": "MCD",
       "country": "germany",
       "ccy": "EUR",
@@ -2984,7 +2984,7 @@
     },
     "1564": {
       "id": "12622907",
-      "name": "L\u00e2\u20ac\u2122Oreal SA",
+      "name": "Lâ€™Oreal SA",
       "short_name": "OREP",
       "country": "germany",
       "ccy": "EUR",
@@ -3200,7 +3200,7 @@
     },
     "1614": {
       "id": "18327976",
-      "name": "Verizon",
+      "name": "Verizon Communications Inc",
       "short_name": "VZ",
       "country": "germany",
       "ccy": "EUR",
@@ -3891,6 +3891,15 @@
       "exch": "Xetra",
       "sector": "Basic Materials"
     },
+    "2262": {
+      "id": "60298210",
+      "name": "Verbund AG Kat. A",
+      "short_name": "VERB",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Utilities"
+    },
     "2264": {
       "id": "60298212",
       "name": "Wienerberger AG",
@@ -4007,6 +4016,78 @@
       "ccy": "EUR",
       "exch": "Xetra",
       "sector": "Industrials"
+    },
+    "2304": {
+      "id": "60724437",
+      "name": "Kinross Gold Corp",
+      "short_name": "KGC",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
+    },
+    "2315": {
+      "id": "60744828",
+      "name": "Occidental Petroleum Corporation",
+      "short_name": "OXY",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Energy"
+    },
+    "2317": {
+      "id": "60749552",
+      "name": "Wells Fargo & Company",
+      "short_name": "NOB",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "2321": {
+      "id": "60779064",
+      "name": "Altria Group",
+      "short_name": "MO",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "2323": {
+      "id": "60797526",
+      "name": "Morgan Stanley",
+      "short_name": "MWD",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Financials"
+    },
+    "2325": {
+      "id": "60808884",
+      "name": "Archer-Daniels-Midland Company",
+      "short_name": "ADM",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Consumer Non-Cyclicals"
+    },
+    "2328": {
+      "id": "60826947",
+      "name": "Micron Technology Inc",
+      "short_name": "MU",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Technology"
+    },
+    "2330": {
+      "id": "60828827",
+      "name": "Wheaton Precious Metals Corp",
+      "short_name": "SIIG",
+      "country": "germany",
+      "ccy": "EUR",
+      "exch": "Xetra",
+      "sector": "Basic Materials"
     }
   },
   "info": {
@@ -4037,8 +4118,7 @@
       "Academic & Educational Services",
       "Capital Goods"
     ],
-    "server_time": "2025-08-07 12:29:14 UTC",
-    "credit_count": 1,
-    "_t": "2025-08-07 12:29:14 UTC"
+    "server_time": "2025-12-23 08:56:44 UTC",
+    "credit_count": 1
   }
 }

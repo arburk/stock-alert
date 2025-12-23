@@ -57,7 +57,7 @@
       "exch": "TradeGate",
       "sector": "Utilities"
     },
-    "964": {
+    "963": {
       "id": "113712",
       "name": "Ten Sixty Four",
       "short_name": "MQG0",
@@ -66,7 +66,7 @@
       "exch": "TradeGate",
       "sector": "Basic Materials"
     },
-    "993": {
+    "992": {
       "id": "113741",
       "name": "Allergan PLC",
       "short_name": "A60",
@@ -75,7 +75,7 @@
       "exch": "TradeGate",
       "sector": "Healthcare"
     },
-    "1156": {
+    "1155": {
       "id": "12622497",
       "name": "Apollo Commercial Real Estate Finance Inc",
       "short_name": "ARIC",
@@ -84,7 +84,7 @@
       "exch": "TradeGate",
       "sector": "Real Estate"
     },
-    "1207": {
+    "1206": {
       "id": "12622548",
       "name": "The Mosaic Company",
       "short_name": "02M",
@@ -194,8 +194,7 @@
       "Academic & Educational Services",
       "Capital Goods"
     ],
-    "server_time": "2025-08-09 19:49:30 UTC",
-    "credit_count": 1,
-    "_t": "2025-08-09 19:49:30 UTC"
+    "server_time": "2025-12-23 08:58:30 UTC",
+    "credit_count": 1
   }
 }
