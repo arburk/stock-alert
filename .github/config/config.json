@@ -162,31 +162,18 @@
       {
         "symbol": "INGA",
         "isin": "NL0011821202",
-        "_comment": "",
+        "_comment": "ING Group Registered",
         "exchange": "Amsterdam",
         "alerts": [
           {
             "threshold": 25.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "halfen"
           },
           {
             "threshold": 20.00,
             "notification": "email",
             "_comment": ""
-          }
-        ]
-      },
-      {
-        "symbol": "BAER",
-        "isin": "",
-        "_comment": "",
-        "exchange": "Switzerland",
-        "alerts": [
-          {
-            "threshold": 50.00,
-            "notification": "email",
-            "_comment": "check reasons and re-entry"
           }
         ]
       },
@@ -202,9 +189,9 @@
             "_comment": "NE"
           },
           {
-            "threshold": 295.00,
+            "threshold": 350.00,
             "notification": "email",
-            "_comment": "Close to halve"
+            "_comment": "milestone"
           }
         ]
       },
@@ -215,9 +202,9 @@
         "exchange": "NYSE",
         "alerts": [
           {
-            "threshold": 50.00,
+            "threshold": 45.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "go"
           },
           {
             "threshold": 70.00,
@@ -847,9 +834,13 @@
         "exchange": "Xetra",
         "alerts": [
           {
-            "threshold": 45.00,
+            "threshold": 49.50,
             "notification": "email",
-            "_comment": "average/sell"
+            "_comment": "sell"
+          },{
+            "threshold": 45.50,
+            "notification": "email",
+            "_comment": "average"
           },{
             "threshold": 33.00,
             "notification": "email",
@@ -937,6 +928,23 @@
             "_comment": "average/sell"
           },{
             "threshold": 30,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "PGHN",
+        "isin": "CH0024608827",
+        "_comment": "Partners Group",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 1300,
+            "notification": "email",
+            "_comment": "average/sell"
+          },{
+            "threshold": 1000,
             "notification": "email",
             "_comment": "NE"
           }
