@@ -828,27 +828,6 @@
         ]
       },
       {
-        "symbol": "SMHNn",
-        "isin": "DE000A1K0235",
-        "_comment": "SUSS MicroTec SE",
-        "exchange": "Xetra",
-        "alerts": [
-          {
-            "threshold": 49.50,
-            "notification": "email",
-            "_comment": "sell"
-          },{
-            "threshold": 45.50,
-            "notification": "email",
-            "_comment": "average"
-          },{
-            "threshold": 33.00,
-            "notification": "email",
-            "_comment": "NE"
-          }
-        ]
-      },
-      {
         "symbol": "GSZ",
         "isin": "FR0010208488",
         "_comment": "Engie SA",
@@ -945,6 +924,40 @@
             "_comment": "average/sell"
           },{
             "threshold": 1000,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "2M6",
+        "isin": "IE00BTN1Y115",
+        "_comment": "Medtronic PLC",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 95,
+            "notification": "email",
+            "_comment": "average/sell"
+          },{
+            "threshold": 85,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "VZ",
+        "isin": "US92343V1044",
+        "_comment": "Verizon",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 40,
+            "notification": "email",
+            "_comment": "average/sell"
+          },{
+            "threshold": 34,
             "notification": "email",
             "_comment": "NE"
           }
