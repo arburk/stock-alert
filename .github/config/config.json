@@ -331,34 +331,6 @@
         ]
       },
       {
-        "symbol": "BANB",
-        "isin": "",
-        "_comment": "",
-        "exchange": "Switzerland",
-        "alerts": [
-          {
-            "threshold": 60.00,
-            "notification": "email",
-            "_comment": ""
-          },
-          {
-            "threshold": 70.00,
-            "notification": "email",
-            "_comment": ""
-          },
-          {
-            "threshold": 75.00,
-            "notification": "email",
-            "_comment": ""
-          },
-          {
-            "threshold": 78.00,
-            "notification": "email",
-            "_comment": ""
-          }
-        ]
-      },
-      {
         "symbol": "CMBN",
         "isin": "",
         "_comment": "",
@@ -784,28 +756,6 @@
         ]
       },
       {
-        "symbol": "ENI",
-        "isin": "IT0003132476",
-        "_comment": "",
-        "exchange": "Xetra",
-        "alerts": [
-          {
-            "threshold": 15.27,
-            "notification": "email",
-            "_comment": "average"
-          },{
-            "threshold": 14.78,
-            "notification": "email",
-            "_comment": "NE"
-          },
-          {
-            "threshold": 17.50,
-            "notification": "email",
-            "_comment": "max"
-          }
-        ]
-      },
-      {
         "symbol": "IFXGn",
         "isin": "DE0006231004",
         "_comment": "Infineon Technologies",
@@ -834,7 +784,7 @@
         "exchange": "Xetra",
         "alerts": [
           {
-            "threshold": 26.00,
+            "threshold": 25.50,
             "notification": "email",
             "_comment": "average/sell"
           },{
