@@ -912,6 +912,44 @@
             "_comment": "NE"
           }
         ]
+      },
+      {
+        "symbol": "MOLN",
+        "isin": "CH0256379097",
+        "_comment": "Molecular Partners AG",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 8.0,
+            "notification": "email",
+            "_comment": "average/sell"
+          },{
+            "threshold": 3.5,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "SY1G",
+        "isin": "DE000SYM9999",
+        "_comment": "Symrise AG",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 130,
+            "notification": "email",
+            "_comment": "max"
+          },{
+            "threshold": 95,
+            "notification": "email",
+            "_comment": "average"
+          },{
+            "threshold": 70.75,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
       }
     ]
   }
