@@ -237,19 +237,6 @@
         ]
       },
       {
-        "symbol": "ENI",
-        "isin": "",
-        "_comment": "",
-        "exchange": "Xetra",
-        "alerts": [
-          {
-            "threshold": 17.50,
-            "notification": "email",
-            "_comment": ""
-          }
-        ]
-      },
-      {
         "symbol": "PFE",
         "isin": "US7170811035",
         "_comment": "",
