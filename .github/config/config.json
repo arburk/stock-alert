@@ -214,29 +214,6 @@
         ]
       },
       {
-        "symbol": "FRO",
-        "isin": "CY0200352116",
-        "_comment": "",
-        "exchange": "NYSE",
-        "alerts": [
-          {
-            "threshold": 22.50,
-            "notification": "email",
-            "_comment": "status quo"
-          },
-          {
-            "threshold": 25.00,
-            "notification": "email",
-            "_comment": "average"
-          },
-          {
-            "threshold": 28.00,
-            "notification": "email",
-            "_comment": "max"
-          }
-        ]
-      },
-      {
         "symbol": "PFE",
         "isin": "US7170811035",
         "_comment": "",
@@ -933,6 +910,23 @@
             "_comment": "average"
           },{
             "threshold": 70.75,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "SCHN",
+        "isin": "CH0024638212",
+        "_comment": "Schindler Holding AG",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 325,
+            "notification": "email",
+            "_comment": "average"
+          },{
+            "threshold": 172.5,
             "notification": "email",
             "_comment": "NE"
           }
