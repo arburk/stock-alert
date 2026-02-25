@@ -92,29 +92,6 @@
         ]
       },
       {
-        "symbol": "TOTF",
-        "isin": "FR0000120271",
-        "_comment": "TOTALENERGIES",
-        "exchange": "Xetra",
-        "alerts": [
-          {
-            "threshold": 71.00,
-            "notification": "email",
-            "_comment": "max forecast"
-          },
-          {
-            "threshold": 62.00,
-            "notification": "email",
-            "_comment": "average"
-          },
-          {
-            "threshold": 50.00,
-            "notification": "email",
-            "_comment": "check reasons"
-          }
-        ]
-      },
-      {
         "symbol": "BYDDY",
         "isin": "CNE100000296",
         "_comment": "",
@@ -674,21 +651,11 @@
           {
             "threshold": 20.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "bye"
           },{
             "threshold": 15.28,
             "notification": "email",
             "_comment": "NE"
-          },
-          {
-            "threshold": 22.00,
-            "notification": "email",
-            "_comment": "max"
-          },
-          {
-            "threshold": 14.00,
-            "notification": "email",
-            "_comment": "check"
           }
         ]
       },
@@ -738,23 +705,6 @@
             "threshold": 50.00,
             "notification": "email",
             "_comment": "max"
-          }
-        ]
-      },
-      {
-        "symbol": "GSZ",
-        "isin": "FR0010208488",
-        "_comment": "Engie SA",
-        "exchange": "Xetra",
-        "alerts": [
-          {
-            "threshold": 25.50,
-            "notification": "email",
-            "_comment": "average/sell"
-          },{
-            "threshold": 21.80,
-            "notification": "email",
-            "_comment": "NE"
           }
         ]
       },
@@ -927,6 +877,99 @@
             "_comment": "average"
           },{
             "threshold": 172.5,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "SON1",
+        "isin": "JP3435000009",
+        "_comment": "Sony Corp",
+        "exchange": "Frankfurt",
+        "alerts": [
+          {
+            "threshold": 27,
+            "notification": "email",
+            "_comment": "average"
+          },{
+            "threshold": 19.70,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "TOCG",
+        "isin": "CA8849038085",
+        "_comment": "Thomson Reuters Corp",
+        "exchange": "Frankfurt",
+        "alerts": [
+          {
+            "threshold": 117,
+            "notification": "email",
+            "_comment": "average"
+          },{
+            "threshold": 100,
+            "notification": "email",
+            "_comment": "threshold"
+          },{
+            "threshold": 75.70,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "INVP",
+        "isin": "GB00B17BBQ50",
+        "_comment": "Investec PLC",
+        "exchange": "Frankfurt",
+        "alerts": [
+          {
+            "threshold": 8.2,
+            "notification": "email",
+            "_comment": "average"
+          },{
+            "threshold": 8,
+            "notification": "email",
+            "_comment": "threshold"
+          },{
+            "threshold": 7.50,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "GASI",
+        "isin": "IT0000062072",
+        "_comment": "Assicurazioni Generali SpA",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 43,
+            "notification": "email",
+            "_comment": "average"
+          },{
+            "threshold": 35.50,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "VETN",
+        "isin": "CH0530235594",
+        "_comment": "Vetropack Holding SA",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 35,
+            "notification": "email",
+            "_comment": "average"
+          },{
+            "threshold": 23.35,
             "notification": "email",
             "_comment": "NE"
           }
