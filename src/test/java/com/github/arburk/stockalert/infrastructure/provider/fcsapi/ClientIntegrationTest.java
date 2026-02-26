@@ -2,6 +2,7 @@ package com.github.arburk.stockalert.infrastructure.provider.fcsapi;
 
 import tools.jackson.databind.ObjectMapper;
 import com.github.arburk.stockalert.application.domain.Security;
+import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.service.stock.StockProvider;
 import com.github.arburk.stockalert.infrastructure.provider.fcsapi.dto.StockApiResponse;
 import org.junit.jupiter.api.Test;
@@ -40,9 +41,17 @@ class ClientIntegrationTest {
   @Test
   void performRealApiCall() {
     assertNotNull(fcsapiClient);
-    when(stockClient.getLatestStocks(anyString(),anyString())).thenReturn(getMockedReponse());
+    when(stockClient.getLatestStocks(anyString(), anyString())).thenReturn(getMockedReponse());
 
-    final Collection<Security> result = fcsapiClient.getLatest(List.of("IBM,AMD,AAPL,MSFT,FB,TSLA"));
+    // Use SecurityConfig with EXCHANGE to trigger EXCHANGE:SYMBOL format in the request
+    final Collection<Security> result = fcsapiClient.getLatest(List.of(
+        new SecurityConfig("IBM",  "NYSE",   null, null, null, null),
+        new SecurityConfig("AMD",  "NASDAQ", null, null, null, null),
+        new SecurityConfig("AAPL", "NASDAQ", null, null, null, null),
+        new SecurityConfig("MSFT", "NASDAQ", null, null, null, null),
+        new SecurityConfig("FB",   "NASDAQ", null, null, null, null),
+        new SecurityConfig("TSLA", "NASDAQ", null, null, null, null)
+    ));
 
     assertNotNull(result);
     assertEquals(5, result.size());

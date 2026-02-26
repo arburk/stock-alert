@@ -2,6 +2,7 @@ package com.github.arburk.stockalert.infrastructure.provider.fcsapi;
 
 import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.domain.Security;
+import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.service.stock.StockProvider;
 import com.github.arburk.stockalert.infrastructure.provider.fcsapi.dto.SecurityMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -26,17 +27,26 @@ public class Client implements StockProvider {
   }
 
   @Override
-  public Collection<Security> getLatest(final Collection<String> symbols) {
-    if (symbols == null || symbols.isEmpty()) {
-      log.warn("No symbols provided");
+  public Collection<Security> getLatest(final Collection<SecurityConfig> securities) {
+    if (securities == null || securities.isEmpty()) {
+      log.warn("No securities provided");
       return Collections.emptyList();
     }
 
-    return readRemoteData(symbols.stream()
+    // v4 API requires EXCHANGE:SYMBOL format
+    final String symbolsCsv = securities.stream()
         .filter(Objects::nonNull)
-        .map(String::trim)
+        .filter(s -> s.symbol() != null && s.exchange() != null)
+        .map(s -> s.exchange().trim() + ":" + s.symbol().trim())
         .distinct()
-        .collect(Collectors.joining(",")));
+        .collect(Collectors.joining(","));
+
+    if (symbolsCsv.isBlank()) {
+      log.warn("No valid symbols/exchanges found in provided securities");
+      return Collections.emptyList();
+    }
+
+    return readRemoteData(symbolsCsv);
   }
 
   private Collection<Security> readRemoteData(final String symbolsCsv) {

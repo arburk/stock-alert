@@ -1,32 +1,32 @@
-### GET Securities with Demo API KEY
-GET https://fcsapi.com/api-v3/stock/latest?symbol=IBM,AMD,AAPL,MSFT,FB,TSLA&access_key=API_KEY
+### GET Securities with Demo API KEY (v4)
+GET https://api-v4.fcsapi.com/stock/latest?symbol=NASDAQ:IBM,NASDAQ:AMD,NASDAQ:AAPL,NASDAQ:MSFT,NASDAQ:FB,NASDAQ:TSLA&access_key=API_KEY
 
-### GET Securities
-GET https://fcsapi.com/api-v3/stock/latest?symbol=IFXGn&access_key={{API-KEY}}
+### GET Securities (v4 - EXCHANGE:SYMBOL format)
+GET https://api-v4.fcsapi.com/stock/latest?symbol=Xetra:IFXGn&access_key={{API-KEY}}
 
 ### GET tradegate traded securities
-GET https://fcsapi.com/api-v3/stock/list?exchange=tradegate&access_key={{API-KEY}}
+GET https://api-v4.fcsapi.com/stock/list?exchange=tradegate&access_key={{API-KEY}}
 
 ### GET XETRA traded securities
-GET https://fcsapi.com/api-v3/stock/list?exchange=xetra&access_key={{API-KEY}}
+GET https://api-v4.fcsapi.com/stock/list?exchange=xetra&access_key={{API-KEY}}
 
 ### GET German traded securities
-GET https://fcsapi.com/api-v3/stock/list?country=germany&access_key={{API-KEY}}
+GET https://api-v4.fcsapi.com/stock/list?country=germany&access_key={{API-KEY}}
 
 ### GET France traded securities
-GET https://fcsapi.com/api-v3/stock/list?country=france&access_key={{API-KEY}}
+GET https://api-v4.fcsapi.com/stock/list?country=france&access_key={{API-KEY}}
 
 ### GET Austria traded securities
-GET https://fcsapi.com/api-v3/stock/list?country=austria&access_key={{API-KEY}}
+GET https://api-v4.fcsapi.com/stock/list?country=austria&access_key={{API-KEY}}
 
 ### GET Switzerland traded securities
-GET https://fcsapi.com/api-v3/stock/list?country=Switzerland&access_key={{API-KEY}}
+GET https://api-v4.fcsapi.com/stock/list?country=Switzerland&access_key={{API-KEY}}
 
-### GET SYMBOL
-https://fcsapi.com/api-v3/stock/profile?symbol=HELN&access_key={{API-KEY}}
+### GET SYMBOL profile
+GET https://api-v4.fcsapi.com/stock/profile?symbol=Switzerland:HELN&access_key={{API-KEY}}
 
 ### GET traded securities
-GET https://fcsapi.com/api-v3/stock/list?exchange=Vienna&access_key={{API-KEY}}
+GET https://api-v4.fcsapi.com/stock/list?exchange=Vienna&access_key={{API-KEY}}
 
-### search for security
-GET https://fcsapi.com/api-v3/stock/search?s=DK0060257814&access_key={{API-KEY}}
+### search for security by ISIN
+GET https://api-v4.fcsapi.com/stock/search?search=DK0060257814&access_key={{API-KEY}}

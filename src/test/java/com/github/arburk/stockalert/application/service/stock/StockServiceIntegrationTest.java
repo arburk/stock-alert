@@ -32,10 +32,12 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static com.github.tomakehurst.wiremock.client.WireMock.serverError;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -94,7 +96,7 @@ class StockServiceIntegrationTest {
   @Order(1)
     // no mail sent yet
   void apiNotReachable() {
-    stubFor(get("/latest?symbol=ENI%2CFRO%2CPPGN%2CSUNN%2CMBLY%2CMRK%2CSIKA%2CALV%2CBSLN%2CPFE%2CSRAIL%2CVODI%2CLEHN%2CINGA%2CHELN%2CBALN%2CSTMN%2CVACD%2CCMBN%2CAMRZ%2CROG%2CMBTN%2CMMM%2CVUL%2CBANB%2CBIOV%2CBAER%2CMOZN%2CDTE%2CLEON%2CDKSH%2CDVN&access_key=API_KEY")
+    stubFor(get(urlPathEqualTo("/latest")).withQueryParam("access_key", equalTo("API_KEY"))
         .willReturn(serverError()));
 
     // now execute
@@ -108,7 +110,7 @@ class StockServiceIntegrationTest {
   @Test
   @Order(2)
   void happyFlow_WithAlerting() throws MessagingException, IOException {
-    stubFor(get("/latest?symbol=ENI%2CFRO%2CPPGN%2CSUNN%2CMBLY%2CMRK%2CSIKA%2CALV%2CBSLN%2CPFE%2CSRAIL%2CVODI%2CLEHN%2CINGA%2CHELN%2CBALN%2CSTMN%2CVACD%2CCMBN%2CAMRZ%2CROG%2CMBTN%2CMMM%2CVUL%2CBANB%2CBIOV%2CBAER%2CMOZN%2CDTE%2CLEON%2CDKSH%2CDVN&access_key=API_KEY")
+    stubFor(get(urlPathEqualTo("/latest")).withQueryParam("access_key", equalTo("API_KEY"))
         .willReturn(okJson(Files.contentOf(Path.of("src/test/resources/rest-client/extended-response.json").toFile(), StandardCharsets.UTF_8))));
 
     assertFalse(expectedStorageFile.exists());
@@ -151,7 +153,7 @@ class StockServiceIntegrationTest {
   @Test
   @Order(3)
   void happyFlow_WithPercentageAlerting() throws MessagingException, IOException {
-    stubFor(get("/latest?symbol=ENI%2CFRO%2CPPGN%2CSUNN%2CMBLY%2CMRK%2CSIKA%2CALV%2CBSLN%2CPFE%2CSRAIL%2CVODI%2CLEHN%2CINGA%2CHELN%2CBALN%2CSTMN%2CVACD%2CCMBN%2CAMRZ%2CROG%2CMBTN%2CMMM%2CVUL%2CBANB%2CBIOV%2CBAER%2CMOZN%2CDTE%2CLEON%2CDKSH%2CDVN&access_key=API_KEY")
+    stubFor(get(urlPathEqualTo("/latest")).withQueryParam("access_key", equalTo("API_KEY"))
         .willReturn(okJson(Files.contentOf(Path.of("src/test/resources/rest-client/response_percentage_test.json").toFile(), StandardCharsets.UTF_8))));
 
     assertFalse(expectedStorageFile.exists());
@@ -192,7 +194,7 @@ class StockServiceIntegrationTest {
   @Test
   @Order(999)
   void emailNotSendable() {
-    stubFor(get("/latest?symbol=ENI%2CFRO%2CPPGN%2CSUNN%2CMBLY%2CMRK%2CSIKA%2CALV%2CBSLN%2CPFE%2CSRAIL%2CVODI%2CLEHN%2CINGA%2CHELN%2CBALN%2CSTMN%2CVACD%2CCMBN%2CAMRZ%2CROG%2CMBTN%2CMMM%2CVUL%2CBANB%2CBIOV%2CBAER%2CMOZN%2CDTE%2CLEON%2CDKSH%2CDVN&access_key=API_KEY")
+    stubFor(get(urlPathEqualTo("/latest")).withQueryParam("access_key", equalTo("API_KEY"))
         .willReturn(okJson(Files.contentOf(Path.of("src/test/resources/rest-client/extended-response.json").toFile(), StandardCharsets.UTF_8))));
 
     if (expectedStorageFile.exists()) {

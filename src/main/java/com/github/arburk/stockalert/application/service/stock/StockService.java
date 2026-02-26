@@ -39,11 +39,11 @@ public class StockService {
     log.debug("refresh stock alert config...");
     final StockAlertsConfig stockAlertsConfig = this.applicationConfig.getStockAlertsConfig();
     final List<SecurityConfig> alertConfig = stockAlertsConfig.securities();
-    final Set<String> symbolsToQueryFor = alertConfig.stream().map(SecurityConfig::symbol).collect(Collectors.toSet());
-    log.debug("perform and process update for {}", symbolsToQueryFor);
+    log.debug("perform and process update for {}",
+        alertConfig.stream().map(s -> s.exchange() + ":" + s.symbol()).toList());
 
     try {
-      final Collection<Security> latestRelevant = getRelevantFiltered(alertConfig, stockProvider.getLatest(symbolsToQueryFor));
+      final Collection<Security> latestRelevant = getRelevantFiltered(alertConfig, stockProvider.getLatest(alertConfig));
       if (!latestRelevant.isEmpty()) {
         alertConfig.forEach(configElement -> checkSecurityAndRaiseAlert(
             stockAlertsConfig,

@@ -9,7 +9,7 @@
 - **Version:** `0.5.1-SNAPSHOT`
 - **Java:** 25
 - **Spring Boot:** 4.0.3
-- **Spring Cloud:** 2025.1.1
+  zeus- **FCS API:** v4 (`https://api-v4.fcsapi.com/stock`)
 
 ---
 
@@ -54,6 +54,10 @@ The application is configured entirely via **environment variables**:
 | `UPDATE-ON-STARTUP` | Run update on startup | `false` |
 | `CONFIG-URL` | URL or file path to `config.json` | *(required)* |
 | `STORAGE` | Storage provider: `default` (local FS) or `s3` | `default` |
+
+> **FCS API v4 note:** The base URL is `https://api-v4.fcsapi.com/stock`. Symbols are sent as `EXCHANGE:SYMBOL` (e.g.
+`Switzerland:BALN`, `NASDAQ:AAPL`). The `config.json` `symbol` + `exchange` fields are combined automatically at
+> runtime — no config format change required.
 
 **S3 Storage:**
 

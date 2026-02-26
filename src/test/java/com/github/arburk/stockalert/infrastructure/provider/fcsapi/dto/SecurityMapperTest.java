@@ -14,7 +14,7 @@ class SecurityMapperTest {
   @Test
   void mappingTestHappyFlow() {
 
-    final StockItem input = new StockItem("31.94","32.28","31.68","-0.2","-0.62%","1754337599","DVN","united-states","USD","NYSE","1298", "2025-08-04 19:59:59");
+    final StockItem input = new StockItem("31.94","32.28","31.68","-0.2","-0.62%","1754337599","NYSE:DVN","united-states","USD","NYSE","1298", "2025-08-04 19:59:59");
 
     final Security output = SecurityMapper.INSTANCE.fromStockItem(input);
     assertNotNull(output);

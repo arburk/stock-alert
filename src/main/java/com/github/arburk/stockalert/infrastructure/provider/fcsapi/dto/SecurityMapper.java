@@ -21,13 +21,29 @@ public interface SecurityMapper {
 
   SecurityMapper INSTANCE = Mappers.getMapper(SecurityMapper.class);
 
-  @Mapping(source = "s", target = "symbol")
+  /**
+   * FCS API v4 returns the symbol in the format EXCHANGE:SYMBOL (e.g. "Switzerland:BALN").
+   * We map the plain symbol (after the colon) to Security.symbol,
+   * and use the exch field for Security.exchange (consistent with config structure).
+   */
+  @Mapping(source = "s", target = "symbol", qualifiedByName = "extractSymbol")
   @Mapping(source = "c", target = "price", qualifiedByName = "stringToDouble")
   @Mapping(source = "cp", target = "changePercentage", qualifiedByName = "changePercentageStringToDouble")
   @Mapping(source = "ccy", target = "currency")
   @Mapping(source = "tm", target = "timestamp", qualifiedByName = "stringToDateTime")
   @Mapping(source = "exch", target = "exchange")
   Security fromStockItem(StockItem item);
+
+  /**
+   * Extracts the plain symbol from an "EXCHANGE:SYMBOL" string.
+   * If no colon is present the full value is returned as-is (backwards-compatible).
+   */
+  @Named("extractSymbol")
+  default String extractSymbol(String value) {
+    if (value == null) return null;
+    final int colonIdx = value.indexOf(':');
+    return colonIdx >= 0 ? value.substring(colonIdx + 1) : value;
+  }
 
   @Named("stringToDouble")
   default Double mapStringToDouble(String value) {

@@ -3,6 +3,7 @@ package com.github.arburk.stockalert.infrastructure.provider.fcsapi;
 import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.config.JacksonConfig;
 import com.github.arburk.stockalert.application.domain.Security;
+import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.infrastructure.provider.fcsapi.dto.StockApiResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -43,10 +44,20 @@ class ClientTest {
     when(stockClient.getLatestStocks(symbolsCaptor.capture(), keyCaptor.capture())).thenReturn(result200);
     when(applicationConfig.getFcsApiKey()).thenReturn("myApiKeyToVerify");
 
-    final Collection<Security> result = testee.getLatest(List.of("MRK", "INGA", "BALN", "ROG", "PFE"));
+    final Collection<Security> result = testee.getLatest(List.of(
+        new SecurityConfig("MRK", "NYSE", null, null, null, null),
+        new SecurityConfig("INGA", "Amsterdam", null, null, null, null),
+        new SecurityConfig("BALN", "Switzerland", null, null, null, null),
+        new SecurityConfig("ROG", "Switzerland", null, null, null, null),
+        new SecurityConfig("PFE", "Xetra", null, null, null, null)
+    ));
 
     assertEquals("myApiKeyToVerify", keyCaptor.getValue());
-    assertEquals("MRK,INGA,BALN,ROG,PFE", symbolsCaptor.getValue());
+    // symbols must be EXCHANGE:SYMBOL format (order may vary — check via set)
+    final String symbolsCsv = symbolsCaptor.getValue();
+    assertTrue(symbolsCsv.contains("NYSE:MRK"), "Expected NYSE:MRK in: " + symbolsCsv);
+    assertTrue(symbolsCsv.contains("Amsterdam:INGA"), "Expected Amsterdam:INGA in: " + symbolsCsv);
+    assertTrue(symbolsCsv.contains("Switzerland:BALN"), "Expected Switzerland:BALN in: " + symbolsCsv);
     assertEquals(66, result.size());
   }
 
@@ -57,10 +68,19 @@ class ClientTest {
     when(stockClient.getLatestStocks(symbolsCaptor.capture(), keyCaptor.capture())).thenReturn(result200);
     when(applicationConfig.getFcsApiKey()).thenReturn("myApiKeyToVerify");
 
-    final Collection<Security> result = testee.getLatest(List.of("MRK", "INGA", "BALN", "INGA ", "BALN", "ROG", "BALN", "DEVN"));
+    final Collection<Security> result = testee.getLatest(List.of(
+        new SecurityConfig("MRK", "NYSE", null, null, null, null),
+        new SecurityConfig("INGA", "Amsterdam", null, null, null, null),
+        new SecurityConfig("BALN", "Switzerland", null, null, null, null),
+        new SecurityConfig("BALN", "Switzerland", null, null, null, null),  // duplicate
+        new SecurityConfig("ROG", "Switzerland", null, null, null, null),
+        new SecurityConfig("BALN", "Switzerland", null, null, null, null),  // duplicate
+        new SecurityConfig("DEVN", "NYSE", null, null, null, null)
+    ));
 
     assertEquals("myApiKeyToVerify", keyCaptor.getValue());
-    assertEquals("MRK,INGA,BALN,ROG,DEVN", symbolsCaptor.getValue());
+    final String[] parts = symbolsCaptor.getValue().split(",");
+    assertEquals(5, parts.length, "Expected 5 distinct EXCHANGE:SYMBOL entries, got: " + symbolsCaptor.getValue());
     assertEquals(66, result.size());
   }
 

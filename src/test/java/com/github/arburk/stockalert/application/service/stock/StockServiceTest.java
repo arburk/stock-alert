@@ -58,48 +58,49 @@ class StockServiceTest {
 
   @Test
   void updateHappyFlow() {
-    final ArgumentCaptor<Collection<String>> stringCollection = ArgumentCaptor.forClass(Collection.class);
+    final ArgumentCaptor<Collection<SecurityConfig>> configCaptor = ArgumentCaptor.forClass(Collection.class);
     final LocalDateTime updatedTs = LocalDateTime.now();
     final LocalDateTime oldTs = LocalDateTime.of(2025, Month.JULY, 4, 17, 25, 32);
-    when(stockProvider.getLatest(stringCollection.capture())).thenReturn(getSecurites(true, updatedTs));
+    when(stockProvider.getLatest(configCaptor.capture())).thenReturn(getSecurites(true, updatedTs));
     final Collection<Security> testSecurities = getSecurites(true, oldTs);
     when(persistenceProvider.getSecurites()).thenReturn(testSecurities);
 
     testee.update();
 
-    final Collection<String> latestRequest = stringCollection.getValue();
-    assertEquals(1, latestRequest.size());
-    assertEquals("[BALN]", latestRequest.toString());
+    final Collection<SecurityConfig> requested = configCaptor.getValue();
+    assertEquals(1, requested.size());
+    assertEquals("BALN", requested.iterator().next().symbol());
+    assertEquals("Switzerland", requested.iterator().next().exchange());
     testSecurities.forEach(security -> verify(persistenceProvider).updateSecurity(security));
     verify(persistenceProvider).commitChanges();
   }
 
   @Test
   void update_NoInput() {
-    final ArgumentCaptor<Collection<String>> stringCollection = ArgumentCaptor.forClass(Collection.class);
+    final ArgumentCaptor<Collection<SecurityConfig>> configCaptor = ArgumentCaptor.forClass(Collection.class);
     final LocalDateTime updatedTs = LocalDateTime.now();
     final LocalDateTime oldTs = LocalDateTime.of(2025, Month.JULY, 4, 17, 25, 32);
-    when(stockProvider.getLatest(stringCollection.capture())).thenReturn(getSecurites(false, updatedTs));
+    when(stockProvider.getLatest(configCaptor.capture())).thenReturn(getSecurites(false, updatedTs));
     when(persistenceProvider.getSecurites()).thenReturn(getSecurites(true, oldTs));
 
     testee.update();
 
     verify(persistenceProvider, never()).updateSecurity(any());
-    final Collection<String> latestRequest = stringCollection.getValue();
-    assertEquals(1, latestRequest.size());
-    assertEquals("[BALN]", latestRequest.toString());
+    final Collection<SecurityConfig> requested = configCaptor.getValue();
+    assertEquals(1, requested.size());
+    assertEquals("BALN", requested.iterator().next().symbol());
   }
 
   @Test
   void updateIncomplete() {
     applicationConfig.setConfigUrl(Path.of("src/test/resources/config/config-test.json").toUri().toString());
-    final ArgumentCaptor<Collection<String>> stringCollection = ArgumentCaptor.forClass(Collection.class);
+    final ArgumentCaptor<Collection<SecurityConfig>> configCaptor = ArgumentCaptor.forClass(Collection.class);
     final LocalDateTime updatedTs = LocalDateTime.now();
     final LocalDateTime oldTs = LocalDateTime.of(2025, Month.JULY, 4, 17, 25, 32);
 
     final Collection<Security> providedSecurities = getSecurites(false, updatedTs);
     providedSecurities.add(new Security("HELN", 176.25, "CHF", null, updatedTs, "Switzerland", null));
-    when(stockProvider.getLatest(stringCollection.capture())).thenReturn(providedSecurities);
+    when(stockProvider.getLatest(configCaptor.capture())).thenReturn(providedSecurities);
 
     final Collection<Security> securitiesPersisted = getSecurites(true, oldTs);
     securitiesPersisted.add(new Security("HELN", 176.25, "CHF", null, oldTs, "Switzerland", null));
@@ -107,9 +108,10 @@ class StockServiceTest {
 
     testee.update();
 
-    final Collection<String> latestRequest = stringCollection.getValue();
-    assertEquals(2, latestRequest.size());
-    assertEquals("[HELN, BALN]", latestRequest.toString());
+    final Collection<SecurityConfig> requested = configCaptor.getValue();
+    assertEquals(2, requested.size());
+    assertTrue(requested.stream().anyMatch(c -> "BALN".equals(c.symbol()) && "Switzerland".equals(c.exchange())));
+    assertTrue(requested.stream().anyMatch(c -> "HELN".equals(c.symbol()) && "Switzerland".equals(c.exchange())));
 
     providedSecurities.forEach(security -> verify(persistenceProvider).updateSecurity(security));
     verify(persistenceProvider).commitChanges();
