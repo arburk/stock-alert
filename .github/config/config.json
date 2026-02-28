@@ -439,19 +439,6 @@
         ]
       },
       {
-        "symbol": "VACD",
-        "isin": "",
-        "_comment": "",
-        "exchange": "Frankfurt",
-        "alerts": [
-          {
-            "threshold": 20.00,
-            "notification": "email",
-            "_comment": ""
-          }
-        ]
-      },
-      {
         "symbol": "SRAIL",
         "isin": "",
         "_comment": "",
@@ -639,23 +626,6 @@
             "threshold": 75.00,
             "notification": "email",
             "_comment": "check"
-          }
-        ]
-      },
-      {
-        "symbol": "VLLP",
-        "isin": "FR0013506730",
-        "_comment": "Vallourec",
-        "exchange": "Paris",
-        "alerts": [
-          {
-            "threshold": 20.00,
-            "notification": "email",
-            "_comment": "bye"
-          },{
-            "threshold": 15.28,
-            "notification": "email",
-            "_comment": "NE"
           }
         ]
       },
