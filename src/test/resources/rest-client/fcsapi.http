@@ -1,5 +1,11 @@
 ### GET Securities with Demo API KEY (v4)
-GET https://api-v4.fcsapi.com/stock/latest?symbol=NASDAQ:IBM,NASDAQ:AMD,NASDAQ:AAPL,NASDAQ:MSFT,NASDAQ:FB,NASDAQ:TSLA&access_key=API_KEY
+GET https://api-v4.fcsapi.com/stock/latest?symbol=NASDAQ:IBM,NASDAQ:AMD,NASDAQ:AAPL,NASDAQ:MSFT,NASDAQ:FB,NASDAQ:TSLA&access_key={{API-KEY}}
+
+### GET SIX traded securities
+GET https://api-v4.fcsapi.com/stock/list?exchange=SIX&access_key={{API-KEY}}
+
+### GET Securities with Demo API KEY (v4)
+https://api-v4.fcsapi.com/stock/latest?symbol=HBAN&access_key={{API-KEY}}
 
 ### GET Securities (v4 - EXCHANGE:SYMBOL format)
 GET https://api-v4.fcsapi.com/stock/latest?symbol=Xetra:IFXGn&access_key={{API-KEY}}
