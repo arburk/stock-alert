@@ -2021,7 +2021,7 @@
     },
     "262": {
       "id": "69471",
-      "name": "Nexus AG",
+      "name": "Nexus",
       "short_name": "NXUG",
       "country": "germany",
       "ccy": "EUR",
@@ -2658,7 +2658,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "362": {
+    "363": {
       "id": "113108",
       "name": "Medion AG",
       "short_name": "MDNG",
@@ -2667,7 +2667,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "555": {
+    "556": {
       "id": "113303",
       "name": "Homag Group",
       "short_name": "HG1G",
@@ -2676,7 +2676,7 @@
       "exch": "Xetra",
       "sector": "Industrials"
     },
-    "585": {
+    "586": {
       "id": "113333",
       "name": "Heliad Equity",
       "short_name": "HPBGn",
@@ -2685,7 +2685,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "597": {
+    "598": {
       "id": "113345",
       "name": "Man SE VZO",
       "short_name": "MANG_p",
@@ -2694,7 +2694,7 @@
       "exch": "Xetra",
       "sector": "Industrials"
     },
-    "599": {
+    "600": {
       "id": "113347",
       "name": "Mobotix AG O.N.",
       "short_name": "MBQGn",
@@ -2703,7 +2703,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "600": {
+    "601": {
       "id": "113348",
       "name": "Muehlbauer Hold.O.N.",
       "short_name": "MUBG",
@@ -2712,7 +2712,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "609": {
+    "610": {
       "id": "113357",
       "name": "Realtech AG O.N.",
       "short_name": "RTCG",
@@ -2721,7 +2721,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "1128": {
+    "1129": {
       "id": "114247",
       "name": "Covestro AG",
       "short_name": "1COVG",
@@ -2730,7 +2730,7 @@
       "exch": "Xetra",
       "sector": "Basic Materials"
     },
-    "1534": {
+    "1535": {
       "id": "12622877",
       "name": "Boeing Co",
       "short_name": "BA",
@@ -2739,7 +2739,7 @@
       "exch": "Xetra",
       "sector": "Industrials"
     },
-    "1536": {
+    "1537": {
       "id": "12622879",
       "name": "General Motors Company",
       "short_name": "GMC",
@@ -2748,7 +2748,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "1537": {
+    "1538": {
       "id": "12622880",
       "name": "Chevron Corp",
       "short_name": "CVX",
@@ -2757,7 +2757,7 @@
       "exch": "Xetra",
       "sector": "Energy"
     },
-    "1538": {
+    "1539": {
       "id": "12622881",
       "name": "Bank of America Corp",
       "short_name": "BAC",
@@ -2766,7 +2766,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "1539": {
+    "1540": {
       "id": "12622882",
       "name": "AT&T Inc",
       "short_name": "T",
@@ -2775,7 +2775,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "1540": {
+    "1541": {
       "id": "12622883",
       "name": "Caterpillar Inc",
       "short_name": "CAT1",
@@ -2784,7 +2784,7 @@
       "exch": "Xetra",
       "sector": "Industrials"
     },
-    "1541": {
+    "1542": {
       "id": "12622884",
       "name": "Intel Corporation",
       "short_name": "INTC",
@@ -2793,7 +2793,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "1542": {
+    "1543": {
       "id": "12622885",
       "name": "Microsoft Corporation",
       "short_name": "MSFT",
@@ -2802,7 +2802,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "1543": {
+    "1544": {
       "id": "12622886",
       "name": "Howmet AerospaceÂ Inc",
       "short_name": "48Z",
@@ -2811,7 +2811,7 @@
       "exch": "Xetra",
       "sector": "Industrials"
     },
-    "1544": {
+    "1545": {
       "id": "12622887",
       "name": "Ford Motor Company",
       "short_name": "F",
@@ -2820,7 +2820,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "1546": {
+    "1547": {
       "id": "12622889",
       "name": "Walt Disney Company",
       "short_name": "DIS",
@@ -2829,7 +2829,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "1547": {
+    "1548": {
       "id": "12622890",
       "name": "Cisco Systems Inc",
       "short_name": "CSCO",
@@ -2838,7 +2838,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "1548": {
+    "1549": {
       "id": "12622891",
       "name": "Goldman Sachs Group Inc",
       "short_name": "GS",
@@ -2847,7 +2847,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "1549": {
+    "1550": {
       "id": "12622892",
       "name": "JPMorgan Chase & Co",
       "short_name": "JPM",
@@ -2856,7 +2856,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "1550": {
+    "1551": {
       "id": "12622893",
       "name": "McDonaldâ€™s Corporation",
       "short_name": "MCD",
@@ -2865,7 +2865,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "1551": {
+    "1552": {
       "id": "12622894",
       "name": "Merck & Company Inc",
       "short_name": "MRK",
@@ -2874,7 +2874,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "1552": {
+    "1553": {
       "id": "12622895",
       "name": "3M Company",
       "short_name": "MMM",
@@ -2883,7 +2883,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "1553": {
+    "1554": {
       "id": "12622896",
       "name": "Barclays PLC",
       "short_name": "BARC",
@@ -2892,7 +2892,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "1554": {
+    "1555": {
       "id": "12622897",
       "name": "BP PLC",
       "short_name": "BP",
@@ -2901,7 +2901,7 @@
       "exch": "Xetra",
       "sector": "Energy"
     },
-    "1555": {
+    "1556": {
       "id": "12622898",
       "name": "ING Groep NV",
       "short_name": "INN1",
@@ -2910,7 +2910,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "1556": {
+    "1557": {
       "id": "12622899",
       "name": "Credit Suisse",
       "short_name": "CSGN",
@@ -2919,7 +2919,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "1557": {
+    "1558": {
       "id": "12622900",
       "name": "ABB",
       "short_name": "ABBN",
@@ -2928,7 +2928,7 @@
       "exch": "Xetra",
       "sector": "Industrials"
     },
-    "1558": {
+    "1559": {
       "id": "12622901",
       "name": "Novartis",
       "short_name": "NOVZn",
@@ -2937,7 +2937,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "1559": {
+    "1560": {
       "id": "12622902",
       "name": "Nestle SA",
       "short_name": "NESN",
@@ -2946,7 +2946,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "1560": {
+    "1561": {
       "id": "12622903",
       "name": "Nestle SA ADR",
       "short_name": "NESNy",
@@ -2955,7 +2955,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "1561": {
+    "1562": {
       "id": "12622904",
       "name": "AXA SA",
       "short_name": "AXAF",
@@ -2964,7 +2964,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "1562": {
+    "1563": {
       "id": "12622905",
       "name": "Engie SA",
       "short_name": "GSZ",
@@ -2973,7 +2973,7 @@
       "exch": "Xetra",
       "sector": "Utilities"
     },
-    "1563": {
+    "1564": {
       "id": "12622906",
       "name": "LVMH Moet Hennessy Louis Vuitton SE",
       "short_name": "LVMH",
@@ -2982,7 +2982,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "1564": {
+    "1565": {
       "id": "12622907",
       "name": "Lâ€™Oreal SA",
       "short_name": "OREP",
@@ -2991,7 +2991,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "1565": {
+    "1566": {
       "id": "12622908",
       "name": "Schneider Electric SE",
       "short_name": "SCHN",
@@ -3000,7 +3000,7 @@
       "exch": "Xetra",
       "sector": "Industrials"
     },
-    "1567": {
+    "1568": {
       "id": "12622910",
       "name": "Societe Generale SA",
       "short_name": "SOGN",
@@ -3009,7 +3009,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "1568": {
+    "1569": {
       "id": "12622911",
       "name": "Sanofi SA",
       "short_name": "SASY",
@@ -3018,7 +3018,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "1569": {
+    "1570": {
       "id": "12622912",
       "name": "Vivendi",
       "short_name": "VIV",
@@ -3027,7 +3027,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "1570": {
+    "1571": {
       "id": "12622913",
       "name": "Banco Bilbao Vizcaya Argentaria SA",
       "short_name": "BBVA",
@@ -3036,7 +3036,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "1572": {
+    "1573": {
       "id": "12622915",
       "name": "Telefonica",
       "short_name": "TEF",
@@ -3045,7 +3045,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "1573": {
+    "1574": {
       "id": "12622916",
       "name": "Banco Santander",
       "short_name": "SAN",
@@ -3054,7 +3054,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "1574": {
+    "1575": {
       "id": "12622917",
       "name": "Telefonaktiebolaget LM Ericsson A",
       "short_name": "ERICa",
@@ -3063,7 +3063,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "1585": {
+    "1586": {
       "id": "12622928",
       "name": "Amazon.com Inc",
       "short_name": "AMZN",
@@ -3072,7 +3072,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "1586": {
+    "1587": {
       "id": "12622929",
       "name": "Biogen Inc",
       "short_name": "BIIB",
@@ -3081,7 +3081,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "1589": {
+    "1590": {
       "id": "12769497",
       "name": "Amgen Inc",
       "short_name": "AMGN",
@@ -3090,7 +3090,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "1591": {
+    "1592": {
       "id": "13627085",
       "name": "AstraZeneca PLC",
       "short_name": "AZN",
@@ -3099,7 +3099,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "1595": {
+    "1596": {
       "id": "13951733",
       "name": "Rio Tinto PLC",
       "short_name": "RIO",
@@ -3108,7 +3108,7 @@
       "exch": "Xetra",
       "sector": "Basic Materials"
     },
-    "1596": {
+    "1597": {
       "id": "13951734",
       "name": "Anglo American PLC",
       "short_name": "NGL0",
@@ -3117,7 +3117,7 @@
       "exch": "Xetra",
       "sector": "Basic Materials"
     },
-    "1597": {
+    "1598": {
       "id": "13951735",
       "name": "GSK plc",
       "short_name": "GS71",
@@ -3126,7 +3126,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "1599": {
+    "1600": {
       "id": "14059836",
       "name": "BHP Group Ltd",
       "short_name": "BILG",
@@ -3135,7 +3135,7 @@
       "exch": "Xetra",
       "sector": "Basic Materials"
     },
-    "1601": {
+    "1602": {
       "id": "14999013",
       "name": "Eni SpA",
       "short_name": "ENI",
@@ -3144,7 +3144,7 @@
       "exch": "Xetra",
       "sector": "Energy"
     },
-    "1605": {
+    "1606": {
       "id": "15274458",
       "name": "Exxon Mobil Corp",
       "short_name": "XON",
@@ -3153,7 +3153,7 @@
       "exch": "Xetra",
       "sector": "Energy"
     },
-    "1606": {
+    "1607": {
       "id": "15274459",
       "name": "Colgate-Palmolive Company",
       "short_name": "CL",
@@ -3162,7 +3162,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "1609": {
+    "1610": {
       "id": "15384027",
       "name": "Pfizer Inc",
       "short_name": "PFE",
@@ -3171,7 +3171,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "1610": {
+    "1611": {
       "id": "15695625",
       "name": "Walmart Inc",
       "short_name": "WMT",
@@ -3180,7 +3180,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "1611": {
+    "1612": {
       "id": "15695626",
       "name": "Home Depot Inc",
       "short_name": "HD",
@@ -3189,7 +3189,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "1612": {
+    "1613": {
       "id": "15695627",
       "name": "International Business Machines",
       "short_name": "IBM",
@@ -3198,7 +3198,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "1614": {
+    "1615": {
       "id": "18327976",
       "name": "Verizon Communications Inc",
       "short_name": "VZ",
@@ -3207,7 +3207,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "1615": {
+    "1616": {
       "id": "18657575",
       "name": "Bristol-Myers Squibb Company",
       "short_name": "BMY",
@@ -3216,7 +3216,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "1616": {
+    "1617": {
       "id": "18830973",
       "name": "Johnson & Johnson",
       "short_name": "JNJ",
@@ -3225,7 +3225,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "1618": {
+    "1619": {
       "id": "20084647",
       "name": "GE Aerospace",
       "short_name": "GCP",
@@ -3234,7 +3234,7 @@
       "exch": "Xetra",
       "sector": "Industrials"
     },
-    "1619": {
+    "1620": {
       "id": "20084648",
       "name": "Rtx Corp",
       "short_name": "5UR",
@@ -3243,7 +3243,7 @@
       "exch": "Xetra",
       "sector": "Industrials"
     },
-    "1621": {
+    "1622": {
       "id": "20084650",
       "name": "HP Inc",
       "short_name": "7HP",
@@ -3252,7 +3252,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "1626": {
+    "1627": {
       "id": "21345768",
       "name": "PepsiCo Inc",
       "short_name": "PEP",
@@ -3261,7 +3261,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "1629": {
+    "1630": {
       "id": "21345771",
       "name": "Nike Inc",
       "short_name": "NKE",
@@ -3270,7 +3270,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "1630": {
+    "1631": {
       "id": "21345772",
       "name": "Procter & Gamble Company",
       "short_name": "PG",
@@ -3279,7 +3279,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "1727": {
+    "1728": {
       "id": "47030167",
       "name": "Meta Platforms Inc",
       "short_name": "FB2A",
@@ -3288,7 +3288,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "1796": {
+    "1797": {
       "id": "60287952",
       "name": "Vestas Wind Systems A\/S",
       "short_name": "VWSB",
@@ -3297,7 +3297,7 @@
       "exch": "Xetra",
       "sector": "Energy"
     },
-    "1802": {
+    "1803": {
       "id": "60287958",
       "name": "LS Telcom AG",
       "short_name": "LSXG",
@@ -3306,7 +3306,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "1807": {
+    "1808": {
       "id": "60287963",
       "name": "Medtronic PLC",
       "short_name": "2M6",
@@ -3315,7 +3315,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "1810": {
+    "1811": {
       "id": "60287966",
       "name": "GBS Software AG",
       "short_name": "INWk",
@@ -3324,7 +3324,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "1811": {
+    "1812": {
       "id": "60287967",
       "name": "Orange SA",
       "short_name": "FTE",
@@ -3333,7 +3333,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "1825": {
+    "1826": {
       "id": "60287981",
       "name": "Allgeier SE",
       "short_name": "AEIGn",
@@ -3342,7 +3342,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "1833": {
+    "1834": {
       "id": "60287989",
       "name": "Ringmetall SE",
       "short_name": "HP3An",
@@ -3351,7 +3351,7 @@
       "exch": "Xetra",
       "sector": "Industrials"
     },
-    "1834": {
+    "1835": {
       "id": "60287990",
       "name": "M1 Kliniken AG",
       "short_name": "M12",
@@ -3360,7 +3360,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "1844": {
+    "1845": {
       "id": "60288000",
       "name": "RYA",
       "short_name": "RYA",
@@ -3369,7 +3369,7 @@
       "exch": "Xetra",
       "sector": "Industrials"
     },
-    "1845": {
+    "1846": {
       "id": "60288001",
       "name": "Smartbroker Holding AG",
       "short_name": "SB1G",
@@ -3378,7 +3378,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "1849": {
+    "1850": {
       "id": "60288005",
       "name": "Payments Group Holding GmbH & Co KgaA",
       "short_name": "PGHn",
@@ -3387,7 +3387,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "1851": {
+    "1852": {
       "id": "60288007",
       "name": "Shareholder Value Beteiligungen AG",
       "short_name": "SHVA",
@@ -3396,7 +3396,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "1852": {
+    "1853": {
       "id": "60288008",
       "name": "Deutsche Konsum REIT AG",
       "short_name": "DKG",
@@ -3405,7 +3405,7 @@
       "exch": "Xetra",
       "sector": "Real Estate"
     },
-    "1853": {
+    "1854": {
       "id": "60288009",
       "name": "Imperial Brands PLC",
       "short_name": "IMT",
@@ -3414,7 +3414,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "1917": {
+    "1918": {
       "id": "60288073",
       "name": "Artnet AG NA O.N.",
       "short_name": "AYDGn",
@@ -3423,7 +3423,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "1918": {
+    "1919": {
       "id": "60288074",
       "name": "AS Creation Tapeten AG",
       "short_name": "ACWNn",
@@ -3432,7 +3432,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "1921": {
+    "1922": {
       "id": "60288077",
       "name": "Baywa AG NA",
       "short_name": "BYWG",
@@ -3441,7 +3441,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "1928": {
+    "1929": {
       "id": "60288084",
       "name": "DF Deutsche Forfait AG",
       "short_name": "DFTKn",
@@ -3450,7 +3450,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "1932": {
+    "1933": {
       "id": "60288088",
       "name": "Einhell Germany VZO O.N.",
       "short_name": "EIN_p",
@@ -3459,7 +3459,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "1936": {
+    "1937": {
       "id": "60288092",
       "name": "Accentro Real Estate AG",
       "short_name": "A4Y",
@@ -3468,7 +3468,7 @@
       "exch": "Xetra",
       "sector": "Real Estate"
     },
-    "1941": {
+    "1942": {
       "id": "60288097",
       "name": "Ernst Russ AG",
       "short_name": "HXCKk",
@@ -3477,7 +3477,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "1948": {
+    "1949": {
       "id": "60288104",
       "name": "Laiqon AG",
       "short_name": "LQAG",
@@ -3486,7 +3486,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "1951": {
+    "1952": {
       "id": "60288107",
       "name": "ECKG",
       "short_name": "ECKG",
@@ -3495,7 +3495,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "1954": {
+    "1955": {
       "id": "60288110",
       "name": "MediClin AG",
       "short_name": "MEDG",
@@ -3504,7 +3504,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "1961": {
+    "1962": {
       "id": "60288117",
       "name": "Cpi Property",
       "short_name": "O5G",
@@ -3513,7 +3513,7 @@
       "exch": "Xetra",
       "sector": "Real Estate"
     },
-    "1962": {
+    "1963": {
       "id": "60288118",
       "name": "OVB Holding AG",
       "short_name": "O4BG",
@@ -3522,7 +3522,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "1966": {
+    "1967": {
       "id": "60288122",
       "name": "PWO AG",
       "short_name": "PWO",
@@ -3531,7 +3531,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "1981": {
+    "1982": {
       "id": "60288137",
       "name": "United Labels O.N.",
       "short_name": "ULCG",
@@ -3540,7 +3540,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "1984": {
+    "1985": {
       "id": "60288140",
       "name": "FamiCord AG",
       "short_name": "V3Vn",
@@ -3549,7 +3549,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "2001": {
+    "2002": {
       "id": "60288157",
       "name": "MPC Capital O.N.",
       "short_name": "MPCKk",
@@ -3558,7 +3558,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "2003": {
+    "2004": {
       "id": "60288159",
       "name": "BNP Paribas SA",
       "short_name": "BNPP",
@@ -3567,7 +3567,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "2008": {
+    "2009": {
       "id": "60288164",
       "name": "Repsol",
       "short_name": "REP",
@@ -3576,7 +3576,7 @@
       "exch": "Xetra",
       "sector": "Energy"
     },
-    "2014": {
+    "2015": {
       "id": "60288170",
       "name": "Apple Inc",
       "short_name": "AAPL",
@@ -3585,7 +3585,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "2023": {
+    "2024": {
       "id": "60288179",
       "name": "Stellantis NV",
       "short_name": "8TI",
@@ -3594,7 +3594,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "2031": {
+    "2032": {
       "id": "60288187",
       "name": "NanoRepro AG",
       "short_name": "NN6G",
@@ -3603,7 +3603,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "2032": {
+    "2033": {
       "id": "60288188",
       "name": "Bijou Brigitte",
       "short_name": "BIJG",
@@ -3612,7 +3612,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "2033": {
+    "2034": {
       "id": "60288189",
       "name": "Seven Principles AG",
       "short_name": "T3T1k",
@@ -3621,7 +3621,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "2034": {
+    "2035": {
       "id": "60288190",
       "name": "AT & S Austria Technologie & Systemtechnik AG",
       "short_name": "ATSV",
@@ -3630,7 +3630,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "2167": {
+    "2168": {
       "id": "60288323",
       "name": "eBay Inc",
       "short_name": "EBAY",
@@ -3639,7 +3639,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "2169": {
+    "2170": {
       "id": "60288325",
       "name": "Deere & Company",
       "short_name": "DE",
@@ -3648,7 +3648,7 @@
       "exch": "Xetra",
       "sector": "Industrials"
     },
-    "2171": {
+    "2172": {
       "id": "60288327",
       "name": "FedEx Corporation",
       "short_name": "FDX",
@@ -3657,7 +3657,7 @@
       "exch": "Xetra",
       "sector": "Industrials"
     },
-    "2176": {
+    "2177": {
       "id": "60288332",
       "name": "Coca-Cola Co",
       "short_name": "KO",
@@ -3666,7 +3666,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "2178": {
+    "2179": {
       "id": "60288334",
       "name": "Eli Lilly and Company",
       "short_name": "LLY",
@@ -3675,7 +3675,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "2180": {
+    "2181": {
       "id": "60288336",
       "name": "Oracle Corporation",
       "short_name": "ORCL",
@@ -3684,7 +3684,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "2182": {
+    "2183": {
       "id": "60288338",
       "name": "British American Tobacco PLC",
       "short_name": "BATS",
@@ -3693,7 +3693,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "2184": {
+    "2185": {
       "id": "60288340",
       "name": "HSBC Holdings PLC",
       "short_name": "HSBA",
@@ -3702,7 +3702,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "2186": {
+    "2187": {
       "id": "60288342",
       "name": "Lloyds Banking Group PLC",
       "short_name": "LLOY",
@@ -3711,7 +3711,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "2190": {
+    "2191": {
       "id": "60288346",
       "name": "Shell PLC",
       "short_name": "R6C0",
@@ -3720,7 +3720,7 @@
       "exch": "Xetra",
       "sector": "Energy"
     },
-    "2193": {
+    "2194": {
       "id": "60288349",
       "name": "Koninklijke Philips NV",
       "short_name": "PHI1",
@@ -3729,7 +3729,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "2195": {
+    "2196": {
       "id": "60288351",
       "name": "Telecom Italia",
       "short_name": "TLIT",
@@ -3738,7 +3738,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "2197": {
+    "2198": {
       "id": "60288353",
       "name": "Assicurazioni Generali SpA",
       "short_name": "GASI",
@@ -3747,7 +3747,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "2211": {
+    "2212": {
       "id": "60288368",
       "name": "Air Liquide SA",
       "short_name": "AIL",
@@ -3756,7 +3756,7 @@
       "exch": "Xetra",
       "sector": "Basic Materials"
     },
-    "2213": {
+    "2214": {
       "id": "60288370",
       "name": "Danone SA",
       "short_name": "DANO",
@@ -3765,7 +3765,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "2216": {
+    "2217": {
       "id": "60288373",
       "name": "Carrefour SA",
       "short_name": "CARR",
@@ -3774,7 +3774,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "2221": {
+    "2222": {
       "id": "60288378",
       "name": "TotalEnergies SE",
       "short_name": "TOTF",
@@ -3783,7 +3783,7 @@
       "exch": "Xetra",
       "sector": "Energy"
     },
-    "2224": {
+    "2225": {
       "id": "60288381",
       "name": "Vinci SA",
       "short_name": "SGEF",
@@ -3792,7 +3792,7 @@
       "exch": "Xetra",
       "sector": "Industrials"
     },
-    "2226": {
+    "2227": {
       "id": "60288383",
       "name": "Renault SA",
       "short_name": "RENA",
@@ -3801,7 +3801,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "2228": {
+    "2229": {
       "id": "60288385",
       "name": "Veolia Environnement VE SA",
       "short_name": "VIE",
@@ -3810,7 +3810,7 @@
       "exch": "Xetra",
       "sector": "Utilities"
     },
-    "2233": {
+    "2234": {
       "id": "60288390",
       "name": "Industria de Diseno Textil SA",
       "short_name": "IXD1",
@@ -3819,7 +3819,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "2235": {
+    "2236": {
       "id": "60288392",
       "name": "Iberdrola",
       "short_name": "IBE",
@@ -3828,7 +3828,7 @@
       "exch": "Xetra",
       "sector": "Utilities"
     },
-    "2239": {
+    "2240": {
       "id": "60288396",
       "name": "Telefonaktiebolaget LM Ericsson Class B",
       "short_name": "ERICb",
@@ -3837,7 +3837,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "2241": {
+    "2242": {
       "id": "60288398",
       "name": "H & M Hennes & Mauritz AB B",
       "short_name": "HEMS",
@@ -3846,7 +3846,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "2247": {
+    "2248": {
       "id": "60288404",
       "name": "Novo Nordisk A\/S Class B",
       "short_name": "NOVG",
@@ -3855,7 +3855,7 @@
       "exch": "Xetra",
       "sector": "Healthcare"
     },
-    "2251": {
+    "2252": {
       "id": "60288408",
       "name": "Andritz AG",
       "short_name": "ANDR",
@@ -3864,7 +3864,7 @@
       "exch": "Xetra",
       "sector": "Industrials"
     },
-    "2253": {
+    "2254": {
       "id": "60288410",
       "name": "Erste Group Bank AG",
       "short_name": "ERST",
@@ -3873,7 +3873,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "2256": {
+    "2257": {
       "id": "60288413",
       "name": "OMV AG",
       "short_name": "OMVV",
@@ -3882,7 +3882,7 @@
       "exch": "Xetra",
       "sector": "Energy"
     },
-    "2260": {
+    "2261": {
       "id": "60288417",
       "name": "Voestalpine AG",
       "short_name": "VOES",
@@ -3891,7 +3891,7 @@
       "exch": "Xetra",
       "sector": "Basic Materials"
     },
-    "2262": {
+    "2263": {
       "id": "60298210",
       "name": "Verbund AG Kat. A",
       "short_name": "VERB",
@@ -3900,7 +3900,7 @@
       "exch": "Xetra",
       "sector": "Utilities"
     },
-    "2264": {
+    "2265": {
       "id": "60298212",
       "name": "Wienerberger AG",
       "short_name": "WBSV",
@@ -3909,7 +3909,7 @@
       "exch": "Xetra",
       "sector": "Basic Materials"
     },
-    "2266": {
+    "2267": {
       "id": "60313404",
       "name": "Nokia Oyj",
       "short_name": "NOKS",
@@ -3918,7 +3918,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "2269": {
+    "2270": {
       "id": "60355033",
       "name": "Alphabet Inc Class A",
       "short_name": "ABEA",
@@ -3927,7 +3927,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "2271": {
+    "2272": {
       "id": "60367938",
       "name": "Qualcomm Incorporated",
       "short_name": "QCOM",
@@ -3936,7 +3936,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "2276": {
+    "2277": {
       "id": "60439318",
       "name": "Starbucks Corporation",
       "short_name": "SBUX",
@@ -3945,7 +3945,7 @@
       "exch": "Xetra",
       "sector": "Consumer Cyclicals"
     },
-    "2278": {
+    "2279": {
       "id": "60450972",
       "name": "Reckitt Benckiser Group PLC",
       "short_name": "RB",
@@ -3954,7 +3954,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "2288": {
+    "2289": {
       "id": "60532181",
       "name": "ArcelorMittal SA",
       "short_name": "ARRD",
@@ -3963,7 +3963,7 @@
       "exch": "Xetra",
       "sector": "Basic Materials"
     },
-    "2291": {
+    "2292": {
       "id": "60569173",
       "name": "ASML Holding NV",
       "short_name": "ASME",
@@ -3972,7 +3972,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "2293": {
+    "2294": {
       "id": "60633050",
       "name": "Intesa Sanpaolo SpA",
       "short_name": "ISP",
@@ -3981,7 +3981,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "2295": {
+    "2296": {
       "id": "60660292",
       "name": "UniCredit SpA",
       "short_name": "CRIG",
@@ -3990,7 +3990,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "2297": {
+    "2298": {
       "id": "60680182",
       "name": "Enel",
       "short_name": "ENEI",
@@ -3999,7 +3999,7 @@
       "exch": "Xetra",
       "sector": "Utilities"
     },
-    "2300": {
+    "2301": {
       "id": "60700756",
       "name": "Mastercard Inc",
       "short_name": "MA",
@@ -4008,7 +4008,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "2302": {
+    "2303": {
       "id": "60700758",
       "name": "Lockheed Martin Corporation",
       "short_name": "LMT",
@@ -4017,7 +4017,7 @@
       "exch": "Xetra",
       "sector": "Industrials"
     },
-    "2304": {
+    "2305": {
       "id": "60724437",
       "name": "Kinross Gold Corp",
       "short_name": "KGC",
@@ -4026,7 +4026,7 @@
       "exch": "Xetra",
       "sector": "Basic Materials"
     },
-    "2315": {
+    "2316": {
       "id": "60744828",
       "name": "Occidental Petroleum Corporation",
       "short_name": "OXY",
@@ -4035,7 +4035,7 @@
       "exch": "Xetra",
       "sector": "Energy"
     },
-    "2317": {
+    "2318": {
       "id": "60749552",
       "name": "Wells Fargo & Company",
       "short_name": "NOB",
@@ -4044,7 +4044,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "2321": {
+    "2322": {
       "id": "60779064",
       "name": "Altria Group",
       "short_name": "MO",
@@ -4053,7 +4053,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "2323": {
+    "2324": {
       "id": "60797526",
       "name": "Morgan Stanley",
       "short_name": "MWD",
@@ -4062,7 +4062,7 @@
       "exch": "Xetra",
       "sector": "Financials"
     },
-    "2325": {
+    "2326": {
       "id": "60808884",
       "name": "Archer-Daniels-Midland Company",
       "short_name": "ADM",
@@ -4071,7 +4071,7 @@
       "exch": "Xetra",
       "sector": "Consumer Non-Cyclicals"
     },
-    "2328": {
+    "2329": {
       "id": "60826947",
       "name": "Micron Technology Inc",
       "short_name": "MU",
@@ -4080,7 +4080,7 @@
       "exch": "Xetra",
       "sector": "Technology"
     },
-    "2330": {
+    "2331": {
       "id": "60828827",
       "name": "Wheaton Precious Metals Corp",
       "short_name": "SIIG",
@@ -4118,7 +4118,7 @@
       "Academic & Educational Services",
       "Capital Goods"
     ],
-    "server_time": "2025-12-23 08:56:44 UTC",
+    "server_time": "2026-05-29 19:45:56 UTC",
     "credit_count": 1
   }
 }
