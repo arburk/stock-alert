@@ -60,19 +60,14 @@
       },
       {
         "symbol": "BSLN",
-        "isin": "",
-        "_comment": "",
+        "isin": "CH0011432447",
+        "_comment": "Basilea Pharmaceutica AG",
         "exchange": "Switzerland",
         "alerts": [
           {
-            "threshold": 45.00,
-            "notification": "email",
-            "_comment": ""
-          },
-          {
             "threshold": 48.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "NE"
           },
           {
             "threshold": 50.00,
@@ -80,14 +75,14 @@
             "_comment": ""
           },
           {
-            "threshold": 55.00,
+            "threshold": 65.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "Average"
           },
           {
             "threshold": 70.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "Max forecast"
           }
         ]
       },
@@ -120,8 +115,8 @@
         ]
       },{
         "symbol": "MMM",
-        "isin": "",
-        "_comment": "",
+        "isin": "US88579Y1010",
+        "_comment": "3M Company",
         "exchange": "NYSE",
         "alerts": [
           {
@@ -130,7 +125,7 @@
             "_comment": ""
           },
           {
-            "threshold": 185.00,
+            "threshold": 178.00,
             "notification": "email",
             "_comment": ""
           }
@@ -169,24 +164,6 @@
             "threshold": 350.00,
             "notification": "email",
             "_comment": "milestone"
-          }
-        ]
-      },
-      {
-        "symbol": "DVN",
-        "isin": "US25179M1036",
-        "_comment": "",
-        "exchange": "NYSE",
-        "alerts": [
-          {
-            "threshold": 45.00,
-            "notification": "email",
-            "_comment": "go"
-          },
-          {
-            "threshold": 70.00,
-            "notification": "email",
-            "_comment": "max forecast"
           }
         ]
       },
@@ -273,8 +250,8 @@
       },
       {
         "symbol": "CMBN",
-        "isin": "",
-        "_comment": "",
+        "isin": "CH0225173167",
+        "_comment": "Cembra Money Bank AG",
         "exchange": "Switzerland",
         "alerts": [
           {
@@ -288,14 +265,9 @@
             "_comment": "double"
           },
           {
-            "threshold": 125.00,
+            "threshold": 90.00,
             "notification": "email",
-            "_comment": "boom"
-          },
-          {
-            "threshold": 185.00,
-            "notification": "email",
-            "_comment": ""
+            "_comment": "Stop Loss"
           }
         ]
       },
@@ -329,8 +301,8 @@
       },
       {
         "symbol": "LEHN",
-        "isin": "",
-        "_comment": "",
+        "isin": "CH0022427626",
+        "_comment": "Lem Holding SA",
         "exchange": "Switzerland",
         "alerts": [
           {
@@ -339,24 +311,9 @@
             "_comment": ""
           },
           {
-            "threshold": 700.00,
-            "notification": "email",
-            "_comment": ""
-          },
-          {
             "threshold": 600.00,
             "notification": "email",
-            "_comment": ""
-          },
-          {
-            "threshold": 500.00,
-            "notification": "email",
-            "_comment": "increasing again"
-          },
-          {
-            "threshold": 800.00,
-            "notification": "email",
-            "_comment": ""
+            "_comment": "Max Forecast"
           },
           {
             "threshold": 900.00,
@@ -367,8 +324,8 @@
       },
       {
         "symbol": "LEON",
-        "isin": "",
-        "_comment": "",
+        "isin": " CH0190891181",
+        "_comment": "Leonteq AG",
         "exchange": "Switzerland",
         "alerts": [
           {
@@ -377,9 +334,9 @@
             "_comment": ""
           },
           {
-            "threshold": 25.00,
+            "threshold": 23.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "Max forecast"
           }
         ]
       },
@@ -422,19 +379,19 @@
       },
       {
         "symbol": "MOZN",
-        "isin": "",
-        "_comment": "",
+        "isin": "CH0276837694",
+        "_comment": "MOBILEZONE HOLDING AG",
         "exchange": "Switzerland",
         "alerts": [
           {
-            "threshold": 30.00,
+            "threshold": 15.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "MAX forecast"
           },
           {
-            "threshold": 13.89,
+            "threshold": 14,
             "notification": "email",
-            "_comment": ""
+            "_comment": "NE"
           }
         ]
       },
@@ -463,42 +420,37 @@
       },
       {
         "symbol": "PPGN",
-        "isin": "",
-        "_comment": "",
+        "isin": "CH1110760852",
+        "_comment": "PolyPeptide Group AG",
         "exchange": "Switzerland",
         "alerts": [
           {
-            "threshold": 30.00,
+            "threshold": 42.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "Max forecast"
           },
           {
-            "threshold": 35.00,
+            "threshold": 36.00,
             "notification": "email",
-            "_comment": ""
-          },
-          {
-            "threshold": 25.00,
-            "notification": "email",
-            "_comment": ""
+            "_comment": "NE"
           }
         ]
       },
       {
         "symbol": "MBLY",
-        "isin": "",
-        "_comment": "",
+        "isin": "US60741F1049",
+        "_comment": "MOBILEYE",
         "exchange": "NASDAQ",
         "alerts": [
           {
-            "threshold": 20.00,
+            "threshold": 27.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "MAX forecast"
           },
           {
-            "threshold": 10.00,
+            "threshold": 14.70,
             "notification": "email",
-            "_comment": ""
+            "_comment": "NE"
           }
         ]
       },
@@ -657,28 +609,6 @@
         ]
       },
       {
-        "symbol": "IFXGn",
-        "isin": "DE0006231004",
-        "_comment": "Infineon Technologies",
-        "exchange": "Xetra",
-        "alerts": [
-          {
-            "threshold": 42.00,
-            "notification": "email",
-            "_comment": "average/sell"
-          },{
-            "threshold": 32.00,
-            "notification": "email",
-            "_comment": "NE"
-          },
-          {
-            "threshold": 50.00,
-            "notification": "email",
-            "_comment": "max"
-          }
-        ]
-      },
-      {
         "symbol": "ZALG",
         "isin": "DE000ZAL1111",
         "_comment": "Zalando SE",
@@ -753,7 +683,7 @@
         "exchange": "Switzerland",
         "alerts": [
           {
-            "threshold": 1300,
+            "threshold": 1200,
             "notification": "email",
             "_comment": "average/sell"
           },{
@@ -940,6 +870,74 @@
             "_comment": "average"
           },{
             "threshold": 23.35,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "ZURNE",
+        "isin": "CH0011075394",
+        "_comment": "Zurich Insurance",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 600,
+            "notification": "email",
+            "_comment": "average"
+          },{
+            "threshold": 538,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "CFR",
+        "isin": "CH0210483332",
+        "_comment": "Compagnie Financiere Richemont SA",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 180,
+            "notification": "email",
+            "_comment": "average"
+          },{
+            "threshold": 133.5,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "AVOL",
+        "isin": "CH0023405456",
+        "_comment": "Avolta AG",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 58,
+            "notification": "email",
+            "_comment": "average"
+          },{
+            "threshold": 51.35,
+            "notification": "email",
+            "_comment": "NE"
+          }
+        ]
+      },
+      {
+        "symbol": "SCHN",
+        "isin": "FR0000121972",
+        "_comment": "Schneider Electric SE",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 340,
+            "notification": "email",
+            "_comment": "average"
+          },{
+            "threshold": 269,
             "notification": "email",
             "_comment": "NE"
           }
