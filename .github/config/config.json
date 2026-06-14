@@ -706,23 +706,6 @@
         ]
       },
       {
-        "symbol": "VZ",
-        "isin": "US92343V1044",
-        "_comment": "Verizon",
-        "exchange": "Xetra",
-        "alerts": [
-          {
-            "threshold": 40,
-            "notification": "email",
-            "_comment": "average/sell"
-          },{
-            "threshold": 34,
-            "notification": "email",
-            "_comment": "NE"
-          }
-        ]
-      },
-      {
         "symbol": "MOLN",
         "isin": "CH0256379097",
         "_comment": "Molecular Partners AG",
