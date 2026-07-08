@@ -604,23 +604,6 @@
         ]
       },
       {
-        "symbol": "ZALG",
-        "isin": "DE000ZAL1111",
-        "_comment": "Zalando SE",
-        "exchange": "Xetra",
-        "alerts": [
-          {
-            "threshold": 26.00,
-            "notification": "email",
-            "_comment": "average/sell"
-          },{
-            "threshold": 22.50,
-            "notification": "email",
-            "_comment": "NE"
-          }
-        ]
-      },
-      {
         "symbol": "SIKA",
         "isin": "CH0418792922",
         "_comment": "Sika AG",
@@ -881,9 +864,9 @@
             "notification": "email",
             "_comment": "average"
           },{
-            "threshold": 133.5,
+            "threshold": 140,
             "notification": "email",
-            "_comment": "NE"
+            "_comment": "OPT-IN"
           }
         ]
       },
