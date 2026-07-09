@@ -69,7 +69,7 @@ class StockServiceTest {
 
     final Collection<String> latestRequest = stringCollection.getValue();
     assertEquals(1, latestRequest.size());
-    assertEquals("[BALN]", latestRequest.toString());
+    assertEquals("[NESN.SW]", latestRequest.toString());
     testSecurities.forEach(security -> verify(persistenceProvider).updateSecurity(security));
     verify(persistenceProvider).commitChanges();
   }
@@ -87,7 +87,7 @@ class StockServiceTest {
     verify(persistenceProvider, never()).updateSecurity(any());
     final Collection<String> latestRequest = stringCollection.getValue();
     assertEquals(1, latestRequest.size());
-    assertEquals("[BALN]", latestRequest.toString());
+    assertEquals("[NESN.SW]", latestRequest.toString());
   }
 
   @Test
@@ -119,7 +119,7 @@ class StockServiceTest {
     // complete according to config-example.json
     ArrayList<Security> securites = new ArrayList<>();
     if (completeForTest) {
-      securites.add(new Security("BALN", 170.25, "CHF", null, timestamp, "Switzerland", null));
+      securites.add(new Security("NESN.SW", 170.25, "CHF", null, timestamp, "Switzerland", null));
     }
     return securites;
   }

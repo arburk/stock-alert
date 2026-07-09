@@ -2,8 +2,10 @@
 
 > Track securities and raise defined alerts
 
-Using the [Free Stock-Market API](https://fcsapi.com/document/stock-api#stock-report)
+Using the (unofficial) [Yahoo Finance chart API](https://query1.finance.yahoo.com/v8/finance/chart/NESN.SW?interval=1d&range=1d)
 to monitor stocks and send alerts when defined thresholds are exceeded or falling below.
+No API key is required; quotes are delayed by roughly 15 minutes. Since the API is
+unofficial, it may change or be rate limited at any time.
 
 
 
@@ -16,6 +18,10 @@ any other accessible URL or local file system. The path to will be specified by 
 
 See following [config-example.json](src/main/resources/config-example.json)
 
+The ``symbol`` of each security must be the __Yahoo Finance ticker__, e.g. ``NESN.SW`` (SIX),
+``ALV.DE`` (Xetra), ``CS.PA`` (Paris), ``INGA.AS`` (Amsterdam), or plain ``MMM`` for US exchanges.
+The ``exchange`` value is a free label that is echoed in notifications.
+
 
 
 ## Runtime
@@ -24,7 +30,6 @@ Define the following mandatory environment parameter:
 
 | Parameter name                | Description                                                                                                                                                                                                                                           | Default value                 |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
-| FCS-API-KEY                   | the API key used to query data via https://fcsapi.com/                                                                                                                                                                                                | n/a                           |
 | UPDATE-CRON                   | cron expression to schedule updates. consider __rate limits__ here.<br/> Default is once per hour between 9:16AM and 9:16 PM                                                                                                                          | 0 16 9-21 * * MON-FRI         |
 | UPDATE-ON-STARTUP             | perform update when app starts independent of configured UPDATE-CRON                                                                                                                                                                                  | false                         |
 | CONFIG-URL                    | URL pointing to config.json defining stocks and thresholds  <br/> This can either be file or url reference. <br/> Examples: <br/> file:///C:/github/stock-alert/config-example.json <br/> https://mydomain.com/gitops/stock-alert/config-example.json | n/a                           |
@@ -57,8 +62,7 @@ Required parameter from the table above are added by ``-e param=value`` syntax.
 Examples:
 - execute container with git hosted config
 ```
-docker run -e FCS-API-KEY=your-api-key \
-           -e CONFIG-URL=https://raw.githubusercontent.com/arburk/stock-alert/refs/heads/main/src/main/resources/config-example.json \
+docker run -e CONFIG-URL=https://raw.githubusercontent.com/arburk/stock-alert/refs/heads/main/src/main/resources/config-example.json \
            -e GATEWAY-EMAIL-HOST=smtp.provider.com \
            -e GATEWAY-EMAIL-USER=you@provider.com \
            -e GATEWAY-EMAIL-PWD=<your-secret-password> \
@@ -66,8 +70,7 @@ docker run -e FCS-API-KEY=your-api-key \
 ```
 - execute container with mounted config file, assuming, the config file is ``/home/user/my-config/my-config.json``
 ```
-docker run -e FCS-API-KEY=your-api-key \
-           -e GATEWAY-EMAIL-HOST=smtp.provider.com \
+docker run -e GATEWAY-EMAIL-HOST=smtp.provider.com \
            -e GATEWAY-EMAIL-USER=you@provider.com \
            -e GATEWAY-EMAIL-PWD=<your-secret-password> \
            -v /home/user/my-config:/config \

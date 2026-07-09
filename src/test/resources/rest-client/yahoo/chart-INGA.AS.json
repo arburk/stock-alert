@@ -1,0 +1,22 @@
+{
+  "chart": {
+    "result": [
+      {
+        "meta": {
+          "currency": "EUR",
+          "symbol": "INGA.AS",
+          "exchangeName": "AMS",
+          "fullExchangeName": "Amsterdam",
+          "instrumentType": "EQUITY",
+          "regularMarketPrice": 19.2,
+          "chartPreviousClose": 19.05,
+          "previousClose": 19.05,
+          "regularMarketTime": 1754556720,
+          "timezone": "CEST",
+          "exchangeTimezoneName": "Europe/Amsterdam"
+        }
+      }
+    ],
+    "error": null
+  }
+}

@@ -1,5 +1,4 @@
 stock-alert:
-  fcs-api-key: "API_KEY" # test key for integration test
   update-cron: "-"
   config-url: "src/test/resources/config/integration-test-config.json"
 
