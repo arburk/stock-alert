@@ -37,8 +37,8 @@
       },
       {
         "symbol": "HBAN.SW",
-        "isin": "",
-        "_comment": "Helvetia Baloise | REVIEW: ticker after Helvetia-Baloise merger (Dec 2025) unconfirmed",
+        "isin": "CH0466642201",
+        "_comment": "Helvetia Baloise Holding AG",
         "exchange": "Switzerland",
         "alerts": [
           {
@@ -150,9 +150,9 @@
         ]
       },
       {
-        "symbol": "RO.SW",
-        "isin": "",
-        "_comment": "Roche Holding | REVIEW: ROG.SW (Genussschein) no longer resolves on Yahoo, RO.SW (share, ~340 CHF) used instead - verify thresholds still fit",
+        "symbol": "ROP.SW",
+        "isin": "CH1499059983",
+        "_comment": "Roche Holding AG Partizipationsschein | successor of ROG Genussschein converted 03/2026",
         "exchange": "Switzerland",
         "alerts": [
           {
@@ -170,7 +170,7 @@
       {
         "symbol": "PFE.DE",
         "isin": "US7170811035",
-        "_comment": "Pfizer | REVIEW: Xetra listing kept (EUR); alternative: PFE on NYSE (USD)",
+        "_comment": "Pfizer",
         "exchange": "Xetra",
         "alerts": [
           {
@@ -187,7 +187,7 @@
       },
       {
         "symbol": "DKSH.SW",
-        "isin": "",
+        "isin": "CH0126673539",
         "_comment": "DKSH Holding AG",
         "exchange": "Switzerland",
         "alerts": [
@@ -233,7 +233,7 @@
       {
         "symbol": "AXA.DE",
         "isin": "FR0000120628",
-        "_comment": "AXA | REVIEW: Xetra secondary listing; alternative: CS.PA (Paris home listing)",
+        "_comment": "AXA",
         "exchange": "Xetra",
         "alerts": [
           {
@@ -324,7 +324,7 @@
       },
       {
         "symbol": "LEON.SW",
-        "isin": " CH0190891181",
+        "isin": "CH0190891181",
         "_comment": "Leonteq AG",
         "exchange": "Switzerland",
         "alerts": [
@@ -341,27 +341,8 @@
         ]
       },
       {
-        "symbol": "MBTN.SW",
-        "isin": "",
-        "percentage-alert" : "0",
-        "_comment": "Meyer Burger, skip percentage alert for the moment | REVIEW: MBTN.SW does not resolve on Yahoo anymore (possibly delisted) - symbol is skipped each run until fixed or removed",
-        "exchange": "Switzerland",
-        "alerts": [
-          {
-            "threshold": 1.5,
-            "notification": "email",
-            "_comment": ""
-          },
-          {
-            "threshold": 5.00,
-            "notification": "email",
-            "_comment": ""
-          }
-        ]
-      },
-      {
         "symbol": "STMN.SW",
-        "isin": "",
+        "isin": "CH1175448666",
         "_comment": "Straumann Holding AG",
         "exchange": "Switzerland",
         "alerts": [
@@ -397,7 +378,7 @@
       },
       {
         "symbol": "SRAIL.SW",
-        "isin": "",
+        "isin": "CH0002178181",
         "_comment": "Stadler Rail AG",
         "exchange": "Switzerland",
         "alerts": [
@@ -456,8 +437,8 @@
       },
       {
         "symbol": "SUNN.SW",
-        "isin": "",
-        "_comment": "Sunrise Communications | REVIEW: verify SUNN.SW resolves on Yahoo",
+        "isin": "CH1386220409",
+        "_comment": "Sunrise Communications AG",
         "exchange": "Switzerland",
         "alerts": [
           {
@@ -474,9 +455,21 @@
       },
       {
         "symbol": "BG.VI",
-        "isin": "",
-        "_comment" : "BAWAG Group | REVIEW: listed in Vienna (not SIX); intended thresholds 100, 130, 120 not yet configured",
-        "exchange": "Vienna"
+        "isin": "AT0000BAWAG2",
+        "_comment" : "BAWAG Group | REVIEW: intended thresholds 100, 130, 120 not yet configured",
+        "exchange": "Vienna",
+        "alerts": [
+          {
+            "threshold": 200.00,
+            "notification": "email",
+            "_comment": "MAX! Go for it"
+          },
+          {
+            "threshold": 165.00,
+            "notification": "email",
+            "_comment": "check reasons"
+          }
+        ]
       },
       {
         "symbol": "DTE.DE",
@@ -499,13 +492,18 @@
       {
         "symbol": "AMRZ.SW",
         "isin": "CH1430134226",
-        "_comment": "Amrize AG | REVIEW: recent listing, verify AMRZ.SW resolves on Yahoo",
+        "_comment": "Amrize AG",
         "exchange": "Switzerland",
         "alerts": [
           {
             "threshold": 55.00,
             "notification": "email",
             "_comment": "MAX forecast"
+          },
+          {
+            "threshold": 50.00,
+            "notification": "email",
+            "_comment": "SELL?"
           }
         ]
       },
@@ -552,7 +550,7 @@
       {
         "symbol": "SNW.DE",
         "isin": "FR0000120578",
-        "_comment": "Sanofi | REVIEW: Xetra secondary listing; alternative: SAN.PA (Paris home listing)",
+        "_comment": "Sanofi",
         "exchange": "Xetra",
         "alerts": [
           {
@@ -639,7 +637,7 @@
       },
       {
         "symbol": "VICI",
-        "isin": "CH0126881561",
+        "isin": "US9256521090",
         "_comment": "VICI Properties Inc",
         "exchange": "NYSE",
         "alerts": [
@@ -674,7 +672,7 @@
       {
         "symbol": "2M6.DE",
         "isin": "IE00BTN1Y115",
-        "_comment": "Medtronic PLC | REVIEW: illiquid Xetra secondary listing; alternative: MDT (NYSE, USD)",
+        "_comment": "Medtronic PLC",
         "exchange": "Xetra",
         "alerts": [
           {
@@ -729,7 +727,7 @@
       {
         "symbol": "SCHN.SW",
         "isin": "CH0024638212",
-        "_comment": "Schindler Holding AG | REVIEW: SCHN.SW = registered share; alternative: SCHP.SW = participation certificate",
+        "_comment": "Schindler Holding AG",
         "exchange": "Switzerland",
         "alerts": [
           {
@@ -746,7 +744,7 @@
       {
         "symbol": "SON1.F",
         "isin": "JP3435000009",
-        "_comment": "Sony Corp | REVIEW: illiquid Frankfurt listing; alternative: SONY (NYSE ADR, USD)",
+        "_comment": "Sony Corp",
         "exchange": "Frankfurt",
         "alerts": [
           {
@@ -762,7 +760,7 @@
       },
       {
         "symbol": "TRI",
-        "isin": "CA8849038085",
+        "isin": "CA8849038812",
         "_comment": "Thomson Reuters Corp | REVIEW: Frankfurt listing (TOC.F) does not resolve on Yahoo, TRI (NYSE, USD, ~88) used instead - thresholds below are still EUR-based and must be rebased",
         "exchange": "NYSE",
         "alerts": [
@@ -805,7 +803,7 @@
       {
         "symbol": "ASG.DE",
         "isin": "IT0000062072",
-        "_comment": "Assicurazioni Generali SpA | REVIEW: Xetra secondary listing; alternative: G.MI (Milan home listing)",
+        "_comment": "Assicurazioni Generali SpA",
         "exchange": "Xetra",
         "alerts": [
           {
@@ -920,6 +918,118 @@
             "_comment": "NE"
           }
         ]
+      },
+      {
+        "symbol": "CHDVD.SW",
+        "isin": "CH0237935637",
+        "_comment": "iShares Swiss Dividend ETF (CH)",
+        "exchange": "Switzerland",
+        "alerts": []
+      },
+      {
+        "symbol": "GLDV.SW",
+        "isin": "IE00B9CQXS71",
+        "_comment": "SPDR S&P Global Dividend Aristocrats UCITS ETF",
+        "exchange": "Switzerland",
+        "alerts": []
+      },
+      {
+        "symbol": "SEMI.AS",
+        "isin": "IE000I8KRLL9",
+        "_comment": "iShares MSCI Global Semiconductors UCITS ETF USD Acc",
+        "exchange": "Amsterdam",
+        "alerts": []
+      },
+      {
+        "symbol": "SFZN.SW",
+        "isin": "CH1429326825",
+        "_comment": "Siegfried Holding AG",
+        "exchange": "Switzerland",
+        "alerts": []
+      },
+      {
+        "symbol": "SPICHA.SW",
+        "isin": "CH0131872431",
+        "_comment": "UBS Core SPI ETF CHF dis",
+        "exchange": "Switzerland",
+        "alerts": []
+      },
+      {
+        "symbol": "DGQ.AQ",
+        "isin": "GB00BTXVG712",
+        "_comment": "Delta Gold Technologies PLC | quotes in GBp (pence)",
+        "exchange": "Aquis",
+        "alerts": []
+      },
+      {
+        "symbol": "MEDX.SW",
+        "isin": "CH1129677105",
+        "_comment": "medmix AG",
+        "exchange": "Switzerland",
+        "alerts": []
+      },
+      {
+        "symbol": "ALC.SW",
+        "isin": "CH0432492467",
+        "_comment": "Alcon Inc",
+        "exchange": "Switzerland",
+        "alerts": []
+      },
+      {
+        "symbol": "VUL.AX",
+        "isin": "AU0000066086",
+        "_comment": "Vulcan Energy Resources Ltd",
+        "exchange": "Australia",
+        "alerts": []
+      },
+      {
+        "symbol": "HAUTO.OL",
+        "isin": "NO0011082075",
+        "_comment": "Hoegh Autoliners ASA",
+        "exchange": "Oslo",
+        "alerts": []
+      },
+      {
+        "symbol": "XDWD.DE",
+        "isin": "IE00BJ0KDQ92",
+        "_comment": "Xtrackers MSCI World UCITS ETF 1C",
+        "exchange": "Xetra",
+        "alerts": []
+      },
+      {
+        "symbol": "ISPA.DE",
+        "isin": "DE000A0F5UH1",
+        "_comment": "iShares STOXX Global Select Dividend 100 UCITS ETF (DE)",
+        "exchange": "Xetra",
+        "alerts": []
+      },
+      {
+        "symbol": "EXSA.DE",
+        "isin": "DE0002635307",
+        "_comment": "iShares STOXX Europe 600 UCITS ETF (DE) EUR (Dist)",
+        "exchange": "Xetra",
+        "alerts": []
+      },
+      {
+        "symbol": "QOMP.DE",
+        "isin": "IE000C6ITGC8",
+        "_comment": "iShares Quantum Computing UCITS ETF USD (Acc)",
+        "exchange": "Xetra",
+        "alerts": []
+      },
+      {
+        "symbol": "V",
+        "isin": "US92826C8394",
+        "_comment": "Visa Inc",
+        "exchange": "NYSE",
+        "alerts": []
+      },
+      {
+        "symbol": "4GLD.DE",
+        "isin": "DE000A0S9GB0",
+        "_comment": "Xetra-Gold",
+        "exchange": "Xetra",
+        "alerts": []
       }
     ]
   }
