@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@main
+        with:
+          ref: feat/yahoo-finance-provider
 
       - name: Query all configured symbols
         run: |
