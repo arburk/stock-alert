@@ -7,7 +7,7 @@ name: Yahoo Finance Smoke Test
 
 on:
   schedule:
-    - cron: '46 8-20 * * 1-5' # hourly during (extended) European market hours, offset from run_scheduled.yml
+    - cron: '46 7-19 * * 1-5' # hourly during (extended) European market hours, offset from run_scheduled.yml
   workflow_dispatch:
 
 jobs:
