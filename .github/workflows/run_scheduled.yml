@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@main
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -91,62 +91,4 @@ jobs:
           else
             exit -1
           fi
-
-
-  probe-yahoo-finance:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    permissions:
-      contents: read
-
-    steps:
-      - name: Checkout feature branch
-        uses: actions/checkout@main
-        with:
-          ref: feat/yahoo-finance-provider
-
-      - name: Query all configured symbols
-        run: |
-          USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-          symbols=$(jq -r '.["stock-alert-config"].securities[].symbol' .github/config/config.json)
-
-          total=0
-          ok=0
-          {
-            echo "## Yahoo Finance smoke test"
-            echo ""
-            echo "| Symbol | HTTP | Price | Currency |"
-            echo "|---|---|---|---|"
-          } >> "$GITHUB_STEP_SUMMARY"
-
-          for symbol in $symbols; do
-            total=$((total+1))
-            code=$(curl -s -o response.json -w "%{http_code}" \
-              -H "User-Agent: ${USER_AGENT}" \
-              -H "Accept: application/json" \
-              "https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1d&range=1d" || echo "000")
-
-            price="-"
-            currency="-"
-            if [ "$code" = "200" ]; then
-              error=$(jq -r '.chart.error // empty' response.json 2>/dev/null)
-              if [ -z "$error" ]; then
-                ok=$((ok+1))
-                price=$(jq -r '.chart.result[0].meta.regularMarketPrice // "-"' response.json 2>/dev/null || echo "-")
-                currency=$(jq -r '.chart.result[0].meta.currency // "-"' response.json 2>/dev/null || echo "-")
-              else
-                code="200 (error node)"
-              fi
-            fi
-            echo "| ${symbol} | ${code} | ${price} | ${currency} |" >> "$GITHUB_STEP_SUMMARY"
-            sleep 1
-          done
-
-          {
-            echo ""
-            echo "**Hit rate: ${ok}/${total}**"
-          } >> "$GITHUB_STEP_SUMMARY"
-
-          echo "Hit rate: ${ok}/${total}"
-          # fail the run if any symbol did not resolve so problems are visible at a glance
-          [ "$ok" -eq "$total" ]
+          

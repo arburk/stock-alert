@@ -8,13 +8,6 @@ import com.github.arburk.stockalert.application.domain.config.AlertConfig;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import com.github.arburk.stockalert.application.service.notification.NotificationService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Mockito;
-import org.springframework.test.util.ReflectionTestUtils;
-
 import java.nio.file.Path;
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -24,6 +17,11 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -50,15 +48,15 @@ class StockServiceTest {
   void setUp() {
     applicationConfig = new ApplicationConfig(new JacksonConfig().objectMapper());
     applicationConfig.setConfigUrl(Path.of("src/main/resources/config-example.json").toUri().toString());
-    stockProvider = Mockito.mock(StockProvider.class);
-    notifyService = Mockito.mock(NotificationService.class);
-    persistenceProvider = Mockito.mock(PersistenceProvider.class);
+    stockProvider = mock(StockProvider.class);
+    notifyService = mock(NotificationService.class);
+    persistenceProvider = mock(PersistenceProvider.class);
     testee = new StockService(applicationConfig, stockProvider, persistenceProvider, notifyService);
   }
 
   @Test
   void updateHappyFlow() {
-    final ArgumentCaptor<Collection<String>> stringCollection = ArgumentCaptor.forClass(Collection.class);
+    final ArgumentCaptor<List<SecurityConfig>> stringCollection = ArgumentCaptor.forClass(List.class);
     final LocalDateTime updatedTs = LocalDateTime.now();
     final LocalDateTime oldTs = LocalDateTime.of(2025, Month.JULY, 4, 17, 25, 32);
     when(stockProvider.getLatest(stringCollection.capture())).thenReturn(getSecurites(true, updatedTs));
@@ -67,16 +65,17 @@ class StockServiceTest {
 
     testee.update();
 
-    final Collection<String> latestRequest = stringCollection.getValue();
+    final var latestRequest = stringCollection.getValue();
     assertEquals(1, latestRequest.size());
-    assertEquals("[NESN.SW]", latestRequest.toString());
+    assertEquals("[SecurityConfig[symbol=NESN.SW, exchange=Switzerland, isin=CH0038863350, _comment='symbol' must be the Yahoo Finance ticker (e.g. NESN.SW for SIX, ALV.DE for Xetra, no suffix for US); 'exchange' is a free label used in notifications; 'isin' -> informational only; 'percentage-alert' -> overrides the stock-alert-config.percentage-alert. empty value resets this alert, percentageAlert=10, alerts=[AlertConfig[threshold=80.0, notification=email, _comment=Keep an eye on it.], AlertConfig[threshold=90.0, notification=sms, _comment=Sell now!], AlertConfig[threshold=70.0, notification=email, _comment=Consider selling.]]]]"
+      , latestRequest.toString());
     testSecurities.forEach(security -> verify(persistenceProvider).updateSecurity(security));
     verify(persistenceProvider).commitChanges();
   }
 
   @Test
   void update_NoInput() {
-    final ArgumentCaptor<Collection<String>> stringCollection = ArgumentCaptor.forClass(Collection.class);
+    final ArgumentCaptor<List<SecurityConfig>> stringCollection = ArgumentCaptor.forClass(List.class);
     final LocalDateTime updatedTs = LocalDateTime.now();
     final LocalDateTime oldTs = LocalDateTime.of(2025, Month.JULY, 4, 17, 25, 32);
     when(stockProvider.getLatest(stringCollection.capture())).thenReturn(getSecurites(false, updatedTs));
@@ -85,15 +84,16 @@ class StockServiceTest {
     testee.update();
 
     verify(persistenceProvider, never()).updateSecurity(any());
-    final Collection<String> latestRequest = stringCollection.getValue();
+    final var latestRequest = stringCollection.getValue();
     assertEquals(1, latestRequest.size());
-    assertEquals("[NESN.SW]", latestRequest.toString());
+    assertEquals("[SecurityConfig[symbol=NESN.SW, exchange=Switzerland, isin=CH0038863350, _comment='symbol' must be the Yahoo Finance ticker (e.g. NESN.SW for SIX, ALV.DE for Xetra, no suffix for US); 'exchange' is a free label used in notifications; 'isin' -> informational only; 'percentage-alert' -> overrides the stock-alert-config.percentage-alert. empty value resets this alert, percentageAlert=10, alerts=[AlertConfig[threshold=80.0, notification=email, _comment=Keep an eye on it.], AlertConfig[threshold=90.0, notification=sms, _comment=Sell now!], AlertConfig[threshold=70.0, notification=email, _comment=Consider selling.]]]]"
+      , latestRequest.toString());
   }
 
   @Test
   void updateIncomplete() {
     applicationConfig.setConfigUrl(Path.of("src/test/resources/config/config-test.json").toUri().toString());
-    final ArgumentCaptor<Collection<String>> stringCollection = ArgumentCaptor.forClass(Collection.class);
+    final ArgumentCaptor<List<SecurityConfig>> stringCollection = ArgumentCaptor.forClass(List.class);
     final LocalDateTime updatedTs = LocalDateTime.now();
     final LocalDateTime oldTs = LocalDateTime.of(2025, Month.JULY, 4, 17, 25, 32);
 
@@ -107,9 +107,10 @@ class StockServiceTest {
 
     testee.update();
 
-    final Collection<String> latestRequest = stringCollection.getValue();
+    final var latestRequest = stringCollection.getValue();
     assertEquals(2, latestRequest.size());
-    assertEquals("[HELN, BALN]", latestRequest.toString());
+    assertEquals("[SecurityConfig[symbol=BALN, exchange=Switzerland, isin=, _comment=Do comments break things? shouldn't be the case, percentageAlert=null, alerts=[AlertConfig[threshold=200.0, notification=email, _comment=Do comments break things? shouldn't be the case], AlertConfig[threshold=185.0, notification=email, _comment=null]]], SecurityConfig[symbol=HELN, exchange=Switzerland, isin=, _comment=null, percentageAlert=null, alerts=[AlertConfig[threshold=199.25, notification=email, _comment=null], AlertConfig[threshold=210.5, notification=email, _comment=Do comments break things? shouldn't be the case]]]]",
+      latestRequest.toString());
 
     providedSecurities.forEach(security -> verify(persistenceProvider).updateSecurity(security));
     verify(persistenceProvider).commitChanges();

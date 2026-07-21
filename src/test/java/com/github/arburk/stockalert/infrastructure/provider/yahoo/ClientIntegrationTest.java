@@ -1,16 +1,17 @@
 package com.github.arburk.stockalert.infrastructure.provider.yahoo;
 
 import com.github.arburk.stockalert.application.domain.Security;
+import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.service.stock.StockProvider;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
-
-import java.util.Collection;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -38,7 +39,10 @@ class ClientIntegrationTest {
         .thenReturn(ClientTest.getChartResponse("chart-NESN.SW.json"));
     // "UNKNOWN" is not mocked -> null response -> must be skipped without breaking the batch
 
-    final Collection<Security> result = yahooClient.getLatest(List.of("NESN.SW", "UNKNOWN"));
+    List<SecurityConfig> securities = new ArrayList<>();
+    securities.add(new SecurityConfig("NESN.SW", "Switzerland", null, null, null, null));
+    securities.add(new SecurityConfig("UNKNOWN", null, null, null, null, null));
+    final Collection<Security> result = yahooClient.getLatest(securities);
 
     assertNotNull(result);
     assertEquals(1, result.size());

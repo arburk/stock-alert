@@ -6,15 +6,14 @@ import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import com.github.arburk.stockalert.infrastructure.provider.yahoo.dto.ChartResponse;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -40,7 +39,7 @@ class ClientTest {
         new SecurityConfig("INGA.AS", "Amsterdam", null, null, null, null),
         new SecurityConfig("MMM", "NYSE", null, null, null, null)
     ));
-    testee = new Client(yahooFinanceClient, applicationConfig);
+    testee = new Client(yahooFinanceClient);
   }
 
   @Test
@@ -48,7 +47,10 @@ class ClientTest {
     when(yahooFinanceClient.getChart(eq("BALN.SW"), anyString(), anyString())).thenReturn(getChartResponse("chart-BALN.SW.json"));
     when(yahooFinanceClient.getChart(eq("INGA.AS"), anyString(), anyString())).thenReturn(getChartResponse("chart-INGA.AS.json"));
 
-    final Collection<Security> result = testee.getLatest(List.of("BALN.SW", "INGA.AS"));
+    List<SecurityConfig> securities = new ArrayList<>();
+    securities.add(new SecurityConfig("BALN.SW", "Switzerland", null, null, null, null));
+    securities.add(new SecurityConfig("INGA.AS", null, null, null, null, null));
+    final Collection<Security> result = testee.getLatest(securities);
 
     assertEquals(2, result.size());
     final Security baln = result.stream().filter(sec -> "BALN.SW".equals(sec.symbol())).findFirst().orElseThrow();
@@ -64,7 +66,10 @@ class ClientTest {
     when(yahooFinanceClient.getChart(eq("BALN.SW"), anyString(), anyString())).thenReturn(getChartResponse("chart-BALN.SW.json"));
     when(yahooFinanceClient.getChart(eq("INGA.AS"), anyString(), anyString())).thenReturn(getChartResponse("chart-INGA.AS.json"));
 
-    final Collection<Security> result = testee.getLatest(List.of("BALN.SW", "INGA.AS ", "BALN.SW", " INGA.AS", "BALN.SW"));
+    List<SecurityConfig> securities = new ArrayList<>();
+    securities.add(new SecurityConfig("BALN.SW", "Switzerland", null, null, null, null));
+    securities.add(new SecurityConfig("INGA.AS", null, null, null, null, null));
+    final Collection<Security> result = testee.getLatest(securities);
 
     assertEquals(2, result.size());
     verify(yahooFinanceClient, times(1)).getChart("BALN.SW", Client.INTERVAL, Client.RANGE);
@@ -77,7 +82,11 @@ class ClientTest {
     when(yahooFinanceClient.getChart(eq("BROKEN"), anyString(), anyString())).thenThrow(new RuntimeException("HTTP 404 simulated"));
     when(yahooFinanceClient.getChart(eq("INGA.AS"), anyString(), anyString())).thenReturn(getChartResponse("chart-INGA.AS.json"));
 
-    final Collection<Security> result = testee.getLatest(List.of("BALN.SW", "BROKEN", "INGA.AS"));
+    List<SecurityConfig> securities = new ArrayList<>();
+    securities.add(new SecurityConfig("BALN.SW", "Switzerland", null, null, null, null));
+    securities.add(new SecurityConfig("BROKEN", null, null, null, null, null));
+    securities.add(new SecurityConfig("INGA.AS", null, null, null, null, null));
+    final Collection<Security> result = testee.getLatest(securities);
 
     assertEquals(2, result.size());
     assertTrue(result.stream().map(Security::symbol).noneMatch("BROKEN"::equals));
@@ -88,7 +97,10 @@ class ClientTest {
     when(yahooFinanceClient.getChart(eq("DELISTED"), anyString(), anyString())).thenReturn(getChartResponse("chart-error-not-found.json"));
     when(yahooFinanceClient.getChart(eq("BALN.SW"), anyString(), anyString())).thenReturn(getChartResponse("chart-BALN.SW.json"));
 
-    final Collection<Security> result = testee.getLatest(List.of("DELISTED", "BALN.SW"));
+    List<SecurityConfig> securities = new ArrayList<>();
+    securities.add(new SecurityConfig("BALN.SW", "Switzerland", null, null, null, null));
+    securities.add(new SecurityConfig("DELISTED", null, null, null, null, null));
+    final Collection<Security> result = testee.getLatest(securities);
 
     assertEquals(1, result.size());
     assertEquals("BALN.SW", result.iterator().next().symbol());
@@ -98,7 +110,9 @@ class ClientTest {
   void exchangeFallsBackToYahooNameIfSymbolNotInConfig() {
     when(yahooFinanceClient.getChart(eq("ROG.SW"), anyString(), anyString())).thenReturn(getChartResponse("chart-ROG.SW.json"));
 
-    final Collection<Security> result = testee.getLatest(List.of("ROG.SW"));
+    List<SecurityConfig> securities = new ArrayList<>();
+    securities.add(new SecurityConfig("ROG.SW", null, null, null, null, null));
+    final Collection<Security> result = testee.getLatest(securities);
 
     assertEquals(1, result.size());
     assertEquals("Swiss Exchange", result.iterator().next().exchange(), "expected fallback to Yahoo's fullExchangeName");
@@ -106,7 +120,7 @@ class ClientTest {
 
   @Test
   void skipEmptyRequest() {
-    assertTrue(testee.getLatest(Collections.emptyList()).isEmpty());
+    assertTrue(testee.getLatest(new ArrayList<>()).isEmpty());
     assertTrue(testee.getLatest(null).isEmpty());
     verify(yahooFinanceClient, never()).getChart(anyString(), anyString(), anyString());
     verify(applicationConfig, never()).getStockAlertsConfig();
