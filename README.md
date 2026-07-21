@@ -88,6 +88,9 @@ docker run -e GATEWAY-EMAIL-HOST=smtp.provider.com \
 - run the docker image using this very version as described in [Docker](#docker)
 
 ## Change Log
+
+- 1.0.0 - __!Breaking!__ - switch to Yahoo Finance chart API (formerly FCS API)
+- 0.5.1 - dependency updates
 - 0.5.0 - __!Breaking!__ - upgrade to Java 25 and Spring Boot 4
 - 0.4.1 - dependency updates
 - 0.4.0 - removed deprecated methods
