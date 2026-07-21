@@ -1,6 +1,3 @@
-stock-alert:
-    fcs-api-key: "API_KEY" # test key for integration test
-
 spring:
     mail:
       properties:

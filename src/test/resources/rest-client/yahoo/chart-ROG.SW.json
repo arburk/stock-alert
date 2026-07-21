@@ -1,0 +1,22 @@
+{
+  "chart": {
+    "result": [
+      {
+        "meta": {
+          "currency": "CHF",
+          "symbol": "ROG.SW",
+          "exchangeName": "EBS",
+          "fullExchangeName": "Swiss Exchange",
+          "instrumentType": "EQUITY",
+          "regularMarketPrice": 270.0,
+          "chartPreviousClose": 268.4,
+          "previousClose": 268.4,
+          "regularMarketTime": 1754555700,
+          "timezone": "CEST",
+          "exchangeTimezoneName": "Europe/Zurich"
+        }
+      }
+    ],
+    "error": null
+  }
+}

@@ -7,10 +7,6 @@ import com.github.arburk.stockalert.application.domain.config.AlertConfig;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
 import com.github.arburk.stockalert.application.service.notification.NotificationService;
-import lombok.NonNull;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -18,6 +14,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
+import lombok.NonNull;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
@@ -39,11 +38,9 @@ public class StockService {
     log.debug("refresh stock alert config...");
     final StockAlertsConfig stockAlertsConfig = this.applicationConfig.getStockAlertsConfig();
     final List<SecurityConfig> alertConfig = stockAlertsConfig.securities();
-    final Set<String> symbolsToQueryFor = alertConfig.stream().map(SecurityConfig::symbol).collect(Collectors.toSet());
-    log.debug("perform and process update for {}", symbolsToQueryFor);
 
     try {
-      final Collection<Security> latestRelevant = getRelevantFiltered(alertConfig, stockProvider.getLatest(symbolsToQueryFor));
+      final Collection<Security> latestRelevant = getRelevantFiltered(alertConfig, stockProvider.getLatest(alertConfig));
       if (!latestRelevant.isEmpty()) {
         alertConfig.forEach(configElement -> checkSecurityAndRaiseAlert(
             stockAlertsConfig,

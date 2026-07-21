@@ -21,7 +21,6 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -37,61 +36,8 @@ class ApplicationConfigTest {
   }
 
   @Test
-  void keyIsMasked_Null() {
-    testee.setFcsApiKey(null);
-    assertNull(testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=null,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
-  }
-
-  @Test
-  void keyIsMasked_Empty() {
-    final String expedted = "ApplicationConfig{fcsApiKey=,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}";
-
-    testee.setFcsApiKey("");
-    assertEquals("", testee.getFcsApiKey());
-    assertEquals(expedted, testee.toString());
-
-    testee.setFcsApiKey("  ");
-    assertEquals("", testee.getFcsApiKey());
-    assertEquals(expedted, testee.toString());
-  }
-
-  @Test
-  void keyIsFullyMasked() {
-    testee.setFcsApiKey("A");
-    assertEquals("A", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=*,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
-
-    testee.setFcsApiKey(" A");
-    assertEquals("A", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=*,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
-
-    testee.setFcsApiKey(" A ");
-    assertEquals("A", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=*,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
-
-    testee.setFcsApiKey("AB");
-    assertEquals("AB", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=**,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
-
-    testee.setFcsApiKey("ABc");
-    assertEquals("ABc", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=***,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
-
-    testee.setFcsApiKey("ABcD");
-    assertEquals("ABcD", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=****,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
-
-    testee.setFcsApiKey(" ABcD ");
-    assertEquals("ABcD", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=****,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
-  }
-
-  @Test
-  void keyIsPartiallyMasked() {
-    testee.setFcsApiKey("MyApiKey");
-    assertEquals("MyApiKey", testee.getFcsApiKey());
-    assertEquals("ApplicationConfig{fcsApiKey=My****ey,updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
+  void toStringContainsConfigValues() {
+    assertEquals("ApplicationConfig{updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
   }
 
   @Nested
@@ -136,7 +82,11 @@ class ApplicationConfigTest {
     @Test
     void url_HappyFlow() {
       testee.setConfigUrl("https://raw.githubusercontent.com/arburk/stock-alert/refs/heads/main/src/main/resources/config-example.json");
-      assertConfigExample(testee.getStockAlertsConfig());
+      // only structural assertions here: the remote file on main may differ from the local working copy
+      final StockAlertsConfig stockAlertsConfig = testee.getStockAlertsConfig();
+      assertNotNull(stockAlertsConfig);
+      assertFalse(stockAlertsConfig.securities().isEmpty());
+      assertFalse(stockAlertsConfig.notificationChannels().isEmpty());
     }
 
     @Test
@@ -176,10 +126,10 @@ class ApplicationConfigTest {
       final List<SecurityConfig> securities = stockAlertsConfig.securities();
       assertEquals(1, securities.size());
       final SecurityConfig first = securities.getFirst();
-      assertEquals("BALN", first.symbol());
+      assertEquals("NESN.SW", first.symbol());
       assertEquals("Switzerland", first.exchange());
-      assertEquals("CH0012410517", first.isin());
-      assertEquals("'symbol' and 'exchange' must match the FCSAPI symbol definition; 'isin' -> not used by FCSAPI; 'percentage-alert' -> overrides the stock-alert-config.percentage-alert. empty value resets this alert", first._comment());
+      assertEquals("CH0038863350", first.isin());
+      assertEquals("'symbol' must be the Yahoo Finance ticker (e.g. NESN.SW for SIX, ALV.DE for Xetra, no suffix for US); 'exchange' is a free label used in notifications; 'isin' -> informational only; 'percentage-alert' -> overrides the stock-alert-config.percentage-alert. empty value resets this alert", first._comment());
       assertEquals("10", first.percentageAlert());
       assertEquals(.1, first.getPercentageAlert());
       assertAlerts(first.alerts());
@@ -192,11 +142,11 @@ class ApplicationConfigTest {
       final AlertConfig third = alertConfigs.getLast();
 
       assertAll(
-          () -> assertEquals(200.00, first.threshold()),
+          () -> assertEquals(80.00, first.threshold()),
           () -> assertEquals("email", first.notification()),
-          () -> assertEquals(220.00, second.threshold()),
+          () -> assertEquals(90.00, second.threshold()),
           () -> assertEquals("sms", second.notification()),
-          () -> assertEquals(185.00, third.threshold()),
+          () -> assertEquals(70.00, third.threshold()),
           () -> assertEquals("email", third.notification())
       );
     }

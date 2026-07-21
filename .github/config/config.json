@@ -13,7 +13,7 @@
     ],
     "securities": [
       {
-        "symbol": "BNPP",
+        "symbol": "BNP.DE",
         "isin": "FR0000131104",
         "_comment": "BNP Paribas",
         "exchange": "Xetra",
@@ -36,9 +36,9 @@
         ]
       },
       {
-        "symbol": "HELN",
-        "isin": "",
-        "_comment": "Helvetia Baloise",
+        "symbol": "HBAN.SW",
+        "isin": "CH0466642201",
+        "_comment": "Helvetia Baloise Holding AG",
         "exchange": "Switzerland",
         "alerts": [
           {
@@ -59,7 +59,7 @@
         ]
       },
       {
-        "symbol": "BSLN",
+        "symbol": "BSLN.SW",
         "isin": "CH0011432447",
         "_comment": "Basilea Pharmaceutica AG",
         "exchange": "Switzerland",
@@ -89,7 +89,7 @@
       {
         "symbol": "BYDDY",
         "isin": "CNE100000296",
-        "_comment": "",
+        "_comment": "BYD ADR, OTC",
         "exchange": "OTC Markets",
         "alerts": [
           {
@@ -132,7 +132,7 @@
         ]
       },
       {
-        "symbol": "INGA",
+        "symbol": "INGA.AS",
         "isin": "NL0011821202",
         "_comment": "ING Group Registered",
         "exchange": "Amsterdam",
@@ -150,9 +150,9 @@
         ]
       },
       {
-        "symbol": "ROG",
-        "isin": "",
-        "_comment": "",
+        "symbol": "ROP.SW",
+        "isin": "CH1499059983",
+        "_comment": "Roche Holding AG Partizipationsschein | successor of ROG Genussschein converted 03/2026",
         "exchange": "Switzerland",
         "alerts": [
           {
@@ -168,9 +168,9 @@
         ]
       },
       {
-        "symbol": "PFE",
+        "symbol": "PFE.DE",
         "isin": "US7170811035",
-        "_comment": "",
+        "_comment": "Pfizer",
         "exchange": "Xetra",
         "alerts": [
           {
@@ -186,9 +186,9 @@
         ]
       },
       {
-        "symbol": "DKSH",
-        "isin": "",
-        "_comment": "",
+        "symbol": "DKSH.SW",
+        "isin": "CH0126673539",
+        "_comment": "DKSH Holding AG",
         "exchange": "Switzerland",
         "alerts": [
           {
@@ -203,7 +203,7 @@
         ]
       },
       {
-        "symbol": "ALVG",
+        "symbol": "ALV.DE",
         "isin": "DE0008404005",
         "_comment": "Allianz SE",
         "exchange": "Xetra",
@@ -231,9 +231,9 @@
         ]
       },
       {
-        "symbol": "AXAF",
+        "symbol": "AXA.DE",
         "isin": "FR0000120628",
-        "_comment": "",
+        "_comment": "AXA",
         "exchange": "Xetra",
         "alerts": [
           {
@@ -249,7 +249,7 @@
         ]
       },
       {
-        "symbol": "CMBN",
+        "symbol": "CMBN.SW",
         "isin": "CH0225173167",
         "_comment": "Cembra Money Bank AG",
         "exchange": "Switzerland",
@@ -272,7 +272,7 @@
         ]
       },
       {
-        "symbol": "LONN",
+        "symbol": "LONN.SW",
         "isin": "CH0013841017",
         "_comment": "Lonza Group AG",
         "exchange": "Switzerland",
@@ -300,7 +300,7 @@
         ]
       },
       {
-        "symbol": "LEHN",
+        "symbol": "LEHN.SW",
         "isin": "CH0022427626",
         "_comment": "Lem Holding SA",
         "exchange": "Switzerland",
@@ -323,8 +323,8 @@
         ]
       },
       {
-        "symbol": "LEON",
-        "isin": " CH0190891181",
+        "symbol": "LEON.SW",
+        "isin": "CH0190891181",
         "_comment": "Leonteq AG",
         "exchange": "Switzerland",
         "alerts": [
@@ -341,28 +341,9 @@
         ]
       },
       {
-        "symbol": "MBTN",
-        "isin": "",
-        "percentage-alert" : "0",
-        "_comment": "Skip percentage alert for the moment",
-        "exchange": "Switzerland",
-        "alerts": [
-          {
-            "threshold": 1.5,
-            "notification": "email",
-            "_comment": ""
-          },
-          {
-            "threshold": 5.00,
-            "notification": "email",
-            "_comment": ""
-          }
-        ]
-      },
-      {
-        "symbol": "STMN",
-        "isin": "",
-        "_comment": "",
+        "symbol": "STMN.SW",
+        "isin": "CH1175448666",
+        "_comment": "Straumann Holding AG",
         "exchange": "Switzerland",
         "alerts": [
           {
@@ -378,7 +359,7 @@
         ]
       },
       {
-        "symbol": "MOZN",
+        "symbol": "MOZN.SW",
         "isin": "CH0276837694",
         "_comment": "MOBILEZONE HOLDING AG",
         "exchange": "Switzerland",
@@ -396,9 +377,9 @@
         ]
       },
       {
-        "symbol": "SRAIL",
-        "isin": "",
-        "_comment": "",
+        "symbol": "SRAIL.SW",
+        "isin": "CH0002178181",
+        "_comment": "Stadler Rail AG",
         "exchange": "Switzerland",
         "alerts": [
           {
@@ -419,7 +400,7 @@
         ]
       },
       {
-        "symbol": "PPGN",
+        "symbol": "PPGN.SW",
         "isin": "CH1110760852",
         "_comment": "PolyPeptide Group AG",
         "exchange": "Switzerland",
@@ -455,9 +436,9 @@
         ]
       },
       {
-        "symbol": "SUNN",
-        "isin": "",
-        "_comment": "",
+        "symbol": "SUNN.SW",
+        "isin": "CH1386220409",
+        "_comment": "Sunrise Communications AG",
         "exchange": "Switzerland",
         "alerts": [
           {
@@ -473,13 +454,25 @@
         ]
       },
       {
-        "symbol": "BAEAG",
-        "isin": "",
-        "_comment" : "BAWAG NOT YET identified -> 100, 130, 120",
-        "exchange": "Switzerland"
+        "symbol": "BG.VI",
+        "isin": "AT0000BAWAG2",
+        "_comment" : "BAWAG Group | REVIEW: intended thresholds 100, 130, 120 not yet configured",
+        "exchange": "Vienna",
+        "alerts": [
+          {
+            "threshold": 200.00,
+            "notification": "email",
+            "_comment": "MAX! Go for it"
+          },
+          {
+            "threshold": 165.00,
+            "notification": "email",
+            "_comment": "check reasons"
+          }
+        ]
       },
       {
-        "symbol": "DTEGn",
+        "symbol": "DTE.DE",
         "isin": "DE0005557508",
         "_comment": "Deutsche Telekom AG Na",
         "exchange": "Xetra",
@@ -497,7 +490,7 @@
         ]
       },
       {
-        "symbol": "AMRZ",
+        "symbol": "AMRZ.SW",
         "isin": "CH1430134226",
         "_comment": "Amrize AG",
         "exchange": "Switzerland",
@@ -506,11 +499,16 @@
             "threshold": 55.00,
             "notification": "email",
             "_comment": "MAX forecast"
+          },
+          {
+            "threshold": 50.00,
+            "notification": "email",
+            "_comment": "SELL?"
           }
         ]
       },
       {
-        "symbol": "HOLN",
+        "symbol": "HOLN.SW",
         "isin": "CH0012214059",
         "_comment": "Holcim AG",
         "exchange": "Switzerland",
@@ -532,10 +530,10 @@
         ]
       },
       {
-        "symbol": "ZEAL",
+        "symbol": "ZEAL.CO",
         "isin": "DK0060257814",
-        "_comment": "BX converted by factor 1.17",
-        "exchange": "NASDAQ",
+        "_comment": "Zealand Pharma | REVIEW: now quoted in DKK on Nasdaq Copenhagen - thresholds below were converted from BX by factor 1.17 and must be rebased to DKK",
+        "exchange": "Copenhagen",
         "alerts": [
           {
             "threshold": 127.00,
@@ -550,7 +548,7 @@
         ]
       },
       {
-        "symbol": "SASY",
+        "symbol": "SNW.DE",
         "isin": "FR0000120578",
         "_comment": "Sanofi",
         "exchange": "Xetra",
@@ -577,7 +575,7 @@
         ]
       },
       {
-        "symbol": "ISOS",
+        "symbol": "IPS.PA",
         "isin": "FR0000073298",
         "_comment": "Ipsos",
         "exchange": "Paris",
@@ -604,7 +602,7 @@
         ]
       },
       {
-        "symbol": "SIKA",
+        "symbol": "SIKA.SW",
         "isin": "CH0418792922",
         "_comment": "Sika AG",
         "exchange": "Switzerland",
@@ -621,7 +619,7 @@
         ]
       },
       {
-        "symbol": "SRENH",
+        "symbol": "SREN.SW",
         "isin": "CH0126881561",
         "_comment": "Swiss Re AG",
         "exchange": "Switzerland",
@@ -639,7 +637,7 @@
       },
       {
         "symbol": "VICI",
-        "isin": "CH0126881561",
+        "isin": "US9256521090",
         "_comment": "VICI Properties Inc",
         "exchange": "NYSE",
         "alerts": [
@@ -655,7 +653,7 @@
         ]
       },
       {
-        "symbol": "PGHN",
+        "symbol": "PGHN.SW",
         "isin": "CH0024608827",
         "_comment": "Partners Group",
         "exchange": "Switzerland",
@@ -672,7 +670,7 @@
         ]
       },
       {
-        "symbol": "2M6",
+        "symbol": "2M6.DE",
         "isin": "IE00BTN1Y115",
         "_comment": "Medtronic PLC",
         "exchange": "Xetra",
@@ -689,7 +687,7 @@
         ]
       },
       {
-        "symbol": "MOLN",
+        "symbol": "MOLN.SW",
         "isin": "CH0256379097",
         "_comment": "Molecular Partners AG",
         "exchange": "Switzerland",
@@ -706,7 +704,7 @@
         ]
       },
       {
-        "symbol": "SY1G",
+        "symbol": "SY1.DE",
         "isin": "DE000SYM9999",
         "_comment": "Symrise AG",
         "exchange": "Xetra",
@@ -727,7 +725,7 @@
         ]
       },
       {
-        "symbol": "SCHN",
+        "symbol": "SCHN.SW",
         "isin": "CH0024638212",
         "_comment": "Schindler Holding AG",
         "exchange": "Switzerland",
@@ -744,7 +742,7 @@
         ]
       },
       {
-        "symbol": "SON1",
+        "symbol": "SON1.F",
         "isin": "JP3435000009",
         "_comment": "Sony Corp",
         "exchange": "Frankfurt",
@@ -761,10 +759,10 @@
         ]
       },
       {
-        "symbol": "TOCG",
-        "isin": "CA8849038085",
-        "_comment": "Thomson Reuters Corp",
-        "exchange": "Frankfurt",
+        "symbol": "TRI",
+        "isin": "CA8849038812",
+        "_comment": "Thomson Reuters Corp | REVIEW: Frankfurt listing (TOC.F) does not resolve on Yahoo, TRI (NYSE, USD, ~88) used instead - thresholds below are still EUR-based and must be rebased",
+        "exchange": "NYSE",
         "alerts": [
           {
             "threshold": 117,
@@ -782,10 +780,10 @@
         ]
       },
       {
-        "symbol": "INVP",
+        "symbol": "INVP.L",
         "isin": "GB00B17BBQ50",
-        "_comment": "Investec PLC",
-        "exchange": "Frankfurt",
+        "_comment": "Investec PLC | REVIEW: no reliable Yahoo Frankfurt ticker - INVP.L quotes in GBp (pence), thresholds below are still EUR-based and must be rebased (roughly x100 plus FX)",
+        "exchange": "London",
         "alerts": [
           {
             "threshold": 8.2,
@@ -803,7 +801,7 @@
         ]
       },
       {
-        "symbol": "GASI",
+        "symbol": "ASG.DE",
         "isin": "IT0000062072",
         "_comment": "Assicurazioni Generali SpA",
         "exchange": "Xetra",
@@ -820,7 +818,7 @@
         ]
       },
       {
-        "symbol": "VETN",
+        "symbol": "VETN.SW",
         "isin": "CH0530235594",
         "_comment": "Vetropack Holding SA",
         "exchange": "Switzerland",
@@ -837,7 +835,7 @@
         ]
       },
       {
-        "symbol": "ZURNE",
+        "symbol": "ZURN.SW",
         "isin": "CH0011075394",
         "_comment": "Zurich Insurance",
         "exchange": "Switzerland",
@@ -854,7 +852,7 @@
         ]
       },
       {
-        "symbol": "CFR",
+        "symbol": "CFR.SW",
         "isin": "CH0210483332",
         "_comment": "Compagnie Financiere Richemont SA",
         "exchange": "Switzerland",
@@ -871,7 +869,7 @@
         ]
       },
       {
-        "symbol": "AVOL",
+        "symbol": "AVOL.SW",
         "isin": "CH0023405456",
         "_comment": "Avolta AG",
         "exchange": "Switzerland",
@@ -888,7 +886,7 @@
         ]
       },
       {
-        "symbol": "SCHN",
+        "symbol": "SND.DE",
         "isin": "FR0000121972",
         "_comment": "Schneider Electric SE",
         "exchange": "Xetra",
@@ -905,7 +903,7 @@
         ]
       },
       {
-        "symbol": "BKWB",
+        "symbol": "BKW.SW",
         "isin": "CH0130293662",
         "_comment": "BKW AG",
         "exchange": "Switzerland",
@@ -920,6 +918,118 @@
             "_comment": "NE"
           }
         ]
+      },
+      {
+        "symbol": "CHDVD.SW",
+        "isin": "CH0237935637",
+        "_comment": "iShares Swiss Dividend ETF (CH)",
+        "exchange": "Switzerland",
+        "alerts": []
+      },
+      {
+        "symbol": "GLDV.SW",
+        "isin": "IE00B9CQXS71",
+        "_comment": "SPDR S&P Global Dividend Aristocrats UCITS ETF",
+        "exchange": "Switzerland",
+        "alerts": []
+      },
+      {
+        "symbol": "SEMI.AS",
+        "isin": "IE000I8KRLL9",
+        "_comment": "iShares MSCI Global Semiconductors UCITS ETF USD Acc",
+        "exchange": "Amsterdam",
+        "alerts": []
+      },
+      {
+        "symbol": "SFZN.SW",
+        "isin": "CH1429326825",
+        "_comment": "Siegfried Holding AG",
+        "exchange": "Switzerland",
+        "alerts": []
+      },
+      {
+        "symbol": "SPICHA.SW",
+        "isin": "CH0131872431",
+        "_comment": "UBS Core SPI ETF CHF dis",
+        "exchange": "Switzerland",
+        "alerts": []
+      },
+      {
+        "symbol": "DGQ.AQ",
+        "isin": "GB00BTXVG712",
+        "_comment": "Delta Gold Technologies PLC | quotes in GBp (pence)",
+        "exchange": "Aquis",
+        "alerts": []
+      },
+      {
+        "symbol": "MEDX.SW",
+        "isin": "CH1129677105",
+        "_comment": "medmix AG",
+        "exchange": "Switzerland",
+        "alerts": []
+      },
+      {
+        "symbol": "ALC.SW",
+        "isin": "CH0432492467",
+        "_comment": "Alcon Inc",
+        "exchange": "Switzerland",
+        "alerts": []
+      },
+      {
+        "symbol": "VUL.AX",
+        "isin": "AU0000066086",
+        "_comment": "Vulcan Energy Resources Ltd",
+        "exchange": "Australia",
+        "alerts": []
+      },
+      {
+        "symbol": "HAUTO.OL",
+        "isin": "NO0011082075",
+        "_comment": "Hoegh Autoliners ASA",
+        "exchange": "Oslo",
+        "alerts": []
+      },
+      {
+        "symbol": "XDWD.DE",
+        "isin": "IE00BJ0KDQ92",
+        "_comment": "Xtrackers MSCI World UCITS ETF 1C",
+        "exchange": "Xetra",
+        "alerts": []
+      },
+      {
+        "symbol": "ISPA.DE",
+        "isin": "DE000A0F5UH1",
+        "_comment": "iShares STOXX Global Select Dividend 100 UCITS ETF (DE)",
+        "exchange": "Xetra",
+        "alerts": []
+      },
+      {
+        "symbol": "EXSA.DE",
+        "isin": "DE0002635307",
+        "_comment": "iShares STOXX Europe 600 UCITS ETF (DE) EUR (Dist)",
+        "exchange": "Xetra",
+        "alerts": []
+      },
+      {
+        "symbol": "QOMP.DE",
+        "isin": "IE000C6ITGC8",
+        "_comment": "iShares Quantum Computing UCITS ETF USD (Acc)",
+        "exchange": "Xetra",
+        "alerts": []
+      },
+      {
+        "symbol": "V",
+        "isin": "US92826C8394",
+        "_comment": "Visa Inc",
+        "exchange": "NYSE",
+        "alerts": []
+      },
+      {
+        "symbol": "4GLD.DE",
+        "isin": "DE000A0S9GB0",
+        "_comment": "Xetra-Gold",
+        "exchange": "Xetra",
+        "alerts": []
       }
     ]
   }

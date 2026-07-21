@@ -26,8 +26,6 @@ import java.nio.file.Path;
 @ConfigurationProperties(prefix = "stock-alert")
 public class ApplicationConfig {
 
-  private String fcsApiKey;
-
   @Setter
   private String baseUrl;
 
@@ -47,37 +45,14 @@ public class ApplicationConfig {
     this.objectMapper = objectMapper;
   }
 
-  public void setFcsApiKey(final String fcsApiKey) {
-    this.fcsApiKey = (fcsApiKey) != null ? fcsApiKey.trim() : null;
-  }
-
   @Override
   public String toString() {
     return "ApplicationConfig{" +
-        "fcsApiKey=" + getMasked(fcsApiKey) +
-        ",updateCron=" + updateCron +
+        "updateCron=" + updateCron +
         ",baseUrl='" + baseUrl + "'" +
         ",configUrl='" + configUrl + "'" +
         ",runOnStartup=" + runOnStartup +
         '}';
-  }
-
-  private String getMasked(final String fcsApiKey) {
-    if (fcsApiKey == null) {
-      return null;
-    }
-    final String trimmed = fcsApiKey.trim();
-    final int length = trimmed.length();
-
-    return switch (length) {
-      case 0 -> "";
-      case 1,2,3,4 -> "*".repeat(length);
-      default -> {
-        final String first = trimmed.substring(0, 2);
-        final String last = trimmed.substring(length - 2);
-        yield first + "*".repeat(length - 4) + last;
-      }
-    };
   }
 
   public StockAlertsConfig getStockAlertsConfig() {
