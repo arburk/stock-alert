@@ -1,0 +1,22 @@
+{
+  "chart": {
+    "result": [
+      {
+        "meta": {
+          "currency": "CHF",
+          "symbol": "BALN.SW",
+          "exchangeName": "EBS",
+          "fullExchangeName": "Swiss Exchange",
+          "instrumentType": "EQUITY",
+          "regularMarketPrice": 207.4,
+          "chartPreviousClose": 205.0,
+          "previousClose": 205.0,
+          "regularMarketTime": 1754555700,
+          "timezone": "CEST",
+          "exchangeTimezoneName": "Europe/Zurich"
+        }
+      }
+    ],
+    "error": null
+  }
+}

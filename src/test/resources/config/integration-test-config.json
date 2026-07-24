@@ -12,7 +12,7 @@
     ],
     "securities": [
       {
-        "symbol": "BALN",
+        "symbol": "BALN.SW",
         "exchange": "Switzerland",
         "_comment" : "Test comment to be sent",
         "alerts": [
@@ -28,133 +28,28 @@
         ]
       },
       {
+        "symbol": "INGA.AS",
+        "percentage-alert" : "5",
+        "exchange": "Amsterdam"
+      },
+      {
+        "symbol": "NESN.SW",
+        "exchange": "Switzerland"
+      },
+      {
+        "symbol": "ROG.SW",
+        "exchange": "Switzerland"
+      },
+      {
         "symbol": "MMM",
         "exchange": "NYSE",
         "isin": "",
         "_comment": "Do comments break things? shouldn't be the case"
       },
       {
-        "symbol": "INGA",
-        "percentage-alert" : "5",
-        "exchange": "Amsterdam"
-      },
-      {
-        "symbol": "BAER",
-        "isin": "",
-        "exchange": "Switzerland"
-      },
-      {
-        "symbol": "ROG",
-        "exchange": "Switzerland"
-      },
-      {
-        "symbol": "DTE",
-        "exchange": "NYSE"
-      },
-      {
-        "symbol": "DVN",
-        "exchange": "NYSE"
-      },
-      {
-        "symbol": "FRO",
-        "exchange": "NYSE"
-      },
-      {
-        "symbol": "VUL",
-        "exchange": "TSXV"
-      },
-      {
-        "symbol": "MRK",
-        "exchange": "Xetra",
-        "_comment": ""
-      },
-      {
-        "symbol": "VODI",
-        "exchange": "Frankfurt"
-      },
-      {
-        "symbol": "ENI",
-        "exchange": "Xetra"
-      },
-      {
-        "symbol": "PFE",
-        "exchange": "Xetra"
-      },
-      {
-        "symbol": "SIKA",
-        "exchange": "Switzerland"
-      },
-      {
-        "symbol": "HELN",
-        "exchange": "Switzerland"
-      },
-      {
-        "symbol": "DKSH",
-        "exchange": "Switzerland"
-      },
-      {
-        "symbol": "ALV",
-        "exchange": "TSXV"
-      },
-      {
-        "symbol": "BANB",
-        "exchange": "Switzerland"
-      },
-      {
-        "symbol": "BSLN",
-        "exchange": "Switzerland"
-      },
-      {
-        "symbol": "CMBN",
-        "exchange": "Switzerland"
-      },
-      {
-        "symbol": "LEHN",
-        "exchange": "Switzerland"
-      },
-      {
-        "symbol": "LEON",
-        "exchange": "Switzerland"
-      },
-      {
-        "symbol": "MBTN",
-        "exchange": "Switzerland"
-      },
-      {
-        "symbol": "STMN",
-        "exchange": "Switzerland"
-      },
-      {
-        "symbol": "MOZN",
-        "exchange": "Switzerland"
-      },
-      {
-        "symbol": "VACD",
-        "exchange": "Frankfurt"
-      },
-      {
-        "symbol": "SRAIL",
-        "exchange": "Switzerland"
-      },
-      {
-        "symbol": "PPGN",
-        "exchange": "Switzerland"
-      },
-      {
-        "symbol": "MBLY",
-        "exchange": "NASDAQ"
-      },
-      {
-        "symbol": "SUNN",
-        "exchange": "Switzerland"
-      },
-      {
-        "symbol": "BIOV",
-        "exchange": "Switzerland"
-      },
-      {
-        "symbol": "AMRZ",
-        "exchange": "Switzerland"
+        "symbol": "NOSTUB.SW",
+        "exchange": "Switzerland",
+        "_comment": "deliberately not stubbed in StockServiceIntegrationTest to exercise the per-symbol skip path"
       }
     ]
   }

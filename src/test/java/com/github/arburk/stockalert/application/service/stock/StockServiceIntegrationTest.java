@@ -32,10 +32,13 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static com.github.tomakehurst.wiremock.client.WireMock.serverError;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathMatching;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -94,8 +97,7 @@ class StockServiceIntegrationTest {
   @Order(1)
     // no mail sent yet
   void apiNotReachable() {
-    stubFor(get("/latest?symbol=ENI%2CFRO%2CPPGN%2CSUNN%2CMBLY%2CMRK%2CSIKA%2CALV%2CBSLN%2CPFE%2CSRAIL%2CVODI%2CLEHN%2CINGA%2CHELN%2CBALN%2CSTMN%2CVACD%2CCMBN%2CAMRZ%2CROG%2CMBTN%2CMMM%2CVUL%2CBANB%2CBIOV%2CBAER%2CMOZN%2CDTE%2CLEON%2CDKSH%2CDVN&access_key=API_KEY")
-        .willReturn(serverError()));
+    stubFor(get(urlPathMatching("/v8/finance/chart/.*")).willReturn(serverError()));
 
     // now execute
     assertDoesNotThrow(() -> stockService.update(), "error in API communication should not break the service");
@@ -108,8 +110,7 @@ class StockServiceIntegrationTest {
   @Test
   @Order(2)
   void happyFlow_WithAlerting() throws MessagingException, IOException {
-    stubFor(get("/latest?symbol=ENI%2CFRO%2CPPGN%2CSUNN%2CMBLY%2CMRK%2CSIKA%2CALV%2CBSLN%2CPFE%2CSRAIL%2CVODI%2CLEHN%2CINGA%2CHELN%2CBALN%2CSTMN%2CVACD%2CCMBN%2CAMRZ%2CROG%2CMBTN%2CMMM%2CVUL%2CBANB%2CBIOV%2CBAER%2CMOZN%2CDTE%2CLEON%2CDKSH%2CDVN&access_key=API_KEY")
-        .willReturn(okJson(Files.contentOf(Path.of("src/test/resources/rest-client/extended-response.json").toFile(), StandardCharsets.UTF_8))));
+    stubAllChartSymbols();
 
     assertFalse(expectedStorageFile.exists());
     getPreparedSecurities().forEach(persistenceProvider::updateSecurity);
@@ -122,8 +123,8 @@ class StockServiceIntegrationTest {
     stockService.update();
 
     final Collection<Security> securites = persistenceProvider.getSecurites();
-    assertEquals(32, securites.size());
-    final Security baln = securites.stream().filter(security -> "BALN".equals(security.symbol())).findFirst()
+    assertEquals(5, securites.size(), "expected all stubbed symbols persisted; NOSTUB.SW is skipped");
+    final Security baln = securites.stream().filter(security -> "BALN.SW".equals(security.symbol())).findFirst()
         .orElseThrow(() -> new RuntimeException("Test failed. Expected Security is present."));
     assertEquals(207.4, baln.price());
     assertTrue(expectedStorageFile.length() > fileSizeBeforeAddingResults, "expected more contents in storage file, but size did not grow");
@@ -131,9 +132,10 @@ class StockServiceIntegrationTest {
     MimeMessage[] receivedMessages = greenMail.getReceivedMessages();
     assertEquals(1, receivedMessages.length, "Mail message was expected to be sent, which was apparently not the case");
     final MimeMessage receivedMessage = receivedMessages[0];
-    assertEquals("Threshold CHF 200.0 for BALN crossed", receivedMessage.getSubject());
+    assertEquals("Threshold CHF 200.0 for BALN.SW crossed", receivedMessage.getSubject());
     final List<String> expectedMailBodyLines = List.of(
-        "Price for BALN raised to CHF 207.4 dated on 2025-08-07 08:35 - from formerly CHF 198.15 dated on 2025-08-07 15:06",
+        // latest timestamp comes from epoch seconds converted to the system default zone -> match via regex
+        "Price for BALN.SW raised to CHF 207.4 dated on \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2} - from formerly CHF 198.15 dated on 2025-08-07 15:06",
         "Test comment to be sent | alert comment to be present",
         "Data refers to stock exchange Switzerland."
     );
@@ -151,8 +153,7 @@ class StockServiceIntegrationTest {
   @Test
   @Order(3)
   void happyFlow_WithPercentageAlerting() throws MessagingException, IOException {
-    stubFor(get("/latest?symbol=ENI%2CFRO%2CPPGN%2CSUNN%2CMBLY%2CMRK%2CSIKA%2CALV%2CBSLN%2CPFE%2CSRAIL%2CVODI%2CLEHN%2CINGA%2CHELN%2CBALN%2CSTMN%2CVACD%2CCMBN%2CAMRZ%2CROG%2CMBTN%2CMMM%2CVUL%2CBANB%2CBIOV%2CBAER%2CMOZN%2CDTE%2CLEON%2CDKSH%2CDVN&access_key=API_KEY")
-        .willReturn(okJson(Files.contentOf(Path.of("src/test/resources/rest-client/response_percentage_test.json").toFile(), StandardCharsets.UTF_8))));
+    stubChart("INGA.AS", "chart-INGA.AS-percentage.json" /* all other symbols remain unstubbed and are skipped */);
 
     assertFalse(expectedStorageFile.exists());
     ReflectionTestUtils.setField(persistenceProvider, "data", null); //
@@ -165,18 +166,19 @@ class StockServiceIntegrationTest {
     stockService.update();
 
     assertEquals(2, persistenceProvider.getSecurites().size());
-    final Security inga = persistenceProvider.getSecurity(new Security("INGA", null, null, null, null, "Amsterdam", null))
+    final Security inga = persistenceProvider.getSecurity(new Security("INGA.AS", null, null, null, null, "Amsterdam", null))
         .orElseThrow(() -> new RuntimeException("Test failed. Expected Security is present."));
     assertEquals(20.18 /* > 5% deviation compared to getPreparedSecurities()*/, inga.price());
 
     final MimeMessage[] receivedMessages = greenMail.getReceivedMessages();
     assertTrue(receivedMessages.length > 0, "percentage alert email was expected to be sent, which was apparently not the case");
     final MimeMessage receivedMessage = Arrays.asList(receivedMessages).getLast();
-    assertEquals("Threshold of 5.00 % crossed for INGA", receivedMessage.getSubject());
+    assertEquals("Threshold of 5.00 % crossed for INGA.AS", receivedMessage.getSubject());
     final List<String> expectedMailBodyLines = List.of(
-        "Price for INGA raised to EUR 20.18 - from formerly EUR 18.95 dated on 2025-08-07 15:06.",
+        "Price for INGA.AS raised to EUR 20.18 - from formerly EUR 18.95 dated on 2025-08-07 15:06.",
         "Price change is 6.49 % while defined threshold is 5.00 %.",
-        "Data refers to stock exchange Amsterdam dated on 2025-08-07 08:52."
+        // latest timestamp comes from epoch seconds converted to the system default zone -> match via regex
+        "Data refers to stock exchange Amsterdam dated on \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}."
     );
     assertLinesMatch(expectedMailBodyLines, Arrays.asList(receivedMessage.getContent().toString().split("\\R")));
 
@@ -192,8 +194,7 @@ class StockServiceIntegrationTest {
   @Test
   @Order(999)
   void emailNotSendable() {
-    stubFor(get("/latest?symbol=ENI%2CFRO%2CPPGN%2CSUNN%2CMBLY%2CMRK%2CSIKA%2CALV%2CBSLN%2CPFE%2CSRAIL%2CVODI%2CLEHN%2CINGA%2CHELN%2CBALN%2CSTMN%2CVACD%2CCMBN%2CAMRZ%2CROG%2CMBTN%2CMMM%2CVUL%2CBANB%2CBIOV%2CBAER%2CMOZN%2CDTE%2CLEON%2CDKSH%2CDVN&access_key=API_KEY")
-        .willReturn(okJson(Files.contentOf(Path.of("src/test/resources/rest-client/extended-response.json").toFile(), StandardCharsets.UTF_8))));
+    stubAllChartSymbols();
 
     if (expectedStorageFile.exists()) {
       assertTrue(expectedStorageFile.delete());
@@ -207,8 +208,8 @@ class StockServiceIntegrationTest {
     assertDoesNotThrow(() -> stockService.update(), "error in notification service");
 
     final Collection<Security> securites = persistenceProvider.getSecurites();
-    assertEquals(32, securites.size());
-    final Security baln = securites.stream().filter(security -> "BALN".equals(security.symbol())).findFirst()
+    assertEquals(5, securites.size());
+    final Security baln = securites.stream().filter(security -> "BALN.SW".equals(security.symbol())).findFirst()
         .orElseThrow(() -> new RuntimeException("Test failed. Expected Security is present."));
     assertEquals(207.4, baln.price());
 
@@ -216,14 +217,31 @@ class StockServiceIntegrationTest {
     assertEquals(0, receivedMessages.length, "No Mail was expected to be sent, but found one");
   }
 
+  private static void stubAllChartSymbols() {
+    // NOSTUB.SW from integration-test-config.json is deliberately left unstubbed (WireMock answers 404)
+    // to verify that a failing symbol does not break the batch
+    stubChart("BALN.SW", "chart-BALN.SW.json");
+    stubChart("INGA.AS", "chart-INGA.AS.json");
+    stubChart("NESN.SW", "chart-NESN.SW.json");
+    stubChart("ROG.SW", "chart-ROG.SW.json");
+    stubChart("MMM", "chart-MMM.json");
+  }
+
+  private static void stubChart(final String symbol, final String fixture) {
+    stubFor(get(urlPathEqualTo("/v8/finance/chart/" + symbol))
+        .withQueryParam("interval", equalTo("1d"))
+        .withQueryParam("range", equalTo("1d"))
+        .willReturn(okJson(Files.contentOf(Path.of("src/test/resources/rest-client/yahoo/" + fixture).toFile(), StandardCharsets.UTF_8))));
+  }
+
   private Collection<Security> getPreparedSecurities() {
-    // For BALN a threshold of 200 is defined in src/test/resources/config/integration-test-config.json
-    // so we set a value lower (198.15) here and a value higher (207.4) in src/test/resources/rest-client/extended-response.json
+    // For BALN.SW a threshold of 200 is defined in src/test/resources/config/integration-test-config.json
+    // so we set a value lower (198.15) here and a value higher (207.4) in src/test/resources/rest-client/yahoo/chart-BALN.SW.json
     // to trigger alert
     final LocalDateTime timestamp = LocalDateTime.of(2025, Month.AUGUST, 7, 15, 6, 1, 99);
     return List.of(
-        new Security("BALN", 198.15, "CHF", null, timestamp, "Switzerland", null),
-        new Security("INGA", 18.95, "EUR", null, timestamp, "Amsterdam", null)
+        new Security("BALN.SW", 198.15, "CHF", null, timestamp, "Switzerland", null),
+        new Security("INGA.AS", 18.95, "EUR", null, timestamp, "Amsterdam", null)
     );
   }
 

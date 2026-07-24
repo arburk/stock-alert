@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**stock-alert** is a Spring Boot application that monitors stock/securities prices via the [FCS API](https://fcsapi.com/) and sends configurable alerts (e.g. email) when defined price thresholds or percentage changes are exceeded.
+**stock-alert** is a Spring Boot application that monitors stock/securities prices via the unofficial Yahoo Finance chart API (`https://query1.finance.yahoo.com/v8/finance/chart/{symbol}`, no API key, ~15 min delayed) and sends configurable alerts (e.g. email) when defined price thresholds or percentage changes are exceeded.
 
 - **Group ID:** `com.github.arburk.stockalert`
 - **Artifact:** `stock-alert`
@@ -35,7 +35,7 @@ Surefire reports go to `target/surefire/`.
 |---|---|
 | `spring-boot-starter-quartz` | Scheduled stock checks |
 | `spring-boot-starter-mail` | Email notifications |
-| `spring-cloud-starter-openfeign` | HTTP client for FCS API |
+| `spring-cloud-starter-openfeign` | HTTP client for the Yahoo Finance chart API |
 | `jackson-databind` (tools.jackson) | JSON config parsing |
 | `software.amazon.awssdk:s3` | S3-compatible storage |
 | `mapstruct` | DTO mapping |
@@ -49,7 +49,6 @@ The application is configured entirely via **environment variables**:
 
 | Variable | Description | Default |
 |---|---|---|
-| `FCS-API-KEY` | API key for https://fcsapi.com/ | *(required)* |
 | `UPDATE-CRON` | Cron expression for scheduled updates | `0 16 9-21 * * MON-FRI` |
 | `UPDATE-ON-STARTUP` | Run update on startup | `false` |
 | `CONFIG-URL` | URL or file path to `config.json` | *(required)* |
@@ -90,14 +89,14 @@ Key fields:
 - `silence-duration` – Minimum time between repeated alerts (e.g. `"6h"`)
 - `percentage-alert` – Global percentage change threshold (e.g. `"5%"`)
 - `notification-channels` – List of channels (`email`, etc.) with recipients
-- `securities` – List of securities with `symbol`, `exchange`, `isin`, and `alerts` (price thresholds)
+- `securities` – List of securities with `symbol` (Yahoo Finance ticker, e.g. `NESN.SW`, `ALV.DE`, `MMM`), `exchange` (free label echoed in notifications), `isin`, and `alerts` (price thresholds)
 
 ---
 
 ## Architecture Notes
 
 - **Scheduler** – Quartz-based scheduler triggers stock price fetching on the configured cron.
-- **FCS API client** – OpenFeign client under `infrastructure/provider/fcsapi`.
+- **Yahoo Finance client** – OpenFeign client under `infrastructure/provider/yahoo`. One request per symbol (`/v8/finance/chart/{symbol}?interval=1d&range=1d`); a browser-like `User-Agent` header is mandatory. Failures are tolerated per symbol. The `exchange` is stamped from the alert config onto each result; `changePercentage` is derived from `regularMarketPrice / chartPreviousClose - 1`.
 - **Storage** – Pluggable persistence layer; `default` uses local filesystem, `s3` uses AWS SDK v2.
 - **Notifications** – Email notifications via Spring Mail; extensible to other channels.
 - **Mapping** – MapStruct mappers convert between API DTOs and domain objects.
@@ -109,16 +108,14 @@ Key fields:
 
 ```bash
 # Run with remote config
-docker run -e FCS-API-KEY=your-api-key \
-           -e CONFIG-URL=https://raw.githubusercontent.com/arburk/stock-alert/refs/heads/main/src/main/resources/config-example.json \
+docker run -e CONFIG-URL=https://raw.githubusercontent.com/arburk/stock-alert/refs/heads/main/src/main/resources/config-example.json \
            -e GATEWAY-EMAIL-HOST=smtp.provider.com \
            -e GATEWAY-EMAIL-USER=you@provider.com \
            -e GATEWAY-EMAIL-PWD=<your-secret-password> \
            arburk/stock-alert:0.5.0
 
 # Run with a mounted local config file
-docker run -e FCS-API-KEY=your-api-key \
-           -e GATEWAY-EMAIL-HOST=smtp.provider.com \
+docker run -e GATEWAY-EMAIL-HOST=smtp.provider.com \
            -e GATEWAY-EMAIL-USER=you@provider.com \
            -e GATEWAY-EMAIL-PWD=<your-secret-password> \
            -v /home/user/my-config:/config \

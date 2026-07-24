@@ -1,0 +1,22 @@
+{
+  "chart": {
+    "result": [
+      {
+        "meta": {
+          "currency": "CHF",
+          "symbol": "NESN.SW",
+          "exchangeName": "EBS",
+          "fullExchangeName": "Swiss Exchange",
+          "instrumentType": "EQUITY",
+          "regularMarketPrice": 78.5,
+          "chartPreviousClose": 78.0,
+          "previousClose": 78.0,
+          "regularMarketTime": 1754555700,
+          "timezone": "CEST",
+          "exchangeTimezoneName": "Europe/Zurich"
+        }
+      }
+    ],
+    "error": null
+  }
+}

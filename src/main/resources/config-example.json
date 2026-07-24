@@ -13,25 +13,25 @@
     ],
     "securities": [
       {
-        "symbol": "BALN",
-        "isin": "CH0012410517",
-        "_comment": "'symbol' and 'exchange' must match the FCSAPI symbol definition; 'isin' -> not used by FCSAPI; 'percentage-alert' -> overrides the stock-alert-config.percentage-alert. empty value resets this alert",
+        "symbol": "NESN.SW",
+        "isin": "CH0038863350",
+        "_comment": "'symbol' must be the Yahoo Finance ticker (e.g. NESN.SW for SIX, ALV.DE for Xetra, no suffix for US); 'exchange' is a free label used in notifications; 'isin' -> informational only; 'percentage-alert' -> overrides the stock-alert-config.percentage-alert. empty value resets this alert",
         "exchange": "Switzerland",
         "something-weird" : "won't crash things",
         "percentage-alert" : "10",
         "alerts": [
           {
-            "threshold": 200.00,
+            "threshold": 80.00,
             "notification": "email",
             "_comment": "Keep an eye on it."
           },
           {
-            "threshold": 220.00,
+            "threshold": 90.00,
             "notification": "sms",
             "_comment": "Sell now!"
           },
           {
-            "threshold": 185.00,
+            "threshold": 70.00,
             "notification": "email",
             "_comment": "Consider selling."
           }

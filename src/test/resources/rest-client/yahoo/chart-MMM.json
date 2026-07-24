@@ -1,0 +1,22 @@
+{
+  "chart": {
+    "result": [
+      {
+        "meta": {
+          "currency": "USD",
+          "symbol": "MMM",
+          "exchangeName": "NYQ",
+          "fullExchangeName": "NYSE",
+          "instrumentType": "EQUITY",
+          "regularMarketPrice": 150.25,
+          "chartPreviousClose": 149.0,
+          "previousClose": 149.0,
+          "regularMarketTime": 1754575200,
+          "timezone": "EDT",
+          "exchangeTimezoneName": "America/New_York"
+        }
+      }
+    ],
+    "error": null
+  }
+}
