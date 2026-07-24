@@ -1,0 +1,2 @@
+### GET request to yahoo finance API
+GET https://query1.finance.yahoo.com/v8/finance/chart/VACD.F

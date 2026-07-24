@@ -987,7 +987,13 @@
         "isin": "NO0011082075",
         "_comment": "Hoegh Autoliners ASA",
         "exchange": "Oslo",
-        "alerts": []
+        "alerts": [
+          {
+            "threshold": 12,
+            "notification": "email",
+            "_comment": "re-entry?"
+          }
+        ]
       },
       {
         "symbol": "XDWD.DE",
@@ -1030,6 +1036,23 @@
         "_comment": "Xetra-Gold",
         "exchange": "Xetra",
         "alerts": []
+      },
+      {
+        "symbol": "VACD.F",
+        "isin": "FR0013506730",
+        "_comment": "Vallourec",
+        "exchange": "Frankfurt",
+        "alerts": [
+          {
+            "threshold": 27,
+            "notification": "email",
+            "_comment": "drop"
+          }, {
+            "threshold": 24.5,
+            "notification": "email",
+            "_comment": "half the way"
+          }
+        ]
       }
     ]
   }
