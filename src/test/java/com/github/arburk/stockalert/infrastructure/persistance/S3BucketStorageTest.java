@@ -80,15 +80,11 @@ class S3BucketStorageTest {
 
     assertTrue(result.isEmpty());
     final List<ListObjectsRequest> allRequests = requestCaptor.getAllValues();
-    assertEquals(2, allRequests.size());
+    assertEquals(1, allRequests.size());
     final ListObjectsRequest firstRequest = allRequests.getFirst();
-    final ListObjectsRequest secondRequest = allRequests.getLast();
     verify(mockS3).listObjects(firstRequest);
-    verify(mockS3).listObjects(secondRequest);
     assertEquals(TEST_BUCKET, firstRequest.bucket());
-    assertEquals(TEST_BUCKET, secondRequest.bucket());
     assertEquals(PersistenceProvider.STORAGE_FILE_NAME, firstRequest.prefix());
-    assertEquals(PersistenceProvider.STORAGE_FILE_NAME_0_1_3, secondRequest.prefix());
     verify(mockS3, never()).getObject(any(GetObjectRequest.class));
   }
 

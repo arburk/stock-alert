@@ -1,7 +1,5 @@
 package com.github.arburk.stockalert.infrastructure.persistance;
 
-import tools.jackson.core.type.TypeReference;
-import tools.jackson.databind.ObjectMapper;
 import com.github.arburk.stockalert.application.domain.StockAlertDb;
 import com.github.arburk.stockalert.application.service.stock.PersistenceProvider;
 import io.micrometer.common.util.StringUtils;
@@ -20,9 +18,10 @@ import software.amazon.awssdk.services.s3.model.GetObjectRequest;
 import software.amazon.awssdk.services.s3.model.ListObjectsRequest;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.services.s3.model.S3Object;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.ObjectMapper;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.StringWriter;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
@@ -99,7 +98,7 @@ public class S3BucketStorage extends AbstractPersistenceProvider implements Pers
 
       if (s3Contents.isEmpty()) {
         log.warn("Storage file not found in S3 bucket: {}/{}", bucket, endpoint);
-        return initDataByFallback();
+        return new StockAlertDb(new ArrayList<>(/* must not be immutable */), null);
       }
 
       if (s3Contents.size() > 1) {
@@ -117,24 +116,6 @@ public class S3BucketStorage extends AbstractPersistenceProvider implements Pers
       resetS3ClientToEnforceRefresh();
       return new StockAlertDb(new ArrayList<>(/* must not be immutable */), null);
     }
-  }
-
-  private StockAlertDb initDataByFallback() throws IOException {
-    final ListObjectsRequest req = ListObjectsRequest.builder()
-        .bucket(bucket).prefix(STORAGE_FILE_NAME_0_1_3).build();
-    final List<S3Object> s3Contents = getS3().listObjects(req)
-        .contents()
-        .stream()
-        .toList();
-
-    if (!s3Contents.isEmpty()) {
-      log.info("init data from former storage file for migration: {}", STORAGE_FILE_NAME_0_1_3);
-      try (var responseInputStream = getS3().getObject(GetObjectRequest.builder().bucket(bucket).key(STORAGE_FILE_NAME_0_1_3).build())) {
-        return new StockAlertDb(objectMapper.readValue(responseInputStream, new TypeReference<>() {
-        }), null);
-      }
-    }
-    return new StockAlertDb(new ArrayList<>(/* must not be immutable */), null);
   }
 
   private S3Client getS3() {

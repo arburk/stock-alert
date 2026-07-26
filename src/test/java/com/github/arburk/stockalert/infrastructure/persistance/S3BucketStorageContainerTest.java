@@ -13,18 +13,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.testcontainers.containers.MinIOContainer;
-import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.CreateBucketRequest;
-import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
 import software.amazon.awssdk.services.s3.model.ListObjectsRequest;
-import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.services.s3.model.S3Object;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.StringWriter;
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,7 +25,6 @@ import java.util.Collection;
 import java.util.List;
 
 import static com.github.arburk.stockalert.application.service.stock.PersistenceProvider.STORAGE_FILE_NAME;
-import static com.github.arburk.stockalert.application.service.stock.PersistenceProvider.STORAGE_FILE_NAME_0_1_3;
 import static java.util.Calendar.JULY;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -131,53 +123,6 @@ class S3BucketStorageContainerTest {
       final StockAlertDb stockAlertDb = testee.initData();
       assertEquals(STOCK_ALERT_DB, stockAlertDb);
     });
-  }
-
-  @Test
-  @Order(4)
-  void testConversionFromOldFormat() throws IOException {
-    // remove former file from bucket
-    s3Client.deleteObject(DeleteObjectRequest.builder().bucket(BUCKET_NAME).key(STORAGE_FILE_NAME).build());
-    assertBucketEmpty();
-
-    addSecuritesInOldFormat();
-    assertDoesNotThrow(() -> {
-      final Collection<Security> securites = testee.getSecurites(/* init data succeeds even in old storage format*/);
-      assertEquals(STOCK_ALERT_DB.securities(), securites);
-    });
-
-    // save again and assert new FileFormat added
-    assertDoesNotThrow(() -> testee.updateMetaInfo(STOCK_ALERT_DB.metaInfo()));
-    final List<S3Object> s3Contents = s3Client.listObjects(ListObjectsRequest.builder()
-            .bucket(BUCKET_NAME).build())
-        .contents()
-        .stream()
-        .toList();
-    assertNotNull(s3Contents);
-    assertFalse(s3Contents.isEmpty());
-    assertEquals(2, s3Contents.size(), "expected 2 files, old format and current one");
-    readDataFromBucket(/* re-assert new file structure after saving */);
-  }
-
-  private void addSecuritesInOldFormat() throws IOException {
-    // add old storage format
-    final StringWriter jsonWriter = new StringWriter();
-    new JacksonConfig().objectMapper().writerWithDefaultPrettyPrinter().writeValue(jsonWriter, STOCK_ALERT_DB.securities());
-    final byte[] resultAsBytes = jsonWriter.toString().getBytes(StandardCharsets.UTF_8);
-
-    try (ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(resultAsBytes)) {
-      final var req = PutObjectRequest.builder().bucket(BUCKET_NAME).key(STORAGE_FILE_NAME_0_1_3).build();
-      s3Client.putObject(req, RequestBody.fromInputStream(byteArrayInputStream, resultAsBytes.length));
-    }
-    final List<S3Object> s3Contents = s3Client.listObjects(ListObjectsRequest.builder()
-            .bucket(BUCKET_NAME).build())
-        .contents()
-        .stream()
-        .toList();
-    assertNotNull(s3Contents);
-    assertFalse(s3Contents.isEmpty());
-    assertEquals(1, s3Contents.size());
-    assertEquals(STORAGE_FILE_NAME_0_1_3, s3Contents.getFirst().key());
   }
 
 }

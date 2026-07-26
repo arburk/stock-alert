@@ -5,8 +5,6 @@ import com.github.arburk.stockalert.application.service.stock.PersistenceProvide
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
-import tools.jackson.core.JacksonException;
-import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.ObjectMapper;
 
 import java.io.File;
@@ -55,23 +53,13 @@ public class FileStorage extends AbstractPersistenceProvider implements Persiste
     try {
       if (!filePath.toFile().exists()) {
         log.warn("Storage file not found: {}", filePath.toFile().getAbsoluteFile());
-        return initDataByFallback();
+        return new StockAlertDb(new ArrayList<>(/* must not be immutable */), null);
       }
       return objectMapper.readValue(filePath.toFile(), StockAlertDb.class);
     } catch (Exception e) {
       log.error("Failed to read securities from file", e);
       return new StockAlertDb(new ArrayList<>(/* must not be immutable */), null);
     }
-  }
-
-  private StockAlertDb initDataByFallback() throws JacksonException {
-    final Path fallback = Path.of(System.getProperty("user.home"), "stock-alert", PersistenceProvider.STORAGE_FILE_NAME_0_1_3);
-    if (fallback.toFile().exists()) {
-      log.info("init data from former storage file for migration: {}", fallback.toFile().getAbsoluteFile());
-      return new StockAlertDb(objectMapper.readValue(fallback.toFile(), new TypeReference<>() {
-      }), null);
-    }
-    return new StockAlertDb(new ArrayList<>(/* must not be immutable */), null);
   }
 
 }
