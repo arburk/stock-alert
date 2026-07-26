@@ -2,6 +2,8 @@ package com.github.arburk.stockalert.infrastructure.provider.yahoo;
 
 import com.github.arburk.stockalert.application.config.ApplicationConfig;
 import com.github.arburk.stockalert.application.config.JacksonConfig;
+import com.github.arburk.stockalert.application.service.RunSummary;
+import com.github.arburk.stockalert.application.service.RunSummary.TickerResult;
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.domain.config.SecurityConfig;
 import com.github.arburk.stockalert.application.domain.config.StockAlertsConfig;
@@ -16,6 +18,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
@@ -28,6 +32,7 @@ class ClientTest {
 
   private YahooFinanceClient yahooFinanceClient;
   private ApplicationConfig applicationConfig;
+  private RunSummary runSummary;
   private Client testee;
 
   @BeforeEach
@@ -39,7 +44,14 @@ class ClientTest {
         new SecurityConfig("INGA.AS", "Amsterdam", null, null, null, null),
         new SecurityConfig("MMM", "NYSE", null, null, null, null)
     ));
-    testee = new Client(yahooFinanceClient);
+    runSummary = new RunSummary();
+    testee = new Client(yahooFinanceClient, runSummary);
+  }
+
+  private TickerResult resultFor(final String symbol) {
+    return runSummary.getTickers().stream()
+        .filter(t -> symbol.equals(t.symbol()))
+        .findFirst().orElseThrow();
   }
 
   @Test
@@ -90,6 +102,17 @@ class ClientTest {
 
     assertEquals(2, result.size());
     assertTrue(result.stream().map(Security::symbol).noneMatch("BROKEN"::equals));
+
+    // every queried symbol is recorded in the run summary, including the failed one
+    assertEquals(3, runSummary.getTickers().size());
+    final TickerResult baln = resultFor("BALN.SW");
+    assertTrue(baln.success());
+    assertEquals(200, baln.httpStatus());
+    assertEquals(207.4, baln.price());
+    final TickerResult broken = resultFor("BROKEN");
+    assertFalse(broken.success());
+    assertNull(broken.httpStatus(), "non-Feign exception carries no HTTP status");
+    assertTrue(broken.note().contains("404"));
   }
 
   @Test
@@ -104,6 +127,10 @@ class ClientTest {
 
     assertEquals(1, result.size());
     assertEquals("BALN.SW", result.iterator().next().symbol());
+
+    final TickerResult delisted = resultFor("DELISTED");
+    assertFalse(delisted.success());
+    assertEquals(200, delisted.httpStatus(), "Yahoo error node still comes back over HTTP 200");
   }
 
   @Test

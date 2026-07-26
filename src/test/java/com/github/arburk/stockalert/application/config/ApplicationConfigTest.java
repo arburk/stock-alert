@@ -37,7 +37,7 @@ class ApplicationConfigTest {
 
   @Test
   void toStringContainsConfigValues() {
-    assertEquals("ApplicationConfig{updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false}", testee.toString());
+    assertEquals("ApplicationConfig{updateCron=* 16 9-21 * * MON-FRI,baseUrl='https://stock-alert.io',configUrl='null',runOnStartup=false,summaryFile='null'}", testee.toString());
   }
 
   @Nested
