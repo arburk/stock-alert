@@ -11,12 +11,6 @@ public interface PersistenceProvider {
 
   String STORAGE_FILE_NAME = "securities.db.json";
 
-  /**
-   * @deprecated filename changed to {@link #STORAGE_FILE_NAME}
-   */
-  @Deprecated(since = "0.2.0", forRemoval = true)
-  String STORAGE_FILE_NAME_0_1_3 = "securities.db";
-
   Collection<Security> getSecurites();
 
   Optional<Security> getSecurity(@NonNull Security identifier);
