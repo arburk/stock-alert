@@ -61,6 +61,7 @@ jobs:
           STORAGE: ${{ vars.STORAGE }}
           UPDATE-CRON: "-"
           UPDATE-ON-STARTUP: true
+          SUMMARY-FILE: ${{ github.workspace }}/stock-alert-summary.md
           SPRING_APPLICATION_JSON: ${{ vars.SPRING_APPLICATION_JSON}}
 
       - name: Wait for execution
@@ -81,7 +82,15 @@ jobs:
 
       - name: Shutdown app
         run: |
-          cat ${{ github.workspace }}/stock-alert-execution.log | grep c.g.a. >> $GITHUB_STEP_SUMMARY
+          if [ -f "${{ github.workspace }}/stock-alert-summary.md" ]; then
+            cat "${{ github.workspace }}/stock-alert-summary.md" >> $GITHUB_STEP_SUMMARY
+          else
+            {
+              echo "> [!CAUTION]"
+              echo "> No summary produced — see run log."
+            } >> $GITHUB_STEP_SUMMARY
+            grep c.g.a. "${{ github.workspace }}/stock-alert-execution.log" >> $GITHUB_STEP_SUMMARY || true
+          fi
           if [ -f app.pid ]; then
             kill $(cat app.pid)
             rm app.pid

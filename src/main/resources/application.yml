@@ -4,6 +4,7 @@ stock-alert:
   config-url: ${CONFIG-URL:src/main/resources/config-example.json}
   run-on-startup:  ${UPDATE-ON-STARTUP:false}
   storage-provider: ${STORAGE:default}
+  summary-file: ${SUMMARY-FILE:}
 
 spring:
   application:

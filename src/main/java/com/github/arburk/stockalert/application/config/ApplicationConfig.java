@@ -38,6 +38,9 @@ public class ApplicationConfig {
   @Setter
   private boolean runOnStartup;
 
+  @Setter
+  private String summaryFile;
+
   @Getter(AccessLevel.NONE)
   private final ObjectMapper objectMapper;
 
@@ -52,6 +55,7 @@ public class ApplicationConfig {
         ",baseUrl='" + baseUrl + "'" +
         ",configUrl='" + configUrl + "'" +
         ",runOnStartup=" + runOnStartup +
+        ",summaryFile='" + summaryFile + "'" +
         '}';
   }
 
