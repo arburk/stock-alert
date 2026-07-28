@@ -759,27 +759,6 @@
         ]
       },
       {
-        "symbol": "TRI",
-        "isin": "CA8849038812",
-        "_comment": "Thomson Reuters Corp | REVIEW: Frankfurt listing (TOC.F) does not resolve on Yahoo, TRI (NYSE, USD, ~88) used instead - thresholds below are still EUR-based and must be rebased",
-        "exchange": "NYSE",
-        "alerts": [
-          {
-            "threshold": 117,
-            "notification": "email",
-            "_comment": "average"
-          },{
-            "threshold": 100,
-            "notification": "email",
-            "_comment": "threshold"
-          },{
-            "threshold": 75.70,
-            "notification": "email",
-            "_comment": "NE"
-          }
-        ]
-      },
-      {
         "symbol": "INVP.L",
         "isin": "GB00B17BBQ50",
         "_comment": "Investec PLC | REVIEW: no reliable Yahoo Frankfurt ticker - INVP.L quotes in GBp (pence), thresholds below are still EUR-based and must be rebased (roughly x100 plus FX)",
@@ -795,23 +774,6 @@
             "_comment": "threshold"
           },{
             "threshold": 7.50,
-            "notification": "email",
-            "_comment": "NE"
-          }
-        ]
-      },
-      {
-        "symbol": "ASG.DE",
-        "isin": "IT0000062072",
-        "_comment": "Assicurazioni Generali SpA",
-        "exchange": "Xetra",
-        "alerts": [
-          {
-            "threshold": 43,
-            "notification": "email",
-            "_comment": "average"
-          },{
-            "threshold": 35.00,
             "notification": "email",
             "_comment": "NE"
           }
