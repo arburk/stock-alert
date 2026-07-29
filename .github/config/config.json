@@ -1015,6 +1015,48 @@
             "_comment": "half the way"
           }
         ]
+      },
+      {
+        "symbol": "CRIN.DE",
+        "isin": "IT0005239360",
+        "_comment": "Unicredit",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 95,
+            "notification": "email",
+            "_comment": "drop"
+          }, {
+            "threshold": 87.5,
+            "notification": "email",
+            "_comment": "half the way"
+          }, {
+            "threshold": 80.0,
+            "notification": "email",
+            "_comment": "check reasons"
+          }
+        ]
+      },
+      {
+        "symbol": "FPMB.DE",
+        "isin": "US35671D8570",
+        "_comment": "Freeport-McMoRan",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 75,
+            "notification": "email",
+            "_comment": "drop"
+          }, {
+            "threshold": 63.5,
+            "notification": "email",
+            "_comment": "half the way"
+          }, {
+            "threshold": 51.0,
+            "notification": "email",
+            "_comment": "check reasons"
+          }
+        ]
       }
     ]
   }
