@@ -938,14 +938,14 @@
         "alerts": []
       },
       {
-        "symbol": "VUL.AX",
+        "symbol": "VUL.DE",
         "isin": "AU0000066086",
         "_comment": "Vulcan Energy Resources Ltd",
         "exchange": "Australia",
         "alerts": []
       },
       {
-        "symbol": "HAUTO.OL",
+        "symbol": "V02.F",
         "isin": "NO0011082075",
         "_comment": "Hoegh Autoliners ASA",
         "exchange": "Oslo",
