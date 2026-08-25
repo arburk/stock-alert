@@ -70,19 +70,9 @@
             "_comment": "NE"
           },
           {
-            "threshold": 50.00,
+            "threshold": 67.00,
             "notification": "email",
-            "_comment": ""
-          },
-          {
-            "threshold": 65.00,
-            "notification": "email",
-            "_comment": "Average"
-          },
-          {
-            "threshold": 70.00,
-            "notification": "email",
-            "_comment": "Max forecast"
+            "_comment": "Stop Loss"
           }
         ]
       },
@@ -161,7 +151,7 @@
             "_comment": "NE"
           },
           {
-            "threshold": 350.00,
+            "threshold": 385.00,
             "notification": "email",
             "_comment": "milestone"
           }
@@ -347,7 +337,7 @@
         "exchange": "Switzerland",
         "alerts": [
           {
-            "threshold": 125.00,
+            "threshold": 105.00,
             "notification": "email",
             "_comment": ""
           },
@@ -907,7 +897,15 @@
         "isin": "CH1429326825",
         "_comment": "Siegfried Holding AG",
         "exchange": "Switzerland",
-        "alerts": []
+        "alerts": [{
+          "threshold": 100,
+          "notification": "email",
+          "_comment": "average"
+        },{
+          "threshold": 115,
+          "notification": "email",
+          "_comment": "sell"
+        }]
       },
       {
         "symbol": "SPICHA.SW",
