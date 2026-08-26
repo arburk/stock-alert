@@ -30,7 +30,7 @@ jobs:
 
       - name: Get latest release
         id: releaseIdent
-        uses: pozetroninc/github-action-get-latest-release@master
+        uses: pozetroninc/github-action-get-latest-release@v0.8.0
         with:
           owner: arburk
           repo: stock-alert
