@@ -7,9 +7,37 @@ updates:
     open-pull-requests-limit: 10
     labels:
       - "dependencies"
-      - "security"
+      - "java"
+    groups:
+      aws-sdk:
+        patterns:
+          - "software.amazon.awssdk:*"
+      test-dependencies:
+        patterns:
+          - "org.wiremock.integrations:*"
+          - "com.icegreen:*"
+          - "org.testcontainers:*"
+    # Transitive dependencies whose version is owned by the spring-boot-starter-parent BOM.
+    # Dependabot cannot rewrite a version this pom does not declare, so every security update
+    # job for them fails. Bump the parent instead; the alerts stay visible in the Security tab.
+    ignore:
+      - dependency-name: "io.netty:*"
+      - dependency-name: "org.apache.httpcomponents.client5:*"
+      - dependency-name: "org.apache.httpcomponents.core5:*"
+      - dependency-name: "org.apache.logging.log4j:*"
+      - dependency-name: "com.fasterxml.jackson.core:*"
+      - dependency-name: "tools.jackson.core:*"
+      - dependency-name: "ch.qos.logback:*"
+      - dependency-name: "org.bouncycastle:*"
+      - dependency-name: "com.github.jknack:*"
+      - dependency-name: "org.assertj:*"
+      - dependency-name: "commons-fileupload:*"
+
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
       interval: "monthly"
     open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "github_actions"
