@@ -1055,6 +1055,90 @@
             "_comment": "check reasons"
           }
         ]
+      },
+      {
+        "symbol": "GBF.DE",
+        "isin": "DE0005909006",
+        "_comment": "Bilfinger SE",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 110,
+            "notification": "email",
+            "_comment": "drop"
+          },
+          {
+            "threshold": 126,
+            "notification": "email",
+            "_comment": "max"
+          },
+          {
+            "threshold": 92,
+            "notification": "email",
+            "_comment": "Min"
+          },
+          {
+            "threshold": 77.0,
+            "notification": "email",
+            "_comment": "check reasons"
+          }
+        ]
+      },
+      {
+        "symbol": "FIE.DE",
+        "isin": "DE0005772206",
+        "_comment": "Fielmann Group AG",
+        "exchange": "Xetra",
+        "alerts": [
+          {
+            "threshold": 54,
+            "notification": "email",
+            "_comment": "drop"
+          },
+          {
+            "threshold": 64,
+            "notification": "email",
+            "_comment": "max"
+          },
+          {
+            "threshold": 43,
+            "notification": "email",
+            "_comment": "Min"
+          },
+          {
+            "threshold": 39,
+            "notification": "email",
+            "_comment": "check reasons"
+          }
+        ]
+      },
+      {
+        "symbol": "FHZN.SW",
+        "isin": "CH0319416936",
+        "_comment": "Flughafen Zürich AG",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 246,
+            "notification": "email",
+            "_comment": "drop"
+          },
+          {
+            "threshold": 283,
+            "notification": "email",
+            "_comment": "max"
+          },
+          {
+            "threshold": 215,
+            "notification": "email",
+            "_comment": "Min"
+          },
+          {
+            "threshold": 205,
+            "notification": "email",
+            "_comment": "check reasons"
+          }
+        ]
       }
     ]
   }
