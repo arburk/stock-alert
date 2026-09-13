@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.testcontainers.containers.MinIOContainer;
+import org.testcontainers.utility.DockerImageName;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.CreateBucketRequest;
 import software.amazon.awssdk.services.s3.model.ListObjectsRequest;
@@ -35,9 +36,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class S3BucketStorageContainerTest {
 
-  private static final MinIOContainer MINIO_TESTCONTAINER = new MinIOContainer("minio/minio:RELEASE.2023-09-04T19-57-37Z")
-      .withUserName("testuser")
-      .withPassword("testpassword");
+  private static final MinIOContainer MINIO_TESTCONTAINER;
+
+  static {
+    final DockerImageName compatibleSubstituteFor = DockerImageName.parse("alpine/minio:RELEASE.2025-10-15T17-29-55Z")
+        .asCompatibleSubstituteFor("minio/minio");
+    MINIO_TESTCONTAINER = new MinIOContainer(compatibleSubstituteFor)
+        .withUserName("testuser")
+        .withPassword("testpassword")
+        .withCommand("server /tmp/minio");
+  }
+
   private static final String BUCKET_NAME = "stock-alert";
   private static final StockAlertDb STOCK_ALERT_DB = new StockAlertDb(
       new ArrayList<>(Arrays.asList(
