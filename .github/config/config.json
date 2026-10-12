@@ -19,14 +19,19 @@
         "exchange": "Xetra",
         "alerts": [
           {
-            "threshold": 110.00,
+            "threshold": 136.00,
             "notification": "email",
             "_comment": "max forecast"
           },
           {
-            "threshold": 90.00,
+            "threshold": 119.00,
             "notification": "email",
             "_comment": "average"
+          },
+          {
+            "threshold": 115.00,
+            "notification": "email",
+            "_comment": "stopp loss"
           },
           {
             "threshold": 75.00,
@@ -164,9 +169,14 @@
         "exchange": "Xetra",
         "alerts": [
           {
-            "threshold": 30.0,
+            "threshold": 32.0,
             "notification": "email",
             "_comment": "Max forecast"
+          },
+          {
+            "threshold": 26.0,
+            "notification": "email",
+            "_comment": "stopp loss"
           },
           {
             "threshold": 20.0,
@@ -700,14 +710,24 @@
         "exchange": "Xetra",
         "alerts": [
           {
-            "threshold": 130,
+            "threshold": 120,
             "notification": "email",
             "_comment": "max"
           },{
-            "threshold": 95,
+            "threshold": 100,
             "notification": "email",
             "_comment": "average"
           },{
+            "threshold": 96,
+            "notification": "email",
+            "_comment": "stopp loss"
+          },
+          {
+            "threshold": 95,
+            "notification": "email",
+            "_comment": "threshold reached"
+          },
+          {
             "threshold": 70.75,
             "notification": "email",
             "_comment": "NE"
@@ -742,6 +762,11 @@
             "notification": "email",
             "_comment": "average"
           },{
+            "threshold": 24,
+            "notification": "email",
+            "_comment": "stopp loss"
+          },
+          {
             "threshold": 19.70,
             "notification": "email",
             "_comment": "NE"
@@ -890,7 +915,13 @@
         "isin": "IE000I8KRLL9",
         "_comment": "iShares MSCI Global Semiconductors UCITS ETF USD Acc",
         "exchange": "Amsterdam",
-        "alerts": []
+        "alerts": [
+          {
+            "threshold": 20,
+            "notification": "email",
+            "_comment": "party on"
+          }
+        ]
       },
       {
         "symbol": "SFZN.SW",
@@ -988,7 +1019,18 @@
         "isin": "US92826C8394",
         "_comment": "Visa Inc",
         "exchange": "NYSE",
-        "alerts": []
+        "alerts": [
+          {
+            "threshold": 466,
+            "notification": "email",
+            "_comment": "max"
+          },
+          {
+            "threshold": 420,
+            "notification": "email",
+            "_comment": "average"
+          }
+        ]
       },
       {
         "symbol": "4GLD.DE",
@@ -1051,6 +1093,48 @@
             "_comment": "half the way"
           }, {
             "threshold": 51.0,
+            "notification": "email",
+            "_comment": "check reasons"
+          }
+        ]
+      },
+      {
+        "symbol": "GF.SW",
+        "isin": "CH1169151003",
+        "_comment": "Georg Fischer AG",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 65,
+            "notification": "email",
+            "_comment": "drop"
+          }, {
+            "threshold": 60.0,
+            "notification": "email",
+            "_comment": "half the way"
+          }, {
+            "threshold": 55.0,
+            "notification": "email",
+            "_comment": "check reasons"
+          }
+        ]
+      },
+      {
+        "symbol": "BRKN.SW",
+        "isin": "CH0212255803",
+        "_comment": "Burkhalter Holding AG ",
+        "exchange": "Switzerland",
+        "alerts": [
+          {
+            "threshold": 140,
+            "notification": "email",
+            "_comment": "drop"
+          }, {
+            "threshold": 131.0,
+            "notification": "email",
+            "_comment": "half the way"
+          }, {
+            "threshold": 123.0,
             "notification": "email",
             "_comment": "check reasons"
           }
