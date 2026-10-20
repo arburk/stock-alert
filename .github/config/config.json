@@ -151,14 +151,14 @@
         "exchange": "Switzerland",
         "alerts": [
           {
-            "threshold": 275.00,
+            "threshold": 325.00,
             "notification": "email",
-            "_comment": "NE"
+            "_comment": "re-entry"
           },
           {
-            "threshold": 385.00,
+            "threshold": 350.00,
             "notification": "email",
-            "_comment": "milestone"
+            "_comment": "monitor"
           }
         ]
       },
@@ -169,7 +169,7 @@
         "exchange": "Xetra",
         "alerts": [
           {
-            "threshold": 32.0,
+            "threshold": 30.0,
             "notification": "email",
             "_comment": "Max forecast"
           },
