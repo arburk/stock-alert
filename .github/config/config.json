@@ -306,19 +306,19 @@
         "exchange": "Switzerland",
         "alerts": [
           {
-            "threshold": 1275.00,
-            "notification": "email",
-            "_comment": ""
-          },
-          {
-            "threshold": 600.00,
+            "threshold": 800.00,
             "notification": "email",
             "_comment": "Max Forecast"
           },
           {
-            "threshold": 900.00,
+            "threshold": 700.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "⬆️"
+          },
+          {
+            "threshold": 600.00,
+            "notification": "email",
+            "_comment": "check"
           }
         ]
       },
