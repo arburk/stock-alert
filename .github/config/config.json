@@ -186,23 +186,6 @@
         ]
       },
       {
-        "symbol": "DKSH.SW",
-        "isin": "CH0126673539",
-        "_comment": "DKSH Holding AG",
-        "exchange": "Switzerland",
-        "alerts": [
-          {
-            "threshold": 75.00,
-            "notification": "email",
-            "_comment": "shot"
-          },{
-            "threshold": 59.00,
-            "notification": "email",
-            "_comment": "NE"
-          }
-        ]
-      },
-      {
         "symbol": "ALV.DE",
         "isin": "DE0008404005",
         "_comment": "Allianz SE",
@@ -835,13 +818,21 @@
         "exchange": "Switzerland",
         "alerts": [
           {
+            "threshold": 210,
+            "notification": "email",
+            "_comment": "🫳 let it go"
+          }, {
+            "threshold": 200,
+            "notification": "email",
+            "_comment": "🚀 close"
+          },{
             "threshold": 180,
             "notification": "email",
             "_comment": "average"
           },{
-            "threshold": 140,
+            "threshold": 160,
             "notification": "email",
-            "_comment": "OPT-IN"
+            "_comment": "🔍 watch"
           }
         ]
       },
