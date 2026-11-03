@@ -42,6 +42,8 @@ public class StockService {
     try {
       final Collection<Security> latestRelevant = getRelevantFiltered(alertConfig, stockProvider.getLatest(alertConfig));
       if (!latestRelevant.isEmpty()) {
+        // load persisted state up front: fail fast on storage errors before any alert is evaluated or sent
+        persistenceProvider.getSecurites();
         alertConfig.forEach(configElement -> checkSecurityAndRaiseAlert(
             stockAlertsConfig,
             configElement,
@@ -50,6 +52,9 @@ public class StockService {
         latestRelevant.forEach(persistenceProvider::updateSecurity);
         persistenceProvider.commitChanges();
       }
+    } catch (StorageException e) {
+      // must abort the run: continuing would evaluate alerts against missing state and could overwrite stored data
+      throw e;
     } catch (Exception e) {
       log.error("update did not finish successful: {}", e.getMessage(), e);
     }

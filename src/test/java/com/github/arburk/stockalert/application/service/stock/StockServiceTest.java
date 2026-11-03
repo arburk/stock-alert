@@ -23,16 +23,21 @@ import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.springframework.test.util.ReflectionTestUtils;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
 class StockServiceTest {
@@ -114,6 +119,37 @@ class StockServiceTest {
 
     providedSecurities.forEach(security -> verify(persistenceProvider).updateSecurity(security));
     verify(persistenceProvider).commitChanges();
+  }
+
+  @Test
+  void update_storageReadFails_abortsRunWithoutAlertsOrCommit() {
+    when(stockProvider.getLatest(any())).thenReturn(getSecurites(true, LocalDateTime.now()));
+    final StorageException storageException = new StorageException("S3 not reachable", new RuntimeException());
+    when(persistenceProvider.getSecurites()).thenThrow(storageException);
+
+    final StorageException thrown = assertThrows(StorageException.class, testee::update);
+
+    assertSame(storageException, thrown);
+    verifyNoInteractions(notifyService);
+    verify(persistenceProvider, never()).updateSecurity(any());
+    verify(persistenceProvider, never()).commitChanges();
+  }
+
+  @Test
+  void update_storageWriteFails_propagatesException() {
+    when(stockProvider.getLatest(any())).thenReturn(getSecurites(true, LocalDateTime.now()));
+    when(persistenceProvider.getSecurites()).thenReturn(getSecurites(true, LocalDateTime.now().minusDays(1)));
+    doThrow(new StorageException("write failed", new RuntimeException())).when(persistenceProvider).commitChanges();
+
+    assertThrows(StorageException.class, testee::update);
+  }
+
+  @Test
+  void update_otherExceptionsAreStillSwallowed() {
+    when(stockProvider.getLatest(any())).thenThrow(new IllegalStateException("provider broken"));
+
+    assertDoesNotThrow(testee::update);
+    verify(persistenceProvider, never()).commitChanges();
   }
 
   private Collection<Security> getSecurites(final boolean completeForTest, final LocalDateTime timestamp) {

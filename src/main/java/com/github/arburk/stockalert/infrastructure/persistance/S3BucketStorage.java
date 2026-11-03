@@ -2,6 +2,7 @@ package com.github.arburk.stockalert.infrastructure.persistance;
 
 import com.github.arburk.stockalert.application.domain.StockAlertDb;
 import com.github.arburk.stockalert.application.service.stock.PersistenceProvider;
+import com.github.arburk.stockalert.application.service.stock.StorageException;
 import io.micrometer.common.util.StringUtils;
 import jakarta.annotation.PreDestroy;
 import lombok.extern.slf4j.Slf4j;
@@ -79,8 +80,9 @@ public class S3BucketStorage extends AbstractPersistenceProvider implements Pers
         log.info("Securities successfully updated in {}/{}/{}.}", endpoint, bucket, STORAGE_FILE_NAME);
       }
     } catch (Exception e) {
-      log.error("Failed to write securities to {}/{}/{}.", endpoint, bucket, STORAGE_FILE_NAME, e);
       resetS3ClientToEnforceRefresh();
+      throw new StorageException("Failed to write securities to %s/%s/%s: %s"
+          .formatted(endpoint, bucket, STORAGE_FILE_NAME, e.getMessage()), e);
     }
   }
 
@@ -112,9 +114,9 @@ public class S3BucketStorage extends AbstractPersistenceProvider implements Pers
       }
 
     } catch (Exception e) {
-      log.error("Failed to read securities from S3 bucket.", e);
       resetS3ClientToEnforceRefresh();
-      return new StockAlertDb(new ArrayList<>(/* must not be immutable */), null);
+      throw new StorageException("Failed to read securities from %s/%s/%s: %s"
+          .formatted(endpoint, bucket, STORAGE_FILE_NAME, e.getMessage()), e);
     }
   }
 

@@ -4,7 +4,7 @@ import tools.jackson.databind.ObjectMapper;
 import com.github.arburk.stockalert.application.config.JacksonConfig;
 import com.github.arburk.stockalert.application.domain.MetaInfo;
 import com.github.arburk.stockalert.application.domain.Security;
-import com.github.arburk.stockalert.application.domain.StockAlertDb;
+import com.github.arburk.stockalert.application.service.stock.StorageException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doThrow;
@@ -102,7 +102,7 @@ class FileStorageTest {
   }
 
   @Test
-  void test_InitData_ExcpetionReturnsEmptyDataFile() {
+  void test_InitData_ExceptionThrowsStorageException() {
     final Path pathMock = mock(Path.class);
     final ObjectMapper objectMapperMock = mock(ObjectMapper.class);
     ReflectionTestUtils.setField(testee, "filePath", pathMock);
@@ -112,11 +112,20 @@ class FileStorageTest {
     when(pathMock.toFile()).thenReturn(mockedFile);
     when(mockedFile.exists()).thenReturn(true);
 
-    final StockAlertDb stockAlertDb = assertDoesNotThrow(testee::initData);
-    assertNotNull(stockAlertDb);
-    assertNotNull(stockAlertDb.securities());
-    assertTrue(stockAlertDb.securities().isEmpty());
-    assertNull(stockAlertDb.metaInfo());
+    final StorageException ex = assertThrows(StorageException.class, testee::initData);
+    assertTrue(ex.getMessage().contains("Test Exception"));
+  }
+
+  @Test
+  void test_CommitChanges_WriteFailureThrowsStorageException() {
+    testee.updateSecurity(new Security("BALN", 199.99, "CHF", null, TIMESTAMP, "Switzerland", null));
+    // storage path is an existing directory -> writing the file must fail
+    assertTrue(EXPECTED_FILE_PATH.toFile().mkdirs());
+    try {
+      assertThrows(StorageException.class, testee::commitChanges);
+    } finally {
+      assertTrue(EXPECTED_FILE_PATH.toFile().delete());
+    }
   }
 
   private static void assertSecurity(final Collection<Security> securites, final String symbolName, final double expected) {

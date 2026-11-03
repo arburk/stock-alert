@@ -5,6 +5,7 @@ import com.github.arburk.stockalert.application.domain.MetaInfo;
 import com.github.arburk.stockalert.application.domain.Security;
 import com.github.arburk.stockalert.application.domain.StockAlertDb;
 import com.github.arburk.stockalert.application.service.stock.PersistenceProvider;
+import com.github.arburk.stockalert.application.service.stock.StorageException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -40,8 +41,10 @@ import java.util.function.Consumer;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.Mockito.any;
@@ -89,13 +92,14 @@ class S3BucketStorageTest {
   }
 
   @Test
-  void initData_ExceptionThrown_returnsEmptyList() {
+  void initData_ExceptionThrown_throwsStorageException() {
     when(mockS3.listObjects(any(ListObjectsRequest.class)))
         .thenThrow(NoSuchBucketException.builder().message("Test Message").build());
 
-    var result = testee.getSecurites();
+    final StorageException ex = assertThrows(StorageException.class, testee::getSecurites);
 
-    assertTrue(result.isEmpty());
+    assertTrue(ex.getMessage().contains("Test Message"));
+    assertInstanceOf(NoSuchBucketException.class, ex.getCause());
     verify(mockS3).close();
     assertNull(ReflectionTestUtils.getField(testee, "s3"));
     verify(mockS3, never()).getObject(any(GetObjectRequest.class));
@@ -183,10 +187,9 @@ class S3BucketStorageTest {
         .thenThrow(S3Exception.builder().message("Could not upload").build());
 
     final Security sec = new Security("AAPL", 143.2, "USD", null, LocalDateTime.now(), "NYSE", null);
-    assertDoesNotThrow(() -> {
-      testee.updateSecurity(sec);
-      testee.commitChanges();
-    });
+    assertDoesNotThrow(() -> testee.updateSecurity(sec));
+    final StorageException ex = assertThrows(StorageException.class, testee::commitChanges);
+    assertTrue(ex.getMessage().contains("Could not upload"));
 
     verify(mockS3).close();
     assertNull(ReflectionTestUtils.getField(testee, "s3")); // client should be reset to null
