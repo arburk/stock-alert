@@ -26,13 +26,21 @@ public class Scheduler {
   public void updateStock() {
     log.info("Updating stock...");
     runSummary.reset();
+    boolean failed = false;
     try {
       stockService.update();
     } catch (Exception e) {
-      log.error("failed to update stock data: {}", e.getMessage());
+      failed = true;
+      log.error("failed to update stock data: {}", e.getMessage(), e);
     }
     writeRunSummary();
-    log.info("Stock update finished.");
+    if (failed) {
+      // marker string is evaluated by .github/workflows/run_scheduled.yml - keep in sync
+      log.error("Stock update failed.");
+    } else {
+      // marker string is evaluated by .github/workflows/run_scheduled.yml - keep in sync
+      log.info("Stock update finished.");
+    }
   }
 
   private void writeRunSummary() {

@@ -2,6 +2,7 @@ package com.github.arburk.stockalert.infrastructure.persistance;
 
 import com.github.arburk.stockalert.application.domain.StockAlertDb;
 import com.github.arburk.stockalert.application.service.stock.PersistenceProvider;
+import com.github.arburk.stockalert.application.service.stock.StorageException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
@@ -44,7 +45,8 @@ public class FileStorage extends AbstractPersistenceProvider implements Persiste
       objectMapper.writerWithDefaultPrettyPrinter().writeValue(filePath.toFile(), copy);
       log.info("Securities successfully updated to file: {}", filePath.toFile().getAbsoluteFile());
     } catch (Exception e) {
-      log.error("Failed to write securities to file '{}}'", filePath.toFile().getAbsoluteFile(), e);
+      throw new StorageException("Failed to write securities to file '%s': %s"
+          .formatted(filePath.toFile().getAbsoluteFile(), e.getMessage()), e);
     }
   }
 
@@ -57,8 +59,8 @@ public class FileStorage extends AbstractPersistenceProvider implements Persiste
       }
       return objectMapper.readValue(filePath.toFile(), StockAlertDb.class);
     } catch (Exception e) {
-      log.error("Failed to read securities from file", e);
-      return new StockAlertDb(new ArrayList<>(/* must not be immutable */), null);
+      throw new StorageException("Failed to read securities from file '%s': %s"
+          .formatted(filePath.toFile().getAbsoluteFile(), e.getMessage()), e);
     }
   }
 
