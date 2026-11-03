@@ -72,12 +72,18 @@ jobs:
               kill $tail_pid
               exit 0
             fi
+            if grep -q "Stock update failed." ${{ github.workspace }}/stock-alert-execution.log; then
+              echo "❌ Update failed."
+              kill $tail_pid
+              exit 1
+            fi
             sleep 2
           done
           echo "⏱ Timeout reached"
           kill $tail_pid
 
       - name: Shutdown app
+        if: always()
         run: |
           if [ -f "${{ github.workspace }}/stock-alert-summary.md" ]; then
             cat "${{ github.workspace }}/stock-alert-summary.md" >> $GITHUB_STEP_SUMMARY
