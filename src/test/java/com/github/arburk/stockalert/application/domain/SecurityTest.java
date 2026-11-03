@@ -58,4 +58,16 @@ class SecurityTest {
     assertEquals(1, testee.alertLog().size());
     assertEquals(NOW, testee.alertLog().stream().toList().getFirst().timestamp());
   }
+
+  @Test
+  void displayNameContainsNameAndSymbol() {
+    final Security security = new Security("INGA.AS", 14.2, "EUR", null, null, "Amsterdam", null, " ING Groep N.V. ");
+    assertEquals("ING Groep N.V. (INGA.AS)", security.getDisplayName());
+  }
+
+  @Test
+  void displayNameFallsBackToSymbol() {
+    assertEquals("INGA.AS", new Security("INGA.AS", 14.2, "EUR", null, null, "Amsterdam", null).getDisplayName());
+    assertEquals("INGA.AS", new Security("INGA.AS", 14.2, "EUR", null, null, "Amsterdam", null, "  ").getDisplayName());
+  }
 }

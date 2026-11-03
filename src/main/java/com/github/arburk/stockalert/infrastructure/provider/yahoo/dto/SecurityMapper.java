@@ -24,6 +24,7 @@ public interface SecurityMapper {
   @Mapping(source = "meta.regularMarketTime", target = "timestamp", qualifiedByName = "epochToLocalDateTime")
   @Mapping(source = "exchange", target = "exchange")
   @Mapping(target = "alertLog", ignore = true)
+  @Mapping(source = "meta", target = "name", qualifiedByName = "resolveName")
   Security fromChartMeta(Meta meta, String exchange);
 
   /**
@@ -46,6 +47,23 @@ public interface SecurityMapper {
     return BigDecimal.valueOf(meta.regularMarketPrice() / previousClose - 1)
         .setScale(4, RoundingMode.HALF_UP)
         .doubleValue();
+  }
+
+  /**
+   * Prefers the long name (e.g. "ING Groep N.V.") and falls back to the short name.
+   */
+  @Named("resolveName")
+  default String resolveName(Meta meta) {
+    if (meta == null) {
+      return null;
+    }
+    if (meta.longName() != null && !meta.longName().isBlank()) {
+      return meta.longName().trim();
+    }
+    if (meta.shortName() != null && !meta.shortName().isBlank()) {
+      return meta.shortName().trim();
+    }
+    return null;
   }
 
   @Named("epochToLocalDateTime")

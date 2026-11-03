@@ -13,7 +13,7 @@ class SecurityMapperTest {
 
   @Test
   void mappingTestHappyFlow() {
-    final Meta input = new Meta("USD", "DVN", "NYQ", "NYSE", 31.94, 32.14, 32.14, 1754337599L);
+    final Meta input = new Meta("USD", "DVN", null, null, "NYQ", "NYSE", 31.94, 32.14, 32.14, 1754337599L);
 
     final Security output = SecurityMapper.INSTANCE.fromChartMeta(input, "NYSE");
     assertNotNull(output);
@@ -30,7 +30,7 @@ class SecurityMapperTest {
 
   @Test
   void exchangeIsStampedFromParameterNotFromMeta() {
-    final Meta input = new Meta("CHF", "BALN.SW", "EBS", "Swiss Exchange", 207.4, 205.0, 205.0, 1754555700L);
+    final Meta input = new Meta("CHF", "BALN.SW", null, null, "EBS", "Swiss Exchange", 207.4, 205.0, 205.0, 1754555700L);
 
     final Security output = SecurityMapper.INSTANCE.fromChartMeta(input, "Switzerland");
 
@@ -52,16 +52,35 @@ class SecurityMapperTest {
 
   @Test
   void calcChangePercentage_FallbackToPreviousClose() {
-    final Meta input = new Meta("CHF", "VETN.SW", "EBS", "Swiss Exchange", 31.94, null, 32.14, null);
+    final Meta input = new Meta("CHF", "VETN.SW", null, null, "EBS", "Swiss Exchange", 31.94, null, 32.14, null);
     assertEquals(-0.0062, SecurityMapper.INSTANCE.calcChangePercentage(input));
   }
 
   @Test
   void calcChangePercentage_NullCases() {
     assertNull(SecurityMapper.INSTANCE.calcChangePercentage(null));
-    assertNull(SecurityMapper.INSTANCE.calcChangePercentage(new Meta(null, null, null, null, null, 32.14, 32.14, null)), "null price");
-    assertNull(SecurityMapper.INSTANCE.calcChangePercentage(new Meta(null, null, null, null, 31.94, null, null, null)), "no previous close at all");
-    assertNull(SecurityMapper.INSTANCE.calcChangePercentage(new Meta(null, null, null, null, 31.94, 0.0, 0.0, null)), "previous close of 0 must not divide");
+    assertNull(SecurityMapper.INSTANCE.calcChangePercentage(new Meta(null, null, null, null, null, null, null, 32.14, 32.14, null)), "null price");
+    assertNull(SecurityMapper.INSTANCE.calcChangePercentage(new Meta(null, null, null, null, null, null, 31.94, null, null, null)), "no previous close at all");
+    assertNull(SecurityMapper.INSTANCE.calcChangePercentage(new Meta(null, null, null, null, null, null, 31.94, 0.0, 0.0, null)), "previous close of 0 must not divide");
+  }
+
+  @Test
+  void nameIsMappedFromLongName() {
+    final Meta input = new Meta("EUR", "INGA.AS", "ING Groep N.V.", "ING GROEP NV", "AMS", "Amsterdam", 14.2, 13.5, 13.5, 1754555700L);
+    assertEquals("ING Groep N.V.", SecurityMapper.INSTANCE.fromChartMeta(input, "Amsterdam").name());
+  }
+
+  @Test
+  void nameFallsBackToShortName() {
+    final Meta input = new Meta("EUR", "INGA.AS", " ", "ING GROEP NV", "AMS", "Amsterdam", 14.2, 13.5, 13.5, 1754555700L);
+    assertEquals("ING GROEP NV", SecurityMapper.INSTANCE.fromChartMeta(input, "Amsterdam").name());
+  }
+
+  @Test
+  void nameIsNullIfNotProvided() {
+    final Meta input = new Meta("EUR", "INGA.AS", null, null, "AMS", "Amsterdam", 14.2, 13.5, 13.5, 1754555700L);
+    assertNull(SecurityMapper.INSTANCE.fromChartMeta(input, "Amsterdam").name());
+    assertNull(SecurityMapper.INSTANCE.resolveName(null));
   }
 
   @Test
@@ -70,6 +89,6 @@ class SecurityMapperTest {
   }
 
   private static Double calc(final double price, final double previousClose) {
-    return SecurityMapper.INSTANCE.calcChangePercentage(new Meta(null, null, null, null, price, previousClose, previousClose, null));
+    return SecurityMapper.INSTANCE.calcChangePercentage(new Meta(null, null, null, null, null, null, price, previousClose, previousClose, null));
   }
 }

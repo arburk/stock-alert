@@ -132,10 +132,10 @@ class StockServiceIntegrationTest {
     MimeMessage[] receivedMessages = greenMail.getReceivedMessages();
     assertEquals(1, receivedMessages.length, "Mail message was expected to be sent, which was apparently not the case");
     final MimeMessage receivedMessage = receivedMessages[0];
-    assertEquals("Threshold CHF 200.0 for BALN.SW crossed", receivedMessage.getSubject());
+    assertEquals("Threshold CHF 200.0 for Baloise Holding AG (BALN.SW) crossed", receivedMessage.getSubject());
     final List<String> expectedMailBodyLines = List.of(
         // latest timestamp comes from epoch seconds converted to the system default zone -> match via regex
-        "Price for BALN.SW raised to CHF 207.4 dated on \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2} - from formerly CHF 198.15 dated on 2025-08-07 15:06",
+        "Price for Baloise Holding AG \\(BALN.SW\\) raised to CHF 207.4 dated on \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2} - from formerly CHF 198.15 dated on 2025-08-07 15:06",
         "Test comment to be sent | alert comment to be present",
         "Data refers to stock exchange Switzerland."
     );
@@ -173,9 +173,9 @@ class StockServiceIntegrationTest {
     final MimeMessage[] receivedMessages = greenMail.getReceivedMessages();
     assertTrue(receivedMessages.length > 0, "percentage alert email was expected to be sent, which was apparently not the case");
     final MimeMessage receivedMessage = Arrays.asList(receivedMessages).getLast();
-    assertEquals("Threshold of 5.00 % crossed for INGA.AS", receivedMessage.getSubject());
+    assertEquals("Threshold of 5.00 % crossed for ING Groep N.V. (INGA.AS)", receivedMessage.getSubject());
     final List<String> expectedMailBodyLines = List.of(
-        "Price for INGA.AS raised to EUR 20.18 - from formerly EUR 18.95 dated on 2025-08-07 15:06.",
+        "Price for ING Groep N.V. (INGA.AS) raised to EUR 20.18 - from formerly EUR 18.95 dated on 2025-08-07 15:06.",
         "Price change is 6.49 % while defined threshold is 5.00 %.",
         // latest timestamp comes from epoch seconds converted to the system default zone -> match via regex
         "Data refers to stock exchange Amsterdam dated on \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}."

@@ -71,6 +71,8 @@ class ClientTest {
     assertEquals("Switzerland", baln.exchange(), "exchange is expected to be stamped from config, not from Yahoo's exchange name");
     final Security inga = result.stream().filter(sec -> "INGA.AS".equals(sec.symbol())).findFirst().orElseThrow();
     assertEquals("Amsterdam", inga.exchange());
+    assertEquals("Baloise Holding AG", baln.name());
+    assertEquals("ING Groep N.V.", inga.name());
   }
 
   @Test

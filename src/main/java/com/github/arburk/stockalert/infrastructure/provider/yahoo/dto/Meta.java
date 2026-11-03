@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public record Meta(
     String currency,
     String symbol,
+    String longName,
+    String shortName,
     String exchangeName,
     String fullExchangeName,
     Double regularMarketPrice,
