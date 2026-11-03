@@ -202,6 +202,64 @@ class EmailNotificationSenderTest {
         mimeMessage.getContent().toString());
   }
 
+  @Test
+  void sendPercentageEmail_withSecurityName() throws MessagingException, IOException {
+    final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), RECIPIENT_2, false, true);
+    final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, "5%", List.of(mailChannel), List.of());
+    final MimeMessage mimeMessage = getMockedMimeMessage();
+
+    LocalDateTime persistedTs = LocalDateTime.of(2025, Month.JULY, 17, 12, 16, 24, 12);
+    LocalDateTime updatedTs = LocalDateTime.of(2025, Month.AUGUST, 12, 9, 16, 17, 34);
+    final Security persisted = new Security("INGA.AS", 13.5, "EUR", null, persistedTs, "Amsterdam", null);
+    final Security latest = new Security("INGA.AS", 14.2, "EUR", null, updatedTs, "Amsterdam", null, "ING Groep N.V.");
+
+    ReflectionTestUtils.setField(testee, "from", "mocked@example.com");
+
+    testee.send(stockAlertsConfig, latest, persisted, .05, 0.0519);
+
+    verify(mailSender).send(mimeMessage);
+    assertEquals("Threshold of 5.00 % crossed for ING Groep N.V. (INGA.AS)", mimeMessage.getSubject());
+    assertEquals("""
+            Price for ING Groep N.V. (INGA.AS) raised to EUR 14.2 - from formerly EUR 13.5 dated on 2025-07-17 12:16.
+            Price change is 5.19 % while defined threshold is 5.00 %.
+            Data refers to stock exchange Amsterdam dated on 2025-08-12 09:16.
+            """,
+        mimeMessage.getContent().toString());
+  }
+
+  @Test
+  void sendPercentageEmail_nameFallbackToPersisted() throws MessagingException {
+    final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), RECIPIENT_2, false, true);
+    final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, "5%", List.of(mailChannel), List.of());
+    final MimeMessage mimeMessage = getMockedMimeMessage();
+
+    final Security persisted = new Security("INGA.AS", 13.5, "EUR", null, LocalDateTime.now(), "Amsterdam", null, "ING Groep N.V.");
+    final Security latest = new Security("INGA.AS", 14.2, "EUR", null, LocalDateTime.now(), "Amsterdam", null, " ");
+
+    ReflectionTestUtils.setField(testee, "from", "mocked@example.com");
+
+    testee.send(stockAlertsConfig, latest, persisted, .05, 0.0519);
+
+    assertEquals("Threshold of 5.00 % crossed for ING Groep N.V. (INGA.AS)", mimeMessage.getSubject());
+  }
+
+  @Test
+  void sendThresholdEmail_withSecurityName() throws MessagingException {
+    final NotificationChannel mailChannel = new NotificationChannel(Channel.EMAIL.getValue(), RECIPIENT_2, false, false);
+    final StockAlertsConfig stockAlertsConfig = new StockAlertsConfig(null, null, null, List.of(mailChannel), List.of());
+    final MimeMessage mimeMessage = getMockedMimeMessage();
+
+    final Security persisted = new Security("BALN.SW", 160.0, "CHF", null, LocalDateTime.now(), "Switzerland", null);
+    final Security latest = new Security("BALN.SW", 155.0, "CHF", null, LocalDateTime.now(), "Switzerland", null, "Baloise Holding AG");
+    final AlertConfig testAlertConfig = new AlertConfig(157.5, Channel.EMAIL.getValue(), null);
+
+    ReflectionTestUtils.setField(testee, "from", "mocked@example.com");
+
+    testee.send(stockAlertsConfig, testAlertConfig, latest, persisted);
+
+    assertEquals("Threshold CHF 157.5 for Baloise Holding AG (BALN.SW) crossed", mimeMessage.getSubject());
+  }
+
   private MimeMessage getMockedMimeMessage() {
     final Session sessionMock = Mockito.mock(Session.class);
     when(sessionMock.getProperties()).thenReturn(new Properties());

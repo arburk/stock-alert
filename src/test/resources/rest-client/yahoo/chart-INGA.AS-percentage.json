@@ -5,6 +5,8 @@
         "meta": {
           "currency": "EUR",
           "symbol": "INGA.AS",
+          "longName": "ING Groep N.V.",
+          "shortName": "ING GROEP NV",
           "exchangeName": "AMS",
           "fullExchangeName": "Amsterdam",
           "instrumentType": "EQUITY",

@@ -5,6 +5,8 @@
         "meta": {
           "currency": "USD",
           "symbol": "MMM",
+          "longName": "3M Company",
+          "shortName": "3M Company",
           "exchangeName": "NYQ",
           "fullExchangeName": "NYSE",
           "instrumentType": "EQUITY",

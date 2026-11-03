@@ -7,7 +7,8 @@
       "changePercentage": null,
       "timestamp": "2018-09-24T17:12:01.000000012",
       "exchange": "Switzerland",
-      "alertLog": []
+      "alertLog": [],
+      "name": null
     },
     {
       "symbol": "MOZN",
@@ -16,7 +17,8 @@
       "changePercentage": 0.0121,
       "timestamp": "2018-09-24T17:12:01.000000012",
       "exchange": "Switzerland",
-      "alertLog": []
+      "alertLog": [],
+      "name": null
     },
     {
       "symbol": "ROG",
@@ -25,7 +27,8 @@
       "changePercentage": -0.0324,
       "timestamp": "2018-09-24T17:12:01.000000012",
       "exchange": "Switzerland",
-      "alertLog": []
+      "alertLog": [],
+      "name": null
     }
   ],
   "metaInfo": {

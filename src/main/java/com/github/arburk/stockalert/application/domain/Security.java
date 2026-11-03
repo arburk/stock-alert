@@ -19,13 +19,22 @@ public record Security(
     Double changePercentage,
     LocalDateTime timestamp,
     String exchange,
-    Collection<Alert> alertLog) {
+    Collection<Alert> alertLog,
+    String name) {
 
   public Security {
     if(alertLog == null) {
       // ensure never empty so new entries can be added
       alertLog = new ArrayList<>();
     }
+  }
+
+  /**
+   * Convenience constructor for securities without a known (full) name.
+   */
+  public Security(String symbol, Double price, String currency, Double changePercentage,
+                  LocalDateTime timestamp, String exchange, Collection<Alert> alertLog) {
+    this(symbol, price, currency, changePercentage, timestamp, exchange, alertLog, null);
   }
 
   private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
@@ -36,6 +45,18 @@ public record Security(
 
   public static String formatPercentage(final double percentage) {
     return String.format(Locale.ROOT, "%.2f %%", percentage * 100);
+  }
+
+  /**
+   * Returns a human-readable label for notifications, e.g. {@code ING Groep N.V. (INGA.AS)}.
+   * Falls back to the symbol only if no name is known.
+   */
+  @JsonIgnore
+  public String getDisplayName() {
+    if (name == null || name.isBlank()) {
+      return symbol;
+    }
+    return "%s (%s)".formatted(name.trim(), symbol);
   }
 
   @JsonIgnore

@@ -5,6 +5,8 @@
         "meta": {
           "currency": "CHF",
           "symbol": "BALN.SW",
+          "longName": "Baloise Holding AG",
+          "shortName": "BALOISE N",
           "exchangeName": "EBS",
           "fullExchangeName": "Swiss Exchange",
           "instrumentType": "EQUITY",

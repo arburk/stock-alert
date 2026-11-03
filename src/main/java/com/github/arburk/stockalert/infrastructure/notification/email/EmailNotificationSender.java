@@ -43,7 +43,7 @@ public class EmailNotificationSender implements NotificationSender {
         %s
         Data refers to stock exchange %s.
         """.formatted(
-        latest.symbol(),
+        getDisplayName(latest, persisted),
         verb,
         currency, latest.price(), latest.getTimestampFormatted(),
         currency, persisted.price(), persisted.getTimestampFormatted(),
@@ -51,7 +51,7 @@ public class EmailNotificationSender implements NotificationSender {
         getStockExchange(latest, persisted)
     );
     final String subject = "Threshold %s %s for %s crossed".formatted(
-        latest.currency(), alertConfig.threshold(), latest.symbol());
+        latest.currency(), alertConfig.threshold(), getDisplayName(latest, persisted));
     sendEmail(subject, message, stockAlertsConfig);
   }
 
@@ -79,7 +79,7 @@ public class EmailNotificationSender implements NotificationSender {
         Price change is %s while defined threshold is %s.
         Data refers to stock exchange %s dated on %s.
         """.formatted(
-        latest.symbol(),
+        getDisplayName(latest, persisted),
         verb,
         currency, latest.price(),
         currency, persisted.price(), persisted.getTimestampFormatted(),
@@ -87,8 +87,19 @@ public class EmailNotificationSender implements NotificationSender {
         getStockExchange(latest, persisted), latest.getTimestampFormatted()
     );
     final String subject = "Threshold of %s crossed for %s".formatted(
-        Security.formatPercentage(threshold), latest.symbol());
+        Security.formatPercentage(threshold), getDisplayName(latest, persisted));
     sendEmail(subject, message, stockAlertsConfig);
+  }
+
+  /**
+   * Label of the security for notifications, e.g. {@code ING Groep N.V. (INGA.AS)}.
+   * Uses the name of the latest data, falls back to the persisted one and finally to the symbol only.
+   */
+  private String getDisplayName(final Security latest, final Security persisted) {
+    if (StringUtils.isBlank(latest.name()) && persisted != null && StringUtils.isNotBlank(persisted.name())) {
+      return "%s (%s)".formatted(persisted.name().trim(), latest.symbol());
+    }
+    return latest.getDisplayName();
   }
 
   private String getStockExchange(final Security latest, final Security persisted) {
