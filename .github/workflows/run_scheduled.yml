@@ -25,20 +25,24 @@ jobs:
           server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
           settings-path: ${{ github.workspace }} # location for the settings.xml file
 
+      # `gh release view` without a tag returns the release marked as latest,
+      # which excludes drafts and prereleases.
       - name: Get latest release
         id: releaseIdent
-        uses: pozetroninc/github-action-get-latest-release@v0.8.0
-        with:
-          owner: arburk
-          repo: stock-alert
-          excludes: prerelease, draft
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          release="$(gh release view --json tagName --jq .tagName)"
+          echo "release=$release" >> "$GITHUB_OUTPUT"
 
       - name: Download executable v ${{ steps.releaseIdent.outputs.release }}
         env:
-          GITHUB_USERNAME: x-access-token
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE: ${{ steps.releaseIdent.outputs.release }}
         run: |
-          wget https://github.com/arburk/stock-alert/releases/download/${{ steps.releaseIdent.outputs.release }}/stock-alert-${{ steps.releaseIdent.outputs.release }}.jar -O ${{ github.workspace }}/stock-alert.jar -q
+          gh release download "$RELEASE" --pattern "stock-alert-$RELEASE.jar" --output "$GITHUB_WORKSPACE/stock-alert.jar"
 
       - name: Execute
         run: |
