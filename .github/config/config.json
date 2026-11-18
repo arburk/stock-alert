@@ -801,13 +801,13 @@
         "exchange": "Switzerland",
         "alerts": [
           {
-            "threshold": 600,
+            "threshold": 630,
             "notification": "email",
             "_comment": "average"
           },{
-            "threshold": 538,
+            "threshold": 575,
             "notification": "email",
-            "_comment": "NE"
+            "_comment": "re-enter?"
           }
         ]
       },
