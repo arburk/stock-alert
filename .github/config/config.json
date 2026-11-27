@@ -156,7 +156,7 @@
             "_comment": "re-entry"
           },
           {
-            "threshold": 350.00,
+            "threshold": 360.00,
             "notification": "email",
             "_comment": "monitor"
           }
@@ -330,14 +330,14 @@
         "exchange": "Switzerland",
         "alerts": [
           {
-            "threshold": 105.00,
+            "threshold": 95.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "re-entry?"
           },
           {
             "threshold": 100.00,
             "notification": "email",
-            "_comment": ""
+            "_comment": "going down"
           }
         ]
       },
